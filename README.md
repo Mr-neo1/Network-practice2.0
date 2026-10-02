@@ -13,7 +13,7 @@ A free study platform for **Cisco CCNA 200-301 (v1.1)** that starts from zero ne
 - **210 flashcards** with SM-2 spaced repetition.
 - **8-week study plan**: 56 days of lessons, labs, quizzes and reviews that you tick off.
 - **Progress dashboard**: exam readiness by domain, streak, study time, activity heatmap, weak spots, and a "ready to book?" checklist.
-- **Accounts (optional)**: sign up to keep progress on every device. Without an account everything is saved in the browser, and guest progress moves into the account when you sign up.
+- **Accounts (optional)**: sign up to keep progress on every device (Supabase on the hosted site, the bundled Node server when self-hosting). Without an account everything is saved in the browser, and guest progress moves into the account when you sign up.
 
 ## Run it
 
@@ -33,7 +33,16 @@ npm start          # http://localhost:8787
 
 Server settings are environment variables: `PORT` (default 8787), `NZ2H_DB` (SQLite file, default `data/nz2h.sqlite`), `NZ2H_STATIC` (default `dist`). Passwords are hashed with scrypt; sessions are HttpOnly cookies.
 
-`dist/` also works on its own on any static host (GitHub Pages, Netlify). Without the API the site runs in guest mode and hides sign-in.
+## Deploy for free (Vercel, GitHub Pages, Supabase)
+
+Hosted copies of the site have no server of their own: accounts and progress live in Supabase, and the site talks to it from the browser. The same build runs on Vercel and on GitHub Pages, sharing one Supabase project.
+
+1. **Supabase** (accounts and progress): create a free project at supabase.com. In **SQL Editor**, run `supabase/setup.sql`. In **Project Settings > API**, copy the Project URL and the anon (or publishable) key. For personal use, turn off **Authentication > Sign In / Providers > Email > Confirm email** so new accounts work straight away; otherwise add your site addresses under **Authentication > URL Configuration**.
+2. **Keys**: put both values in `.env.production` (see `.env.example`) and commit it. They are public by design; row-level security in `setup.sql` stops anyone reading another user's progress.
+3. **GitHub Pages**: in the repo, **Settings > Pages > Source: GitHub Actions**. Every push to `main` runs the tests, builds and publishes (`.github/workflows/pages.yml`).
+4. **Vercel**: import the GitHub repo at vercel.com (settings come from `vercel.json`). Every push redeploys.
+
+Without Supabase keys a hosted build still works fully in guest mode: progress stays in the browser and can be moved with Settings > Backup.
 
 Checks:
 

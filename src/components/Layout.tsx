@@ -137,10 +137,15 @@ export function Layout({ children, outlineFor, wide }: { children: ReactNode; ou
                   en: `Signed in as ${user.email}. Progress syncs to your account.`,
                   hi: `${user.email} se signed in. Progress tumhare account mein sync hoti hai.`,
                 })
-              : t({
-                  en: "Your progress is saved in this browser. Sign in to keep it on every device.",
-                  hi: "Tumhari progress isi browser mein save hoti hai. Har device par rakhne ke liye sign in karo.",
-                })}
+              : serverAvailable
+                ? t({
+                    en: "Your progress is saved in this browser. Sign in to keep it on every device.",
+                    hi: "Tumhari progress isi browser mein save hoti hai. Har device par rakhne ke liye sign in karo.",
+                  })
+                : t({
+                    en: "Your progress is saved in this browser. Use Settings > Backup to move it to another device.",
+                    hi: "Tumhari progress isi browser mein save hoti hai. Doosre device par le jaane ke liye Settings > Backup use karo.",
+                  })}
           </p>
         </div>
       </footer>
