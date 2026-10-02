@@ -1,0 +1,2376 @@
+[
+ {
+  "id": "d5-001",
+  "domain": 5,
+  "lesson": "security-concepts",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "A security audit finds that a router runs an IOS version with a known weakness in its SSH implementation that could allow unauthorized access. No attack has actually occurred. Which term best describes this weakness?",
+   "hi": "Ek security audit mein pata chalta hai ki router aisa IOS version chala raha hai jiske SSH implementation mein ek known weakness hai, jisse unauthorized access mil sakta hai. Abhi tak koi attack hua nahi hai. Is weakness ko sabse sahi kaunsa term describe karta hai?"
+  },
+  "explanation": {
+   "en": "A vulnerability is a weakness in a system, design, or implementation — here, the flawed SSH code. It exists whether or not anyone attacks it. A threat is the potential danger that could act on it, an exploit is the tool or technique that takes advantage of it, and a mitigation is the countermeasure (such as upgrading IOS) that reduces the risk.",
+   "hi": "Vulnerability kisi system, design ya implementation ki weakness hai. Yahan woh flawed SSH code hai. Yeh exist karti hai chahe koi attack kare ya na kare. Threat woh potential khatra hai jo is par act kar sakta hai, exploit woh tool ya technique hai jo iska fayda uthata hai, aur mitigation woh countermeasure hai (jaise IOS upgrade karna) jo risk kam karta hai."
+  },
+  "options": [
+   {
+    "en": "Vulnerability",
+    "hi": "Vulnerability"
+   },
+   {
+    "en": "Exploit",
+    "hi": "Exploit"
+   },
+   {
+    "en": "Threat",
+    "hi": "Threat"
+   },
+   {
+    "en": "Mitigation",
+    "hi": "Mitigation"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "An exploit is the tool, code, or technique used to take advantage of a weakness. Nothing is being used against the router yet — only the weakness exists.",
+    "hi": "Exploit woh tool, code ya technique hai jisse weakness ka fayda uthaya jaata hai. Router ke khilaaf abhi kuch use nahi ho raha, sirf weakness exist karti hai."
+   },
+   {
+    "en": "A threat is the potential danger (an actor or event) that could take advantage of the weakness, not the weakness itself.",
+    "hi": "Threat woh potential khatra (koi actor ya event) hai jo weakness ka fayda utha sakta hai, khud weakness nahi."
+   },
+   {
+    "en": "A mitigation is a countermeasure that reduces risk, such as patching the IOS — the opposite of a weakness.",
+    "hi": "Mitigation ek countermeasure hai jo risk kam karta hai, jaise IOS patch karna. Yeh weakness ka ulta hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-002",
+  "domain": 5,
+  "lesson": "security-concepts",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "An attacker sends a carefully personalized email that appears to come from the company's bank directly to the CFO, trying to trick the executive into approving a fraudulent wire transfer. Which attack does this describe?",
+   "hi": "Ek attacker CFO ko seedha ek dhyan se personalize kiya hua email bhejta hai jo company ke bank se aaya lagta hai, taaki executive ko dhokha dekar ek fraudulent wire transfer approve karwa sake. Yeh kaunsa attack hai?"
+  },
+  "explanation": {
+   "en": "Whaling is spear phishing aimed specifically at high-profile targets such as executives (the 'big fish'). It uses the same personalized-email deception as spear phishing but targets senior leadership because of their authority over money and data.",
+   "hi": "Whaling woh spear phishing hai jo khaas taur par executives jaise high-profile targets (yaani 'badi machhli') par kiya jaata hai. Isme spear phishing wala hi personalized-email dhokha use hota hai, lekin target senior leadership hoti hai kyunki unke paas paise aur data par authority hoti hai."
+  },
+  "options": [
+   {
+    "en": "Vishing",
+    "hi": "Vishing"
+   },
+   {
+    "en": "Smishing",
+    "hi": "Smishing"
+   },
+   {
+    "en": "Whaling",
+    "hi": "Whaling"
+   },
+   {
+    "en": "Pharming",
+    "hi": "Pharming"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "Vishing is phishing conducted over voice calls, not email.",
+    "hi": "Vishing voice calls ke through kiya gaya phishing hai, email se nahi."
+   },
+   {
+    "en": "Smishing is phishing delivered by SMS text messages, not email.",
+    "hi": "Smishing SMS text messages se kiya gaya phishing hai, email se nahi."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Pharming redirects users to a fraudulent website by poisoning DNS or hosts files; it does not rely on a targeted email to an executive.",
+    "hi": "Pharming DNS ya hosts files ko poison karke users ko fraudulent website par bhej deta hai. Yeh executive ko bheje gaye targeted email par depend nahi karta."
+   }
+  ]
+ },
+ {
+  "id": "d5-003",
+  "domain": 5,
+  "lesson": "security-concepts",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "An attacker sends many small DNS queries to open DNS resolvers on the Internet, spoofing the victim's address as the source. The resolvers send their much larger responses to the victim, overwhelming its link. Which attack is this?",
+   "hi": "Ek attacker Internet par open DNS resolvers ko bahut saari chhoti DNS queries bhejta hai, aur source mein victim ka address spoof karta hai. Resolvers apne kahin bade responses victim ko bhejte hain, jisse uska link overwhelm ho jaata hai. Yeh kaunsa attack hai?"
+  },
+  "explanation": {
+   "en": "This is a reflection attack (third-party servers 'reflect' traffic at the victim because the source address is spoofed) combined with amplification (a small query triggers a much larger response, multiplying the attack volume). DNS and NTP are classic amplification vectors.",
+   "hi": "Yeh reflection attack hai (source address spoofed hone ki wajah se third-party servers traffic ko victim ki taraf 'reflect' kar dete hain), saath mein amplification bhi (chhoti query se bahut bada response trigger hota hai, jisse attack volume kai guna ho jaata hai). DNS aur NTP classic amplification vectors hain."
+  },
+  "options": [
+   {
+    "en": "SYN flood",
+    "hi": "SYN flood"
+   },
+   {
+    "en": "Reflection/amplification attack",
+    "hi": "Reflection/amplification attack"
+   },
+   {
+    "en": "ARP poisoning",
+    "hi": "ARP poisoning"
+   },
+   {
+    "en": "Dictionary attack",
+    "hi": "Dictionary attack"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "A SYN flood exhausts a server's connection table by sending TCP SYNs and never completing the handshake; it does not use third-party resolvers or response-size multiplication.",
+    "hi": "SYN flood TCP SYNs bhejkar aur handshake kabhi poora na karke server ki connection table bhar deta hai. Isme third-party resolvers ya response-size multiplication use nahi hota."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "ARP poisoning corrupts IP-to-MAC mappings on a local LAN; it is not an Internet-scale flooding technique.",
+    "hi": "ARP poisoning local LAN par IP-to-MAC mappings ko kharab karta hai. Yeh Internet-scale flooding technique nahi hai."
+   },
+   {
+    "en": "A dictionary attack tries candidate passwords against a login; it is a credential attack, not a traffic flood.",
+    "hi": "Dictionary attack login par candidate passwords try karta hai. Yeh credential attack hai, traffic flood nahi."
+   }
+  ]
+ },
+ {
+  "id": "d5-004",
+  "domain": 5,
+  "lesson": "security-concepts",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "An attacker on the LAN sends gratuitous ARP replies that bind the default gateway's IP address to the attacker's MAC address, then quietly relays traffic between the hosts and the real gateway while reading it. Which attack category does this represent?",
+   "hi": "LAN par ek attacker gratuitous ARP replies bhejta hai jo default gateway ke IP address ko attacker ke MAC address se jod deti hain. Phir woh chupchaap hosts aur asli gateway ke beech traffic relay karta hai aur use padhta rehta hai. Yeh kaunsi attack category hai?"
+  },
+  "explanation": {
+   "en": "This is a man-in-the-middle (MITM) attack carried out with ARP spoofing. The attacker inserts itself into the traffic path between victims and the gateway, so it can eavesdrop on or alter data while both ends believe they are talking directly to each other. Dynamic ARP Inspection is the switch feature that mitigates it.",
+   "hi": "Yeh ARP spoofing se kiya gaya man-in-the-middle (MITM) attack hai. Attacker khud ko victims aur gateway ke beech traffic path mein daal deta hai, taaki data sun ya badal sake, jabki dono ends ko lagta hai ki woh seedha ek doosre se baat kar rahe hain. Dynamic ARP Inspection woh switch feature hai jo ise mitigate karta hai."
+  },
+  "options": [
+   {
+    "en": "Denial of service",
+    "hi": "Denial of service"
+   },
+   {
+    "en": "Reconnaissance",
+    "hi": "Reconnaissance"
+   },
+   {
+    "en": "Man-in-the-middle",
+    "hi": "Man-in-the-middle"
+   },
+   {
+    "en": "Brute force",
+    "hi": "Brute force"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "The attacker relays traffic rather than disrupting it, so service continues — the goal is interception, not denial.",
+    "hi": "Attacker traffic ko rokta nahi, relay karta hai, isliye service chalti rehti hai. Goal interception hai, denial nahi."
+   },
+   {
+    "en": "Reconnaissance gathers information about targets (scans, sweeps, lookups); this attack actively intercepts live traffic.",
+    "hi": "Reconnaissance targets ke baare mein information ikattha karta hai (scans, sweeps, lookups). Yeh attack live traffic ko actively intercept karta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Brute force repeatedly guesses credentials or keys; no guessing is involved here.",
+    "hi": "Brute force baar-baar credentials ya keys guess karta hai. Yahan koi guessing nahi ho rahi."
+   }
+  ]
+ },
+ {
+  "id": "d5-005",
+  "domain": 5,
+  "lesson": "security-concepts",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which type of malware replicates itself and spreads to other systems across the network on its own, without needing a host file or any user interaction?",
+   "hi": "Kaunsa malware type khud ko replicate karta hai aur network par doosre systems tak apne aap phail jaata hai, bina kisi host file ya user interaction ke?"
+  },
+  "explanation": {
+   "en": "A worm is standalone malware that self-replicates and propagates across networks automatically, typically by exploiting vulnerabilities in reachable services. Because it needs no user action, a worm can spread extremely fast.",
+   "hi": "Worm standalone malware hai jo khud ko replicate karta hai aur networks par automatically phailta hai, aam taur par reachable services ki vulnerabilities exploit karke. Kyunki ise kisi user action ki zaroorat nahi, worm bahut tezi se phail sakta hai."
+  },
+  "options": [
+   {
+    "en": "Virus",
+    "hi": "Virus"
+   },
+   {
+    "en": "Worm",
+    "hi": "Worm"
+   },
+   {
+    "en": "Trojan horse",
+    "hi": "Trojan horse"
+   },
+   {
+    "en": "Ransomware",
+    "hi": "Ransomware"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "A virus attaches itself to a host file or program and needs a user to run or open something for it to spread.",
+    "hi": "Virus kisi host file ya program se chipak jaata hai, aur phailne ke liye use zaroorat hoti hai ki user kuch run ya open kare."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A trojan horse masquerades as legitimate software to trick the user into installing it; it does not self-replicate.",
+    "hi": "Trojan horse legitimate software ka roop leta hai taaki user dhokhe se use install kar de. Yeh khud ko replicate nahi karta."
+   },
+   {
+    "en": "Ransomware is defined by its payload — encrypting data and demanding payment — not by autonomous self-replication (some ransomware borrows worm techniques, but that is not what defines it).",
+    "hi": "Ransomware ki pehchaan uska payload hai, yaani data encrypt karke paise maangna, na ki apne aap replicate hona (kuch ransomware worm techniques use karte hain, lekin usse woh define nahi hota)."
+   }
+  ]
+ },
+ {
+  "id": "d5-006",
+  "domain": 5,
+  "lesson": "security-concepts",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Before attempting any intrusion, an individual runs ping sweeps and port scans against a company's public address block and researches its WHOIS and DNS records. Which attack category are these activities?",
+   "hi": "Koi intrusion try karne se pehle ek vyakti company ke public address block par ping sweeps aur port scans chalata hai aur uske WHOIS aur DNS records research karta hai. Yeh activities kaunsi attack category hain?"
+  },
+  "explanation": {
+   "en": "Reconnaissance is the information-gathering phase of an attack: discovering live hosts (ping sweeps), open services (port scans), and public records (WHOIS, DNS) to map the target before exploiting it. It often precedes access or DoS attacks, which is why unusual scanning activity is an early warning sign.",
+   "hi": "Reconnaissance attack ka information-gathering phase hai: exploit karne se pehle target ka map banane ke liye live hosts (ping sweeps), open services (port scans) aur public records (WHOIS, DNS) dhoondhna. Yeh aksar access ya DoS attacks se pehle hota hai, isliye unusual scanning activity ek early warning sign hai."
+  },
+  "options": [
+   {
+    "en": "Spoofing",
+    "hi": "Spoofing"
+   },
+   {
+    "en": "Buffer overflow",
+    "hi": "Buffer overflow"
+   },
+   {
+    "en": "Social engineering",
+    "hi": "Social engineering"
+   },
+   {
+    "en": "Reconnaissance",
+    "hi": "Reconnaissance"
+   }
+  ],
+  "answer": [
+   3
+  ],
+  "whyWrong": [
+   {
+    "en": "Spoofing forges identity information such as a source IP or MAC address; scanning and record lookups forge nothing.",
+    "hi": "Spoofing source IP ya MAC address jaisi identity information nakli banata hai. Scanning aur record lookups kuch bhi nakli nahi banate."
+   },
+   {
+    "en": "A buffer overflow is an access attack that sends more data than a program's buffer can hold to execute code; no exploitation is happening yet.",
+    "hi": "Buffer overflow ek access attack hai jo program ke buffer ki capacity se zyaada data bhejkar code execute karta hai. Abhi koi exploitation nahi ho raha."
+   },
+   {
+    "en": "Social engineering manipulates people into revealing information; these activities are purely technical probing.",
+    "hi": "Social engineering logon ko manipulate karke information nikalwata hai. Yeh activities poori tarah technical probing hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   }
+  ]
+ },
+ {
+  "id": "d5-007",
+  "domain": 5,
+  "lesson": "security-concepts",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which two attacks are forms of social engineering? (Choose two.)",
+   "hi": "Kaunse do attacks social engineering ke forms hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "Social engineering attacks manipulate people rather than technology. Phishing deceives users into clicking links or revealing credentials, and tailgating exploits human courtesy to gain physical entry without a badge. The other options attack systems and protocols directly.",
+   "hi": "Social engineering attacks technology ko nahi, logon ko manipulate karte hain. Phishing users ko dhokha dekar links click karwata hai ya credentials nikalwata hai, aur tailgating logon ki politeness ka fayda uthakar bina badge ke physical entry le leta hai. Baaki options seedha systems aur protocols par attack karte hain."
+  },
+  "options": [
+   {
+    "en": "Phishing emails that imitate a trusted company",
+    "hi": "Trusted company ki nakal karne wale phishing emails"
+   },
+   {
+    "en": "Tailgating through a badge-controlled door behind an employee",
+    "hi": "Badge-controlled door se kisi employee ke peeche-peeche andar ghus jaana (tailgating)"
+   },
+   {
+    "en": "SYN flood against a web server",
+    "hi": "Web server par SYN flood"
+   },
+   {
+    "en": "ARP spoofing on the local subnet",
+    "hi": "Local subnet par ARP spoofing"
+   },
+   {
+    "en": "Port scanning a firewall's public interface",
+    "hi": "Firewall ke public interface ki port scanning"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A SYN flood is a technical denial-of-service attack on the TCP handshake; it manipulates a protocol, not a person.",
+    "hi": "SYN flood TCP handshake par technical denial-of-service attack hai. Yeh protocol ko manipulate karta hai, insaan ko nahi."
+   },
+   {
+    "en": "ARP spoofing is a technical Layer 2 attack that poisons IP-to-MAC mappings; no human deception is involved.",
+    "hi": "ARP spoofing ek technical Layer 2 attack hai jo IP-to-MAC mappings ko poison karta hai. Isme koi insaani dhokha nahi hai."
+   },
+   {
+    "en": "Port scanning is technical reconnaissance against network services, not manipulation of people.",
+    "hi": "Port scanning network services ke khilaaf technical reconnaissance hai, logon ka manipulation nahi."
+   }
+  ]
+ },
+ {
+  "id": "d5-008",
+  "domain": 5,
+  "lesson": "security-concepts",
+  "difficulty": "easy",
+  "type": "match",
+  "text": {
+   "en": "Match each security term to its definition.",
+   "hi": "Har security term ko uski definition se match karo."
+  },
+  "explanation": {
+   "en": "These four terms form the vocabulary of risk: a threat (potential danger) uses an exploit (tool/technique) against a vulnerability (weakness), and a mitigation (countermeasure such as patching, ACLs, or hardening) reduces the resulting risk.",
+   "hi": "Yeh chaar terms risk ki vocabulary banate hain: threat (potential khatra) ek vulnerability (weakness) ke khilaaf exploit (tool/technique) use karta hai, aur mitigation (countermeasure jaise patching, ACLs ya hardening) usse hone wala risk kam karta hai."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Threat",
+     "hi": "Threat"
+    },
+    "right": {
+     "en": "A potential danger that could act against an asset",
+     "hi": "Ek potential khatra jo kisi asset ke khilaaf act kar sakta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Vulnerability",
+     "hi": "Vulnerability"
+    },
+    "right": {
+     "en": "A weakness in a system or its design",
+     "hi": "Kisi system ya uske design ki weakness"
+    }
+   },
+   {
+    "left": {
+     "en": "Exploit",
+     "hi": "Exploit"
+    },
+    "right": {
+     "en": "A tool or technique used to take advantage of a weakness",
+     "hi": "Weakness ka fayda uthane ke liye use hone wala tool ya technique"
+    }
+   },
+   {
+    "left": {
+     "en": "Mitigation",
+     "hi": "Mitigation"
+    },
+    "right": {
+     "en": "A countermeasure that reduces the likelihood or impact of an attack",
+     "hi": "Ek countermeasure jo attack ka chance ya impact kam karta hai"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d5-009",
+  "domain": 5,
+  "lesson": "device-passwords",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "An administrator logs in to a router successfully, and the AAA server then determines which configuration commands that administrator is allowed to execute. Which AAA function makes this decision?",
+   "hi": "Ek administrator router mein successfully login karta hai, aur phir AAA server decide karta hai ki woh administrator kaunse configuration commands chala sakta hai. Kaunsa AAA function yeh decision leta hai?"
+  },
+  "explanation": {
+   "en": "Authorization decides what an authenticated user is permitted to do — which commands, resources, or services are allowed. Remember the sequence: authentication proves who you are, authorization defines what you may do, and accounting records what you actually did.",
+   "hi": "Authorization decide karta hai ki authenticated user ko kya karne ki permission hai, yaani kaunse commands, resources ya services allowed hain. Sequence yaad rakho: authentication saabit karta hai ki tum kaun ho, authorization define karta hai ki tum kya kar sakte ho, aur accounting record karta hai ki tumne asal mein kya kiya."
+  },
+  "options": [
+   {
+    "en": "Authentication",
+    "hi": "Authentication"
+   },
+   {
+    "en": "Authorization",
+    "hi": "Authorization"
+   },
+   {
+    "en": "Accounting",
+    "hi": "Accounting"
+   },
+   {
+    "en": "Auditing",
+    "hi": "Auditing"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Authentication already happened at login — it verified the administrator's identity, not their permitted actions.",
+    "hi": "Authentication login par ho chuka. Usne administrator ki identity verify ki, uske allowed actions nahi."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Accounting logs what the user did (commands entered, session time) after the fact; it does not grant or deny actions.",
+    "hi": "Accounting baad mein log karta hai ki user ne kya kiya (enter kiye gaye commands, session time). Yeh actions allow ya deny nahi karta."
+   },
+   {
+    "en": "Auditing is not one of the three A's in the AAA framework; reviewing logs is supported by accounting data.",
+    "hi": "Auditing AAA framework ke teen A mein se nahi hai. Logs review karne mein accounting data madad karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-010",
+  "domain": 5,
+  "lesson": "device-passwords",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which statement about the TACACS+ protocol is true?",
+   "hi": "TACACS+ protocol ke baare mein kaunsa statement sahi hai?"
+  },
+  "explanation": {
+   "en": "TACACS+ runs over TCP port 49 and encrypts the entire packet payload, which makes it well suited for device administration where command authorization details should stay confidential. It also separates authentication, authorization, and accounting into independent functions.",
+   "hi": "TACACS+ TCP port 49 par chalta hai aur poore packet payload ko encrypt karta hai, isliye yeh device administration ke liye achha hai jahan command authorization details confidential rehni chahiye. Yeh authentication, authorization aur accounting ko alag-alag independent functions mein bhi rakhta hai."
+  },
+  "options": [
+   {
+    "en": "It uses UDP ports 1812 and 1813",
+    "hi": "Yeh UDP ports 1812 aur 1813 use karta hai"
+   },
+   {
+    "en": "It encrypts the entire payload of each packet and communicates over TCP port 49",
+    "hi": "Yeh har packet ka poora payload encrypt karta hai aur TCP port 49 par communicate karta hai"
+   },
+   {
+    "en": "It combines authentication and authorization into a single inseparable exchange",
+    "hi": "Yeh authentication aur authorization ko ek single, alag na hone wale exchange mein mila deta hai"
+   },
+   {
+    "en": "It is an open standard commonly used for wireless 802.1X user authentication",
+    "hi": "Yeh ek open standard hai jo aam taur par wireless 802.1X user authentication ke liye use hota hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "UDP 1812 (authentication) and 1813 (accounting) are RADIUS ports; TACACS+ uses TCP 49.",
+    "hi": "UDP 1812 (authentication) aur 1813 (accounting) RADIUS ke ports hain. TACACS+ TCP 49 use karta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Combining authentication and authorization describes RADIUS; TACACS+ separates all three functions, enabling per-command authorization.",
+    "hi": "Authentication aur authorization ko milana RADIUS ka tarika hai. TACACS+ teeno functions alag rakhta hai, jisse per-command authorization possible hota hai."
+   },
+   {
+    "en": "TACACS+ is Cisco proprietary and used mainly for device administration; RADIUS is the open standard used for 802.1X network access.",
+    "hi": "TACACS+ Cisco proprietary hai aur mainly device administration ke liye use hota hai. 802.1X network access ke liye open standard RADIUS hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-011",
+  "domain": 5,
+  "lesson": "device-passwords",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which statement about the RADIUS protocol is accurate?",
+   "hi": "RADIUS protocol ke baare mein kaunsa statement sahi hai?"
+  },
+  "explanation": {
+   "en": "RADIUS is an open standard that runs over UDP — port 1812 for authentication/authorization and 1813 for accounting (legacy ports 1645/1646 also exist). It encrypts only the user's password in the Access-Request; the rest of the packet is cleartext. It also combines authentication and authorization in a single exchange.",
+   "hi": "RADIUS ek open standard hai jo UDP par chalta hai: authentication/authorization ke liye port 1812 aur accounting ke liye 1813 (legacy ports 1645/1646 bhi hain). Yeh Access-Request mein sirf user ka password encrypt karta hai; baaki packet cleartext hota hai. Yeh authentication aur authorization ko ek hi exchange mein mila bhi deta hai."
+  },
+  "options": [
+   {
+    "en": "It encrypts the entire body of every packet between the device and server",
+    "hi": "Yeh device aur server ke beech har packet ki poori body encrypt karta hai"
+   },
+   {
+    "en": "It uses TCP port 49 for reliable delivery",
+    "hi": "Yeh reliable delivery ke liye TCP port 49 use karta hai"
+   },
+   {
+    "en": "It encrypts only the password field and uses UDP port 1812 for authentication",
+    "hi": "Yeh sirf password field encrypt karta hai aur authentication ke liye UDP port 1812 use karta hai"
+   },
+   {
+    "en": "It performs authorization in a completely separate session from authentication",
+    "hi": "Yeh authorization ko authentication se bilkul alag session mein karta hai"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "Full-payload encryption is a TACACS+ characteristic; RADIUS protects only the password field.",
+    "hi": "Poore payload ka encryption TACACS+ ki khaasiyat hai. RADIUS sirf password field protect karta hai."
+   },
+   {
+    "en": "TCP port 49 belongs to TACACS+; RADIUS uses UDP 1812/1813.",
+    "hi": "TCP port 49 TACACS+ ka hai. RADIUS UDP 1812/1813 use karta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "RADIUS combines authentication and authorization into one exchange — the Access-Accept can carry authorization attributes. Separating them is a TACACS+ trait.",
+    "hi": "RADIUS authentication aur authorization ko ek exchange mein mila deta hai, Access-Accept mein authorization attributes aa sakte hain. Inhe alag rakhna TACACS+ ki khaasiyat hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-012",
+  "domain": 5,
+  "lesson": "device-passwords",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "A company adds fingerprint scanners to its laptops as one factor of multifactor authentication. Which factor category does a fingerprint represent?",
+   "hi": "Ek company multifactor authentication ke ek factor ke roop mein apne laptops par fingerprint scanners lagati hai. Fingerprint kaunsi factor category hai?"
+  },
+  "explanation": {
+   "en": "Biometrics such as fingerprints, facial recognition, and iris scans are 'something you are' — inherent physical characteristics. Effective MFA combines factors from different categories, for example a password (know) plus a fingerprint (are) or a hardware token (have).",
+   "hi": "Fingerprints, facial recognition aur iris scans jaise biometrics 'something you are' hain, yaani tumhari physical khaasiyatein. Effective MFA alag-alag categories ke factors milata hai, jaise password (know) plus fingerprint (are) ya hardware token (have)."
+  },
+  "options": [
+   {
+    "en": "Something you know",
+    "hi": "Something you know (jo tum jaante ho)"
+   },
+   {
+    "en": "Something you have",
+    "hi": "Something you have (jo tumhare paas hai)"
+   },
+   {
+    "en": "Something you are",
+    "hi": "Something you are (jo tum ho)"
+   },
+   {
+    "en": "Somewhere you are",
+    "hi": "Somewhere you are (jahan tum ho)"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "Something you know is remembered information such as a password or PIN.",
+    "hi": "Something you know yaad rakhi hui information hai, jaise password ya PIN."
+   },
+   {
+    "en": "Something you have is a physical object such as a smart card, hardware token, or phone-based OTP app.",
+    "hi": "Something you have ek physical cheez hai, jaise smart card, hardware token ya phone-based OTP app."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Location-based context (such as GPS or source network) is sometimes used as an additional signal, but a fingerprint is a physical characteristic, not a location.",
+    "hi": "Location-based context (jaise GPS ya source network) kabhi-kabhi extra signal ke roop mein use hota hai, lekin fingerprint ek physical khaasiyat hai, location nahi."
+   }
+  ]
+ },
+ {
+  "id": "d5-013",
+  "domain": 5,
+  "lesson": "device-passwords",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A router is configured with both 'enable password Lab123' and 'enable secret S3cure9'. What happens when an administrator tries to enter privileged EXEC mode?",
+   "hi": "Ek router par 'enable password Lab123' aur 'enable secret S3cure9' dono configure hain. Jab administrator privileged EXEC mode mein jaane ki koshish karta hai toh kya hota hai?"
+  },
+  "explanation": {
+   "en": "When both are configured, the enable secret always takes precedence and the enable password is ignored. The secret is stored as a hash (MD5, or stronger SHA-2/scrypt types on modern IOS), while enable password is stored in cleartext or with the weak, reversible type 7 encoding — which is why enable secret is the recommended command.",
+   "hi": "Jab dono configure hon, toh enable secret hamesha jeet'ta hai aur enable password ignore ho jaata hai. Secret hash ke roop mein store hota hai (MD5, ya modern IOS par stronger SHA-2/scrypt types), jabki enable password cleartext mein ya weak, reversible type 7 encoding ke saath store hota hai. Isi wajah se enable secret recommended command hai."
+  },
+  "options": [
+   {
+    "en": "The router accepts Lab123 because enable password was configured first",
+    "hi": "Router Lab123 accept karta hai kyunki enable password pehle configure hua tha"
+   },
+   {
+    "en": "The router requires S3cure9 because enable secret always overrides enable password",
+    "hi": "Router S3cure9 maangta hai kyunki enable secret hamesha enable password ko override karta hai"
+   },
+   {
+    "en": "The router accepts either password interchangeably",
+    "hi": "Router dono mein se koi bhi password accept kar leta hai"
+   },
+   {
+    "en": "The router rejects the configuration and prompts to remove one command",
+    "hi": "Router configuration reject kar deta hai aur ek command hatane ko kehta hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Configuration order is irrelevant; the secret wins whenever it exists.",
+    "hi": "Configuration ka order matter nahi karta. Jab bhi secret exist karta hai, wahi jeet'ta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Only the enable secret is checked when both exist; the enable password value will not work.",
+    "hi": "Dono hon toh sirf enable secret check hota hai. enable password wali value kaam nahi karegi."
+   },
+   {
+    "en": "IOS accepts both commands in the configuration simultaneously (it only rejects setting them to the identical string with a warning); it simply prefers the secret.",
+    "hi": "IOS configuration mein dono commands ek saath accept karta hai (sirf dono ko bilkul same string par set karne par warning ke saath reject karta hai). Woh bas secret ko prefer karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-014",
+  "domain": 5,
+  "lesson": "device-passwords",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which three statements about TACACS+ are true? (Choose three.)",
+   "hi": "TACACS+ ke baare mein kaunse teen statements sahi hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "TACACS+ is Cisco proprietary, uses TCP port 49, encrypts the entire packet payload, and treats authentication, authorization, and accounting as separate functions — which enables granular per-command authorization for device administrators. RADIUS is its open-standard counterpart with nearly opposite characteristics.",
+   "hi": "TACACS+ Cisco proprietary hai, TCP port 49 use karta hai, poore packet payload ko encrypt karta hai, aur authentication, authorization aur accounting ko alag functions ki tarah treat karta hai. Isi se device administrators ke liye granular per-command authorization possible hota hai. RADIUS iska open-standard counterpart hai jiski khaasiyatein lagbhag ulti hain."
+  },
+  "options": [
+   {
+    "en": "It communicates over TCP port 49",
+    "hi": "Yeh TCP port 49 par communicate karta hai"
+   },
+   {
+    "en": "It encrypts only the password portion of each packet",
+    "hi": "Yeh har packet ka sirf password wala hissa encrypt karta hai"
+   },
+   {
+    "en": "It separates authentication, authorization, and accounting into independent functions",
+    "hi": "Yeh authentication, authorization aur accounting ko independent functions mein alag rakhta hai"
+   },
+   {
+    "en": "It is a Cisco-proprietary protocol",
+    "hi": "Yeh Cisco-proprietary protocol hai"
+   },
+   {
+    "en": "It uses UDP ports 1645 and 1646",
+    "hi": "Yeh UDP ports 1645 aur 1646 use karta hai"
+   }
+  ],
+  "answer": [
+   0,
+   2,
+   3
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Encrypting only the password describes RADIUS; TACACS+ encrypts the entire payload.",
+    "hi": "Sirf password encrypt karna RADIUS ka tarika hai. TACACS+ poora payload encrypt karta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "UDP 1645/1646 are the legacy RADIUS ports (modern RADIUS uses 1812/1813); TACACS+ uses TCP 49.",
+    "hi": "UDP 1645/1646 legacy RADIUS ports hain (modern RADIUS 1812/1813 use karta hai). TACACS+ TCP 49 use karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-015",
+  "domain": 5,
+  "lesson": "device-passwords",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "You notice that line and username passwords appear in cleartext in the running configuration. From global configuration mode, enter the command that applies weak (type 7) encryption to all current and future plaintext passwords in the configuration.",
+   "hi": "Tum dekhte ho ki running configuration mein line aur username passwords cleartext mein dikh rahe hain. Global configuration mode se woh command enter karo jo configuration ke saare current aur future plaintext passwords par weak (type 7) encryption lagata hai."
+  },
+  "explanation": {
+   "en": "The global command 'service password-encryption' obfuscates plaintext passwords (line, username, enable password) with the reversible type 7 algorithm. It stops casual shoulder-surfing but is easily cracked, so prefer 'enable secret' and hashed 'username ... secret' entries for real protection.",
+   "hi": "Global command 'service password-encryption' plaintext passwords (line, username, enable password) ko reversible type 7 algorithm se obfuscate karta hai. Isse koi kandhe ke upar se jhaank kar password nahi padh paata, lekin yeh aasaani se crack ho jaata hai. Asli protection ke liye 'enable secret' aur hashed 'username ... secret' entries prefer karo."
+  },
+  "commandAnswer": "service password-encryption",
+  "accept": [
+   "service password-encr",
+   "service pass",
+   "ser password-encryption"
+  ]
+ },
+ {
+  "id": "d5-016",
+  "domain": 5,
+  "lesson": "acl-extended",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which numeric ranges identify standard IPv4 access lists?",
+   "hi": "Kaunsi numeric ranges standard IPv4 access lists ko identify karti hain?"
+  },
+  "explanation": {
+   "en": "Standard IPv4 ACLs use 1-99 plus the expanded range 1300-1999. They match on source IP address only. Extended ACLs use 100-199 plus 2000-2699 and can match protocol, source, destination, and port numbers.",
+   "hi": "Standard IPv4 ACLs 1-99 aur expanded range 1300-1999 use karti hain. Yeh sirf source IP address par match karti hain. Extended ACLs 100-199 aur 2000-2699 use karti hain aur protocol, source, destination aur port numbers par match kar sakti hain."
+  },
+  "options": [
+   {
+    "en": "100-199 and 2000-2699",
+    "hi": "100-199 aur 2000-2699"
+   },
+   {
+    "en": "1-99 and 1300-1999",
+    "hi": "1-99 aur 1300-1999"
+   },
+   {
+    "en": "1-199 only",
+    "hi": "Sirf 1-199"
+   },
+   {
+    "en": "1000-1099 and 2700-2799",
+    "hi": "1000-1099 aur 2700-2799"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "100-199 and 2000-2699 are the extended ACL ranges.",
+    "hi": "100-199 aur 2000-2699 extended ACL ranges hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "1-199 mixes the standard range (1-99) with part of the extended range (100-199) and omits 1300-1999.",
+    "hi": "1-199 standard range (1-99) ko extended range ke hisse (100-199) ke saath mila deta hai aur 1300-1999 chhod deta hai."
+   },
+   {
+    "en": "Neither 1000-1099 nor 2700-2799 is an IPv4 ACL numbering range.",
+    "hi": "Na 1000-1099 na 2700-2799 koi IPv4 ACL numbering range hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-017",
+  "domain": 5,
+  "lesson": "acl-extended",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Why is the general guideline to place a standard ACL as close to the destination as possible?",
+   "hi": "General guideline kyun kehti hai ki standard ACL ko destination ke jitna paas ho sake utna lagao?"
+  },
+  "explanation": {
+   "en": "A standard ACL can only test the source address. If you apply it near the source, it cannot distinguish between destinations and would cut that source off from everything. Placing it near the destination limits the filtering to the specific path you intend to protect.",
+   "hi": "Standard ACL sirf source address test kar sakti hai. Agar tum ise source ke paas lagaoge, toh yeh destinations mein farak nahi kar paayegi aur us source ko har jagah se kaat degi. Destination ke paas lagane se filtering sirf usi path tak limited rehti hai jise tum protect karna chahte ho."
+  },
+  "options": [
+   {
+    "en": "Standard ACLs can only be applied outbound",
+    "hi": "Standard ACLs sirf outbound lag sakti hain"
+   },
+   {
+    "en": "Standard ACLs match only the source address, so placing them near the source could block that source's traffic to all destinations",
+    "hi": "Standard ACLs sirf source address match karti hain, isliye source ke paas lagane se us source ka traffic saare destinations ke liye block ho sakta hai"
+   },
+   {
+    "en": "Standard ACLs consume more CPU than extended ACLs",
+    "hi": "Standard ACLs extended ACLs se zyaada CPU khaati hain"
+   },
+   {
+    "en": "Standard ACLs are processed after the routing decision only at the destination router",
+    "hi": "Standard ACLs sirf destination router par routing decision ke baad process hoti hain"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Standard ACLs can be applied inbound or outbound on any interface.",
+    "hi": "Standard ACLs kisi bhi interface par inbound ya outbound lag sakti hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "CPU load is not the reason; matching a single field is actually cheaper, and placement guidance is about filtering precision.",
+    "hi": "CPU load wajah nahi hai. Ek single field match karna asal mein sasta hai, aur placement guidance filtering ki precision ke baare mein hai."
+   },
+   {
+    "en": "Any router along the path can process an ACL inbound (before routing) or outbound (after routing); the guideline is about what the ACL can match, not where processing occurs.",
+    "hi": "Path ka koi bhi router ACL ko inbound (routing se pehle) ya outbound (routing ke baad) process kar sakta hai. Guideline is baare mein hai ki ACL kya match kar sakti hai, processing kahan hoti hai is baare mein nahi."
+   }
+  ]
+ },
+ {
+  "id": "d5-018",
+  "domain": 5,
+  "lesson": "acl-extended",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A router is configured with: access-list 10 permit 172.16.8.0 0.0.3.255 — and no other lines. Which source address is permitted by this ACL?",
+   "hi": "Ek router par yeh configure hai: access-list 10 permit 172.16.8.0 0.0.3.255 — aur koi line nahi. Yeh ACL kaunse source address ko permit karti hai?"
+  },
+  "explanation": {
+   "en": "Wildcard 0.0.3.255 means the first two octets must match exactly, the third octet may vary in its last two bits, and the fourth octet may be anything. Third octet 8 (binary 00001000) with wildcard 3 (00000011) matches 8, 9, 10, and 11 — so the ACL permits 172.16.8.0 through 172.16.11.255. 172.16.9.77 falls inside that range; everything else hits the implicit deny.",
+   "hi": "Wildcard 0.0.3.255 ka matlab hai pehle do octets exactly match hone chahiye, teesre octet ke last do bits badal sakte hain, aur chautha octet kuch bhi ho sakta hai. Teesra octet 8 (binary 00001000) wildcard 3 (00000011) ke saath 8, 9, 10 aur 11 match karta hai, isliye ACL 172.16.8.0 se 172.16.11.255 tak permit karti hai. 172.16.9.77 is range ke andar hai; baaki sab implicit deny se takraata hai."
+  },
+  "options": [
+   {
+    "en": "172.16.12.1",
+    "hi": "172.16.12.1"
+   },
+   {
+    "en": "172.16.9.77",
+    "hi": "172.16.9.77"
+   },
+   {
+    "en": "172.16.4.200",
+    "hi": "172.16.4.200"
+   },
+   {
+    "en": "172.17.8.5",
+    "hi": "172.17.8.5"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "The third octet 12 is outside the matched range 8-11, so this address hits the implicit deny.",
+    "hi": "Teesra octet 12 matched range 8-11 se bahar hai, isliye yeh address implicit deny se takraata hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The third octet 4 is outside the matched range 8-11.",
+    "hi": "Teesra octet 4 matched range 8-11 se bahar hai."
+   },
+   {
+    "en": "The second octet must match exactly (wildcard 0), and 17 does not equal 16.",
+    "hi": "Doosra octet exactly match hona chahiye (wildcard 0), aur 17 barabar 16 nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-019",
+  "domain": 5,
+  "lesson": "acl-extended",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Router R1 has this ACL applied inbound on G0/0, the interface facing the 10.1.1.0/24 LAN:\n\naccess-list 110 deny tcp 10.1.1.0 0.0.0.255 host 192.168.5.10 eq 23\naccess-list 110 permit ip any any\n\nWhat is the effect of this configuration?",
+   "hi": "Router R1 par yeh ACL G0/0 par inbound lagi hai, jo interface 10.1.1.0/24 LAN ki taraf hai:\n\naccess-list 110 deny tcp 10.1.1.0 0.0.0.255 host 192.168.5.10 eq 23\naccess-list 110 permit ip any any\n\nIs configuration ka kya effect hai?"
+  },
+  "explanation": {
+   "en": "The deny line matches only TCP traffic from 10.1.1.0/24 destined for host 192.168.5.10 with destination port 23 (Telnet). The following 'permit ip any any' forwards everything else, so SSH (port 22), HTTP, ICMP, and Telnet to other destinations all still work.",
+   "hi": "Deny line sirf 10.1.1.0/24 se host 192.168.5.10 ki taraf destination port 23 (Telnet) wale TCP traffic ko match karti hai. Uske baad wali 'permit ip any any' baaki sab forward karti hai, isliye SSH (port 22), HTTP, ICMP aur doosre destinations ka Telnet sab chalta rehta hai."
+  },
+  "options": [
+   {
+    "en": "All Telnet traffic through R1 is blocked for every host",
+    "hi": "R1 se guzarne wala saara Telnet traffic har host ke liye block hai"
+   },
+   {
+    "en": "Hosts in 10.1.1.0/24 cannot Telnet to 192.168.5.10, but all their other traffic — including SSH to that server — is forwarded",
+    "hi": "10.1.1.0/24 ke hosts 192.168.5.10 par Telnet nahi kar sakte, lekin unka baaki saara traffic, us server par SSH samet, forward hota hai"
+   },
+   {
+    "en": "Host 192.168.5.10 cannot open Telnet sessions to the 10.1.1.0/24 network",
+    "hi": "Host 192.168.5.10 10.1.1.0/24 network par Telnet sessions nahi khol sakta"
+   },
+   {
+    "en": "All traffic from 10.1.1.0/24 to 192.168.5.10 is dropped",
+    "hi": "10.1.1.0/24 se 192.168.5.10 ka saara traffic drop hota hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "The deny is scoped to one source subnet and one destination host; Telnet between other endpoints matches 'permit ip any any'.",
+    "hi": "Deny sirf ek source subnet aur ek destination host tak limited hai. Doosre endpoints ke beech Telnet 'permit ip any any' se match hota hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The ACL is inbound on the LAN-facing interface and matches 10.1.1.0/24 as the source; it filters sessions initiated from the LAN, not sessions initiated by the server.",
+    "hi": "ACL LAN-facing interface par inbound hai aur 10.1.1.0/24 ko source ke roop mein match karti hai. Yeh LAN se shuru hone wale sessions filter karti hai, server se shuru hone wale nahi."
+   },
+   {
+    "en": "Only TCP port 23 to that server is denied; all other protocols and ports to 192.168.5.10 are permitted.",
+    "hi": "Sirf us server ka TCP port 23 deny hai. 192.168.5.10 ke baaki saare protocols aur ports permitted hain."
+   }
+  ]
+ },
+ {
+  "id": "d5-020",
+  "domain": 5,
+  "lesson": "acl-extended",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "ACL 20 contains a single line — access-list 20 permit 192.168.1.0 0.0.0.255 — and is applied inbound on interface G0/1. A packet arrives on G0/1 with source address 192.168.2.5. What does the router do with it?",
+   "hi": "ACL 20 mein sirf ek line hai — access-list 20 permit 192.168.1.0 0.0.0.255 — aur yeh interface G0/1 par inbound lagi hai. G0/1 par source address 192.168.2.5 wala packet aata hai. Router iske saath kya karta hai?"
+  },
+  "explanation": {
+   "en": "Every IPv4 ACL ends with an invisible 'deny any' as the final statement. A packet that matches no configured line — like this 192.168.2.5 source, which is outside 192.168.1.0/24 — is silently discarded. This is why an ACL that should only block certain traffic must end with an explicit permit statement.",
+   "hi": "Har IPv4 ACL ke end mein ek invisible 'deny any' final statement hota hai. Jo packet kisi configured line se match nahi karta, jaise yeh 192.168.2.5 source jo 192.168.1.0/24 se bahar hai, woh chupchaap discard ho jaata hai. Isi wajah se jo ACL sirf kuch traffic block karne ke liye hai, uske end mein explicit permit statement hona chahiye."
+  },
+  "options": [
+   {
+    "en": "Forwards it, because no deny statement matches the packet",
+    "hi": "Forward kar deta hai, kyunki koi deny statement packet se match nahi karta"
+   },
+   {
+    "en": "Drops it, because every ACL ends with an implicit deny of all traffic",
+    "hi": "Drop kar deta hai, kyunki har ACL ke end mein saare traffic ka implicit deny hota hai"
+   },
+   {
+    "en": "Forwards it, because ACLs with only permit statements cannot drop packets",
+    "hi": "Forward kar deta hai, kyunki sirf permit statements wali ACLs packets drop nahi kar sakti"
+   },
+   {
+    "en": "Sends it to the CPU for logging and then forwards it",
+    "hi": "Logging ke liye CPU ko bhejta hai aur phir forward kar deta hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Not matching a deny is irrelevant; failing to match ANY line means the packet falls through to the implicit deny and is dropped.",
+    "hi": "Deny se match na hona matter nahi karta. KISI bhi line se match na hone ka matlab packet implicit deny tak pahunchta hai aur drop hota hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "An ACL with only permit lines still drops everything those lines fail to match, due to the implicit deny.",
+    "hi": "Sirf permit lines wali ACL bhi implicit deny ki wajah se woh sab drop karti hai jo un lines se match nahi hota."
+   },
+   {
+    "en": "The implicit deny does not log or forward; unmatched packets are simply discarded (only a configured 'log' keyword generates messages).",
+    "hi": "Implicit deny na log karta hai na forward. Unmatched packets bas discard ho jaate hain (messages sirf configured 'log' keyword se bante hain)."
+   }
+  ]
+ },
+ {
+  "id": "d5-021",
+  "domain": 5,
+  "lesson": "acl-extended",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "An administrator configures:\n\naccess-list 30 deny 10.1.1.0 0.0.0.255\naccess-list 30 permit host 10.1.1.50\n\nThe ACL is applied to an interface. What happens to traffic sourced from 10.1.1.50?",
+   "hi": "Ek administrator yeh configure karta hai:\n\naccess-list 30 deny 10.1.1.0 0.0.0.255\naccess-list 30 permit host 10.1.1.50\n\nACL ek interface par lagi hai. 10.1.1.50 se aane wale traffic ka kya hota hai?"
+  },
+  "explanation": {
+   "en": "ACLs are not longest-match like routing tables — they are evaluated sequentially, and the first line that matches wins. 10.1.1.50 is inside 10.1.1.0/24, so it matches the deny on line 1 and never reaches the permit. To allow the host, the more specific permit must come BEFORE the subnet deny.",
+   "hi": "ACLs routing tables ki tarah longest-match nahi hoti. Yeh sequentially evaluate hoti hain, aur jo pehli line match karti hai wahi jeet'ti hai. 10.1.1.50 10.1.1.0/24 ke andar hai, isliye yeh line 1 ke deny se match ho jaata hai aur permit tak kabhi pahunchta hi nahi. Host ko allow karna hai toh zyaada specific permit ko subnet deny se PEHLE aana chahiye."
+  },
+  "options": [
+   {
+    "en": "It is permitted because the host entry is more specific than the subnet entry",
+    "hi": "Permit hota hai kyunki host entry subnet entry se zyaada specific hai"
+   },
+   {
+    "en": "It is denied because ACLs are evaluated top-down and processing stops at the first matching line",
+    "hi": "Deny hota hai kyunki ACLs upar se neeche evaluate hoti hain aur pehli matching line par processing ruk jaati hai"
+   },
+   {
+    "en": "It is permitted because permit statements always override deny statements",
+    "hi": "Permit hota hai kyunki permit statements hamesha deny statements ko override karte hain"
+   },
+   {
+    "en": "It is dropped by the implicit deny at the end of the ACL",
+    "hi": "ACL ke end wale implicit deny se drop hota hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Unlike the routing table, ACLs do not use most-specific matching; sequence order alone decides.",
+    "hi": "Routing table ke ulat, ACLs most-specific matching use nahi karti. Sirf sequence order decide karta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "There is no precedence between permit and deny; only the order of the lines matters.",
+    "hi": "Permit aur deny ke beech koi precedence nahi hai. Sirf lines ka order matter karta hai."
+   },
+   {
+    "en": "The implicit deny is never reached — the packet already matched the explicit deny on the first line.",
+    "hi": "Implicit deny tak pahuncha hi nahi jaata. Packet pehli line ke explicit deny se pehle hi match ho chuka hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-022",
+  "domain": 5,
+  "lesson": "acl-extended",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Why do best practices recommend placing an extended ACL as close to the source of traffic as possible?",
+   "hi": "Best practices extended ACL ko traffic ke source ke jitna paas ho sake utna lagane ki salah kyun deti hain?"
+  },
+  "explanation": {
+   "en": "Because an extended ACL can identify exactly the traffic to block (protocol + source + destination + ports), it can be applied near the source without collateral damage — and dropping traffic early saves bandwidth and router processing along the entire path. Standard ACLs go near the destination for the opposite reason: they can only match the source.",
+   "hi": "Kyunki extended ACL exactly woh traffic pehchaan sakti hai jise block karna hai (protocol + source + destination + ports), ise source ke paas bina kisi side-effect ke lagaya ja sakta hai. Traffic ko jaldi drop karne se poore path par bandwidth aur router processing bachti hai. Standard ACLs ulti wajah se destination ke paas jaati hain: woh sirf source match kar sakti hain."
+  },
+  "options": [
+   {
+    "en": "Extended ACLs can match protocol, addresses, and ports precisely, so unwanted traffic can be dropped before it wastes bandwidth crossing the network",
+    "hi": "Extended ACLs protocol, addresses aur ports ko precisely match kar sakti hain, isliye unwanted traffic network paar karke bandwidth barbaad karne se pehle hi drop ho sakta hai"
+   },
+   {
+    "en": "Extended ACLs can only match the source IP address",
+    "hi": "Extended ACLs sirf source IP address match kar sakti hain"
+   },
+   {
+    "en": "Routers cannot apply extended ACLs in the outbound direction",
+    "hi": "Routers extended ACLs ko outbound direction mein nahi laga sakte"
+   },
+   {
+    "en": "Placing them near the destination would bypass the implicit deny",
+    "hi": "Destination ke paas lagane se implicit deny bypass ho jaayega"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Matching only the source address describes a STANDARD ACL; extended ACLs match protocol, source, destination, and ports.",
+    "hi": "Sirf source address match karna STANDARD ACL ka kaam hai. Extended ACLs protocol, source, destination aur ports match karti hain."
+   },
+   {
+    "en": "Extended ACLs can be applied inbound or outbound.",
+    "hi": "Extended ACLs inbound ya outbound dono tarah lag sakti hain."
+   },
+   {
+    "en": "The implicit deny exists at the end of every ACL regardless of where it is applied.",
+    "hi": "Implicit deny har ACL ke end mein hota hai, chahe woh kahin bhi lagi ho."
+   }
+  ]
+ },
+ {
+  "id": "d5-023",
+  "domain": 5,
+  "lesson": "acl-extended",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which three statements about ACL wildcard masks are true? (Choose three.)",
+   "hi": "ACL wildcard masks ke baare mein kaunse teen statements sahi hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "Wildcard masks are the bitwise inverse of subnet masks: 0-bits must match, 1-bits are ignored. 0.0.0.255 ignores the last octet, matching a /24. 'host' means every bit must match (wildcard 0.0.0.0), and 'any' ignores every bit (0.0.0.0 with wildcard 255.255.255.255). Quick trick: wildcard = 255.255.255.255 minus the subnet mask.",
+   "hi": "Wildcard masks subnet masks ka bitwise inverse hote hain: 0-bits match hone chahiye, 1-bits ignore hote hain. 0.0.0.255 last octet ignore karta hai, yaani /24 match karta hai. 'host' ka matlab har bit match hona chahiye (wildcard 0.0.0.0), aur 'any' har bit ignore karta hai (0.0.0.0 wildcard 255.255.255.255 ke saath). Quick trick: wildcard = 255.255.255.255 minus subnet mask."
+  },
+  "options": [
+   {
+    "en": "A wildcard mask of 0.0.0.255 matches all addresses in a /24 subnet",
+    "hi": "0.0.0.255 wildcard mask /24 subnet ke saare addresses match karta hai"
+   },
+   {
+    "en": "The keyword host is equivalent to a wildcard mask of 0.0.0.0",
+    "hi": "host keyword 0.0.0.0 wildcard mask ke barabar hai"
+   },
+   {
+    "en": "The keyword any is equivalent to 0.0.0.0 255.255.255.255",
+    "hi": "any keyword 0.0.0.0 255.255.255.255 ke barabar hai"
+   },
+   {
+    "en": "The wildcard mask is identical to the subnet mask of the network being matched",
+    "hi": "Wildcard mask match kiye jaane wale network ke subnet mask jaisa hi hota hai"
+   },
+   {
+    "en": "A wildcard mask of 0.0.0.31 matches all addresses in a /26 subnet",
+    "hi": "0.0.0.31 wildcard mask /26 subnet ke saare addresses match karta hai"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The wildcard is the INVERSE of the subnet mask: /24 (255.255.255.0) inverts to 0.0.0.255, not 255.255.255.0.",
+    "hi": "Wildcard subnet mask ka ULTA hota hai: /24 (255.255.255.0) ulat kar 0.0.0.255 banta hai, 255.255.255.0 nahi."
+   },
+   {
+    "en": "0.0.0.31 ignores 5 host bits, covering 32 addresses — that is a /27. A /26 (64 addresses) needs wildcard 0.0.0.63.",
+    "hi": "0.0.0.31 5 host bits ignore karta hai, yaani 32 addresses cover karta hai. Yeh /27 hai. /26 (64 addresses) ke liye wildcard 0.0.0.63 chahiye."
+   }
+  ]
+ },
+ {
+  "id": "d5-024",
+  "domain": 5,
+  "lesson": "acl-extended",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "You are in interface configuration mode on G0/0. Enter the command that applies extended ACL 110 to filter traffic entering this interface.",
+   "hi": "Tum G0/0 ke interface configuration mode mein ho. Woh command enter karo jo extended ACL 110 ko is interface mein aane wale traffic ko filter karne ke liye lagaye."
+  },
+  "explanation": {
+   "en": "The interface command 'ip access-group 110 in' binds ACL 110 to the interface in the inbound direction — packets are checked before the routing decision. Remember: only one ACL per protocol, per interface, per direction (one IPv4 ACL inbound and one outbound maximum).",
+   "hi": "Interface command 'ip access-group 110 in' ACL 110 ko interface par inbound direction mein bind karta hai, yaani packets routing decision se pehle check hote hain. Yaad rakho: har protocol, har interface, har direction ke liye sirf ek ACL (maximum ek IPv4 ACL inbound aur ek outbound)."
+  },
+  "commandAnswer": "ip access-group 110 in",
+  "accept": [
+   "ip access-gr 110 in",
+   "ip access-group 110 in "
+  ]
+ },
+ {
+  "id": "d5-025",
+  "domain": 5,
+  "lesson": "port-security",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Port security is enabled on an interface with no violation mode specified. A frame arrives from an unauthorized MAC address. What does the switch do?",
+   "hi": "Ek interface par port security enabled hai aur koi violation mode specify nahi kiya gaya. Ek unauthorized MAC address se frame aata hai. Switch kya karta hai?"
+  },
+  "explanation": {
+   "en": "The default port-security violation mode is shutdown. On a violation, the switch puts the port into the err-disabled state (down/down), logs the event, and increments the counter. An administrator must issue shutdown then no shutdown (or use errdisable recovery) to restore the port.",
+   "hi": "Default port-security violation mode shutdown hai. Violation hone par switch port ko err-disabled state (down/down) mein daal deta hai, event log karta hai aur counter badhata hai. Port wapas laane ke liye administrator ko shutdown phir no shutdown karna padta hai (ya errdisable recovery use karna padta hai)."
+  },
+  "options": [
+   {
+    "en": "Drops the frame silently and keeps forwarding traffic from allowed MACs",
+    "hi": "Frame ko chupchaap drop karta hai aur allowed MACs ka traffic forward karta rehta hai"
+   },
+   {
+    "en": "Drops the frame, logs it, and increments the violation counter while the port stays up",
+    "hi": "Frame drop karta hai, log karta hai aur violation counter badhata hai, jabki port up rehta hai"
+   },
+   {
+    "en": "Places the port in the err-disabled state, effectively shutting it down",
+    "hi": "Port ko err-disabled state mein daal deta hai, yaani asal mein use band kar deta hai"
+   },
+   {
+    "en": "Floods the frame out all other ports in the VLAN",
+    "hi": "Frame ko VLAN ke baaki saare ports par flood kar deta hai"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "Silent dropping with no log or counter increment describes the protect mode, which must be explicitly configured.",
+    "hi": "Bina log ya counter badhaye chupchaap drop karna protect mode hai, jo explicitly configure karna padta hai."
+   },
+   {
+    "en": "Dropping with logging and a counter increment while the port stays up describes the restrict mode.",
+    "hi": "Port up rakhte hue drop, logging aur counter badhana restrict mode hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Flooding is normal unknown-unicast behavior without port security; a violation never floods the offending frame.",
+    "hi": "Flooding port security ke bina normal unknown-unicast behavior hai. Violation mein galat frame kabhi flood nahi hota."
+   }
+  ]
+ },
+ {
+  "id": "d5-026",
+  "domain": 5,
+  "lesson": "port-security",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which port-security violation mode drops frames from unauthorized MAC addresses, generates syslog/SNMP notifications, and increments the violation counter — while leaving the port operational?",
+   "hi": "Kaunsa port-security violation mode unauthorized MAC addresses ke frames drop karta hai, syslog/SNMP notifications generate karta hai aur violation counter badhata hai, lekin port ko operational rehne deta hai?"
+  },
+  "explanation": {
+   "en": "Restrict mode keeps the port up and forwards traffic from secure MACs while dropping violating frames, logging each violation, and incrementing the counter. It gives visibility without taking the port down.",
+   "hi": "Restrict mode port ko up rakhta hai aur secure MACs ka traffic forward karta hai, jabki violating frames drop karta hai, har violation log karta hai aur counter badhata hai. Isse port band kiye bina visibility milti hai."
+  },
+  "options": [
+   {
+    "en": "Protect",
+    "hi": "Protect"
+   },
+   {
+    "en": "Restrict",
+    "hi": "Restrict"
+   },
+   {
+    "en": "Shutdown",
+    "hi": "Shutdown"
+   },
+   {
+    "en": "Sticky",
+    "hi": "Sticky"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Protect also keeps the port up and drops violations, but it does so silently — no log message and no counter increment.",
+    "hi": "Protect bhi port up rakhta hai aur violations drop karta hai, lekin chupchaap: na log message, na counter badhta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Shutdown (the default) err-disables the entire port on a violation, so it does not remain operational.",
+    "hi": "Shutdown (default) violation par poore port ko err-disable kar deta hai, isliye woh operational nahi rehta."
+   },
+   {
+    "en": "Sticky is a MAC learning method (dynamically learned MACs are written into the running config), not a violation mode.",
+    "hi": "Sticky ek MAC learning method hai (dynamically learn kiye gaye MACs running config mein likh diye jaate hain), violation mode nahi."
+   }
+  ]
+ },
+ {
+  "id": "d5-027",
+  "domain": 5,
+  "lesson": "port-security",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "DHCP snooping is being deployed on an access switch. Which port should be configured as trusted?",
+   "hi": "Ek access switch par DHCP snooping deploy ho raha hai. Kaunse port ko trusted configure karna chahiye?"
+  },
+  "explanation": {
+   "en": "Trusted ports are the ones through which legitimate DHCP server replies arrive — typically uplinks toward the server or distribution layer. All other ports default to untrusted: server-type messages (OFFER/ACK/NAK) arriving there are dropped, defeating rogue DHCP servers, and client traffic on untrusted ports builds the binding table and can be rate limited.",
+   "hi": "Trusted ports woh hain jinse legitimate DHCP server ke replies aate hain, aam taur par server ya distribution layer ki taraf wale uplinks. Baaki saare ports default se untrusted hote hain: wahan aane wale server-type messages (OFFER/ACK/NAK) drop ho jaate hain, jisse rogue DHCP servers fail hote hain, aur untrusted ports par client traffic se binding table banti hai aur use rate limit kiya ja sakta hai."
+  },
+  "options": [
+   {
+    "en": "Every access port that connects a client PC",
+    "hi": "Har access port jo client PC se juda hai"
+   },
+   {
+    "en": "The uplink port toward the network's legitimate DHCP server",
+    "hi": "Network ke legitimate DHCP server ki taraf wala uplink port"
+   },
+   {
+    "en": "All ports in the VLAN, so no DHCP traffic is dropped",
+    "hi": "VLAN ke saare ports, taaki koi DHCP traffic drop na ho"
+   },
+   {
+    "en": "Only ports where dynamic ARP inspection is also enabled",
+    "hi": "Sirf woh ports jahan dynamic ARP inspection bhi enabled hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Client ports must stay untrusted — that is exactly where a rogue DHCP server would be plugged in.",
+    "hi": "Client ports untrusted hi rehne chahiye. Rogue DHCP server thik wahin plug kiya jaayega."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Trusting every port disables the protection entirely; snooping works by distrusting edge ports.",
+    "hi": "Har port ko trust karne se protection poori tarah band ho jaati hai. Snooping edge ports par trust na karke hi kaam karta hai."
+   },
+   {
+    "en": "DAI depends on DHCP snooping's binding table, but trust for snooping is decided by where the legitimate server is, not by where DAI runs.",
+    "hi": "DAI DHCP snooping ki binding table par depend karta hai, lekin snooping ka trust is baat se decide hota hai ki legitimate server kahan hai, is baat se nahi ki DAI kahan chal raha hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-028",
+  "domain": 5,
+  "lesson": "port-security",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Dynamic ARP Inspection (DAI) is enabled on a VLAN. How does the switch decide whether an ARP reply received on an untrusted port is legitimate?",
+   "hi": "Ek VLAN par Dynamic ARP Inspection (DAI) enabled hai. Untrusted port par aaye ARP reply ke legitimate hone ka faisla switch kaise karta hai?"
+  },
+  "explanation": {
+   "en": "DAI intercepts ARP packets on untrusted ports and validates the sender IP/MAC pair against the DHCP snooping binding database (or configured ARP ACLs for static hosts). Invalid ARP packets — the raw material of ARP-poisoning MITM attacks — are dropped. This is why DHCP snooping must be running for DAI to protect DHCP clients.",
+   "hi": "DAI untrusted ports par ARP packets ko intercept karta hai aur sender ke IP/MAC pair ko DHCP snooping binding database (ya static hosts ke liye configured ARP ACLs) se validate karta hai. Invalid ARP packets, jo ARP-poisoning MITM attacks ka kachcha maal hain, drop ho jaate hain. Isi wajah se DHCP clients ko protect karne ke liye DAI ke saath DHCP snooping chalna zaroori hai."
+  },
+  "options": [
+   {
+    "en": "It queries the DNS server to resolve the sender's hostname",
+    "hi": "Sender ka hostname resolve karne ke liye DNS server ko query karta hai"
+   },
+   {
+    "en": "It compares the sender's IP-to-MAC binding against the DHCP snooping binding table",
+    "hi": "Sender ki IP-to-MAC binding ko DHCP snooping binding table se compare karta hai"
+   },
+   {
+    "en": "It checks whether the source MAC already exists in the CAM table",
+    "hi": "Check karta hai ki source MAC pehle se CAM table mein hai ya nahi"
+   },
+   {
+    "en": "It accepts all ARP replies unless the port is err-disabled",
+    "hi": "Saare ARP replies accept karta hai jab tak port err-disabled na ho"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "DNS resolves names to IP addresses and plays no role in validating ARP bindings.",
+    "hi": "DNS names ko IP addresses mein resolve karta hai aur ARP bindings validate karne mein iska koi role nahi hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The CAM (MAC address) table maps MACs to ports for forwarding; it says nothing about which IP legitimately belongs to a MAC.",
+    "hi": "CAM (MAC address) table forwarding ke liye MACs ko ports se map karti hai. Yeh nahi batati ki kaunsa IP legitimately kis MAC ka hai."
+   },
+   {
+    "en": "DAI actively validates every ARP packet on untrusted ports; it does not default to accepting them.",
+    "hi": "DAI untrusted ports par har ARP packet ko actively validate karta hai. Default se unhe accept nahi karta."
+   }
+  ]
+ },
+ {
+  "id": "d5-029",
+  "domain": 5,
+  "lesson": "port-security",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which three statements about switch port security are true? (Choose three.)",
+   "hi": "Switch port security ke baare mein kaunse teen statements sahi hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "By default port security allows one secure MAC and uses the shutdown violation mode, which err-disables the port. With sticky learning, dynamically learned MACs are written into the running config as if statically configured — but you must still save the config (copy run start) for them to survive a reload.",
+   "hi": "Default se port security ek secure MAC allow karti hai aur shutdown violation mode use karti hai, jo port ko err-disable kar deta hai. Sticky learning mein dynamically learn kiye gaye MACs running config mein aise likh diye jaate hain jaise static configure kiye hon, lekin reload ke baad bachaane ke liye tumhe config save karna hi padega (copy run start)."
+  },
+  "options": [
+   {
+    "en": "Sticky-learned MAC addresses are added to the running configuration",
+    "hi": "Sticky-learned MAC addresses running configuration mein add ho jaate hain"
+   },
+   {
+    "en": "The default maximum number of secure MAC addresses is one",
+    "hi": "Secure MAC addresses ki default maximum sankhya ek hai"
+   },
+   {
+    "en": "The default violation action err-disables the port",
+    "hi": "Default violation action port ko err-disable kar deta hai"
+   },
+   {
+    "en": "Sticky-learned MAC addresses are automatically saved to the startup configuration",
+    "hi": "Sticky-learned MAC addresses apne aap startup configuration mein save ho jaate hain"
+   },
+   {
+    "en": "Protect mode sends a syslog message for every violating frame",
+    "hi": "Protect mode har violating frame ke liye syslog message bhejta hai"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Sticky entries appear only in the running config; without 'copy running-config startup-config' they are lost on reload.",
+    "hi": "Sticky entries sirf running config mein dikhti hain. 'copy running-config startup-config' ke bina reload par kho jaati hain."
+   },
+   {
+    "en": "Protect mode drops violating frames silently — no syslog and no counter increment. Restrict is the mode that logs.",
+    "hi": "Protect mode violating frames chupchaap drop karta hai: na syslog, na counter badhta hai. Log karne wala mode restrict hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-030",
+  "domain": 5,
+  "lesson": "port-security",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "DHCP snooping is enabled on a switch. Which two DHCP message types are dropped when they arrive on an UNTRUSTED port? (Choose two.)",
+   "hi": "Ek switch par DHCP snooping enabled hai. UNTRUSTED port par aane par kaunse do DHCP message types drop hote hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "DHCPOFFER and DHCPACK (like DHCPNAK) are messages only a DHCP server sends. Receiving one on an untrusted port means a rogue server is answering clients, so the switch drops it. Client-originated messages (DISCOVER, REQUEST) are allowed on untrusted ports and are used to build the binding table.",
+   "hi": "DHCPOFFER aur DHCPACK (DHCPNAK ki tarah) aise messages hain jo sirf DHCP server bhejta hai. Untrusted port par inmein se koi aaye matlab koi rogue server clients ko jawab de raha hai, isliye switch use drop kar deta hai. Client ki taraf se aane wale messages (DISCOVER, REQUEST) untrusted ports par allowed hain aur binding table banane mein use hote hain."
+  },
+  "options": [
+   {
+    "en": "DHCPDISCOVER",
+    "hi": "DHCPDISCOVER"
+   },
+   {
+    "en": "DHCPOFFER",
+    "hi": "DHCPOFFER"
+   },
+   {
+    "en": "DHCPREQUEST",
+    "hi": "DHCPREQUEST"
+   },
+   {
+    "en": "DHCPACK",
+    "hi": "DHCPACK"
+   },
+   {
+    "en": "DHCPRELEASE",
+    "hi": "DHCPRELEASE"
+   }
+  ],
+  "answer": [
+   1,
+   3
+  ],
+  "whyWrong": [
+   {
+    "en": "DHCPDISCOVER is sent by clients, which legitimately sit on untrusted ports; it is forwarded (and inspected).",
+    "hi": "DHCPDISCOVER clients bhejte hain, jo legitimately untrusted ports par hote hain. Yeh forward hota hai (aur inspect bhi)."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "DHCPREQUEST is a client message and is permitted on untrusted ports.",
+    "hi": "DHCPREQUEST client message hai aur untrusted ports par permitted hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "DHCPRELEASE comes from clients; snooping validates it against the binding table rather than dropping it outright.",
+    "hi": "DHCPRELEASE clients se aata hai. Snooping ise seedha drop karne ke bajaay binding table se validate karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-031",
+  "domain": 5,
+  "lesson": "port-security",
+  "difficulty": "easy",
+  "type": "command",
+  "text": {
+   "en": "You are in interface configuration mode on an access port. Enter the base command that enables port security on the interface.",
+   "hi": "Tum ek access port ke interface configuration mode mein ho. Woh base command enter karo jo interface par port security enable karta hai."
+  },
+  "explanation": {
+   "en": "'switchport port-security' activates the feature with its defaults: maximum one secure MAC, dynamic learning, and shutdown violation mode. The port must already be a static access (or trunk) port — port security is rejected on ports in dynamic (DTP) mode. Additional options like maximum, mac-address sticky, and violation are configured afterwards.",
+   "hi": "'switchport port-security' feature ko uske defaults ke saath activate karta hai: maximum ek secure MAC, dynamic learning, aur shutdown violation mode. Port pehle se static access (ya trunk) port hona chahiye. Dynamic (DTP) mode wale ports par port security reject ho jaati hai. maximum, mac-address sticky aur violation jaise extra options baad mein configure hote hain."
+  },
+  "commandAnswer": "switchport port-security",
+  "accept": [
+   "switchport port-sec",
+   "swi port-security",
+   "sw port-security"
+  ]
+ },
+ {
+  "id": "d5-032",
+  "domain": 5,
+  "lesson": "port-security",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "DHCP snooping is enabled globally and for VLAN 10. You are in interface configuration mode on the uplink that leads to the legitimate DHCP server. Enter the command that allows DHCP server replies to be forwarded through this port.",
+   "hi": "DHCP snooping globally aur VLAN 10 ke liye enabled hai. Tum us uplink ke interface configuration mode mein ho jo legitimate DHCP server tak jaata hai. Woh command enter karo jo DHCP server replies ko is port se forward hone de."
+  },
+  "explanation": {
+   "en": "'ip dhcp snooping trust' marks the interface as trusted, so server messages such as DHCPOFFER and DHCPACK received on it are forwarded normally. All ports default to untrusted, where server-type messages are dropped — so forgetting this command on the uplink breaks DHCP for every downstream client.",
+   "hi": "'ip dhcp snooping trust' interface ko trusted mark karta hai, isliye us par aane wale DHCPOFFER aur DHCPACK jaise server messages normal tarike se forward hote hain. Saare ports default se untrusted hote hain, jahan server-type messages drop ho jaate hain. Isliye uplink par yeh command bhool gaye toh neeche ke har client ka DHCP toot jaayega."
+  },
+  "commandAnswer": "ip dhcp snooping trust",
+  "accept": [
+   "ip dhcp snoop trust",
+   "ip dhcp snooping tru"
+  ]
+ },
+ {
+  "id": "d5-033",
+  "domain": 5,
+  "lesson": "vpn",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "A teleworker launches Cisco Secure Client (formerly AnyConnect) on a laptop and connects to the headquarters firewall over TLS to reach internal applications. Which VPN type is this?",
+   "hi": "Ek teleworker laptop par Cisco Secure Client (pehle AnyConnect) chalata hai aur internal applications tak pahunchne ke liye TLS par headquarters firewall se connect karta hai. Yeh kaunsa VPN type hai?"
+  },
+  "explanation": {
+   "en": "A remote-access VPN secures a single user's device to the corporate network, commonly using SSL/TLS (TCP 443) via a client such as Cisco Secure Client. TLS-based VPNs traverse firewalls and NAT easily because they look like ordinary HTTPS.",
+   "hi": "Remote-access VPN ek single user ke device ko corporate network se securely jodta hai, aam taur par Cisco Secure Client jaise client ke through SSL/TLS (TCP 443) use karke. TLS-based VPNs firewalls aur NAT aasaani se paar kar lete hain kyunki woh normal HTTPS jaise dikhte hain."
+  },
+  "options": [
+   {
+    "en": "Site-to-site IPsec VPN",
+    "hi": "Site-to-site IPsec VPN"
+   },
+   {
+    "en": "Remote-access SSL/TLS VPN",
+    "hi": "Remote-access SSL/TLS VPN"
+   },
+   {
+    "en": "GRE tunnel",
+    "hi": "GRE tunnel"
+   },
+   {
+    "en": "MPLS Layer 3 VPN",
+    "hi": "MPLS Layer 3 VPN"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Site-to-site VPNs connect two networks through a pair of gateways; individual hosts run no VPN client.",
+    "hi": "Site-to-site VPNs do networks ko gateways ki ek pair se jodte hain. Individual hosts par koi VPN client nahi chalta."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "GRE is an unencrypted tunneling protocol between routers, not a per-user secure access method.",
+    "hi": "GRE routers ke beech ek unencrypted tunneling protocol hai, per-user secure access method nahi."
+   },
+   {
+    "en": "MPLS L3VPN is a provider-managed WAN service that segregates customer routes; it involves no client software or TLS session.",
+    "hi": "MPLS L3VPN ek provider-managed WAN service hai jo customer routes ko alag rakhti hai. Isme koi client software ya TLS session nahi hota."
+   }
+  ]
+ },
+ {
+  "id": "d5-034",
+  "domain": 5,
+  "lesson": "vpn",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which IPsec protocol encrypts the packet payload to provide confidentiality?",
+   "hi": "Kaunsa IPsec protocol confidentiality dene ke liye packet payload ko encrypt karta hai?"
+  },
+  "explanation": {
+   "en": "ESP (IP protocol 50) provides confidentiality by encrypting the payload, and it can also provide integrity, origin authentication, and anti-replay protection. It is the workhorse of virtually all modern IPsec deployments.",
+   "hi": "ESP (IP protocol 50) payload ko encrypt karke confidentiality deta hai, aur integrity, origin authentication aur anti-replay protection bhi de sakta hai. Lagbhag har modern IPsec deployment ka asli kaam yahi karta hai."
+  },
+  "options": [
+   {
+    "en": "AH (Authentication Header)",
+    "hi": "AH (Authentication Header)"
+   },
+   {
+    "en": "ESP (Encapsulating Security Payload)",
+    "hi": "ESP (Encapsulating Security Payload)"
+   },
+   {
+    "en": "IKE (Internet Key Exchange)",
+    "hi": "IKE (Internet Key Exchange)"
+   },
+   {
+    "en": "GRE (Generic Routing Encapsulation)",
+    "hi": "GRE (Generic Routing Encapsulation)"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "AH (IP protocol 51) provides integrity and origin authentication but performs NO encryption, so data remains readable.",
+    "hi": "AH (IP protocol 51) integrity aur origin authentication deta hai lekin KOI encryption nahi karta, isliye data padha ja sakta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "IKE negotiates the security associations and session keys that ESP uses; it does not carry or encrypt user data itself.",
+    "hi": "IKE woh security associations aur session keys negotiate karta hai jo ESP use karta hai. Yeh khud user data carry ya encrypt nahi karta."
+   },
+   {
+    "en": "GRE encapsulates packets for tunneling but applies no encryption at all.",
+    "hi": "GRE tunneling ke liye packets encapsulate karta hai lekin koi encryption nahi lagata."
+   }
+  ]
+ },
+ {
+  "id": "d5-035",
+  "domain": 5,
+  "lesson": "vpn",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Two sites must exchange OSPF routing updates (which use multicast) across an encrypted tunnel over the Internet. Plain IPsec tunnel mode cannot carry the multicast hellos. Which solution meets the requirement?",
+   "hi": "Do sites ko Internet par encrypted tunnel ke through OSPF routing updates (jo multicast use karte hain) exchange karne hain. Plain IPsec tunnel mode multicast hellos carry nahi kar sakta. Kaunsa solution requirement poori karta hai?"
+  },
+  "explanation": {
+   "en": "GRE can encapsulate multicast and non-IP traffic, so routing protocols like OSPF run happily inside a GRE tunnel — but GRE has no encryption. Wrapping the GRE tunnel in IPsec (GRE over IPsec) combines GRE's protocol flexibility with IPsec's confidentiality, a very common site-to-site design.",
+   "hi": "GRE multicast aur non-IP traffic encapsulate kar sakta hai, isliye OSPF jaise routing protocols GRE tunnel ke andar aaraam se chalte hain. Lekin GRE mein encryption nahi hai. GRE tunnel ko IPsec mein lapetne se (GRE over IPsec) GRE ki protocol flexibility aur IPsec ki confidentiality dono mil jaati hain. Yeh bahut common site-to-site design hai."
+  },
+  "options": [
+   {
+    "en": "GRE over IPsec",
+    "hi": "GRE over IPsec"
+   },
+   {
+    "en": "AH in transport mode",
+    "hi": "Transport mode mein AH"
+   },
+   {
+    "en": "A clientless SSL VPN portal",
+    "hi": "Clientless SSL VPN portal"
+   },
+   {
+    "en": "Static NAT between the sites",
+    "hi": "Sites ke beech static NAT"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "AH provides no encryption, and transport mode alone still cannot carry the multicast OSPF hellos between sites.",
+    "hi": "AH koi encryption nahi deta, aur sirf transport mode bhi sites ke beech multicast OSPF hellos carry nahi kar sakta."
+   },
+   {
+    "en": "A clientless SSL portal gives individual users browser access to applications; it cannot tunnel routing protocols between routers.",
+    "hi": "Clientless SSL portal individual users ko browser se applications ka access deta hai. Yeh routers ke beech routing protocols tunnel nahi kar sakta."
+   },
+   {
+    "en": "NAT translates addresses; it provides neither tunneling nor encryption and actively breaks many protocols.",
+    "hi": "NAT addresses translate karta hai. Yeh na tunneling deta hai na encryption, aur ulta kai protocols ko tod deta hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-036",
+  "domain": 5,
+  "lesson": "vpn",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A remote user's VPN client sends traffic destined for corporate subnets through the encrypted tunnel, while the user's general Internet browsing exits directly through the local home connection. Which VPN feature is in use?",
+   "hi": "Ek remote user ka VPN client corporate subnets wala traffic encrypted tunnel se bhejta hai, jabki user ki general Internet browsing seedha local ghar ke connection se nikalti hai. Kaunsa VPN feature use ho raha hai?"
+  },
+  "explanation": {
+   "en": "Split tunneling sends only traffic for defined (corporate) destinations through the VPN; everything else uses the local Internet path. It reduces load on the corporate headend and latency for the user, at the cost of bypassing corporate security inspection for that direct traffic.",
+   "hi": "Split tunneling sirf defined (corporate) destinations ka traffic VPN se bhejta hai; baaki sab local Internet path use karta hai. Isse corporate headend par load aur user ki latency kam hoti hai, lekin us direct traffic par corporate security inspection bypass ho jaata hai."
+  },
+  "options": [
+   {
+    "en": "Full tunneling",
+    "hi": "Full tunneling"
+   },
+   {
+    "en": "Split tunneling",
+    "hi": "Split tunneling"
+   },
+   {
+    "en": "Hairpinning",
+    "hi": "Hairpinning"
+   },
+   {
+    "en": "NAT traversal",
+    "hi": "NAT traversal"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Full tunneling forces ALL of the client's traffic — including Internet browsing — through the corporate tunnel.",
+    "hi": "Full tunneling client ka SAARA traffic, Internet browsing samet, corporate tunnel se bhejta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Hairpinning is when traffic enters and exits the same interface on a device (for example VPN user to VPN user via the headend), not selective tunneling.",
+    "hi": "Hairpinning tab hota hai jab traffic device ke ek hi interface se aata aur jaata hai (jaise headend ke through VPN user se VPN user tak). Yeh selective tunneling nahi hai."
+   },
+   {
+    "en": "NAT traversal (NAT-T) encapsulates IPsec in UDP 4500 so it can cross NAT devices; it does not decide which destinations use the tunnel.",
+    "hi": "NAT traversal (NAT-T) IPsec ko UDP 4500 mein encapsulate karta hai taaki woh NAT devices paar kar sake. Yeh decide nahi karta ki kaunse destinations tunnel use karenge."
+   }
+  ]
+ },
+ {
+  "id": "d5-037",
+  "domain": 5,
+  "lesson": "vpn",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which three statements about site-to-site IPsec VPNs are true? (Choose three.)",
+   "hi": "Site-to-site IPsec VPNs ke baare mein kaunse teen statements sahi hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "In a site-to-site IPsec VPN, the two gateways (routers/firewalls) run IKE to negotiate SAs and keys, then protect traffic with ESP, which supplies encryption plus integrity. The tunnel is transparent to end hosts — their packets are encrypted in transit between gateways without any client software.",
+   "hi": "Site-to-site IPsec VPN mein do gateways (routers/firewalls) SAs aur keys negotiate karne ke liye IKE chalate hain, phir traffic ko ESP se protect karte hain, jo encryption aur integrity dono deta hai. Tunnel end hosts ke liye transparent hota hai: unke packets bina kisi client software ke gateways ke beech encrypt hokar jaate hain."
+  },
+  "options": [
+   {
+    "en": "IKE negotiates the security associations and exchanges keying material",
+    "hi": "IKE security associations negotiate karta hai aur keying material exchange karta hai"
+   },
+   {
+    "en": "ESP can provide both confidentiality and integrity for tunneled traffic",
+    "hi": "ESP tunneled traffic ko confidentiality aur integrity dono de sakta hai"
+   },
+   {
+    "en": "End hosts need no VPN software because the site gateways encrypt and decrypt on their behalf",
+    "hi": "End hosts ko VPN software ki zaroorat nahi, kyunki site gateways unki taraf se encrypt aur decrypt karte hain"
+   },
+   {
+    "en": "AH encrypts the packet payload more strongly than ESP",
+    "hi": "AH packet payload ko ESP se zyaada strongly encrypt karta hai"
+   },
+   {
+    "en": "IPsec natively carries multicast routing-protocol traffic without any additional encapsulation",
+    "hi": "IPsec bina kisi extra encapsulation ke multicast routing-protocol traffic natively carry karta hai"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "AH provides integrity and authentication but NO encryption at all.",
+    "hi": "AH integrity aur authentication deta hai lekin bilkul KOI encryption nahi."
+   },
+   {
+    "en": "IPsec alone cannot carry multicast; that is exactly why GRE over IPsec is used when routing protocols must cross the tunnel.",
+    "hi": "Akela IPsec multicast carry nahi kar sakta. Isi wajah se jab routing protocols ko tunnel paar karna ho toh GRE over IPsec use hota hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-038",
+  "domain": 5,
+  "lesson": "vpn",
+  "difficulty": "easy",
+  "type": "match",
+  "text": {
+   "en": "Match each VPN technology to its description.",
+   "hi": "Har VPN technology ko uske description se match karo."
+  },
+  "explanation": {
+   "en": "IKE sets up the IPsec tunnel (SAs and keys); ESP then protects data with encryption and integrity, while AH offers integrity only. GRE adds protocol flexibility (multicast, routing updates) but no security, so it is often wrapped in IPsec. SSL/TLS powers remote-access VPNs that operate over TCP 443 like ordinary HTTPS.",
+   "hi": "IKE IPsec tunnel set up karta hai (SAs aur keys). Phir ESP data ko encryption aur integrity se protect karta hai, jabki AH sirf integrity deta hai. GRE protocol flexibility (multicast, routing updates) deta hai lekin security nahi, isliye ise aksar IPsec mein lapeta jaata hai. SSL/TLS remote-access VPNs chalata hai jo normal HTTPS ki tarah TCP 443 par kaam karte hain."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "ESP",
+     "hi": "ESP"
+    },
+    "right": {
+     "en": "IPsec protocol that encrypts and authenticates the payload",
+     "hi": "IPsec protocol jo payload ko encrypt aur authenticate karta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "AH",
+     "hi": "AH"
+    },
+    "right": {
+     "en": "IPsec protocol providing integrity but no encryption",
+     "hi": "IPsec protocol jo integrity deta hai lekin encryption nahi"
+    }
+   },
+   {
+    "left": {
+     "en": "IKE",
+     "hi": "IKE"
+    },
+    "right": {
+     "en": "Negotiates security associations and session keys",
+     "hi": "Security associations aur session keys negotiate karta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "GRE",
+     "hi": "GRE"
+    },
+    "right": {
+     "en": "Unencrypted tunnel that can carry multicast and routing protocols",
+     "hi": "Unencrypted tunnel jo multicast aur routing protocols carry kar sakta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "SSL/TLS",
+     "hi": "SSL/TLS"
+    },
+    "right": {
+     "en": "Secures remote-access VPNs such as Cisco Secure Client",
+     "hi": "Cisco Secure Client jaise remote-access VPNs ko secure karta hai"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d5-039",
+  "domain": 5,
+  "lesson": "wireless-security",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "WPA3-Personal replaces preshared-key authentication with which method, protecting the password exchange against offline dictionary attacks?",
+   "hi": "WPA3-Personal preshared-key authentication ki jagah kaunsa method use karta hai, jo password exchange ko offline dictionary attacks se bachata hai?"
+  },
+  "explanation": {
+   "en": "WPA3-Personal authenticates with SAE, a password-authenticated key exchange sometimes called Dragonfly. Because each authentication derives fresh keys through an interactive exchange, a captured handshake cannot be brute-forced offline the way a WPA2-PSK 4-way handshake capture can, and SAE also provides forward secrecy.",
+   "hi": "WPA3-Personal SAE se authenticate karta hai, jo ek password-authenticated key exchange hai aur kabhi-kabhi Dragonfly bhi kehlaata hai. Kyunki har authentication ek interactive exchange se fresh keys banata hai, captured handshake ko offline brute-force nahi kiya ja sakta, jaise WPA2-PSK ke 4-way handshake capture ke saath ho sakta hai. SAE forward secrecy bhi deta hai."
+  },
+  "options": [
+   {
+    "en": "TKIP",
+    "hi": "TKIP"
+   },
+   {
+    "en": "SAE (Simultaneous Authentication of Equals)",
+    "hi": "SAE (Simultaneous Authentication of Equals)"
+   },
+   {
+    "en": "RC4",
+    "hi": "RC4"
+   },
+   {
+    "en": "LEAP",
+    "hi": "LEAP"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "TKIP is the legacy WPA encryption protocol built on RC4 — an encryption method, not an authentication exchange, and long deprecated.",
+    "hi": "TKIP RC4 par bana legacy WPA encryption protocol hai. Yeh encryption method hai, authentication exchange nahi, aur kab ka deprecated hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "RC4 is the broken stream cipher used by WEP (and inside TKIP); it has nothing to do with WPA3 authentication.",
+    "hi": "RC4 WEP (aur TKIP ke andar) use hone wala toota hua stream cipher hai. Iska WPA3 authentication se koi lena-dena nahi."
+   },
+   {
+    "en": "LEAP is an obsolete, insecure Cisco EAP method from the pre-WPA2 era.",
+    "hi": "LEAP pre-WPA2 zamaane ka ek obsolete, insecure Cisco EAP method hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-040",
+  "domain": 5,
+  "lesson": "wireless-security",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which encryption protocol does WPA2 mandate for protecting wireless data frames?",
+   "hi": "WPA2 wireless data frames ko protect karne ke liye kaunsa encryption protocol mandatory karta hai?"
+  },
+  "explanation": {
+   "en": "WPA2 (802.11i) requires CCMP, which uses the AES block cipher in counter mode with CBC-MAC to provide both confidentiality and message integrity. TKIP was only a transitional WPA-era protocol and is deprecated.",
+   "hi": "WPA2 (802.11i) ko CCMP chahiye, jo AES block cipher ko counter mode aur CBC-MAC ke saath use karke confidentiality aur message integrity dono deta hai. TKIP sirf WPA-era ka transitional protocol tha aur deprecated hai."
+  },
+  "options": [
+   {
+    "en": "TKIP",
+    "hi": "TKIP"
+   },
+   {
+    "en": "RC4",
+    "hi": "RC4"
+   },
+   {
+    "en": "AES-CCMP",
+    "hi": "AES-CCMP"
+   },
+   {
+    "en": "DES",
+    "hi": "DES"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "TKIP belongs to first-generation WPA — a stopgap that ran on WEP-era hardware; WPA2 replaced it with CCMP.",
+    "hi": "TKIP pehli generation ke WPA ka hai, ek kaam-chalau solution jo WEP-era hardware par chalta tha. WPA2 ne ise CCMP se replace kar diya."
+   },
+   {
+    "en": "RC4 is the stream cipher underlying WEP and TKIP; WPA2 abandoned it for AES.",
+    "hi": "RC4 WEP aur TKIP ke neeche wala stream cipher hai. WPA2 ne ise chhod kar AES apnaya."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "DES is a legacy wired-world block cipher never used by any Wi-Fi security standard.",
+    "hi": "DES wired duniya ka legacy block cipher hai jo kisi bhi Wi-Fi security standard ne kabhi use nahi kiya."
+   }
+  ]
+ },
+ {
+  "id": "d5-041",
+  "domain": 5,
+  "lesson": "wireless-security",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A WLAN uses 802.1X with WPA2-Enterprise. The laptop submits credentials, and a RADIUS server validates them. Which role does the wireless LAN controller (or AP) play in this exchange?",
+   "hi": "Ek WLAN WPA2-Enterprise ke saath 802.1X use karta hai. Laptop credentials submit karta hai, aur RADIUS server unhe validate karta hai. Is exchange mein wireless LAN controller (ya AP) ka role kya hai?"
+  },
+  "explanation": {
+   "en": "802.1X defines three roles: the supplicant (client software on the laptop), the authenticator (the network device the client connects through — here the WLC/AP, on wired networks the switch), and the authentication server (RADIUS, e.g. Cisco ISE). The authenticator relays EAP messages between supplicant and server and blocks traffic until authentication succeeds.",
+   "hi": "802.1X teen roles define karta hai: supplicant (laptop par client software), authenticator (woh network device jiske through client connect hota hai, yahan WLC/AP, wired networks par switch), aur authentication server (RADIUS, jaise Cisco ISE). Authenticator supplicant aur server ke beech EAP messages relay karta hai aur authentication successful hone tak traffic block rakhta hai."
+  },
+  "options": [
+   {
+    "en": "Supplicant",
+    "hi": "Supplicant"
+   },
+   {
+    "en": "Authentication server",
+    "hi": "Authentication server"
+   },
+   {
+    "en": "Authenticator",
+    "hi": "Authenticator"
+   },
+   {
+    "en": "Registrar",
+    "hi": "Registrar"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "The supplicant is the client device requesting access — the laptop, not the WLC.",
+    "hi": "Supplicant woh client device hai jo access maang raha hai, yaani laptop, WLC nahi."
+   },
+   {
+    "en": "The authentication server is the RADIUS server that actually validates the credentials.",
+    "hi": "Authentication server woh RADIUS server hai jo asal mein credentials validate karta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Registrar is a WPS/provisioning term, not one of the three 802.1X roles.",
+    "hi": "Registrar ek WPS/provisioning term hai, 802.1X ke teen roles mein se nahi."
+   }
+  ]
+ },
+ {
+  "id": "d5-042",
+  "domain": 5,
+  "lesson": "wireless-security",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "What is the key difference between WPA2-Personal and WPA2-Enterprise?",
+   "hi": "WPA2-Personal aur WPA2-Enterprise mein main farak kya hai?"
+  },
+  "explanation": {
+   "en": "The Personal/Enterprise split is about authentication, not encryption — both use AES-CCMP. Personal mode derives keys from a single preshared key (PSK) that everyone knows, while Enterprise mode uses 802.1X/EAP with a RADIUS server, giving each user unique credentials that can be individually revoked and audited.",
+   "hi": "Personal/Enterprise ka farak authentication ka hai, encryption ka nahi. Dono AES-CCMP use karte hain. Personal mode ek single preshared key (PSK) se keys banata hai jo sabko pata hoti hai, jabki Enterprise mode RADIUS server ke saath 802.1X/EAP use karta hai, jisse har user ko unique credentials milte hain jinhe alag-alag revoke aur audit kiya ja sakta hai."
+  },
+  "options": [
+   {
+    "en": "Personal uses AES while Enterprise uses TKIP",
+    "hi": "Personal AES use karta hai jabki Enterprise TKIP"
+   },
+   {
+    "en": "Enterprise authenticates each user individually via 802.1X and a RADIUS server, while Personal uses one shared passphrase for all devices",
+    "hi": "Enterprise har user ko 802.1X aur RADIUS server se alag-alag authenticate karta hai, jabki Personal saare devices ke liye ek shared passphrase use karta hai"
+   },
+   {
+    "en": "Personal supports more simultaneous clients than Enterprise",
+    "hi": "Personal Enterprise se zyaada simultaneous clients support karta hai"
+   },
+   {
+    "en": "Enterprise encrypts management frames while Personal encrypts only data frames",
+    "hi": "Enterprise management frames encrypt karta hai jabki Personal sirf data frames"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Both modes use the same AES-CCMP encryption; the difference is how users are authenticated.",
+    "hi": "Dono modes same AES-CCMP encryption use karte hain. Farak is baat ka hai ki users kaise authenticate hote hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Client capacity is a function of the AP hardware and RF design, not the authentication mode.",
+    "hi": "Client capacity AP hardware aur RF design par depend karti hai, authentication mode par nahi."
+   },
+   {
+    "en": "Protected management frames are a separate capability (802.11w, mandatory in WPA3) unrelated to the Personal/Enterprise distinction.",
+    "hi": "Protected management frames ek alag capability hai (802.11w, WPA3 mein mandatory), jiska Personal/Enterprise farak se koi lena-dena nahi."
+   }
+  ]
+ },
+ {
+  "id": "d5-043",
+  "domain": 5,
+  "lesson": "wireless-security",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "An attacker records months of a company's encrypted WPA3-Personal wireless traffic and later obtains the Wi-Fi passphrase. Why can the attacker still NOT decrypt the recorded traffic?",
+   "hi": "Ek attacker mahino tak company ka encrypted WPA3-Personal wireless traffic record karta hai aur baad mein Wi-Fi passphrase haasil kar leta hai. Attacker phir bhi recorded traffic decrypt KYUN nahi kar sakta?"
+  },
+  "explanation": {
+   "en": "Forward secrecy is a headline WPA3 benefit. The SAE exchange derives fresh, ephemeral session keys for every association, and knowing the passphrase later does not let anyone reconstruct those past keys. Under WPA2-PSK, by contrast, a captured 4-way handshake plus the passphrase yields the session keys and decrypts recorded traffic.",
+   "hi": "Forward secrecy WPA3 ka ek bada fayda hai. SAE exchange har association ke liye fresh, ephemeral session keys banata hai, aur baad mein passphrase pata chal jaane se bhi koi un purani keys ko dobara nahi bana sakta. Iske ulat WPA2-PSK mein captured 4-way handshake plus passphrase se session keys mil jaati hain aur recorded traffic decrypt ho jaata hai."
+  },
+  "options": [
+   {
+    "en": "WPA3 hides the SSID, so the attacker cannot identify the network's frames",
+    "hi": "WPA3 SSID chhupa deta hai, isliye attacker network ke frames pehchaan nahi sakta"
+   },
+   {
+    "en": "SAE provides forward secrecy — each session negotiates unique keys that cannot be recomputed from the passphrase alone",
+    "hi": "SAE forward secrecy deta hai: har session unique keys negotiate karta hai jo sirf passphrase se dobara compute nahi ho sakti"
+   },
+   {
+    "en": "GCMP encryption is mathematically impossible to decrypt even with the correct keys",
+    "hi": "GCMP encryption ko sahi keys ke saath bhi decrypt karna mathematically impossible hai"
+   },
+   {
+    "en": "WPA3 randomizes client MAC addresses, which invalidates old captures",
+    "hi": "WPA3 client MAC addresses randomize karta hai, jisse purane captures invalid ho jaate hain"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "SSID cloaking is an old obscurity trick unrelated to WPA3; frames are trivially attributable to a network regardless.",
+    "hi": "SSID cloaking ek purani obscurity trick hai jiska WPA3 se koi lena-dena nahi. Frames ko network se jodna waise bhi bahut aasaan hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Any cipher, including GCMP, decrypts normally when the correct session keys are known — the protection is that those keys cannot be recovered.",
+    "hi": "GCMP samet koi bhi cipher sahi session keys pata hon toh normal tarike se decrypt hota hai. Protection yeh hai ki woh keys recover nahi ho sakti."
+   },
+   {
+    "en": "MAC randomization is a client privacy feature that hinders tracking; it has no effect on decrypting captured payloads.",
+    "hi": "MAC randomization client privacy feature hai jo tracking mushkil banata hai. Captured payloads decrypt karne par iska koi asar nahi."
+   }
+  ]
+ },
+ {
+  "id": "d5-044",
+  "domain": 5,
+  "lesson": "wireless-security",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which two statements about legacy wireless security are true? (Choose two.)",
+   "hi": "Legacy wireless security ke baare mein kaunse do statements sahi hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "WEP's static RC4 keys and weak IV handling made it crackable in minutes, so it is thoroughly broken. WPA was designed as an emergency bridge: TKIP kept the RC4 engine (so existing radios could be firmware-upgraded) but added per-packet keys and a message integrity check. WPA2's AES-CCMP then replaced TKIP entirely.",
+   "hi": "WEP ki static RC4 keys aur kamzor IV handling ki wajah se yeh minutes mein crack ho jaata tha, isliye yeh poori tarah toota hua hai. WPA ek emergency bridge ki tarah design hua tha: TKIP ne RC4 engine rakha (taaki existing radios firmware se upgrade ho sakein) lekin per-packet keys aur message integrity check joda. Phir WPA2 ke AES-CCMP ne TKIP ko poori tarah replace kar diya."
+  },
+  "options": [
+   {
+    "en": "WEP uses the RC4 cipher with static keys and is considered broken",
+    "hi": "WEP static keys ke saath RC4 cipher use karta hai aur toota hua maana jaata hai"
+   },
+   {
+    "en": "WPA introduced TKIP so WEP-era hardware could be upgraded via firmware",
+    "hi": "WPA ne TKIP isliye laaya taaki WEP-era hardware firmware se upgrade ho sake"
+   },
+   {
+    "en": "WEP encrypts traffic with the AES block cipher",
+    "hi": "WEP traffic ko AES block cipher se encrypt karta hai"
+   },
+   {
+    "en": "TKIP provides stronger protection than AES-CCMP",
+    "hi": "TKIP AES-CCMP se zyaada strong protection deta hai"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "WEP uses RC4, a stream cipher — AES arrived with WPA2's CCMP.",
+    "hi": "WEP RC4 use karta hai, jo stream cipher hai. AES WPA2 ke CCMP ke saath aaya."
+   },
+   {
+    "en": "TKIP was a stopgap built on RC4 and is deprecated; AES-CCMP is significantly stronger.",
+    "hi": "TKIP RC4 par bana kaam-chalau solution tha aur deprecated hai. AES-CCMP kahin zyaada strong hai."
+   }
+  ]
+ },
+ {
+  "id": "d5-045",
+  "domain": 5,
+  "lesson": "wireless-security",
+  "difficulty": "easy",
+  "type": "match",
+  "text": {
+   "en": "Match each wireless security standard to its associated cipher or key exchange.",
+   "hi": "Har wireless security standard ko uske associated cipher ya key exchange se match karo."
+  },
+  "explanation": {
+   "en": "The evolution: WEP (RC4, static keys — broken), WPA (TKIP — per-packet RC4 keys as a firmware-era stopgap), WPA2 (AES-CCMP — the long-time standard), WPA3 (SAE authentication with GCMP encryption, adding forward secrecy and protected management frames).",
+   "hi": "Evolution aisa hai: WEP (RC4, static keys — toota hua), WPA (TKIP — firmware-era ka kaam-chalau solution jisme per-packet RC4 keys thi), WPA2 (AES-CCMP — lambe samay tak standard), WPA3 (SAE authentication ke saath GCMP encryption, jo forward secrecy aur protected management frames jodta hai)."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "WEP",
+     "hi": "WEP"
+    },
+    "right": {
+     "en": "RC4 with static keys (broken)",
+     "hi": "Static keys ke saath RC4 (toota hua)"
+    }
+   },
+   {
+    "left": {
+     "en": "WPA",
+     "hi": "WPA"
+    },
+    "right": {
+     "en": "TKIP",
+     "hi": "TKIP"
+    }
+   },
+   {
+    "left": {
+     "en": "WPA2",
+     "hi": "WPA2"
+    },
+    "right": {
+     "en": "AES-CCMP",
+     "hi": "AES-CCMP"
+    }
+   },
+   {
+    "left": {
+     "en": "WPA3",
+     "hi": "WPA3"
+    },
+    "right": {
+     "en": "SAE key exchange with GCMP",
+     "hi": "GCMP ke saath SAE key exchange"
+    }
+   }
+  ]
+ }
+]

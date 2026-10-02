@@ -1,0 +1,2732 @@
+[
+ {
+  "id": "fc-001",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "FTP uses which two TCP ports, and what is each one for?",
+   "hi": "FTP kaunse do TCP ports use karta hai, aur har ek kis kaam ke liye hai?"
+  },
+  "back": {
+   "en": "TCP 21 for control (commands and login) and TCP 20 for data in active mode. Hook: 21 commands, 20 carries.",
+   "hi": "TCP 21 control ke liye (commands aur login) aur active mode mein TCP 20 data ke liye. Yaad rakho: 21 commands deta hai, 20 data carry karta hai."
+  }
+ },
+ {
+  "id": "fc-002",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "Which protocol uses TCP port 22?",
+   "hi": "TCP port 22 kaunsa protocol use karta hai?"
+  },
+  "back": {
+   "en": "SSH — encrypted remote CLI access; SCP and SFTP ride on it too. Hook: two S-words share port 22.",
+   "hi": "SSH — encrypted remote CLI access; SCP aur SFTP bhi isi par chalte hain. Yaad rakho: do S-words port 22 share karte hain."
+  }
+ },
+ {
+  "id": "fc-003",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "Telnet uses which port and transport, and what is its main weakness?",
+   "hi": "Telnet kaunsa port aur transport use karta hai, aur iski sabse badi kamzori kya hai?"
+  },
+  "back": {
+   "en": "TCP 23; everything, including passwords, crosses the wire in cleartext — use SSH instead.",
+   "hi": "TCP 23; sab kuch, passwords bhi, wire par cleartext mein jaata hai — iski jagah SSH use karo."
+  }
+ },
+ {
+  "id": "fc-004",
+  "domain": 1,
+  "tag": "ports",
+  "front": {
+   "en": "Which protocol uses TCP port 25?",
+   "hi": "TCP port 25 kaunsa protocol use karta hai?"
+  },
+  "back": {
+   "en": "SMTP — sending and relaying email between servers. Hook: SMTP = Send Mail To People at 25.",
+   "hi": "SMTP — servers ke beech email bhejna aur relay karna. Yaad rakho: SMTP = Send Mail To People at 25."
+  }
+ },
+ {
+  "id": "fc-005",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "Which port(s) and transport(s) does DNS use?",
+   "hi": "DNS kaunsa port(s) aur transport(s) use karta hai?"
+  },
+  "back": {
+   "en": "UDP 53 for normal queries; TCP 53 for zone transfers and responses too large for one UDP datagram. Hook: 53 both ways.",
+   "hi": "Normal queries ke liye UDP 53; zone transfers aur aise responses ke liye TCP 53 jo ek UDP datagram mein fit nahi hote. Yaad rakho: 53 dono taraf."
+  }
+ },
+ {
+  "id": "fc-006",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "Which UDP ports do DHCP servers and clients listen on?",
+   "hi": "DHCP servers aur clients kaunse UDP ports par listen karte hain?"
+  },
+  "back": {
+   "en": "Server: UDP 67. Client: UDP 68. Hook: the client answers one port above the server.",
+   "hi": "Server: UDP 67. Client: UDP 68. Yaad rakho: client server se ek port upar jawab deta hai."
+  }
+ },
+ {
+  "id": "fc-007",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "Which protocol uses UDP port 69?",
+   "hi": "UDP port 69 kaunsa protocol use karta hai?"
+  },
+  "back": {
+   "en": "TFTP — no login, no encryption; common for IOS image and config transfers. Hook: Trivial FTP, trivial little port 69.",
+   "hi": "TFTP — na login, na encryption; IOS image aur config transfer ke liye aam hai. Yaad rakho: Trivial FTP, chhota sa trivial port 69."
+  }
+ },
+ {
+  "id": "fc-008",
+  "domain": 1,
+  "tag": "ports",
+  "front": {
+   "en": "Which TCP ports do HTTP and HTTPS use?",
+   "hi": "HTTP aur HTTPS kaunse TCP ports use karte hain?"
+  },
+  "back": {
+   "en": "HTTP TCP 80; HTTPS TCP 443 (TLS-encrypted).",
+   "hi": "HTTP TCP 80; HTTPS TCP 443 (TLS-encrypted)."
+  }
+ },
+ {
+  "id": "fc-009",
+  "domain": 1,
+  "tag": "ports",
+  "front": {
+   "en": "Which protocol uses TCP port 110?",
+   "hi": "TCP port 110 kaunsa protocol use karta hai?"
+  },
+  "back": {
+   "en": "POP3 — downloads mail to a single client and typically removes it from the server.",
+   "hi": "POP3 — mail ko ek single client par download karta hai aur aam taur par server se hata deta hai."
+  }
+ },
+ {
+  "id": "fc-010",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "NTP uses which port and transport?",
+   "hi": "NTP kaunsa port aur transport use karta hai?"
+  },
+  "back": {
+   "en": "UDP 123. Hook: clock hands counting 1-2-3.",
+   "hi": "UDP 123. Yaad rakho: ghadi ki suiyaan 1-2-3 ginti hain."
+  }
+ },
+ {
+  "id": "fc-011",
+  "domain": 1,
+  "tag": "ports",
+  "front": {
+   "en": "Which protocol uses TCP port 143?",
+   "hi": "TCP port 143 kaunsa protocol use karta hai?"
+  },
+  "back": {
+   "en": "IMAP — mail stays on the server and stays in sync across all of a user's devices.",
+   "hi": "IMAP — mail server par hi rehta hai aur user ke saare devices par sync mein rehta hai."
+  }
+ },
+ {
+  "id": "fc-012",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "Which UDP ports does SNMP use for polling and for traps?",
+   "hi": "SNMP polling aur traps ke liye kaunse UDP ports use karta hai?"
+  },
+  "back": {
+   "en": "UDP 161: manager polls the agent (get/set). UDP 162: agent sends unsolicited traps or informs to the manager.",
+   "hi": "UDP 161: manager agent ko poll karta hai (get/set). UDP 162: agent bina pooche traps ya informs manager ko bhejta hai."
+  }
+ },
+ {
+  "id": "fc-013",
+  "domain": 1,
+  "tag": "ports",
+  "front": {
+   "en": "Which protocol uses port 389?",
+   "hi": "Port 389 kaunsa protocol use karta hai?"
+  },
+  "back": {
+   "en": "LDAP directory services (TCP/UDP 389); LDAP over SSL (LDAPS) uses TCP 636.",
+   "hi": "LDAP directory services (TCP/UDP 389); LDAP over SSL (LDAPS) TCP 636 use karta hai."
+  }
+ },
+ {
+  "id": "fc-014",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "Syslog messages are sent to which port and transport by default?",
+   "hi": "Syslog messages default mein kis port aur transport par bheje jaate hain?"
+  },
+  "back": {
+   "en": "UDP 514 to the syslog collector.",
+   "hi": "Syslog collector ko UDP 514 par."
+  }
+ },
+ {
+  "id": "fc-015",
+  "domain": 5,
+  "tag": "ports",
+  "front": {
+   "en": "Which UDP ports does RADIUS use?",
+   "hi": "RADIUS kaunse UDP ports use karta hai?"
+  },
+  "back": {
+   "en": "UDP 1812 for authentication/authorization and UDP 1813 for accounting (legacy pair: 1645/1646). Hook: the 1812 Overture — authenticate with a bang.",
+   "hi": "Authentication/authorization ke liye UDP 1812 aur accounting ke liye UDP 1813 (purana pair: 1645/1646). Yaad rakho: 1812 Overture — dhamake ke saath authenticate karo."
+  }
+ },
+ {
+  "id": "fc-016",
+  "domain": 5,
+  "tag": "ports",
+  "front": {
+   "en": "TACACS+ uses which port and transport?",
+   "hi": "TACACS+ kaunsa port aur transport use karta hai?"
+  },
+  "back": {
+   "en": "TCP 49 — and it encrypts the entire payload. Hook: TACACS+ Talks TCP.",
+   "hi": "TCP 49 — aur yeh poora payload encrypt karta hai. Yaad rakho: TACACS+ Talks TCP."
+  }
+ },
+ {
+  "id": "fc-017",
+  "domain": 2,
+  "tag": "ports",
+  "front": {
+   "en": "Which UDP ports does CAPWAP use between an AP and a WLC?",
+   "hi": "AP aur WLC ke beech CAPWAP kaunse UDP ports use karta hai?"
+  },
+  "back": {
+   "en": "UDP 5246 for the control tunnel and UDP 5247 for the data tunnel. Hook: control comes first, 5246 before 5247.",
+   "hi": "Control tunnel ke liye UDP 5246 aur data tunnel ke liye UDP 5247. Yaad rakho: control pehle aata hai, 5246 phir 5247."
+  }
+ },
+ {
+  "id": "fc-018",
+  "domain": 1,
+  "tag": "ports",
+  "front": {
+   "en": "Which protocol uses TCP port 3389?",
+   "hi": "TCP port 3389 kaunsa protocol use karta hai?"
+  },
+  "back": {
+   "en": "RDP — Microsoft Remote Desktop Protocol for graphical remote access.",
+   "hi": "RDP — graphical remote access ke liye Microsoft Remote Desktop Protocol."
+  }
+ },
+ {
+  "id": "fc-019",
+  "domain": 5,
+  "tag": "ports",
+  "front": {
+   "en": "Which UDP ports do IKE and IPsec NAT traversal (NAT-T) use?",
+   "hi": "IKE aur IPsec NAT traversal (NAT-T) kaunse UDP ports use karte hain?"
+  },
+  "back": {
+   "en": "UDP 500 for IKE/ISAKMP negotiation; UDP 4500 for NAT-T (ESP wrapped inside UDP).",
+   "hi": "IKE/ISAKMP negotiation ke liye UDP 500; NAT-T ke liye UDP 4500 (ESP ko UDP ke andar wrap kiya jaata hai)."
+  }
+ },
+ {
+  "id": "fc-020",
+  "domain": 1,
+  "tag": "ports",
+  "front": {
+   "en": "What are the three IANA port ranges?",
+   "hi": "IANA ki teen port ranges kaunsi hain?"
+  },
+  "back": {
+   "en": "Well-known 0-1023, registered 1024-49151, dynamic/ephemeral 49152-65535 (clients pick source ports here).",
+   "hi": "Well-known 0-1023, registered 1024-49151, dynamic/ephemeral 49152-65535 (clients apne source ports yahin se chunte hain)."
+  }
+ },
+ {
+  "id": "fc-021",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "Which UDP ports does DHCPv6 use?",
+   "hi": "DHCPv6 kaunse UDP ports use karta hai?"
+  },
+  "back": {
+   "en": "Client: UDP 546. Server/relay: UDP 547. Hook: v6 lifts DHCP up into the 500s.",
+   "hi": "Client: UDP 546. Server/relay: UDP 547. Yaad rakho: v6 DHCP ko 500s mein upar le jaata hai."
+  }
+ },
+ {
+  "id": "fc-022",
+  "domain": 1,
+  "tag": "ports",
+  "front": {
+   "en": "Which protocol uses TCP port 445?",
+   "hi": "TCP port 445 kaunsa protocol use karta hai?"
+  },
+  "back": {
+   "en": "SMB — Windows file and printer sharing.",
+   "hi": "SMB — Windows file aur printer sharing."
+  }
+ },
+ {
+  "id": "fc-023",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "Which port do SCP and SFTP use?",
+   "hi": "SCP aur SFTP kaunsa port use karte hain?"
+  },
+  "back": {
+   "en": "TCP 22 — both are carried inside an SSH session, so only the SSH port must be open.",
+   "hi": "TCP 22 — dono SSH session ke andar carry hote hain, isliye sirf SSH port open hona zaroori hai."
+  }
+ },
+ {
+  "id": "fc-024",
+  "domain": 1,
+  "tag": "ports",
+  "front": {
+   "en": "Match the three email protocols to their ports.",
+   "hi": "Teeno email protocols ko unke ports se match karo."
+  },
+  "back": {
+   "en": "SMTP TCP 25 (send), POP3 TCP 110 (download and delete), IMAP TCP 143 (keep and sync on the server).",
+   "hi": "SMTP TCP 25 (send), POP3 TCP 110 (download aur delete), IMAP TCP 143 (server par rakho aur sync karo)."
+  }
+ },
+ {
+  "id": "fc-025",
+  "domain": 5,
+  "tag": "ports",
+  "front": {
+   "en": "A capture shows two routers exchanging UDP 500 packets. What are they doing?",
+   "hi": "Ek capture mein do routers UDP 500 packets exchange kar rahe hain. Woh kya kar rahe hain?"
+  },
+  "back": {
+   "en": "Negotiating an IPsec tunnel — IKE/ISAKMP key exchange runs on UDP 500.",
+   "hi": "IPsec tunnel negotiate kar rahe hain — IKE/ISAKMP key exchange UDP 500 par chalta hai."
+  }
+ },
+ {
+  "id": "fc-026",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "A firewall allows TCP 21 but active-mode FTP transfers still fail. Which port is missing?",
+   "hi": "Firewall TCP 21 allow karta hai lekin active-mode FTP transfers phir bhi fail ho rahe hain. Kaunsa port missing hai?"
+  },
+  "back": {
+   "en": "TCP 20 — active FTP opens a separate data connection sourced from server port 20.",
+   "hi": "TCP 20 — active FTP server port 20 se ek alag data connection kholta hai."
+  }
+ },
+ {
+  "id": "fc-027",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "A DHCP relay agent forwards a client broadcast to the server on which port?",
+   "hi": "DHCP relay agent client ka broadcast server ko kis port par forward karta hai?"
+  },
+  "back": {
+   "en": "UDP 67 — the relay unicasts the request to the server; replies head back toward client port 68.",
+   "hi": "UDP 67 — relay request ko server ko unicast karta hai; replies wapas client port 68 ki taraf jaate hain."
+  }
+ },
+ {
+  "id": "fc-028",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "What is the difference between traffic seen on UDP 161 and UDP 162?",
+   "hi": "UDP 161 aur UDP 162 par dikhne wale traffic mein kya fark hai?"
+  },
+  "back": {
+   "en": "161 is manager-initiated polling of agents; 162 is agent-initiated traps sent without being asked.",
+   "hi": "161 par manager khud agents ko poll karta hai; 162 par agent bina pooche traps bhejta hai."
+  }
+ },
+ {
+  "id": "fc-029",
+  "domain": 4,
+  "tag": "ports",
+  "front": {
+   "en": "Which two TCP ports provide remote CLI access, and which one is secure?",
+   "hi": "Kaunse do TCP ports remote CLI access dete hain, aur inmein se secure kaunsa hai?"
+  },
+  "back": {
+   "en": "TCP 23 Telnet (cleartext) and TCP 22 SSH (encrypted) — always prefer SSH.",
+   "hi": "TCP 23 Telnet (cleartext) aur TCP 22 SSH (encrypted) — hamesha SSH ko prefer karo."
+  }
+ },
+ {
+  "id": "fc-030",
+  "domain": 3,
+  "tag": "ports",
+  "front": {
+   "en": "HSRP hello messages use which UDP port and multicast addresses?",
+   "hi": "HSRP hello messages kaunsa UDP port aur multicast addresses use karte hain?"
+  },
+  "back": {
+   "en": "UDP 1985; HSRPv1 sends to 224.0.0.2, HSRPv2 to 224.0.0.102.",
+   "hi": "UDP 1985; HSRPv1 224.0.0.2 par bhejta hai, HSRPv2 224.0.0.102 par."
+  }
+ },
+ {
+  "id": "fc-031",
+  "domain": 2,
+  "tag": "commands",
+  "front": {
+   "en": "Which commands create VLAN 20 and name it SALES?",
+   "hi": "Kaunse commands VLAN 20 banate hain aur uska naam SALES rakhte hain?"
+  },
+  "back": {
+   "en": "Global config: vlan 20, then name SALES. Verify with show vlan brief.",
+   "hi": "Global config mein: vlan 20, phir name SALES. show vlan brief se verify karo."
+  }
+ },
+ {
+  "id": "fc-032",
+  "domain": 2,
+  "tag": "commands",
+  "front": {
+   "en": "Which two interface commands make a port a static access port in VLAN 20?",
+   "hi": "Kaunse do interface commands ek port ko VLAN 20 mein static access port banate hain?"
+  },
+  "back": {
+   "en": "switchport mode access and switchport access vlan 20.",
+   "hi": "switchport mode access aur switchport access vlan 20."
+  }
+ },
+ {
+  "id": "fc-033",
+  "domain": 2,
+  "tag": "commands",
+  "front": {
+   "en": "Which interface command forces a port to become a trunk?",
+   "hi": "Kaunsa interface command port ko zabardasti trunk banata hai?"
+  },
+  "back": {
+   "en": "switchport mode trunk (on switches that still support ISL, first set switchport trunk encapsulation dot1q).",
+   "hi": "switchport mode trunk (jo switches abhi bhi ISL support karte hain, un par pehle switchport trunk encapsulation dot1q set karo)."
+  }
+ },
+ {
+  "id": "fc-034",
+  "domain": 2,
+  "tag": "commands",
+  "front": {
+   "en": "Which command changes the native VLAN of a trunk to VLAN 99?",
+   "hi": "Kaunsa command trunk ka native VLAN badal kar VLAN 99 karta hai?"
+  },
+  "back": {
+   "en": "switchport trunk native vlan 99 — must match on both ends or CDP logs a native VLAN mismatch.",
+   "hi": "switchport trunk native vlan 99 — dono ends par match hona chahiye, warna CDP native VLAN mismatch log karta hai."
+  }
+ },
+ {
+  "id": "fc-035",
+  "domain": 2,
+  "tag": "commands",
+  "front": {
+   "en": "Which command restricts a trunk to carry only VLANs 10 and 20?",
+   "hi": "Kaunsa command trunk ko sirf VLANs 10 aur 20 carry karne tak limit karta hai?"
+  },
+  "back": {
+   "en": "switchport trunk allowed vlan 10,20 (later use the add keyword so you do not overwrite the list).",
+   "hi": "switchport trunk allowed vlan 10,20 (baad mein add keyword use karo taaki list overwrite na ho)."
+  }
+ },
+ {
+  "id": "fc-036",
+  "domain": 2,
+  "tag": "commands",
+  "front": {
+   "en": "Which interface command disables DTP negotiation?",
+   "hi": "Kaunsa interface command DTP negotiation disable karta hai?"
+  },
+  "back": {
+   "en": "switchport nonegotiate — valid only on ports statically set to access or trunk mode.",
+   "hi": "switchport nonegotiate — sirf un ports par valid hai jo statically access ya trunk mode mein set hain."
+  }
+ },
+ {
+  "id": "fc-037",
+  "domain": 2,
+  "tag": "commands",
+  "front": {
+   "en": "Which command shows trunking ports, native VLANs, and allowed VLANs?",
+   "hi": "Kaunsa command trunking ports, native VLANs aur allowed VLANs dikhata hai?"
+  },
+  "back": {
+   "en": "show interfaces trunk.",
+   "hi": "show interfaces trunk."
+  }
+ },
+ {
+  "id": "fc-038",
+  "domain": 2,
+  "tag": "commands",
+  "front": {
+   "en": "Which command lists VLANs and the access ports assigned to each?",
+   "hi": "Kaunsa command VLANs aur har VLAN mein assigned access ports ki list dikhata hai?"
+  },
+  "back": {
+   "en": "show vlan brief — note that trunk ports do not appear in the list.",
+   "hi": "show vlan brief — dhyan do ki trunk ports is list mein nahi dikhte."
+  }
+ },
+ {
+  "id": "fc-039",
+  "domain": 2,
+  "tag": "commands",
+  "front": {
+   "en": "Give the router-on-a-stick subinterface commands for VLAN 10.",
+   "hi": "VLAN 10 ke liye router-on-a-stick subinterface commands batao."
+  },
+  "back": {
+   "en": "interface g0/0.10, encapsulation dot1q 10, ip address 192.168.10.1 255.255.255.0 — and no shutdown on the physical parent, which itself carries no IP.",
+   "hi": "interface g0/0.10, encapsulation dot1q 10, ip address 192.168.10.1 255.255.255.0 — aur physical parent par no shutdown, jis par khud koi IP nahi hota."
+  }
+ },
+ {
+  "id": "fc-040",
+  "domain": 2,
+  "tag": "commands",
+  "front": {
+   "en": "How do you configure an SVI so a Layer 3 switch routes VLAN 10?",
+   "hi": "SVI kaise configure karte ho taaki Layer 3 switch VLAN 10 ko route kare?"
+  },
+  "back": {
+   "en": "interface vlan 10, ip address 192.168.10.1 255.255.255.0, no shutdown — plus the global command ip routing.",
+   "hi": "interface vlan 10, ip address 192.168.10.1 255.255.255.0, no shutdown — saath mein global command ip routing."
+  }
+ },
+ {
+  "id": "fc-041",
+  "domain": 3,
+  "tag": "commands",
+  "front": {
+   "en": "Which commands enable OSPF process 1 on all 10.x.x.x interfaces in area 0?",
+   "hi": "Kaunse commands OSPF process 1 ko area 0 mein saare 10.x.x.x interfaces par enable karte hain?"
+  },
+  "back": {
+   "en": "router ospf 1, then network 10.0.0.0 0.255.255.255 area 0 — that mask is a wildcard, not a subnet mask.",
+   "hi": "router ospf 1, phir network 10.0.0.0 0.255.255.255 area 0 — yeh mask wildcard hai, subnet mask nahi."
+  }
+ },
+ {
+  "id": "fc-042",
+  "domain": 3,
+  "tag": "commands",
+  "front": {
+   "en": "Which command hard-codes the OSPF router ID to 1.1.1.1?",
+   "hi": "Kaunsa command OSPF router ID ko hard-code karke 1.1.1.1 karta hai?"
+  },
+  "back": {
+   "en": "router-id 1.1.1.1 under router ospf; it takes effect after clear ip ospf process or a reload.",
+   "hi": "router ospf ke under router-id 1.1.1.1; yeh clear ip ospf process ya reload ke baad effect mein aata hai."
+  }
+ },
+ {
+  "id": "fc-043",
+  "domain": 3,
+  "tag": "commands",
+  "front": {
+   "en": "Which OSPF command stops hellos on a LAN interface while still advertising its subnet?",
+   "hi": "Kaunsa OSPF command LAN interface par hellos rokta hai lekin uska subnet advertise karta rehta hai?"
+  },
+  "back": {
+   "en": "passive-interface g0/1 under router ospf (or passive-interface default plus no passive-interface on real uplinks).",
+   "hi": "router ospf ke under passive-interface g0/1 (ya passive-interface default aur asli uplinks par no passive-interface)."
+  }
+ },
+ {
+  "id": "fc-044",
+  "domain": 3,
+  "tag": "commands",
+  "front": {
+   "en": "How do you enable OSPF directly on an interface without a network statement?",
+   "hi": "Bina network statement ke OSPF ko seedha interface par kaise enable karte ho?"
+  },
+  "back": {
+   "en": "Interface command ip ospf 1 area 0 (process 1, area 0).",
+   "hi": "Interface command ip ospf 1 area 0 (process 1, area 0)."
+  }
+ },
+ {
+  "id": "fc-045",
+  "domain": 3,
+  "tag": "commands",
+  "front": {
+   "en": "Which two commands can change an OSPF interface metric?",
+   "hi": "Kaunse do commands OSPF interface ka metric badal sakte hain?"
+  },
+  "back": {
+   "en": "ip ospf cost 50 on the interface, or auto-cost reference-bandwidth 10000 under router ospf — set the same reference on every router.",
+   "hi": "Interface par ip ospf cost 50, ya router ospf ke under auto-cost reference-bandwidth 10000 — har router par same reference set karo."
+  }
+ },
+ {
+  "id": "fc-046",
+  "domain": 3,
+  "tag": "commands",
+  "front": {
+   "en": "Which OSPF command advertises your default route to the rest of the network?",
+   "hi": "Kaunsa OSPF command tumhara default route baaki network ko advertise karta hai?"
+  },
+  "back": {
+   "en": "default-information originate under router ospf — the router must itself hold a default route (append always to advertise regardless).",
+   "hi": "router ospf ke under default-information originate — router ke paas khud default route hona chahiye (phir bhi advertise karna ho toh always jod do)."
+  }
+ },
+ {
+  "id": "fc-047",
+  "domain": 3,
+  "tag": "commands",
+  "front": {
+   "en": "Which command verifies OSPF adjacencies and their states?",
+   "hi": "Kaunsa command OSPF adjacencies aur unki states verify karta hai?"
+  },
+  "back": {
+   "en": "show ip ospf neighbor — expect FULL, or 2WAY between two DROthers.",
+   "hi": "show ip ospf neighbor — FULL expect karo, ya do DROthers ke beech 2WAY."
+  }
+ },
+ {
+  "id": "fc-048",
+  "domain": 3,
+  "tag": "commands",
+  "front": {
+   "en": "Which command shows OSPF hello/dead timers, cost, priority, and DR/BDR per interface?",
+   "hi": "Kaunsa command har interface ke liye OSPF hello/dead timers, cost, priority aur DR/BDR dikhata hai?"
+  },
+  "back": {
+   "en": "show ip ospf interface (add brief for a one-line-per-interface summary).",
+   "hi": "show ip ospf interface (har interface ki ek line wali summary ke liye brief jodo)."
+  }
+ },
+ {
+  "id": "fc-049",
+  "domain": 3,
+  "tag": "commands",
+  "front": {
+   "en": "Write a static default route pointing to next hop 203.0.113.1.",
+   "hi": "Next hop 203.0.113.1 ki taraf point karta hua static default route likho."
+  },
+  "back": {
+   "en": "ip route 0.0.0.0 0.0.0.0 203.0.113.1 — appears as S* and sets the gateway of last resort.",
+   "hi": "ip route 0.0.0.0 0.0.0.0 203.0.113.1 — yeh S* ke roop mein dikhta hai aur gateway of last resort set karta hai."
+  }
+ },
+ {
+  "id": "fc-050",
+  "domain": 3,
+  "tag": "commands",
+  "front": {
+   "en": "How do you make a static route a floating backup to an OSPF-learned route?",
+   "hi": "Static route ko OSPF-learned route ka floating backup kaise banate ho?"
+  },
+  "back": {
+   "en": "Append an AD higher than 110, e.g. ip route 10.2.0.0 255.255.0.0 198.51.100.2 250 — it installs only when the OSPF route disappears.",
+   "hi": "110 se zyada AD jodo, jaise ip route 10.2.0.0 255.255.0.0 198.51.100.2 250 — yeh sirf tab install hota hai jab OSPF route gayab ho jaata hai."
+  }
+ },
+ {
+  "id": "fc-051",
+  "domain": 5,
+  "tag": "commands",
+  "front": {
+   "en": "Write a standard numbered ACL permitting only 192.168.1.0/24.",
+   "hi": "Ek standard numbered ACL likho jo sirf 192.168.1.0/24 ko permit kare."
+  },
+  "back": {
+   "en": "access-list 10 permit 192.168.1.0 0.0.0.255 — everything else hits the implicit deny.",
+   "hi": "access-list 10 permit 192.168.1.0 0.0.0.255 — baaki sab implicit deny se takra jaata hai."
+  }
+ },
+ {
+  "id": "fc-052",
+  "domain": 5,
+  "tag": "commands",
+  "front": {
+   "en": "Create a named extended ACL that blocks Telnet but permits everything else.",
+   "hi": "Ek named extended ACL banao jo Telnet block kare lekin baaki sab permit kare."
+  },
+  "back": {
+   "en": "ip access-list extended NO-TELNET, then deny tcp any any eq 23, then permit ip any any.",
+   "hi": "ip access-list extended NO-TELNET, phir deny tcp any any eq 23, phir permit ip any any."
+  }
+ },
+ {
+  "id": "fc-053",
+  "domain": 5,
+  "tag": "commands",
+  "front": {
+   "en": "Which command applies ACL 10 inbound on an interface?",
+   "hi": "Kaunsa command ACL 10 ko interface par inbound apply karta hai?"
+  },
+  "back": {
+   "en": "ip access-group 10 in (interface mode) — one ACL per interface, per direction, per protocol.",
+   "hi": "ip access-group 10 in (interface mode) — har interface, har direction, har protocol par ek ACL."
+  }
+ },
+ {
+  "id": "fc-054",
+  "domain": 5,
+  "tag": "commands",
+  "front": {
+   "en": "Which command applies ACL 10 to remote-management (VTY) sessions?",
+   "hi": "Kaunsa command ACL 10 ko remote-management (VTY) sessions par apply karta hai?"
+  },
+  "back": {
+   "en": "access-class 10 in under line vty 0 4 — filters who may SSH or Telnet to the device itself.",
+   "hi": "line vty 0 4 ke under access-class 10 in — yeh filter karta hai ki device par khud kaun SSH ya Telnet kar sakta hai."
+  }
+ },
+ {
+  "id": "fc-055",
+  "domain": 4,
+  "tag": "commands",
+  "front": {
+   "en": "Which interface commands mark the NAT boundaries?",
+   "hi": "Kaunse interface commands NAT ki boundaries mark karte hain?"
+  },
+  "back": {
+   "en": "ip nat inside on LAN-facing interfaces and ip nat outside on the internet-facing interface.",
+   "hi": "LAN ki taraf wale interfaces par ip nat inside aur internet ki taraf wale interface par ip nat outside."
+  }
+ },
+ {
+  "id": "fc-056",
+  "domain": 4,
+  "tag": "commands",
+  "front": {
+   "en": "Write the classic PAT (overload) command using interface g0/0 as the public address.",
+   "hi": "Interface g0/0 ko public address ke roop mein use karke classic PAT (overload) command likho."
+  },
+  "back": {
+   "en": "ip nat inside source list 1 interface g0/0 overload — ACL 1 defines which inside sources get translated.",
+   "hi": "ip nat inside source list 1 interface g0/0 overload — ACL 1 decide karta hai ki kaunse inside sources translate honge."
+  }
+ },
+ {
+  "id": "fc-057",
+  "domain": 4,
+  "tag": "commands",
+  "front": {
+   "en": "Write a static NAT mapping of 192.168.1.10 to public 203.0.113.10.",
+   "hi": "192.168.1.10 ko public 203.0.113.10 par map karne wala static NAT likho."
+  },
+  "back": {
+   "en": "ip nat inside source static 192.168.1.10 203.0.113.10.",
+   "hi": "ip nat inside source static 192.168.1.10 203.0.113.10."
+  }
+ },
+ {
+  "id": "fc-058",
+  "domain": 4,
+  "tag": "commands",
+  "front": {
+   "en": "Which commands display and clear active NAT translations?",
+   "hi": "Kaunse commands active NAT translations dikhate aur clear karte hain?"
+  },
+  "back": {
+   "en": "show ip nat translations and clear ip nat translation * — plus show ip nat statistics for hit counts.",
+   "hi": "show ip nat translations aur clear ip nat translation * — saath mein hit counts ke liye show ip nat statistics."
+  }
+ },
+ {
+  "id": "fc-059",
+  "domain": 4,
+  "tag": "commands",
+  "front": {
+   "en": "Give the core commands for an IOS DHCP pool serving 192.168.1.0/24.",
+   "hi": "192.168.1.0/24 serve karne wale IOS DHCP pool ke core commands batao."
+  },
+  "back": {
+   "en": "ip dhcp pool LAN, network 192.168.1.0 255.255.255.0, default-router 192.168.1.1, dns-server 8.8.8.8.",
+   "hi": "ip dhcp pool LAN, network 192.168.1.0 255.255.255.0, default-router 192.168.1.1, dns-server 8.8.8.8."
+  }
+ },
+ {
+  "id": "fc-060",
+  "domain": 4,
+  "tag": "commands",
+  "front": {
+   "en": "Which command stops the IOS DHCP server from handing out .1 through .10?",
+   "hi": "Kaunsa command IOS DHCP server ko .1 se .10 tak ke addresses dene se rokta hai?"
+  },
+  "back": {
+   "en": "Global config: ip dhcp excluded-address 192.168.1.1 192.168.1.10 — configured outside the pool.",
+   "hi": "Global config mein: ip dhcp excluded-address 192.168.1.1 192.168.1.10 — yeh pool ke bahar configure hota hai."
+  }
+ },
+ {
+  "id": "fc-061",
+  "domain": 4,
+  "tag": "commands",
+  "front": {
+   "en": "Which interface command relays DHCP broadcasts to server 10.1.1.5?",
+   "hi": "Kaunsa interface command DHCP broadcasts ko server 10.1.1.5 tak relay karta hai?"
+  },
+  "back": {
+   "en": "ip helper-address 10.1.1.5 — placed on the interface facing the clients.",
+   "hi": "ip helper-address 10.1.1.5 — yeh clients ki taraf wale interface par lagta hai."
+  }
+ },
+ {
+  "id": "fc-062",
+  "domain": 4,
+  "tag": "commands",
+  "front": {
+   "en": "List the setup steps to enable SSH on an IOS device.",
+   "hi": "IOS device par SSH enable karne ke setup steps batao."
+  },
+  "back": {
+   "en": "Set hostname and ip domain-name, crypto key generate rsa (modulus 2048), username admin secret ..., then line vty 0 4 with login local and transport input ssh, and finally ip ssh version 2.",
+   "hi": "hostname aur ip domain-name set karo, crypto key generate rsa (modulus 2048), username admin secret ..., phir line vty 0 4 mein login local aur transport input ssh, aur aakhir mein ip ssh version 2."
+  }
+ },
+ {
+  "id": "fc-063",
+  "domain": 5,
+  "tag": "commands",
+  "front": {
+   "en": "Which commands enable port security allowing two sticky-learned MACs?",
+   "hi": "Kaunse commands port security enable karte hain jo do sticky-learned MACs allow kare?"
+  },
+  "back": {
+   "en": "On a static access port: switchport port-security, switchport port-security maximum 2, switchport port-security mac-address sticky.",
+   "hi": "Static access port par: switchport port-security, switchport port-security maximum 2, switchport port-security mac-address sticky."
+  }
+ },
+ {
+  "id": "fc-064",
+  "domain": 5,
+  "tag": "commands",
+  "front": {
+   "en": "Which command makes port security drop violators and log them without shutting the port?",
+   "hi": "Kaunsa command port security ko violators drop aur log karne deta hai bina port shut kiye?"
+  },
+  "back": {
+   "en": "switchport port-security violation restrict (protect drops silently; shutdown err-disables the port and is the default).",
+   "hi": "switchport port-security violation restrict (protect chupchaap drop karta hai; shutdown port ko err-disable karta hai aur yahi default hai)."
+  }
+ },
+ {
+  "id": "fc-065",
+  "domain": 5,
+  "tag": "commands",
+  "front": {
+   "en": "Which command shows a port's security state, violation mode, and violation count?",
+   "hi": "Kaunsa command port ki security state, violation mode aur violation count dikhata hai?"
+  },
+  "back": {
+   "en": "show port-security interface g0/1 (plain show port-security summarizes every secured port).",
+   "hi": "show port-security interface g0/1 (sirf show port-security har secured port ki summary deta hai)."
+  }
+ },
+ {
+  "id": "fc-066",
+  "domain": 5,
+  "tag": "commands",
+  "front": {
+   "en": "How do you recover a port that port security placed in err-disabled?",
+   "hi": "Jo port port security ne err-disabled mein daal diya, use recover kaise karte ho?"
+  },
+  "back": {
+   "en": "Fix the cause, then shutdown followed by no shutdown on the interface (or configure errdisable recovery cause psecure-violation).",
+   "hi": "Pehle cause theek karo, phir interface par shutdown aur uske baad no shutdown (ya errdisable recovery cause psecure-violation configure karo)."
+  }
+ },
+ {
+  "id": "fc-067",
+  "domain": 2,
+  "tag": "commands",
+  "front": {
+   "en": "Which commands bundle G0/1-2 into an LACP EtherChannel?",
+   "hi": "Kaunse commands G0/1-2 ko LACP EtherChannel mein bundle karte hain?"
+  },
+  "back": {
+   "en": "interface range g0/1 - 2, then channel-group 1 mode active (active = initiate LACP; passive = respond only).",
+   "hi": "interface range g0/1 - 2, phir channel-group 1 mode active (active = LACP initiate karta hai; passive = sirf respond karta hai)."
+  }
+ },
+ {
+  "id": "fc-068",
+  "domain": 2,
+  "tag": "commands",
+  "front": {
+   "en": "Which command verifies EtherChannel health, and what flags are good?",
+   "hi": "Kaunsa command EtherChannel ki health verify karta hai, aur kaunse flags achhe hain?"
+  },
+  "back": {
+   "en": "show etherchannel summary — look for SU on the port-channel (Layer 2, in use) and P on member ports (bundled).",
+   "hi": "show etherchannel summary — port-channel par SU (Layer 2, in use) aur member ports par P (bundled) dekho."
+  }
+ },
+ {
+  "id": "fc-069",
+  "domain": 3,
+  "tag": "commands",
+  "front": {
+   "en": "Which commands make a router the HSRP group 1 gateway 192.168.1.254 and prefer it as active?",
+   "hi": "Kaunse commands router ko HSRP group 1 ka gateway 192.168.1.254 banate hain aur use active ke liye prefer karte hain?"
+  },
+  "back": {
+   "en": "On the interface: standby 1 ip 192.168.1.254, standby 1 priority 110, standby 1 preempt.",
+   "hi": "Interface par: standby 1 ip 192.168.1.254, standby 1 priority 110, standby 1 preempt."
+  }
+ },
+ {
+  "id": "fc-070",
+  "domain": 3,
+  "tag": "commands",
+  "front": {
+   "en": "Which command shows HSRP groups, this router's role, and the virtual IP at a glance?",
+   "hi": "Kaunsa command HSRP groups, is router ka role aur virtual IP ek nazar mein dikhata hai?"
+  },
+  "back": {
+   "en": "show standby brief (plain show standby adds timers and the virtual MAC).",
+   "hi": "show standby brief (sirf show standby timers aur virtual MAC bhi dikhata hai)."
+  }
+ },
+ {
+  "id": "fc-071",
+  "domain": 2,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What is the default STP hello timer?",
+   "hi": "Default STP hello timer kya hai?"
+  },
+  "back": {
+   "en": "2 seconds — the root bridge originates a BPDU every 2 s. Hook: a heartbeat every 2.",
+   "hi": "2 seconds — root bridge har 2 s mein ek BPDU originate karta hai. Yaad rakho: har 2 par ek heartbeat."
+  }
+ },
+ {
+  "id": "fc-072",
+  "domain": 2,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What is the STP forward delay and where is it spent?",
+   "hi": "STP forward delay kya hai aur yeh kahan kharch hota hai?"
+  },
+  "back": {
+   "en": "15 seconds — once in listening and again in learning, so a port needs about 30 s (up to 50 s counting max age) before forwarding.",
+   "hi": "15 seconds — ek baar listening mein aur ek baar learning mein, isliye port ko forwarding se pehle lagbhag 30 s (max age milakar 50 s tak) chahiye."
+  }
+ },
+ {
+  "id": "fc-073",
+  "domain": 2,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What is the STP max age timer?",
+   "hi": "STP max age timer kya hai?"
+  },
+  "back": {
+   "en": "20 seconds — how long a switch keeps a stored BPDU before declaring the path to the root dead (10 hello intervals).",
+   "hi": "20 seconds — switch stored BPDU ko itni der rakhta hai, phir root tak ka path dead maan leta hai (10 hello intervals)."
+  }
+ },
+ {
+  "id": "fc-074",
+  "domain": 2,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What is the default STP bridge priority, and how does extended system ID change it?",
+   "hi": "Default STP bridge priority kya hai, aur extended system ID ise kaise badalta hai?"
+  },
+  "back": {
+   "en": "32768, configured in steps of 4096; the VLAN ID is added to it (VLAN 10 shows 32778). Lowest bridge ID becomes root.",
+   "hi": "32768, jo 4096 ke steps mein configure hoti hai; isme VLAN ID jud jaata hai (VLAN 10 par 32778 dikhta hai). Sabse kam bridge ID wala root banta hai."
+  }
+ },
+ {
+  "id": "fc-075",
+  "domain": 3,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What are the OSPF hello and dead timers on Ethernet and point-to-point networks?",
+   "hi": "Ethernet aur point-to-point networks par OSPF hello aur dead timers kya hain?"
+  },
+  "back": {
+   "en": "Hello 10 s, dead 40 s (dead = 4x hello). Both must match or the adjacency never forms.",
+   "hi": "Hello 10 s, dead 40 s (dead = 4x hello). Dono match hone chahiye, warna adjacency kabhi nahi banti."
+  }
+ },
+ {
+  "id": "fc-076",
+  "domain": 3,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What are the OSPF hello and dead timers on NBMA networks?",
+   "hi": "NBMA networks par OSPF hello aur dead timers kya hain?"
+  },
+  "back": {
+   "en": "Hello 30 s, dead 120 s.",
+   "hi": "Hello 30 s, dead 120 s."
+  }
+ },
+ {
+  "id": "fc-077",
+  "domain": 3,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What are the HSRP default hello and hold timers?",
+   "hi": "HSRP ke default hello aur hold timers kya hain?"
+  },
+  "back": {
+   "en": "Hello 3 s, hold 10 s — the standby takes over roughly 10 s after the active goes silent.",
+   "hi": "Hello 3 s, hold 10 s — active ke chup hone ke lagbhag 10 s baad standby takeover kar leta hai."
+  }
+ },
+ {
+  "id": "fc-078",
+  "domain": 3,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What are the HSRP default priority and preemption settings?",
+   "hi": "HSRP ki default priority aur preemption settings kya hain?"
+  },
+  "back": {
+   "en": "Priority 100; preemption is disabled, so a recovered higher-priority router will not reclaim the active role until standby preempt is configured.",
+   "hi": "Priority 100; preemption disabled hota hai, isliye wapas aaya higher-priority router tab tak active role wapas nahi leta jab tak standby preempt configure na ho."
+  }
+ },
+ {
+  "id": "fc-079",
+  "domain": 3,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What is the default OSPF interface priority, and which value bars a router from DR election?",
+   "hi": "Default OSPF interface priority kya hai, aur kaunsi value router ko DR election se bahar rakhti hai?"
+  },
+  "back": {
+   "en": "Default 1; priority 0 means never DR or BDR.",
+   "hi": "Default 1; priority 0 ka matlab kabhi DR ya BDR nahi."
+  }
+ },
+ {
+  "id": "fc-080",
+  "domain": 3,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What are the administrative distances of connected, static, and OSPF routes?",
+   "hi": "Connected, static aur OSPF routes ki administrative distances kya hain?"
+  },
+  "back": {
+   "en": "0, 1, and 110. Full ladder: connected 0 < static 1 < eBGP 20 < EIGRP 90 < OSPF 110 < RIP 120.",
+   "hi": "0, 1 aur 110. Poori ladder: connected 0 < static 1 < eBGP 20 < EIGRP 90 < OSPF 110 < RIP 120."
+  }
+ },
+ {
+  "id": "fc-081",
+  "domain": 2,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What are the default CDP timers?",
+   "hi": "Default CDP timers kya hain?"
+  },
+  "back": {
+   "en": "Advertisements every 60 s with a 180 s holdtime; CDP runs by default on Cisco devices.",
+   "hi": "Har 60 s mein advertisements, 180 s holdtime ke saath; Cisco devices par CDP default mein chalta hai."
+  }
+ },
+ {
+  "id": "fc-082",
+  "domain": 2,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What are the default LLDP timers and its default state on Cisco switches?",
+   "hi": "Default LLDP timers kya hain aur Cisco switches par iski default state kya hai?"
+  },
+  "back": {
+   "en": "Advertisements every 30 s with a 120 s holdtime; LLDP is disabled by default (enable with lldp run).",
+   "hi": "Har 30 s mein advertisements, 120 s holdtime ke saath; LLDP default mein disabled hota hai (lldp run se enable karo)."
+  }
+ },
+ {
+  "id": "fc-083",
+  "domain": 2,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What is the default DTP mode on modern Catalyst switches, and what link do two such ports form?",
+   "hi": "Modern Catalyst switches par default DTP mode kya hai, aur aise do ports kaunsa link banate hain?"
+  },
+  "back": {
+   "en": "dynamic auto — since neither auto port initiates negotiation, the link comes up as an access port.",
+   "hi": "dynamic auto — kyunki koi bhi auto port negotiation shuru nahi karta, link access port ban kar up hota hai."
+  }
+ },
+ {
+  "id": "fc-084",
+  "domain": 2,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What are the default native VLAN and management VLAN on a Cisco switch?",
+   "hi": "Cisco switch par default native VLAN aur management VLAN kya hain?"
+  },
+  "back": {
+   "en": "Both are VLAN 1 — best practice moves them elsewhere and keeps user traffic off VLAN 1.",
+   "hi": "Dono VLAN 1 hain — best practice inhe kahin aur move karna aur user traffic ko VLAN 1 se door rakhna hai."
+  }
+ },
+ {
+  "id": "fc-085",
+  "domain": 2,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What are the classic (short) STP path costs for 10 Mb, 100 Mb, 1 Gb, and 10 Gb links?",
+   "hi": "10 Mb, 100 Mb, 1 Gb aur 10 Gb links ke classic (short) STP path costs kya hain?"
+  },
+  "back": {
+   "en": "100, 19, 4, and 2. Hook: memorize the countdown 100-19-4-2.",
+   "hi": "100, 19, 4 aur 2. Yaad rakho: countdown 100-19-4-2 ratt lo."
+  }
+ },
+ {
+  "id": "fc-086",
+  "domain": 3,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What is the default OSPF reference bandwidth, and what does it do to Fast vs Gigabit links?",
+   "hi": "Default OSPF reference bandwidth kya hai, aur yeh Fast vs Gigabit links ke saath kya karta hai?"
+  },
+  "back": {
+   "en": "100 Mbps — FastEthernet and GigabitEthernet both compute cost 1 (cost never drops below 1), so raise it with auto-cost reference-bandwidth.",
+   "hi": "100 Mbps — FastEthernet aur GigabitEthernet dono ka cost 1 aata hai (cost 1 se neeche nahi jaata), isliye auto-cost reference-bandwidth se ise badhao."
+  }
+ },
+ {
+  "id": "fc-087",
+  "domain": 4,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What is the default lease time of an IOS DHCP server?",
+   "hi": "IOS DHCP server ka default lease time kya hai?"
+  },
+  "back": {
+   "en": "1 day (change it with the lease command inside the pool).",
+   "hi": "1 din (pool ke andar lease command se badlo)."
+  }
+ },
+ {
+  "id": "fc-088",
+  "domain": 2,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "How fast does Rapid PVST+ declare a neighbor lost compared with classic STP?",
+   "hi": "Classic STP ke comparison mein Rapid PVST+ neighbor ko kitni jaldi lost declare karta hai?"
+  },
+  "back": {
+   "en": "After 3 missed hellos, i.e. 6 s — classic STP waits the full 20 s max age.",
+   "hi": "3 hellos miss hone ke baad, yaani 6 s — classic STP poore 20 s max age ka wait karta hai."
+  }
+ },
+ {
+  "id": "fc-089",
+  "domain": 2,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "What is the default spanning-tree mode on Catalyst switches?",
+   "hi": "Catalyst switches par default spanning-tree mode kya hai?"
+  },
+  "back": {
+   "en": "PVST+ — one classic 802.1D instance per VLAN; upgrade with spanning-tree mode rapid-pvst.",
+   "hi": "PVST+ — har VLAN ke liye ek classic 802.1D instance; spanning-tree mode rapid-pvst se upgrade karo."
+  }
+ },
+ {
+  "id": "fc-090",
+  "domain": 2,
+  "tag": "timers-defaults",
+  "front": {
+   "en": "Which LACP and PAgP mode combinations successfully form an EtherChannel?",
+   "hi": "LACP aur PAgP ke kaunse mode combinations EtherChannel successfully banate hain?"
+  },
+  "back": {
+   "en": "LACP: active+active or active+passive. PAgP: desirable+desirable or desirable+auto. passive+passive and auto+auto never bundle; mode on works only with on at both ends.",
+   "hi": "LACP: active+active ya active+passive. PAgP: desirable+desirable ya desirable+auto. passive+passive aur auto+auto kabhi bundle nahi hote; mode on sirf tab kaam karta hai jab dono ends par on ho."
+  }
+ },
+ {
+  "id": "fc-091",
+  "domain": 1,
+  "tag": "wireless",
+  "front": {
+   "en": "Which 802.11 standards run only in the 2.4 GHz band, and at what top rates?",
+   "hi": "Kaunse 802.11 standards sirf 2.4 GHz band mein chalte hain, aur unke top rates kya hain?"
+  },
+  "back": {
+   "en": "802.11b at 11 Mbps and 802.11g at 54 Mbps.",
+   "hi": "802.11b 11 Mbps par aur 802.11g 54 Mbps par."
+  }
+ },
+ {
+  "id": "fc-092",
+  "domain": 1,
+  "tag": "wireless",
+  "front": {
+   "en": "Which early 802.11 standard used only 5 GHz at 54 Mbps?",
+   "hi": "Kaunsa early 802.11 standard sirf 5 GHz par 54 Mbps use karta tha?"
+  },
+  "back": {
+   "en": "802.11a — same speed as g but a different band, so the two never interoperated.",
+   "hi": "802.11a — speed g jitni hi lekin band alag, isliye dono kabhi interoperate nahi karte the."
+  }
+ },
+ {
+  "id": "fc-093",
+  "domain": 1,
+  "tag": "wireless",
+  "front": {
+   "en": "Map Wi-Fi 4, 5, and 6 to their 802.11 standards and bands.",
+   "hi": "Wi-Fi 4, 5 aur 6 ko unke 802.11 standards aur bands se map karo."
+  },
+  "back": {
+   "en": "Wi-Fi 4 = 802.11n (2.4 and 5 GHz), Wi-Fi 5 = 802.11ac (5 GHz only), Wi-Fi 6 = 802.11ax (2.4 and 5 GHz, plus 6 GHz as Wi-Fi 6E).",
+   "hi": "Wi-Fi 4 = 802.11n (2.4 aur 5 GHz), Wi-Fi 5 = 802.11ac (sirf 5 GHz), Wi-Fi 6 = 802.11ax (2.4 aur 5 GHz, aur Wi-Fi 6E ke roop mein 6 GHz bhi)."
+  }
+ },
+ {
+  "id": "fc-094",
+  "domain": 1,
+  "tag": "wireless",
+  "front": {
+   "en": "What are the approximate top data rates of 802.11n and 802.11ac?",
+   "hi": "802.11n aur 802.11ac ke approximate top data rates kya hain?"
+  },
+  "back": {
+   "en": "n about 600 Mbps; ac Wave 2 about 6.9 Gbps — both use MIMO, and ac added 80/160 MHz channels in 5 GHz.",
+   "hi": "n lagbhag 600 Mbps; ac Wave 2 lagbhag 6.9 Gbps — dono MIMO use karte hain, aur ac ne 5 GHz mein 80/160 MHz channels jode."
+  }
+ },
+ {
+  "id": "fc-095",
+  "domain": 1,
+  "tag": "wireless",
+  "front": {
+   "en": "Which 2.4 GHz channels should neighboring APs use, and why those?",
+   "hi": "Padosi APs ko kaunse 2.4 GHz channels use karne chahiye, aur yahi kyun?"
+  },
+  "back": {
+   "en": "1, 6, and 11 — the only non-overlapping trio, because each channel is about 22 MHz wide while center frequencies sit only 5 MHz apart.",
+   "hi": "1, 6 aur 11 — yahi ek non-overlapping trio hai, kyunki har channel lagbhag 22 MHz wide hota hai jabki center frequencies sirf 5 MHz door hoti hain."
+  }
+ },
+ {
+  "id": "fc-096",
+  "domain": 1,
+  "tag": "wireless",
+  "front": {
+   "en": "Why is 5 GHz preferred over 2.4 GHz in dense deployments?",
+   "hi": "Dense deployments mein 2.4 GHz ke upar 5 GHz ko prefer kyun kiya jaata hai?"
+  },
+  "back": {
+   "en": "Far more non-overlapping channels and less interference (no microwave ovens or Bluetooth); the trade-off is shorter range and weaker wall penetration.",
+   "hi": "Kahin zyada non-overlapping channels aur kam interference (na microwave ovens, na Bluetooth); trade-off yeh hai ki range chhoti hoti hai aur deewaron ke paar kam jaata hai."
+  }
+ },
+ {
+  "id": "fc-097",
+  "domain": 1,
+  "tag": "wireless",
+  "front": {
+   "en": "Define BSS, ESS, SSID, and BSSID.",
+   "hi": "BSS, ESS, SSID aur BSSID define karo."
+  },
+  "back": {
+   "en": "BSS: one AP plus its clients. ESS: several BSSs sharing one SSID so clients can roam. SSID: the network name. BSSID: the AP radio MAC that uniquely identifies a BSS.",
+   "hi": "BSS: ek AP aur uske clients. ESS: kai BSSs jo ek hi SSID share karte hain taaki clients roam kar sakein. SSID: network ka naam. BSSID: AP radio ka MAC jo ek BSS ko uniquely identify karta hai."
+  }
+ },
+ {
+  "id": "fc-098",
+  "domain": 1,
+  "tag": "wireless",
+  "front": {
+   "en": "What is an IBSS?",
+   "hi": "IBSS kya hai?"
+  },
+  "back": {
+   "en": "Independent BSS — ad hoc Wi-Fi directly between devices with no AP involved.",
+   "hi": "Independent BSS — devices ke beech seedha ad hoc Wi-Fi, bina kisi AP ke."
+  }
+ },
+ {
+  "id": "fc-099",
+  "domain": 5,
+  "tag": "wireless",
+  "front": {
+   "en": "Which encryption protocols do WPA and WPA2 use?",
+   "hi": "WPA aur WPA2 kaunse encryption protocols use karte hain?"
+  },
+  "back": {
+   "en": "WPA uses TKIP (an RC4-based stopgap); WPA2 uses AES-CCMP. Hook: 2 = AES, the strong one.",
+   "hi": "WPA TKIP use karta hai (RC4-based ek temporary jugaad); WPA2 AES-CCMP use karta hai. Yaad rakho: 2 = AES, jo strong wala hai."
+  }
+ },
+ {
+  "id": "fc-100",
+  "domain": 5,
+  "tag": "wireless",
+  "front": {
+   "en": "What does WPA3 add over WPA2?",
+   "hi": "WPA3 WPA2 ke upar kya jodta hai?"
+  },
+  "back": {
+   "en": "SAE replaces the PSK exchange (defeating offline dictionary attacks), adds forward secrecy, and makes protected management frames (PMF) mandatory.",
+   "hi": "SAE PSK exchange ki jagah leta hai (offline dictionary attacks ko fail karta hai), forward secrecy jodta hai, aur protected management frames (PMF) ko mandatory banata hai."
+  }
+ },
+ {
+  "id": "fc-101",
+  "domain": 5,
+  "tag": "wireless",
+  "front": {
+   "en": "What is the difference between WPA2-Personal and WPA2-Enterprise?",
+   "hi": "WPA2-Personal aur WPA2-Enterprise mein kya fark hai?"
+  },
+  "back": {
+   "en": "Personal authenticates everyone with one pre-shared key; Enterprise uses 802.1X with a RADIUS server for per-user credentials.",
+   "hi": "Personal sabko ek hi pre-shared key se authenticate karta hai; Enterprise per-user credentials ke liye RADIUS server ke saath 802.1X use karta hai."
+  }
+ },
+ {
+  "id": "fc-102",
+  "domain": 5,
+  "tag": "wireless",
+  "front": {
+   "en": "Which legacy wireless security options are considered broken?",
+   "hi": "Kaunse legacy wireless security options broken maane jaate hain?"
+  },
+  "back": {
+   "en": "WEP (static RC4 keys) and TKIP — both crackable; use AES-CCMP or GCMP instead.",
+   "hi": "WEP (static RC4 keys) aur TKIP — dono crack ho sakte hain; iski jagah AES-CCMP ya GCMP use karo."
+  }
+ },
+ {
+  "id": "fc-103",
+  "domain": 2,
+  "tag": "wireless",
+  "front": {
+   "en": "How are the two CAPWAP tunnels protected?",
+   "hi": "Dono CAPWAP tunnels kaise protect hote hain?"
+  },
+  "back": {
+   "en": "The control tunnel (UDP 5246) is DTLS-encrypted by default; the data tunnel (UDP 5247) stays unencrypted unless DTLS is enabled for it.",
+   "hi": "Control tunnel (UDP 5246) default mein DTLS-encrypted hota hai; data tunnel (UDP 5247) unencrypted rehta hai jab tak uske liye DTLS enable na ho."
+  }
+ },
+ {
+  "id": "fc-104",
+  "domain": 2,
+  "tag": "wireless",
+  "front": {
+   "en": "In split-MAC architecture, which functions stay on the AP and which move to the WLC?",
+   "hi": "Split-MAC architecture mein kaunse functions AP par rehte hain aur kaunse WLC par jaate hain?"
+  },
+  "back": {
+   "en": "AP keeps real-time jobs: beacons, ACKs, encryption. WLC takes management: client authentication, association and roaming, RF management.",
+   "hi": "AP real-time kaam rakhta hai: beacons, ACKs, encryption. WLC management sambhalta hai: client authentication, association aur roaming, RF management."
+  }
+ },
+ {
+  "id": "fc-105",
+  "domain": 2,
+  "tag": "wireless",
+  "front": {
+   "en": "What distinguishes an autonomous AP from a lightweight AP?",
+   "hi": "Autonomous AP aur lightweight AP mein kya fark hai?"
+  },
+  "back": {
+   "en": "An autonomous AP is self-contained and managed one by one; a lightweight AP offloads control functions to a WLC over CAPWAP (split-MAC).",
+   "hi": "Autonomous AP self-contained hota hai aur ek-ek karke manage hota hai; lightweight AP control functions CAPWAP ke through WLC ko de deta hai (split-MAC)."
+  }
+ },
+ {
+  "id": "fc-106",
+  "domain": 2,
+  "tag": "wireless",
+  "front": {
+   "en": "How does FlexConnect AP mode differ from local mode?",
+   "hi": "FlexConnect AP mode local mode se kaise alag hai?"
+  },
+  "back": {
+   "en": "FlexConnect can switch client traffic locally at the branch and keep serving clients when the WLC or WAN fails; local mode tunnels all client traffic to the WLC.",
+   "hi": "FlexConnect branch par client traffic ko locally switch kar sakta hai aur WLC ya WAN fail hone par bhi clients ko serve karta rehta hai; local mode saara client traffic WLC tak tunnel karta hai."
+  }
+ },
+ {
+  "id": "fc-107",
+  "domain": 2,
+  "tag": "wireless",
+  "front": {
+   "en": "What do the monitor, sniffer, and rogue detector AP modes do?",
+   "hi": "Monitor, sniffer aur rogue detector AP modes kya karte hain?"
+  },
+  "back": {
+   "en": "Monitor: radio dedicated to scanning for IDS/location, serves no clients. Sniffer: streams raw captures to an analyzer such as Wireshark. Rogue detector: listens on the wired side to correlate rogue MACs.",
+   "hi": "Monitor: radio sirf IDS/location ke liye scanning karta hai, koi client serve nahi karta. Sniffer: raw captures ko Wireshark jaise analyzer tak stream karta hai. Rogue detector: wired side par sunta hai taaki rogue MACs correlate kar sake."
+  }
+ },
+ {
+  "id": "fc-108",
+  "domain": 2,
+  "tag": "wireless",
+  "front": {
+   "en": "What is a WLC dynamic interface?",
+   "hi": "WLC dynamic interface kya hai?"
+  },
+  "back": {
+   "en": "A logical WLC interface that maps a WLAN (SSID) to a specific VLAN — clients on that WLAN are bridged into that VLAN.",
+   "hi": "Ek logical WLC interface jo ek WLAN (SSID) ko ek specific VLAN se map karta hai — us WLAN ke clients us VLAN mein bridge ho jaate hain."
+  }
+ },
+ {
+  "id": "fc-109",
+  "domain": 2,
+  "tag": "wireless",
+  "front": {
+   "en": "List the ways a lightweight AP can discover a WLC.",
+   "hi": "Lightweight AP WLC ko kin tareekon se discover kar sakta hai?"
+  },
+  "back": {
+   "en": "Primed (previously joined) controller list, DHCP option 43, DNS lookup of CISCO-CAPWAP-CONTROLLER, and a broadcast on the local subnet.",
+   "hi": "Primed (pehle join kiye) controller ki list, DHCP option 43, CISCO-CAPWAP-CONTROLLER ka DNS lookup, aur local subnet par broadcast."
+  }
+ },
+ {
+  "id": "fc-110",
+  "domain": 1,
+  "tag": "wireless",
+  "front": {
+   "en": "What is the trade-off in widening a Wi-Fi channel from 20 MHz to 40/80/160 MHz?",
+   "hi": "Wi-Fi channel ko 20 MHz se 40/80/160 MHz tak wide karne ka trade-off kya hai?"
+  },
+  "back": {
+   "en": "Higher per-client throughput but fewer non-overlapping channels — so more co-channel interference in dense deployments.",
+   "hi": "Har client ka throughput zyada, lekin non-overlapping channels kam — isliye dense deployments mein co-channel interference zyada."
+  }
+ },
+ {
+  "id": "fc-111",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "Which number ranges identify standard ACLs?",
+   "hi": "Kaunsi number ranges standard ACLs ko identify karti hain?"
+  },
+  "back": {
+   "en": "1-99 plus the expanded range 1300-1999.",
+   "hi": "1-99 aur expanded range 1300-1999."
+  }
+ },
+ {
+  "id": "fc-112",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "Which number ranges identify extended ACLs?",
+   "hi": "Kaunsi number ranges extended ACLs ko identify karti hain?"
+  },
+  "back": {
+   "en": "100-199 plus the expanded range 2000-2699.",
+   "hi": "100-199 aur expanded range 2000-2699."
+  }
+ },
+ {
+  "id": "fc-113",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "What can a standard ACL match, and where should it be placed?",
+   "hi": "Standard ACL kya match kar sakta hai, aur use kahan lagana chahiye?"
+  },
+  "back": {
+   "en": "Source IP only — so place it close to the destination to avoid overblocking.",
+   "hi": "Sirf source IP — isliye ise destination ke paas lagao taaki zaroorat se zyada block na ho."
+  }
+ },
+ {
+  "id": "fc-114",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "What can an extended ACL match, and where should it be placed?",
+   "hi": "Extended ACL kya match kar sakta hai, aur use kahan lagana chahiye?"
+  },
+  "back": {
+   "en": "Protocol, source and destination IPs, and source/destination ports — place it close to the source to kill unwanted traffic early.",
+   "hi": "Protocol, source aur destination IPs, aur source/destination ports — ise source ke paas lagao taaki unwanted traffic jaldi khatam ho jaaye."
+  }
+ },
+ {
+  "id": "fc-115",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "What is the wildcard mask for 192.168.4.0/24?",
+   "hi": "192.168.4.0/24 ka wildcard mask kya hai?"
+  },
+  "back": {
+   "en": "0.0.0.255 — wildcard = 255.255.255.255 minus the subnet mask; 0 bits must match, 1 bits are ignored.",
+   "hi": "0.0.0.255 — wildcard = 255.255.255.255 minus subnet mask; 0 bits match hone chahiye, 1 bits ignore hote hain."
+  }
+ },
+ {
+  "id": "fc-116",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "What is the wildcard mask for a /26 subnet?",
+   "hi": "/26 subnet ka wildcard mask kya hai?"
+  },
+  "back": {
+   "en": "0.0.0.63 (mask 255.255.255.192, and 255 - 192 = 63).",
+   "hi": "0.0.0.63 (mask 255.255.255.192, aur 255 - 192 = 63)."
+  }
+ },
+ {
+  "id": "fc-117",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "What are the ACL shortcuts for a single host and for all addresses?",
+   "hi": "Single host aur saare addresses ke liye ACL shortcuts kya hain?"
+  },
+  "back": {
+   "en": "host 10.1.1.1 equals 10.1.1.1 0.0.0.0, and any equals 0.0.0.0 255.255.255.255.",
+   "hi": "host 10.1.1.1 barabar hai 10.1.1.1 0.0.0.0 ke, aur any barabar hai 0.0.0.0 255.255.255.255 ke."
+  }
+ },
+ {
+  "id": "fc-118",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "What rule sits invisibly at the end of every ACL?",
+   "hi": "Har ACL ke end mein kaunsa rule chupa hua baitha hota hai?"
+  },
+  "back": {
+   "en": "An implicit deny any — an ACL containing only deny statements blocks all traffic, so include the permits you need.",
+   "hi": "Ek implicit deny any — jis ACL mein sirf deny statements hon woh saara traffic block karta hai, isliye jo permits chahiye woh zaroor daalo."
+  }
+ },
+ {
+  "id": "fc-119",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "Compare the three port security violation modes.",
+   "hi": "Teeno port security violation modes ko compare karo."
+  },
+  "back": {
+   "en": "protect drops offending frames silently; restrict drops, logs, and increments the violation counter; shutdown (the default) err-disables the entire port.",
+   "hi": "protect galat frames ko chupchaap drop karta hai; restrict drop karta hai, log karta hai aur violation counter badhata hai; shutdown (default) poore port ko err-disable kar deta hai."
+  }
+ },
+ {
+  "id": "fc-120",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "What is the default maximum MAC count when port security is enabled?",
+   "hi": "Port security enable hone par default maximum MAC count kya hota hai?"
+  },
+  "back": {
+   "en": "1 secure MAC address per port.",
+   "hi": "Har port par 1 secure MAC address."
+  }
+ },
+ {
+  "id": "fc-121",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "In DHCP snooping, what is the difference between trusted and untrusted ports?",
+   "hi": "DHCP snooping mein trusted aur untrusted ports mein kya fark hai?"
+  },
+  "back": {
+   "en": "Trusted ports (uplinks toward the real server) may carry OFFER/ACK; on untrusted host ports those server messages are dropped and client bindings are recorded in the binding table.",
+   "hi": "Trusted ports (asli server ki taraf wale uplinks) OFFER/ACK carry kar sakte hain; untrusted host ports par yeh server messages drop ho jaate hain aur client bindings binding table mein record hoti hain."
+  }
+ },
+ {
+  "id": "fc-122",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "How does Dynamic ARP Inspection decide whether an ARP packet is valid?",
+   "hi": "Dynamic ARP Inspection kaise decide karta hai ki ARP packet valid hai ya nahi?"
+  },
+  "back": {
+   "en": "On untrusted ports it checks the sender IP-to-MAC pair against the DHCP snooping binding table (or static ARP ACLs) and drops mismatches.",
+   "hi": "Untrusted ports par yeh sender ke IP-to-MAC pair ko DHCP snooping binding table (ya static ARP ACLs) se check karta hai aur mismatch hone par drop kar deta hai."
+  }
+ },
+ {
+  "id": "fc-123",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "What is MAC address flooding, and what mitigates it?",
+   "hi": "MAC address flooding kya hai, aur ise kya rokta hai?"
+  },
+  "back": {
+   "en": "An attacker fills the CAM table with bogus MACs until the switch floods unicast traffic like a hub for eavesdropping; port security limiting MACs per port stops it.",
+   "hi": "Attacker CAM table ko fake MACs se bhar deta hai, jab tak switch unicast traffic ko hub ki tarah flood na karne lage aur woh sun sake; port security har port par MACs limit karke ise rokta hai."
+  }
+ },
+ {
+  "id": "fc-124",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "How does VLAN hopping via double tagging work, and how is it prevented?",
+   "hi": "Double tagging se VLAN hopping kaise kaam karta hai, aur ise kaise roka jaata hai?"
+  },
+  "back": {
+   "en": "The attacker stacks two 802.1Q tags; the first switch strips the outer native-VLAN tag and forwards into the inner VLAN. Prevent it with an unused native VLAN, keeping hosts off VLAN 1, and disabling DTP.",
+   "hi": "Attacker do 802.1Q tags ek ke upar ek lagata hai; pehla switch bahar wala native-VLAN tag hata deta hai aur frame andar wale VLAN mein forward kar deta hai. Ise rokne ke liye unused native VLAN rakho, hosts ko VLAN 1 se door rakho aur DTP disable karo."
+  }
+ },
+ {
+  "id": "fc-125",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "Distinguish DHCP starvation from DHCP spoofing.",
+   "hi": "DHCP starvation aur DHCP spoofing mein fark batao."
+  },
+  "back": {
+   "en": "Starvation: floods of fake DISCOVERs exhaust the pool (DoS). Spoofing: a rogue server answers clients to become their gateway/DNS (man in the middle). DHCP snooping counters both.",
+   "hi": "Starvation: fake DISCOVERs ki baadh pool khatam kar deti hai (DoS). Spoofing: rogue server clients ko jawab dekar unka gateway/DNS ban jaata hai (man in the middle). DHCP snooping dono ko rokta hai."
+  }
+ },
+ {
+  "id": "fc-126",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "What is ARP poisoning (ARP spoofing)?",
+   "hi": "ARP poisoning (ARP spoofing) kya hai?"
+  },
+  "back": {
+   "en": "Sending forged or gratuitous ARP replies so victims map the gateway IP to the attacker MAC — enabling man-in-the-middle; Dynamic ARP Inspection mitigates it.",
+   "hi": "Forged ya gratuitous ARP replies bhejna taaki victims gateway IP ko attacker ke MAC se map kar lein — isse man-in-the-middle possible hota hai; Dynamic ARP Inspection ise rokta hai."
+  }
+ },
+ {
+  "id": "fc-127",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "Differentiate DoS, DDoS, and amplification attacks.",
+   "hi": "DoS, DDoS aur amplification attacks mein fark batao."
+  },
+  "back": {
+   "en": "DoS: one source exhausts a service. DDoS: many botnet sources at once. Amplification: small spoofed queries (e.g. DNS) trigger huge replies aimed at the victim.",
+   "hi": "DoS: ek source ek service ko exhaust kar deta hai. DDoS: botnet ke bahut saare sources ek saath. Amplification: chhoti spoofed queries (jaise DNS) victim ki taraf bahut bade replies bhijwati hain."
+  }
+ },
+ {
+  "id": "fc-128",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "Define spear phishing, whaling, vishing, and smishing.",
+   "hi": "Spear phishing, whaling, vishing aur smishing define karo."
+  },
+  "back": {
+   "en": "Spear phishing targets a specific person or org; whaling targets executives; vishing uses voice calls; smishing uses SMS messages.",
+   "hi": "Spear phishing kisi specific person ya org ko target karta hai; whaling executives ko target karta hai; vishing voice calls use karta hai; smishing SMS messages use karta hai."
+  }
+ },
+ {
+  "id": "fc-129",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "What is the difference between brute-force and dictionary password attacks?",
+   "hi": "Brute-force aur dictionary password attacks mein kya fark hai?"
+  },
+  "back": {
+   "en": "Brute force tries every possible combination; a dictionary attack tries likely words and leaked passwords first. Mitigate with lockouts, MFA, and strong password policy.",
+   "hi": "Brute force har possible combination try karta hai; dictionary attack pehle likely words aur leaked passwords try karta hai. Lockouts, MFA aur strong password policy se ise roko."
+  }
+ },
+ {
+  "id": "fc-130",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "Name the three 802.1X roles.",
+   "hi": "802.1X ke teen roles ke naam batao."
+  },
+  "back": {
+   "en": "Supplicant (software on the client), authenticator (the switch, AP, or WLC in the path), and authentication server (RADIUS) that validates credentials.",
+   "hi": "Supplicant (client par software), authenticator (raaste mein switch, AP ya WLC), aur authentication server (RADIUS) jo credentials validate karta hai."
+  }
+ },
+ {
+  "id": "fc-131",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "Contrast RADIUS and TACACS+ on transport, encryption, and typical use.",
+   "hi": "Transport, encryption aur typical use ke hisaab se RADIUS aur TACACS+ ko compare karo."
+  },
+  "back": {
+   "en": "RADIUS: UDP 1812/1813, encrypts only the password, merges authentication and authorization — used for network access. TACACS+: TCP 49, encrypts the whole payload, separates AAA — used for device administration.",
+   "hi": "RADIUS: UDP 1812/1813, sirf password encrypt karta hai, authentication aur authorization ko mila deta hai — network access ke liye use hota hai. TACACS+: TCP 49, poora payload encrypt karta hai, AAA ko alag rakhta hai — device administration ke liye use hota hai."
+  }
+ },
+ {
+  "id": "fc-132",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "Define the three As in AAA.",
+   "hi": "AAA ke teen As define karo."
+  },
+  "back": {
+   "en": "Authentication proves who you are; authorization decides what you may do; accounting records what you did.",
+   "hi": "Authentication prove karta hai ki tum kaun ho; authorization decide karta hai ki tum kya kar sakte ho; accounting record karta hai ki tumne kya kiya."
+  }
+ },
+ {
+  "id": "fc-133",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "Compare site-to-site and remote-access VPNs.",
+   "hi": "Site-to-site aur remote-access VPNs ko compare karo."
+  },
+  "back": {
+   "en": "Site-to-site: two gateways build one IPsec tunnel shared transparently by whole sites. Remote access: each host runs client software (TLS or IPsec) to reach the network individually.",
+   "hi": "Site-to-site: do gateways ek IPsec tunnel banate hain jise poori sites transparently share karti hain. Remote access: har host client software (TLS ya IPsec) chalata hai taaki akele network tak pahunch sake."
+  }
+ },
+ {
+  "id": "fc-134",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "In IPsec, what does ESP provide that AH does not?",
+   "hi": "IPsec mein ESP kya deta hai jo AH nahi deta?"
+  },
+  "back": {
+   "en": "Encryption (confidentiality). Both give integrity, origin authentication, and anti-replay — AH never encrypts, which is why real deployments use ESP.",
+   "hi": "Encryption (confidentiality). Dono integrity, origin authentication aur anti-replay dete hain — AH kabhi encrypt nahi karta, isiliye asli deployments ESP use karte hain."
+  }
+ },
+ {
+  "id": "fc-135",
+  "domain": 5,
+  "tag": "security-acl",
+  "front": {
+   "en": "What does the CIA triad stand for?",
+   "hi": "CIA triad ka matlab kya hai?"
+  },
+  "back": {
+   "en": "Confidentiality, Integrity, Availability — classically protected by encryption, hashing, and redundancy respectively.",
+   "hi": "Confidentiality, Integrity, Availability — classic taur par inhe encryption, hashing aur redundancy, isi order mein, protect karte hain."
+  }
+ },
+ {
+  "id": "fc-136",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "Rank eBGP, EIGRP, OSPF, and RIP by administrative distance.",
+   "hi": "eBGP, EIGRP, OSPF aur RIP ko administrative distance ke hisaab se rank karo."
+  },
+  "back": {
+   "en": "eBGP 20 < EIGRP 90 < OSPF 110 < RIP 120. Hook: the ladder climbs 20-90-110-120.",
+   "hi": "eBGP 20 < EIGRP 90 < OSPF 110 < RIP 120. Yaad rakho: ladder 20-90-110-120 chadhti hai."
+  }
+ },
+ {
+  "id": "fc-137",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "When does administrative distance matter versus metric?",
+   "hi": "Administrative distance kab matter karta hai aur metric kab?"
+  },
+  "back": {
+   "en": "AD picks between different routing sources offering the same prefix (lower wins); metric compares paths within a single protocol.",
+   "hi": "AD alag-alag routing sources ke beech chunta hai jo same prefix de rahe hon (kam wala jeetta hai); metric ek hi protocol ke andar paths ko compare karta hai."
+  }
+ },
+ {
+  "id": "fc-138",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "A destination matches both 10.0.0.0/8 from OSPF and 10.1.1.0/24 from RIP. Which route forwards the packet?",
+   "hi": "Ek destination OSPF se aaye 10.0.0.0/8 aur RIP se aaye 10.1.1.0/24 dono se match karta hai. Packet kaunsa route forward karega?"
+  },
+  "back": {
+   "en": "The RIP /24 — longest prefix match is evaluated before AD or metric ever come into play. Hook: most specific always wins.",
+   "hi": "RIP wala /24 — longest prefix match AD ya metric se pehle hi evaluate hota hai. Yaad rakho: sabse specific hamesha jeetta hai."
+  }
+ },
+ {
+  "id": "fc-139",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "In show ip route, what does [110/2] mean?",
+   "hi": "show ip route mein [110/2] ka kya matlab hai?"
+  },
+  "back": {
+   "en": "Administrative distance 110 (OSPF) and metric 2 (total path cost) — the format is always [AD/metric].",
+   "hi": "Administrative distance 110 (OSPF) aur metric 2 (total path cost) — format hamesha [AD/metric] hota hai."
+  }
+ },
+ {
+  "id": "fc-140",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "Decode the routing table codes C, L, S, S*, O, and O IA.",
+   "hi": "Routing table codes C, L, S, S*, O aur O IA decode karo."
+  },
+  "back": {
+   "en": "C connected network, L local /32 for the interface address, S static, S* candidate default static, O intra-area OSPF, O IA inter-area OSPF.",
+   "hi": "C connected network, L interface address ka local /32, S static, S* candidate default static, O intra-area OSPF, O IA inter-area OSPF."
+  }
+ },
+ {
+  "id": "fc-141",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "List the OSPF neighbor states in order.",
+   "hi": "OSPF neighbor states ko order mein batao."
+  },
+  "back": {
+   "en": "Down, Init, 2-Way, ExStart, Exchange, Loading, Full.",
+   "hi": "Down, Init, 2-Way, ExStart, Exchange, Loading, Full."
+  }
+ },
+ {
+  "id": "fc-142",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "Why can 2-Way be a normal, final OSPF state?",
+   "hi": "2-Way ek normal, final OSPF state kyun ho sakti hai?"
+  },
+  "back": {
+   "en": "Two DROther routers on a broadcast segment stay at 2-Way with each other — they form Full adjacencies only with the DR and BDR.",
+   "hi": "Broadcast segment par do DROther routers aapas mein 2-Way par hi rehte hain — woh Full adjacencies sirf DR aur BDR ke saath banate hain."
+  }
+ },
+ {
+  "id": "fc-143",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "OSPF neighbors are stuck cycling in ExStart/Exchange. What is the classic cause?",
+   "hi": "OSPF neighbors ExStart/Exchange mein atke hue ghoom rahe hain. Classic cause kya hai?"
+  },
+  "back": {
+   "en": "An MTU mismatch between the interfaces (or duplicate router IDs) — the database description exchange cannot complete.",
+   "hi": "Interfaces ke beech MTU mismatch (ya duplicate router IDs) — database description exchange poora nahi ho paata."
+  }
+ },
+ {
+  "id": "fc-144",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "What must match for two routers to become OSPF neighbors?",
+   "hi": "Do routers ke OSPF neighbors banne ke liye kya match hona chahiye?"
+  },
+  "back": {
+   "en": "Same subnet, area ID, hello and dead timers, authentication, and stub flags — plus unique router IDs and matching MTU to reach Full.",
+   "hi": "Same subnet, area ID, hello aur dead timers, authentication aur stub flags — saath mein Full tak pahunchne ke liye unique router IDs aur matching MTU."
+  }
+ },
+ {
+  "id": "fc-145",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "How does OSPF choose its router ID?",
+   "hi": "OSPF apna router ID kaise chunta hai?"
+  },
+  "back": {
+   "en": "Manually configured router-id first; else the highest loopback IP; else the highest active physical interface IP. Set it manually for stability.",
+   "hi": "Pehle manually configured router-id; warna sabse highest loopback IP; warna sabse highest active physical interface IP. Stability ke liye ise manually set karo."
+  }
+ },
+ {
+  "id": "fc-146",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "How are the OSPF DR and BDR elected?",
+   "hi": "OSPF DR aur BDR kaise elect hote hain?"
+  },
+  "back": {
+   "en": "Highest interface priority wins (default 1; 0 = ineligible); ties break on highest router ID. The election is non-preemptive — a better router must wait for the DR to fail.",
+   "hi": "Sabse highest interface priority jeetti hai (default 1; 0 = ineligible); tie hone par highest router ID se faisla hota hai. Election non-preemptive hai — behtar router ko DR fail hone ka wait karna padta hai."
+  }
+ },
+ {
+  "id": "fc-147",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "What do OSPF LSA types 1, 2, and 5 describe?",
+   "hi": "OSPF LSA types 1, 2 aur 5 kya describe karte hain?"
+  },
+  "back": {
+   "en": "Type 1 router LSA: each router's own links, flooded within the area. Type 2 network LSA: generated by the DR for a multi-access segment. Type 5 external LSA: routes redistributed by an ASBR.",
+   "hi": "Type 1 router LSA: har router ke apne links, area ke andar flood hote hain. Type 2 network LSA: multi-access segment ke liye DR generate karta hai. Type 5 external LSA: ASBR ke redistribute kiye gaye routes."
+  }
+ },
+ {
+  "id": "fc-148",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "How is an OSPF route's metric calculated?",
+   "hi": "OSPF route ka metric kaise calculate hota hai?"
+  },
+  "back": {
+   "en": "The sum of outgoing interface costs along the path, where each cost = reference bandwidth / interface bandwidth.",
+   "hi": "Path ke saare outgoing interface costs ka total, jahan har cost = reference bandwidth / interface bandwidth."
+  }
+ },
+ {
+  "id": "fc-149",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "What is the role of OSPF area 0?",
+   "hi": "OSPF area 0 ka role kya hai?"
+  },
+  "back": {
+   "en": "It is the backbone — every other area must attach to it through an ABR, a router with interfaces in both areas.",
+   "hi": "Yeh backbone hai — har doosre area ko ise ABR ke through judna padta hai, yaani aisa router jiske interfaces dono areas mein hon."
+  }
+ },
+ {
+  "id": "fc-150",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "Which multicast addresses does OSPF use?",
+   "hi": "OSPF kaunse multicast addresses use karta hai?"
+  },
+  "back": {
+   "en": "224.0.0.5 to reach all OSPF routers and 224.0.0.6 for the DR/BDR (OSPFv3 mirrors these as ff02::5 and ff02::6).",
+   "hi": "Saare OSPF routers tak pahunchne ke liye 224.0.0.5 aur DR/BDR ke liye 224.0.0.6 (OSPFv3 mein yahi ff02::5 aur ff02::6 hain)."
+  }
+ },
+ {
+  "id": "fc-151",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "Static routes: when do you specify a next-hop IP versus an exit interface?",
+   "hi": "Static routes: next-hop IP kab dete ho aur exit interface kab?"
+  },
+  "back": {
+   "en": "Use a next-hop IP on multi-access (Ethernet) links; an exit interface alone belongs only on true point-to-point links — on Ethernet it forces an ARP for every destination.",
+   "hi": "Multi-access (Ethernet) links par next-hop IP use karo; sirf exit interface asli point-to-point links par hi theek hai — Ethernet par isse har destination ke liye ARP karna padta hai."
+  }
+ },
+ {
+  "id": "fc-152",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "What makes a static route a floating static route?",
+   "hi": "Static route ko floating static route kya banata hai?"
+  },
+  "back": {
+   "en": "An administrative distance set higher than the dynamic protocol it backs up (e.g. 250 versus OSPF 110), keeping it out of the table until the primary route is lost.",
+   "hi": "Administrative distance ko us dynamic protocol se zyada set karna jiska woh backup hai (jaise 250 vs OSPF 110), taaki woh table se bahar rahe jab tak primary route lost na ho."
+  }
+ },
+ {
+  "id": "fc-153",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "Write default routes for IPv4 to 203.0.113.1 and for IPv6 to 2001:db8::1.",
+   "hi": "IPv4 ke liye 203.0.113.1 aur IPv6 ke liye 2001:db8::1 ki taraf default routes likho."
+  },
+  "back": {
+   "en": "ip route 0.0.0.0 0.0.0.0 203.0.113.1 and ipv6 route ::/0 2001:db8::1.",
+   "hi": "ip route 0.0.0.0 0.0.0.0 203.0.113.1 aur ipv6 route ::/0 2001:db8::1."
+  }
+ },
+ {
+  "id": "fc-154",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "Which routes exist on a router with no routing configuration at all?",
+   "hi": "Jis router par koi routing configuration nahi hai, us par kaunse routes hote hain?"
+  },
+  "back": {
+   "en": "C (connected) and L (local host-route) entries for every interface that is up/up with an address configured.",
+   "hi": "Har us interface ke liye C (connected) aur L (local host-route) entries jo up/up hai aur jis par address configured hai."
+  }
+ },
+ {
+  "id": "fc-155",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "What is the HSRPv1 virtual MAC address format?",
+   "hi": "HSRPv1 virtual MAC address ka format kya hai?"
+  },
+  "back": {
+   "en": "0000.0c07.acXX, where XX is the group number in hex — group 10 gives 0000.0c07.ac0a. HSRPv2 uses 0000.0c9f.f000 through 0000.0c9f.ffff.",
+   "hi": "0000.0c07.acXX, jahan XX group number hex mein hai — group 10 se 0000.0c07.ac0a banta hai. HSRPv2 0000.0c9f.f000 se 0000.0c9f.ffff tak use karta hai."
+  }
+ },
+ {
+  "id": "fc-156",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "How is the HSRP active router chosen, and when can it be displaced?",
+   "hi": "HSRP active router kaise chuna jaata hai, aur use kab hataya ja sakta hai?"
+  },
+  "back": {
+   "en": "Highest priority wins; ties go to the highest interface IP. A recovered router takes over only if standby preempt is configured.",
+   "hi": "Sabse highest priority jeetti hai; tie hone par highest interface IP. Wapas aaya router sirf tab takeover karta hai jab standby preempt configured ho."
+  }
+ },
+ {
+  "id": "fc-157",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "List the HSRP states in order.",
+   "hi": "HSRP states ko order mein batao."
+  },
+  "back": {
+   "en": "Initial, Learn, Listen, Speak, Standby, Active. Hook: I Learn to Listen before I Speak, then Stand by to become Active.",
+   "hi": "Initial, Learn, Listen, Speak, Standby, Active. Yaad rakho: I Learn to Listen before I Speak, then Stand by to become Active."
+  }
+ },
+ {
+  "id": "fc-158",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "Give a one-line difference between HSRP, VRRP, and GLBP.",
+   "hi": "HSRP, VRRP aur GLBP mein ek line ka fark batao."
+  },
+  "back": {
+   "en": "HSRP: Cisco-proprietary active/standby. VRRP: the open-standard equivalent (master/backup). GLBP: Cisco-proprietary and load-balances across multiple active forwarders.",
+   "hi": "HSRP: Cisco-proprietary active/standby. VRRP: iska open-standard version (master/backup). GLBP: Cisco-proprietary hai aur multiple active forwarders par load-balance karta hai."
+  }
+ },
+ {
+  "id": "fc-159",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "What happens to a packet whose destination matches no route in the table?",
+   "hi": "Jis packet ka destination table ke kisi route se match nahi karta, uska kya hota hai?"
+  },
+  "back": {
+   "en": "The router drops it and may send ICMP destination unreachable — unless a default route (gateway of last resort) exists.",
+   "hi": "Router use drop kar deta hai aur ICMP destination unreachable bhej sakta hai — jab tak koi default route (gateway of last resort) na ho."
+  }
+ },
+ {
+  "id": "fc-160",
+  "domain": 3,
+  "tag": "routing-ospf",
+  "front": {
+   "en": "What does a router change in a packet when forwarding it?",
+   "hi": "Packet forward karte waqt router usme kya badalta hai?"
+  },
+  "back": {
+   "en": "It decrements the IP TTL, rewrites source and destination MACs for the next hop (learned via ARP), and recomputes the FCS — source and destination IPs stay unchanged unless NAT applies.",
+   "hi": "IP TTL ko ek kam karta hai, next hop ke liye source aur destination MACs dobara likhta hai (ARP se seekhe hue), aur FCS dobara calculate karta hai — source aur destination IPs same rehte hain jab tak NAT apply na ho."
+  }
+ },
+ {
+  "id": "fc-161",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "What is the IPv6 global unicast prefix?",
+   "hi": "IPv6 global unicast prefix kya hai?"
+  },
+  "back": {
+   "en": "2000::/3 — addresses beginning with 2 or 3; the internet-routable range.",
+   "hi": "2000::/3 — 2 ya 3 se shuru hone wale addresses; yahi internet-routable range hai."
+  }
+ },
+ {
+  "id": "fc-162",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "What is the IPv6 link-local prefix, and where is it required?",
+   "hi": "IPv6 link-local prefix kya hai, aur yeh kahan zaroori hai?"
+  },
+  "back": {
+   "en": "fe80::/10 — automatically present on every IPv6 interface; valid only on its own link and used for next hops and routing protocol peering.",
+   "hi": "fe80::/10 — har IPv6 interface par apne aap hota hai; sirf apne link par valid hai aur next hops aur routing protocol peering ke liye use hota hai."
+  }
+ },
+ {
+  "id": "fc-163",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "What is the IPv6 unique local prefix?",
+   "hi": "IPv6 unique local prefix kya hai?"
+  },
+  "back": {
+   "en": "fc00::/7, in practice fd00::/8 — the IPv6 analogue of RFC 1918 private space, not routable on the internet.",
+   "hi": "fc00::/7, practically fd00::/8 — RFC 1918 private space ka IPv6 version, internet par routable nahi."
+  }
+ },
+ {
+  "id": "fc-164",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "Which prefix marks IPv6 multicast addresses?",
+   "hi": "Kaunsa prefix IPv6 multicast addresses ko mark karta hai?"
+  },
+  "back": {
+   "en": "ff00::/8. Hook: ff = flood forward, one-to-many.",
+   "hi": "ff00::/8. Yaad rakho: ff = flood forward, one-to-many."
+  }
+ },
+ {
+  "id": "fc-165",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "What is a solicited-node multicast address, and what uses it?",
+   "hi": "Solicited-node multicast address kya hai, aur ise kaun use karta hai?"
+  },
+  "back": {
+   "en": "ff02::1:ff followed by the last 24 bits of the unicast address; NDP neighbor solicitations target it instead of broadcasting — the ARP replacement.",
+   "hi": "ff02::1:ff ke baad unicast address ke aakhri 24 bits; NDP neighbor solicitations broadcast karne ki jagah ise target karte hain — yahi ARP ka replacement hai."
+  }
+ },
+ {
+  "id": "fc-166",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "What do ff02::1 and ff02::2 reach?",
+   "hi": "ff02::1 aur ff02::2 kis tak pahunchte hain?"
+  },
+  "back": {
+   "en": "ff02::1 reaches all nodes on the link; ff02::2 reaches all routers. Hook: 1 = everyone, 2 = the routers.",
+   "hi": "ff02::1 link ke saare nodes tak pahunchta hai; ff02::2 saare routers tak. Yaad rakho: 1 = sab log, 2 = routers."
+  }
+ },
+ {
+  "id": "fc-167",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "Which multicast addresses does OSPFv3 use?",
+   "hi": "OSPFv3 kaunse multicast addresses use karta hai?"
+  },
+  "back": {
+   "en": "ff02::5 for all OSPF routers and ff02::6 for the DR/BDR — mirroring 224.0.0.5 and 224.0.0.6 in IPv4.",
+   "hi": "Saare OSPF routers ke liye ff02::5 aur DR/BDR ke liye ff02::6 — IPv4 ke 224.0.0.5 aur 224.0.0.6 jaise hi."
+  }
+ },
+ {
+  "id": "fc-168",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "What are ::1, ::, and ::/0?",
+   "hi": "::1, :: aur ::/0 kya hain?"
+  },
+  "back": {
+   "en": "::1 is loopback, :: is the unspecified address (no address yet), and ::/0 is the default route.",
+   "hi": "::1 loopback hai, :: unspecified address hai (abhi tak koi address nahi), aur ::/0 default route hai."
+  }
+ },
+ {
+  "id": "fc-169",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "Describe the EUI-64 interface ID process.",
+   "hi": "EUI-64 interface ID ka process samjhao."
+  },
+  "back": {
+   "en": "Split the 48-bit MAC in half, insert fffe in the middle, then flip the 7th bit of the first byte (the U/L bit). Hook: split, stuff fffe, flip.",
+   "hi": "48-bit MAC ko beech se do hisson mein todo, beech mein fffe daalo, phir pehle byte ka 7th bit (U/L bit) flip karo. Yaad rakho: split, fffe stuff, flip."
+  }
+ },
+ {
+  "id": "fc-170",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "How does SLAAC give a host an address?",
+   "hi": "SLAAC host ko address kaise deta hai?"
+  },
+  "back": {
+   "en": "The host sends a Router Solicitation; the Router Advertisement supplies prefix and gateway; the host appends an EUI-64 or random interface ID and confirms uniqueness with DAD — no server keeps state.",
+   "hi": "Host Router Solicitation bhejta hai; Router Advertisement prefix aur gateway deta hai; host EUI-64 ya random interface ID jodta hai aur DAD se uniqueness confirm karta hai — koi server state nahi rakhta."
+  }
+ },
+ {
+  "id": "fc-171",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "Which NDP messages replace ARP, and which support SLAAC?",
+   "hi": "Kaunse NDP messages ARP ki jagah lete hain, aur kaunse SLAAC ko support karte hain?"
+  },
+  "back": {
+   "en": "Neighbor Solicitation and Neighbor Advertisement resolve MACs; Router Solicitation and Router Advertisement deliver prefix and gateway info. All are ICMPv6.",
+   "hi": "Neighbor Solicitation aur Neighbor Advertisement MACs resolve karte hain; Router Solicitation aur Router Advertisement prefix aur gateway info dete hain. Yeh sab ICMPv6 hain."
+  }
+ },
+ {
+  "id": "fc-172",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "What are the two rules for shortening an IPv6 address?",
+   "hi": "IPv6 address chhota karne ke do rules kya hain?"
+  },
+  "back": {
+   "en": "Drop leading zeros within each quartet, and replace one run of consecutive all-zero quartets with a double colon — used only once, on the longest run.",
+   "hi": "Har quartet ke leading zeros hata do, aur lagataar all-zero quartets ke ek run ko double colon se replace karo — sirf ek baar, sabse lambe run par."
+  }
+ },
+ {
+  "id": "fc-173",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "What is an IPv6 anycast address?",
+   "hi": "IPv6 anycast address kya hai?"
+  },
+  "back": {
+   "en": "A normal unicast address configured on several devices at once; routing delivers each packet to the nearest holder. Same format as unicast — no special prefix.",
+   "hi": "Ek normal unicast address jo ek saath kai devices par configured hota hai; routing har packet ko sabse nazdeeki holder tak pahunchata hai. Format unicast jaisa hi — koi special prefix nahi."
+  }
+ },
+ {
+  "id": "fc-174",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "Does IPv6 have broadcast?",
+   "hi": "Kya IPv6 mein broadcast hota hai?"
+  },
+  "back": {
+   "en": "No — the all-nodes multicast ff02::1 covers the rare need, and most jobs use targeted multicast such as solicited-node.",
+   "hi": "Nahi — kabhi-kabhar ki zaroorat all-nodes multicast ff02::1 se poori hoti hai, aur zyadatar kaam solicited-node jaise targeted multicast se hote hain."
+  }
+ },
+ {
+  "id": "fc-175",
+  "domain": 1,
+  "tag": "ipv6",
+  "front": {
+   "en": "What prefix length do standard IPv6 LANs use, and why?",
+   "hi": "Standard IPv6 LANs kaunsi prefix length use karte hain, aur kyun?"
+  },
+  "back": {
+   "en": "/64 — SLAAC and EUI-64 require a 64-bit interface ID; subnetting happens in the bits between a site's /48 and /64.",
+   "hi": "/64 — SLAAC aur EUI-64 ko 64-bit interface ID chahiye; subnetting site ke /48 aur /64 ke beech ke bits mein hoti hai."
+  }
+ },
+ {
+  "id": "fc-176",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "What are 2 to the 8th, 2 to the 10th, and 2 to the 12th?",
+   "hi": "2 to the 8th, 2 to the 10th aur 2 to the 12th kya hain?"
+  },
+  "back": {
+   "en": "256, 1024, and 4096. Hook: every two extra exponents multiplies by 4.",
+   "hi": "256, 1024 aur 4096. Yaad rakho: har do extra exponents par 4 se multiply hota hai."
+  }
+ },
+ {
+  "id": "fc-177",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "How many usable hosts does a /24 provide?",
+   "hi": "/24 kitne usable hosts deta hai?"
+  },
+  "back": {
+   "en": "254 — 256 addresses minus the network and broadcast.",
+   "hi": "254 — 256 addresses mein se network aur broadcast minus."
+  }
+ },
+ {
+  "id": "fc-178",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "How many usable hosts do /25, /26, and /27 provide?",
+   "hi": "/25, /26 aur /27 kitne usable hosts dete hain?"
+  },
+  "back": {
+   "en": "126, 62, and 30 — block sizes 128, 64, and 32, each minus 2 for network and broadcast.",
+   "hi": "126, 62 aur 30 — block sizes 128, 64 aur 32, har ek mein se network aur broadcast ke liye 2 minus."
+  }
+ },
+ {
+  "id": "fc-179",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "How many usable hosts do /28, /29, and /30 provide?",
+   "hi": "/28, /29 aur /30 kitne usable hosts dete hain?"
+  },
+  "back": {
+   "en": "14, 6, and 2 — blocks of 16, 8, and 4 minus 2.",
+   "hi": "14, 6 aur 2 — 16, 8 aur 4 ke blocks minus 2."
+  }
+ },
+ {
+  "id": "fc-180",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "Why use /31 instead of /30 on point-to-point links?",
+   "hi": "Point-to-point links par /30 ki jagah /31 kyun use karte hain?"
+  },
+  "back": {
+   "en": "A /31 (RFC 3021) uses both of its addresses — with only two devices no network or broadcast address is needed — while a /30 wastes 2 of its 4.",
+   "hi": "/31 (RFC 3021) apne dono addresses use karta hai — sirf do devices hain toh network ya broadcast address ki zaroorat nahi — jabki /30 apne 4 mein se 2 waste karta hai."
+  }
+ },
+ {
+  "id": "fc-181",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "What is the magic number method?",
+   "hi": "Magic number method kya hai?"
+  },
+  "back": {
+   "en": "Magic number = 256 minus the interesting mask octet; subnets start at its multiples. Mask .192 gives 64, so subnets begin at 0, 64, 128, 192.",
+   "hi": "Magic number = 256 minus interesting mask octet; subnets iske multiples par shuru hote hain. Mask .192 se 64 milta hai, isliye subnets 0, 64, 128, 192 par shuru hote hain."
+  }
+ },
+ {
+  "id": "fc-182",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "Which subnet does 172.16.5.77/26 belong to?",
+   "hi": "172.16.5.77/26 kis subnet mein aata hai?"
+  },
+  "back": {
+   "en": "172.16.5.64 — hosts .65 to .126, broadcast .127 (block size 64: subnets at 0, 64, 128, 192).",
+   "hi": "172.16.5.64 — hosts .65 se .126, broadcast .127 (block size 64: subnets 0, 64, 128, 192 par)."
+  }
+ },
+ {
+  "id": "fc-183",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "List the three RFC 1918 private address ranges.",
+   "hi": "Teeno RFC 1918 private address ranges batao."
+  },
+  "back": {
+   "en": "10.0.0.0/8, 172.16.0.0/12 (172.16 through 172.31), and 192.168.0.0/16.",
+   "hi": "10.0.0.0/8, 172.16.0.0/12 (172.16 se 172.31 tak), aur 192.168.0.0/16."
+  }
+ },
+ {
+  "id": "fc-184",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "A PC shows the address 169.254.33.17. What does that tell you?",
+   "hi": "Ek PC ka address 169.254.33.17 dikh raha hai. Isse kya pata chalta hai?"
+  },
+  "back": {
+   "en": "It self-assigned an APIPA link-local address from 169.254.0.0/16 — no DHCP server answered. Check DHCP service and connectivity.",
+   "hi": "Usne 169.254.0.0/16 se khud APIPA link-local address le liya — kisi DHCP server ne jawab nahi diya. DHCP service aur connectivity check karo."
+  }
+ },
+ {
+  "id": "fc-185",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "Convert /20 to a dotted-decimal mask.",
+   "hi": "/20 ko dotted-decimal mask mein convert karo."
+  },
+  "back": {
+   "en": "255.255.240.0 — 4 subnet bits in the third octet: 128+64+32+16 = 240.",
+   "hi": "255.255.240.0 — third octet mein 4 subnet bits: 128+64+32+16 = 240."
+  }
+ },
+ {
+  "id": "fc-186",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "How many /28 subnets fit inside one /24?",
+   "hi": "Ek /24 mein kitne /28 subnets fit hote hain?"
+  },
+  "back": {
+   "en": "16 — four extra subnet bits give 2 to the 4th; each /28 holds 14 hosts.",
+   "hi": "16 — chaar extra subnet bits se 2 to the 4th milta hai; har /28 mein 14 hosts aate hain."
+  }
+ },
+ {
+  "id": "fc-187",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "A LAN needs 500 hosts. What is the smallest prefix that works?",
+   "hi": "Ek LAN ko 500 hosts chahiye. Sabse chhota prefix kaunsa kaam karega?"
+  },
+  "back": {
+   "en": "/23 — 512 addresses, 510 usable. A /24 tops out at 254.",
+   "hi": "/23 — 512 addresses, 510 usable. /24 mein maximum 254 hi aate hain."
+  }
+ },
+ {
+  "id": "fc-188",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "You must carve a /24 into at least 6 equal subnets. What prefix results?",
+   "hi": "Tumhe ek /24 ko kam se kam 6 barabar subnets mein baantna hai. Kaunsa prefix banega?"
+  },
+  "back": {
+   "en": "Borrow 3 bits (2 to the 3rd = 8 subnets), giving /27 networks with 30 hosts each.",
+   "hi": "3 bits borrow karo (2 to the 3rd = 8 subnets), jisse /27 networks bante hain, har ek mein 30 hosts."
+  }
+ },
+ {
+  "id": "fc-189",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "How do you find the network and broadcast addresses of any subnet?",
+   "hi": "Kisi bhi subnet ke network aur broadcast addresses kaise nikalte ho?"
+  },
+  "back": {
+   "en": "Network = all host bits set to 0; broadcast = all host bits set to 1; the usable range is everything in between.",
+   "hi": "Network = saare host bits 0; broadcast = saare host bits 1; usable range inke beech ka sab kuch hai."
+  }
+ },
+ {
+  "id": "fc-190",
+  "domain": 1,
+  "tag": "subnetting",
+  "front": {
+   "en": "What are the first-octet ranges for classes A, B, C, and D?",
+   "hi": "Classes A, B, C aur D ke first-octet ranges kya hain?"
+  },
+  "back": {
+   "en": "A: 1-126 (127 is loopback), B: 128-191, C: 192-223, D: 224-239 multicast (E: 240-255 experimental).",
+   "hi": "A: 1-126 (127 loopback hai), B: 128-191, C: 192-223, D: 224-239 multicast (E: 240-255 experimental)."
+  }
+ },
+ {
+  "id": "fc-191",
+  "domain": 4,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "Name the four DHCP DORA messages and who sends each.",
+   "hi": "Chaaron DHCP DORA messages ke naam batao aur har ek kaun bhejta hai."
+  },
+  "back": {
+   "en": "Discover (client, broadcast), Offer (server), Request (client, broadcast — accepts one offer), Ack (server). Hook: DORA.",
+   "hi": "Discover (client, broadcast), Offer (server), Request (client, broadcast — ek offer accept karta hai), Ack (server). Yaad rakho: DORA."
+  }
+ },
+ {
+  "id": "fc-192",
+  "domain": 4,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "Define inside local, inside global, outside local, and outside global.",
+   "hi": "Inside local, inside global, outside local aur outside global define karo."
+  },
+  "back": {
+   "en": "Inside local: the private IP of your host. Inside global: its translated public address. Outside global: the real IP of the external host. Outside local: how that external host appears inside (usually identical).",
+   "hi": "Inside local: tumhare host ka private IP. Inside global: uska translated public address. Outside global: external host ka asli IP. Outside local: woh external host andar se kaisa dikhta hai (aam taur par same)."
+  }
+ },
+ {
+  "id": "fc-193",
+  "domain": 4,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "List the syslog severity levels 0 through 7.",
+   "hi": "Syslog severity levels 0 se 7 tak batao."
+  },
+  "back": {
+   "en": "0 Emergency, 1 Alert, 2 Critical, 3 Error, 4 Warning, 5 Notification, 6 Informational, 7 Debugging — lower number = more severe. Hook: Every Awesome Cisco Engineer Will Need Ice-cream Daily.",
+   "hi": "0 Emergency, 1 Alert, 2 Critical, 3 Error, 4 Warning, 5 Notification, 6 Informational, 7 Debugging — number jitna kam, utna zyada severe. Yaad rakho: Every Awesome Cisco Engineer Will Need Ice-cream Daily."
+  }
+ },
+ {
+  "id": "fc-194",
+  "domain": 4,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "What are the parts of the SNMP framework?",
+   "hi": "SNMP framework ke parts kya hain?"
+  },
+  "back": {
+   "en": "The manager (NMS) polls; the agent runs on the device; the MIB is the tree of OID variables the agent exposes; operations are get, set, and trap/inform.",
+   "hi": "Manager (NMS) poll karta hai; agent device par chalta hai; MIB OID variables ka tree hai jo agent expose karta hai; operations hain get, set aur trap/inform."
+  }
+ },
+ {
+  "id": "fc-195",
+  "domain": 4,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "Why prefer SNMPv3 over SNMPv2c?",
+   "hi": "SNMPv2c ki jagah SNMPv3 kyun prefer karein?"
+  },
+  "back": {
+   "en": "v2c authenticates with plaintext community strings; v3 adds user-based authentication and encryption — the authPriv level gives both integrity and confidentiality.",
+   "hi": "v2c plaintext community strings se authenticate karta hai; v3 user-based authentication aur encryption jodta hai — authPriv level integrity aur confidentiality dono deta hai."
+  }
+ },
+ {
+  "id": "fc-196",
+  "domain": 4,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "What does NTP stratum indicate?",
+   "hi": "NTP stratum kya batata hai?"
+  },
+  "back": {
+   "en": "Distance from the reference clock: stratum 0 is the clock itself, stratum 1 is a server directly attached to it, and each hop adds 1; 15 is the highest usable value and 16 means unsynchronized.",
+   "hi": "Reference clock se doori: stratum 0 khud clock hai, stratum 1 woh server hai jo seedha usse juda hai, aur har hop 1 jodta hai; 15 sabse highest usable value hai aur 16 ka matlab unsynchronized."
+  }
+ },
+ {
+  "id": "fc-197",
+  "domain": 4,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "Which DSCP value marks voice traffic, and what is it called?",
+   "hi": "Kaunsi DSCP value voice traffic ko mark karti hai, aur use kya kehte hain?"
+  },
+  "back": {
+   "en": "EF (Expedited Forwarding), decimal 46 — queued in a priority LLQ. Hook: EF 46 for the voice picks.",
+   "hi": "EF (Expedited Forwarding), decimal 46 — priority LLQ mein queue hota hai. Yaad rakho: EF 46 for the voice picks."
+  }
+ },
+ {
+  "id": "fc-198",
+  "domain": 4,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "Where do CoS and DSCP QoS markings live?",
+   "hi": "CoS aur DSCP QoS markings kahan rehti hain?"
+  },
+  "back": {
+   "en": "CoS is the 3-bit PCP field in the 802.1Q tag (0-7, exists only on trunks); DSCP is 6 bits of the IP header ToS/DiffServ byte and survives end to end.",
+   "hi": "CoS 802.1Q tag ka 3-bit PCP field hai (0-7, sirf trunks par hota hai); DSCP IP header ke ToS/DiffServ byte ke 6 bits hain aur end to end bacha rehta hai."
+  }
+ },
+ {
+  "id": "fc-199",
+  "domain": 4,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "Policing versus shaping — what is the difference?",
+   "hi": "Policing vs shaping — kya fark hai?"
+  },
+  "back": {
+   "en": "Policing drops or re-marks traffic exceeding the rate; shaping buffers and delays it to smooth bursts. Hook: police punish, shapers queue.",
+   "hi": "Policing rate se zyada traffic ko drop ya re-mark karta hai; shaping use buffer aur delay karke bursts ko smooth karta hai. Yaad rakho: police saza deti hai, shapers queue karte hain."
+  }
+ },
+ {
+  "id": "fc-200",
+  "domain": 1,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "List the fields of an Ethernet frame and its size limits.",
+   "hi": "Ethernet frame ke fields aur uski size limits batao."
+  },
+  "back": {
+   "en": "Preamble+SFD, destination MAC, source MAC, Type/Length, payload, FCS (a CRC). Minimum frame 64 bytes; standard maximum 1518 (1522 with an 802.1Q tag).",
+   "hi": "Preamble+SFD, destination MAC, source MAC, Type/Length, payload, FCS (ek CRC). Minimum frame 64 bytes; standard maximum 1518 (802.1Q tag ke saath 1522)."
+  }
+ },
+ {
+  "id": "fc-201",
+  "domain": 1,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "What is the default Ethernet IP MTU, and what happens when an IPv4 packet exceeds it?",
+   "hi": "Default Ethernet IP MTU kya hai, aur jab IPv4 packet isse bada ho toh kya hota hai?"
+  },
+  "back": {
+   "en": "1500 bytes; the router fragments the packet — unless the DF bit is set, in which case it drops it and returns ICMP fragmentation-needed.",
+   "hi": "1500 bytes; router packet ko fragment karta hai — lekin agar DF bit set hai, toh use drop karke ICMP fragmentation-needed wapas bhejta hai."
+  }
+ },
+ {
+  "id": "fc-202",
+  "domain": 1,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "Compare TCP and UDP header sizes and name key TCP-only fields.",
+   "hi": "TCP aur UDP header sizes compare karo aur key TCP-only fields ke naam batao."
+  },
+  "back": {
+   "en": "TCP: 20-byte minimum header with sequence and acknowledgment numbers, flags, and a window field for flow control. UDP: a fixed 8 bytes — just ports, length, checksum.",
+   "hi": "TCP: minimum 20-byte header jisme sequence aur acknowledgment numbers, flags, aur flow control ke liye window field hota hai. UDP: fixed 8 bytes — sirf ports, length, checksum."
+  }
+ },
+ {
+  "id": "fc-203",
+  "domain": 1,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "Describe the TCP three-way handshake.",
+   "hi": "TCP three-way handshake samjhao."
+  },
+  "back": {
+   "en": "Client sends SYN, server answers SYN-ACK, client completes with ACK — sequence numbers are synchronized in both directions. Teardown uses FIN/ACK exchanges.",
+   "hi": "Client SYN bhejta hai, server SYN-ACK se jawab deta hai, client ACK se poora karta hai — dono directions mein sequence numbers synchronize ho jaate hain. Teardown FIN/ACK exchanges se hota hai."
+  }
+ },
+ {
+  "id": "fc-204",
+  "domain": 1,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "When do applications choose UDP over TCP?",
+   "hi": "Applications TCP ki jagah UDP kab chunti hain?"
+  },
+  "back": {
+   "en": "When speed beats reliability or the app recovers on its own: voice and video (RTP), DNS queries, DHCP, TFTP, SNMP. TCP fits web, email, and file transfer.",
+   "hi": "Jab reliability se zyada speed zaroori ho ya app khud recover kar le: voice aur video (RTP), DNS queries, DHCP, TFTP, SNMP. TCP web, email aur file transfer ke liye sahi hai."
+  }
+ },
+ {
+  "id": "fc-205",
+  "domain": 1,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "What does ARP do, and how does it work?",
+   "hi": "ARP kya karta hai, aur kaise kaam karta hai?"
+  },
+  "back": {
+   "en": "It resolves an IPv4 address to a MAC address: a broadcast who-has request is answered by a unicast reply, and the result is cached in the ARP table.",
+   "hi": "Yeh IPv4 address ko MAC address mein resolve karta hai: broadcast who-has request ka jawab unicast reply se aata hai, aur result ARP table mein cache ho jaata hai."
+  }
+ },
+ {
+  "id": "fc-206",
+  "domain": 6,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "Map the REST/HTTP verbs to CRUD operations.",
+   "hi": "REST/HTTP verbs ko CRUD operations se map karo."
+  },
+  "back": {
+   "en": "POST create, GET read, PUT/PATCH update (PUT replaces the resource, PATCH edits part of it), DELETE delete.",
+   "hi": "POST create, GET read, PUT/PATCH update (PUT poora resource replace karta hai, PATCH uska ek hissa edit karta hai), DELETE delete."
+  }
+ },
+ {
+  "id": "fc-207",
+  "domain": 6,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "Name the key REST API properties and common HTTP status codes.",
+   "hi": "Key REST API properties aur common HTTP status codes ke naam batao."
+  },
+  "back": {
+   "en": "Client-server, stateless, cacheable, uniform interface. Codes: 200 OK, 201 created, 400 bad request, 401 unauthorized, 403 forbidden, 404 not found, 500 server error.",
+   "hi": "Client-server, stateless, cacheable, uniform interface. Codes: 200 OK, 201 created, 400 bad request, 401 unauthorized, 403 forbidden, 404 not found, 500 server error."
+  }
+ },
+ {
+  "id": "fc-208",
+  "domain": 6,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "What are the core JSON syntax rules?",
+   "hi": "Core JSON syntax rules kya hain?"
+  },
+  "back": {
+   "en": "Objects are key-value pairs inside curly braces with keys as quoted strings; arrays use square brackets; values may be string, number, true/false, null, object, or array; no trailing commas.",
+   "hi": "Objects curly braces ke andar key-value pairs hote hain aur keys quoted strings hoti hain; arrays square brackets use karte hain; values string, number, true/false, null, object ya array ho sakti hain; trailing commas nahi chalte."
+  }
+ },
+ {
+  "id": "fc-209",
+  "domain": 6,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "Contrast Ansible and Terraform.",
+   "hi": "Ansible aur Terraform ko compare karo."
+  },
+  "back": {
+   "en": "Ansible: agentless configuration management that pushes YAML playbooks over SSH, largely procedural. Terraform: declarative infrastructure-as-code in HCL that provisions via a plan/apply cycle and tracks a state file.",
+   "hi": "Ansible: agentless configuration management jo SSH par YAML playbooks push karta hai, zyadatar procedural. Terraform: HCL mein declarative infrastructure-as-code jo plan/apply cycle se provision karta hai aur ek state file track karta hai."
+  }
+ },
+ {
+  "id": "fc-210",
+  "domain": 6,
+  "tag": "protocols-misc",
+  "front": {
+   "en": "Distinguish supervised ML, unsupervised ML, predictive AI, and generative AI.",
+   "hi": "Supervised ML, unsupervised ML, predictive AI aur generative AI mein fark batao."
+  },
+  "back": {
+   "en": "Supervised learning trains on labeled data; unsupervised finds patterns in unlabeled data. Predictive AI forecasts outcomes (e.g. failure prediction); generative AI creates new content such as configs or summaries.",
+   "hi": "Supervised learning labeled data par train hoti hai; unsupervised unlabeled data mein patterns dhoondhti hai. Predictive AI outcomes forecast karta hai (jaise failure prediction); generative AI naya content banata hai jaise configs ya summaries."
+  }
+ }
+]

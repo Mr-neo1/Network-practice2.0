@@ -1,0 +1,1523 @@
+[
+ {
+  "id": "d4-001",
+  "domain": 4,
+  "lesson": "nat",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which NAT term describes the private IP address configured on a host inside the enterprise network, before any translation takes place?",
+   "hi": "Kaunsa NAT term us private IP address ko describe karta hai jo enterprise network ke andar kisi host par configure hai, yaani koi bhi translation hone se pehle wala address?"
+  },
+  "explanation": {
+   "en": "The inside local address is the real, usually private (RFC 1918) address assigned to a host on the inside network. When NAT translates its traffic, the router represents that host to the outside world with an inside global address. Memory hook: 'inside/outside' = where the host physically sits; 'local/global' = where the address is seen (local = inside view, global = outside view).",
+   "hi": "Inside local address woh asli, aam taur par private (RFC 1918) address hai jo inside network ke host ko assign kiya gaya hai. Jab NAT uska traffic translate karta hai, toh router bahar ki duniya ke saamne us host ko ek inside global address se represent karta hai. Yaad rakhne ka tarika: 'inside/outside' = host physically kahan baitha hai; 'local/global' = address kahan se dikh raha hai (local = andar ka view, global = bahar ka view)."
+  },
+  "options": [
+   {
+    "en": "Inside local",
+    "hi": "Inside local"
+   },
+   {
+    "en": "Inside global",
+    "hi": "Inside global"
+   },
+   {
+    "en": "Outside local",
+    "hi": "Outside local"
+   },
+   {
+    "en": "Outside global",
+    "hi": "Outside global"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The inside global address is the public address that represents the inside host to the outside network — the post-translation address, not the one configured on the host.",
+    "hi": "Inside global woh public address hai jo inside host ko outside network ke saamne represent karta hai. Yeh translation ke baad wala address hai, host par configure kiya hua address nahi."
+   },
+   {
+    "en": "Outside local is how an external host's address appears to devices on the inside network — it describes an external host, not an internal one.",
+    "hi": "Outside local batata hai ki kisi external host ka address inside network ke devices ko kaisa dikhta hai. Yeh external host ko describe karta hai, internal host ko nahi."
+   },
+   {
+    "en": "Outside global is the real address of an external host as assigned by its owner — it has nothing to do with internal hosts.",
+    "hi": "Outside global external host ka asli address hai jo uske owner ne assign kiya hai. Iska internal hosts se koi lena-dena nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d4-002",
+  "domain": 4,
+  "lesson": "nat",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A router is configured with:\n\nip nat inside source list 1 interface GigabitEthernet0/0 overload\n\nWhat does the overload keyword cause the router to do?",
+   "hi": "Ek router par yeh configure hai:\n\nip nat inside source list 1 interface GigabitEthernet0/0 overload\n\noverload keyword ki wajah se router kya karta hai?"
+  },
+  "explanation": {
+   "en": "overload enables PAT (Port Address Translation, also called NAT overload). All inside hosts matched by ACL 1 are translated to the one IP address on G0/0, and the router keeps each conversation distinct by rewriting and tracking source port numbers. This is how thousands of hosts can share a single public IP.",
+   "hi": "overload PAT (Port Address Translation, jise NAT overload bhi kehte hain) enable karta hai. ACL 1 se match hone wale saare inside hosts G0/0 ke ek hi IP address par translate hote hain, aur router source port numbers ko rewrite aur track karke har conversation ko alag rakhta hai. Isi tarah hazaaron hosts ek single public IP share kar sakte hain."
+  },
+  "options": [
+   {
+    "en": "Translate each inside host to a dedicated public address from a pool, one-to-one",
+    "hi": "Har inside host ko pool se ek dedicated public address par translate karna, one-to-one"
+   },
+   {
+    "en": "Allow many inside hosts to share the single G0/0 address, tracking each session with unique source port numbers",
+    "hi": "Bahut saare inside hosts ko single G0/0 address share karne dena, aur har session ko unique source port numbers se track karna"
+   },
+   {
+    "en": "Translate the destination addresses of packets arriving on G0/0",
+    "hi": "G0/0 par aane wale packets ke destination addresses translate karna"
+   },
+   {
+    "en": "Drop translations when the interface bandwidth is oversubscribed",
+    "hi": "Interface bandwidth oversubscribe hone par translations drop karna"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "One-to-one translation from a pool is dynamic NAT without the overload keyword — it exhausts the pool one host per address.",
+    "hi": "Pool se one-to-one translation overload keyword ke bina wala dynamic NAT hai. Usmein har host ek address leta hai, isliye pool khatam ho jaata hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "This command performs inside source translation (rewriting the source of inside-to-outside packets), not destination translation.",
+    "hi": "Yeh command inside source translation karta hai (inside-se-outside jaane wale packets ka source rewrite karta hai), destination translation nahi."
+   },
+   {
+    "en": "overload refers to overloading one IP address with many sessions; it is unrelated to bandwidth or congestion.",
+    "hi": "overload ka matlab hai ek IP address par bahut saare sessions daalna. Iska bandwidth ya congestion se koi lena-dena nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d4-003",
+  "domain": 4,
+  "lesson": "nat",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "ACL 1 already permits 192.168.1.0/24, interfaces are marked ip nat inside / ip nat outside, and G0/0 is the Internet-facing interface. Enter the single global configuration command that translates those inside sources using the address of G0/0 with PAT.",
+   "hi": "ACL 1 pehle se 192.168.1.0/24 ko permit karta hai, interfaces ip nat inside / ip nat outside se mark ho chuke hain, aur G0/0 Internet-facing interface hai. Woh single global configuration command enter karo jo in inside sources ko G0/0 ke address se PAT ke saath translate kare."
+  },
+  "explanation": {
+   "en": "PAT (NAT overload) maps many inside-local addresses to one public address by tracking source port numbers. The command ties the source ACL (list 1) to the outside interface's address, and the overload keyword is what enables the many-to-one, port-based translation — without it you get one-to-one dynamic NAT that stalls after a single translation.",
+   "hi": "PAT (NAT overload) source port numbers track karke bahut saare inside-local addresses ko ek public address par map karta hai. Yeh command source ACL (list 1) ko outside interface ke address se jodta hai, aur overload keyword hi many-to-one, port-based translation enable karta hai. Iske bina tumhe one-to-one dynamic NAT milta hai jo ek translation ke baad atak jaata hai."
+  },
+  "commandAnswer": "ip nat inside source list 1 interface g0/0 overload",
+  "accept": [
+   "ip nat inside source list 1 interface gigabitethernet0/0 overload",
+   "ip nat inside source list 1 interface gi0/0 overload",
+   "ip nat inside source list 1 int g0/0 overload",
+   "ip nat inside source list 1 int gi0/0 overload",
+   "ip nat inside source list 1 int gigabitethernet0/0 overload"
+  ]
+ },
+ {
+  "id": "d4-004",
+  "domain": 4,
+  "lesson": "nat",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each NAT address term to its definition.",
+   "hi": "Har NAT address term ko uski definition se match karo."
+  },
+  "explanation": {
+   "en": "Read the terms as two questions: WHERE is the host (inside/outside the enterprise) and from WHOSE viewpoint is the address seen (local = as seen inside, global = as seen on the Internet). In most CCNA scenarios outside local and outside global are the same address because only inside source translation is configured.",
+   "hi": "In terms ko do sawaalon ki tarah padho: host KAHAN hai (enterprise ke inside ya outside) aur address KISKE nazariye se dikh raha hai (local = andar se jaisa dikhta hai, global = Internet par jaisa dikhta hai). Zyaadatar CCNA scenarios mein outside local aur outside global same address hote hain, kyunki sirf inside source translation configure hota hai."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Inside local",
+     "hi": "Inside local"
+    },
+    "right": {
+     "en": "Private address configured on a host in the internal network",
+     "hi": "Internal network ke host par configure kiya hua private address"
+    }
+   },
+   {
+    "left": {
+     "en": "Inside global",
+     "hi": "Inside global"
+    },
+    "right": {
+     "en": "Public address that represents an internal host to the outside world",
+     "hi": "Public address jo internal host ko bahar ki duniya ke saamne represent karta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Outside local",
+     "hi": "Outside local"
+    },
+    "right": {
+     "en": "Address of an external host as it appears to the inside network",
+     "hi": "External host ka address jaisa woh inside network ko dikhta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Outside global",
+     "hi": "Outside global"
+    },
+    "right": {
+     "en": "Real address of an external host as assigned by its owner",
+     "hi": "External host ka asli address jo uske owner ne assign kiya hai"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d4-005",
+  "domain": 4,
+  "lesson": "nat",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A router shows the following:\n\nPro Inside global      Inside local       Outside local      Outside global\ntcp 203.0.113.5:3341   10.1.1.20:3341     198.51.100.7:80    198.51.100.7:80\n\nWhich statement about this output is correct?",
+   "hi": "Ek router yeh dikhata hai:\n\nPro Inside global      Inside local       Outside local      Outside global\ntcp 203.0.113.5:3341   10.1.1.20:3341     198.51.100.7:80    198.51.100.7:80\n\nIs output ke baare mein kaunsa statement sahi hai?"
+  },
+  "explanation": {
+   "en": "Column headings tell the story: 203.0.113.5 is the inside global — the translated public identity of inside host 10.1.1.20 (the inside local). The web server 198.51.100.7 only ever sees 203.0.113.5. Outside local and outside global are identical because the router is not translating the external host's address.",
+   "hi": "Column headings hi poori kahani bata dete hain: 203.0.113.5 inside global hai, yaani inside host 10.1.1.20 (inside local) ki translated public identity. Web server 198.51.100.7 ko hamesha sirf 203.0.113.5 dikhta hai. Outside local aur outside global same hain kyunki router external host ka address translate nahi kar raha."
+  },
+  "options": [
+   {
+    "en": "10.1.1.20 is the inside global address for this session",
+    "hi": "Is session ke liye 10.1.1.20 inside global address hai"
+   },
+   {
+    "en": "203.0.113.5 is the public address that represents host 10.1.1.20 to the web server",
+    "hi": "203.0.113.5 woh public address hai jo host 10.1.1.20 ko web server ke saamne represent karta hai"
+   },
+   {
+    "en": "198.51.100.7 is being translated by PAT on this router",
+    "hi": "198.51.100.7 is router par PAT se translate ho raha hai"
+   },
+   {
+    "en": "The translation entry is for a UDP flow",
+    "hi": "Yeh translation entry ek UDP flow ki hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "10.1.1.20 appears in the Inside local column — it is the pre-translation private address, not the inside global.",
+    "hi": "10.1.1.20 Inside local column mein hai. Yeh translation se pehle wala private address hai, inside global nahi."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "198.51.100.7 is the untranslated external server; its address is the same in both outside columns, so no translation applies to it.",
+    "hi": "198.51.100.7 untranslated external server hai. Dono outside columns mein uska address same hai, isliye us par koi translation nahi lag raha."
+   },
+   {
+    "en": "The Pro column reads tcp — this is a TCP session to port 80 (HTTP), not UDP.",
+    "hi": "Pro column mein tcp likha hai. Yeh port 80 (HTTP) ka TCP session hai, UDP nahi."
+   }
+  ]
+ },
+ {
+  "id": "d4-006",
+  "domain": 4,
+  "lesson": "dhcp",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "In which order are DHCP messages exchanged when a client first obtains an IP address lease?",
+   "hi": "Jab client pehli baar IP address lease leta hai, toh DHCP messages kis order mein exchange hote hain?"
+  },
+  "explanation": {
+   "en": "The lease process follows DORA: the client broadcasts a Discover to find servers, a server answers with an Offer containing a proposed address, the client broadcasts a Request to formally ask for that offer, and the server finalizes with an Acknowledgment. The client may only use the address after the ACK arrives.",
+   "hi": "Lease process DORA follow karta hai: client servers dhoondhne ke liye Discover broadcast karta hai, server ek proposed address ke saath Offer bhejta hai, client us offer ko formally maangne ke liye Request broadcast karta hai, aur server Acknowledgment se final kar deta hai. Client address ko sirf ACK aane ke baad hi use kar sakta hai."
+  },
+  "options": [
+   {
+    "en": "Discover, Offer, Request, Acknowledgment",
+    "hi": "Discover, Offer, Request, Acknowledgment"
+   },
+   {
+    "en": "Discover, Request, Offer, Acknowledgment",
+    "hi": "Discover, Request, Offer, Acknowledgment"
+   },
+   {
+    "en": "Offer, Discover, Request, Acknowledgment",
+    "hi": "Offer, Discover, Request, Acknowledgment"
+   },
+   {
+    "en": "Request, Offer, Discover, Acknowledgment",
+    "hi": "Request, Offer, Discover, Acknowledgment"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The server must Offer an address before the client can Request it — Request cannot come second.",
+    "hi": "Client address Request kar sake, usse pehle server ko Offer karna padta hai. Request doosre number par nahi aa sakta."
+   },
+   {
+    "en": "The client always starts the conversation; a server cannot Offer to a client it has not heard from.",
+    "hi": "Conversation hamesha client shuru karta hai. Server aise client ko Offer nahi kar sakta jiske baare mein usne suna hi nahi."
+   },
+   {
+    "en": "Request is the third step, not the first — the client cannot request an address it has not been offered.",
+    "hi": "Request teesra step hai, pehla nahi. Client aisa address request nahi kar sakta jo use offer hi nahi hua."
+   }
+  ]
+ },
+ {
+  "id": "d4-007",
+  "domain": 4,
+  "lesson": "dhcp",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "PCs in VLAN 10 (subnet 10.10.10.0/24) cannot obtain addresses from the DHCP server at 10.99.0.5, which sits in a different subnet across the routed network. What should the network engineer configure?",
+   "hi": "VLAN 10 (subnet 10.10.10.0/24) ke PCs ko 10.99.0.5 wale DHCP server se addresses nahi mil rahe. Yeh server routed network ke paar ek alag subnet mein hai. Network engineer ko kya configure karna chahiye?"
+  },
+  "explanation": {
+   "en": "DHCP Discover messages are broadcasts, and routers do not forward broadcasts. The ip helper-address command on the client-facing interface turns the router into a relay agent: it converts the client's broadcast into a unicast sent to 10.99.0.5, inserting its own interface address in the giaddr field so the server knows which pool to use.",
+   "hi": "DHCP Discover messages broadcast hote hain, aur routers broadcasts forward nahi karte. Client-facing interface par ip helper-address command router ko relay agent bana deta hai: woh client ka broadcast 10.99.0.5 ko bheje jaane wale unicast mein badal deta hai, aur giaddr field mein apna interface address daal deta hai taaki server ko pata chale ki kaunsa pool use karna hai."
+  },
+  "options": [
+   {
+    "en": "ip helper-address 10.99.0.5 on the router interface facing the VLAN 10 clients",
+    "hi": "VLAN 10 clients ki taraf wale router interface par ip helper-address 10.99.0.5"
+   },
+   {
+    "en": "ip helper-address 10.99.0.5 on the router interface facing the DHCP server",
+    "hi": "DHCP server ki taraf wale router interface par ip helper-address 10.99.0.5"
+   },
+   {
+    "en": "A DHCP pool for VLAN 10 on every transit router in the path",
+    "hi": "Path ke har transit router par VLAN 10 ke liye ek DHCP pool"
+   },
+   {
+    "en": "ip dhcp snooping on the VLAN 10 access switch",
+    "hi": "VLAN 10 access switch par ip dhcp snooping"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The relay must be configured where the broadcast arrives — the client-facing interface. The server-facing interface never receives the client's broadcast.",
+    "hi": "Relay wahin configure hona chahiye jahan broadcast aata hai, yaani client-facing interface par. Server-facing interface ko client ka broadcast kabhi milta hi nahi."
+   },
+   {
+    "en": "Relaying removes any need for pools on transit routers; only the central server needs a scope for 10.10.10.0/24.",
+    "hi": "Relay use karne se transit routers par pools ki zaroorat hi khatam ho jaati hai. Sirf central server par 10.10.10.0/24 ka scope chahiye."
+   },
+   {
+    "en": "DHCP snooping is a security feature that filters rogue server messages; it does not forward client broadcasts across subnets.",
+    "hi": "DHCP snooping ek security feature hai jo rogue server messages ko filter karta hai. Yeh client broadcasts ko subnets ke paar forward nahi karta."
+   }
+  ]
+ },
+ {
+  "id": "d4-008",
+  "domain": 4,
+  "lesson": "dhcp",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "You are in interface configuration mode on the router interface for VLAN 10. Enter the command that relays the clients' DHCP broadcasts to the server at 10.99.0.5.",
+   "hi": "Tum VLAN 10 wale router interface ke interface configuration mode mein ho. Woh command enter karo jo clients ke DHCP broadcasts ko 10.99.0.5 wale server tak relay kare."
+  },
+  "explanation": {
+   "en": "DHCP Discover messages are broadcasts, and routers do not forward broadcasts. ip helper-address on the clients' gateway interface converts those broadcasts into unicasts aimed at the DHCP server (relay agent function), inserting the interface address as giaddr so the server can pick the right pool.",
+   "hi": "DHCP Discover messages broadcast hote hain, aur routers broadcasts forward nahi karte. Clients ke gateway interface par ip helper-address un broadcasts ko DHCP server ki taraf jaane wale unicasts mein badal deta hai (relay agent function), aur interface address ko giaddr mein daal deta hai taaki server sahi pool chun sake."
+  },
+  "commandAnswer": "ip helper-address 10.99.0.5",
+  "accept": [
+   "ip helper 10.99.0.5"
+  ]
+ },
+ {
+  "id": "d4-009",
+  "domain": 4,
+  "lesson": "dhcp",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which two DHCP messages are sent BY THE CLIENT during the initial four-message lease exchange? (Choose two.)",
+   "hi": "Initial four-message lease exchange ke dauraan kaunse do DHCP messages CLIENT bhejta hai? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "The client sends the Discover (to locate servers) and the Request (to accept a specific offer — and to decline any others, since multiple servers may respond). The server side of DORA is the Offer and the final Acknowledgment. Knowing who sends what helps when reading packet captures and debugs.",
+   "hi": "Client Discover bhejta hai (servers dhoondhne ke liye) aur Request bhejta hai (ek specific offer accept karne ke liye, aur baaki offers ko mana karne ke liye, kyunki ek se zyaada servers reply kar sakte hain). DORA ka server side Offer aur final Acknowledgment hai. Kaun kya bhejta hai, yeh pata ho toh packet captures aur debugs padhna aasaan ho jaata hai."
+  },
+  "options": [
+   {
+    "en": "Discover",
+    "hi": "Discover"
+   },
+   {
+    "en": "Offer",
+    "hi": "Offer"
+   },
+   {
+    "en": "Request",
+    "hi": "Request"
+   },
+   {
+    "en": "Acknowledgment",
+    "hi": "Acknowledgment"
+   }
+  ],
+  "answer": [
+   0,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The Offer is sent by the DHCP server in response to a Discover — it carries the proposed address and options.",
+    "hi": "Offer DHCP server Discover ke jawab mein bhejta hai. Isme proposed address aur options hote hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The Acknowledgment is the server's final confirmation that the client may use the leased address.",
+    "hi": "Acknowledgment server ka final confirmation hai ki client leased address use kar sakta hai."
+   }
+  ]
+ },
+ {
+  "id": "d4-010",
+  "domain": 4,
+  "lesson": "dns",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which DNS record type maps a hostname to an IPv4 address?",
+   "hi": "Kaunsa DNS record type hostname ko IPv4 address se map karta hai?"
+  },
+  "explanation": {
+   "en": "An A (address) record maps a name such as www.example.com to an IPv4 address. Its IPv6 counterpart is the AAAA record (four times the As because IPv6 addresses are four times as long — 128 bits vs 32). Standard DNS queries travel over UDP port 53.",
+   "hi": "A (address) record www.example.com jaise naam ko IPv4 address se map karta hai. Iska IPv6 wala counterpart AAAA record hai (chaar A kyunki IPv6 address chaar guna lamba hota hai, 128 bits vs 32). Standard DNS queries UDP port 53 par jaati hain."
+  },
+  "options": [
+   {
+    "en": "A",
+    "hi": "A"
+   },
+   {
+    "en": "AAAA",
+    "hi": "AAAA"
+   },
+   {
+    "en": "MX",
+    "hi": "MX"
+   },
+   {
+    "en": "CNAME",
+    "hi": "CNAME"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "AAAA records map a hostname to an IPv6 address, not IPv4.",
+    "hi": "AAAA records hostname ko IPv6 address se map karte hain, IPv4 se nahi."
+   },
+   {
+    "en": "MX records identify the mail exchanger (email server) responsible for a domain.",
+    "hi": "MX records domain ke liye zimmedaar mail exchanger (email server) ko identify karte hain."
+   },
+   {
+    "en": "CNAME records create an alias that points one name at another name, not at an IP address.",
+    "hi": "CNAME records ek alias banate hain jo ek naam ko doosre naam ki taraf point karta hai, IP address ki taraf nahi."
+   }
+  ]
+ },
+ {
+  "id": "d4-011",
+  "domain": 4,
+  "lesson": "dns",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "An administrator wants to ping servers by hostname directly from R1's CLI. Which configuration lets R1 resolve hostnames using the DNS server at 10.1.1.53?",
+   "hi": "Ek administrator R1 ke CLI se seedha hostname se servers ko ping karna chahta hai. Kaunsi configuration R1 ko 10.1.1.53 wale DNS server se hostnames resolve karne degi?"
+  },
+  "explanation": {
+   "en": "A router acts as a DNS client when it knows a resolver (ip name-server 10.1.1.53) and name lookup is enabled (ip domain-lookup, which is on by default). With both in place, commands such as ping fileserver1 trigger a DNS query over UDP 53.",
+   "hi": "Router DNS client ki tarah kaam karta hai jab use resolver pata ho (ip name-server 10.1.1.53) aur name lookup enabled ho (ip domain-lookup, jo default se on hota hai). Dono set hon toh ping fileserver1 jaise commands UDP 53 par DNS query trigger karte hain."
+  },
+  "options": [
+   {
+    "en": "ip name-server 10.1.1.53, with ip domain-lookup enabled",
+    "hi": "ip name-server 10.1.1.53, ip domain-lookup enabled ke saath"
+   },
+   {
+    "en": "ip dns server pointing at 10.1.1.53",
+    "hi": "ip dns server jo 10.1.1.53 ki taraf point kare"
+   },
+   {
+    "en": "ip domain-name 10.1.1.53",
+    "hi": "ip domain-name 10.1.1.53"
+   },
+   {
+    "en": "ip helper-address 10.1.1.53 on the management interface",
+    "hi": "Management interface par ip helper-address 10.1.1.53"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "ip dns server makes the router answer DNS queries as a server for other clients — it does not tell the router where to send its own lookups.",
+    "hi": "ip dns server router ko doosre clients ke liye DNS server bana deta hai jo queries ka jawab de. Yeh router ko nahi batata ki apne lookups kahan bheje."
+   },
+   {
+    "en": "ip domain-name sets the default domain suffix (used for name completion and RSA key generation); it takes a domain name, not a server IP.",
+    "hi": "ip domain-name default domain suffix set karta hai (name completion aur RSA key generation ke liye use hota hai). Isme domain name diya jaata hai, server IP nahi."
+   },
+   {
+    "en": "ip helper-address relays client broadcasts such as DHCP to a remote server; it plays no role in the router's own name resolution.",
+    "hi": "ip helper-address DHCP jaise client broadcasts ko remote server tak relay karta hai. Router ke apne name resolution mein iska koi role nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d4-012",
+  "domain": 4,
+  "lesson": "dns",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Every time an engineer mistypes a command at R1's CLI, the session hangs for several seconds with the message 'Translating \"shwo\"...domain server (255.255.255.255)'. Which command stops this behavior?",
+   "hi": "Jab bhi engineer R1 ke CLI par koi command galat type karta hai, session kuch seconds ke liye 'Translating \"shwo\"...domain server (255.255.255.255)' message ke saath atak jaata hai. Kaunsa command yeh behavior band karega?"
+  },
+  "explanation": {
+   "en": "By default, IOS treats any unrecognized word typed at the CLI as a hostname and tries to resolve it via DNS (broadcasting to 255.255.255.255 when no name server is set) so it can telnet to it. The session stalls until the lookup times out. no ip domain-lookup disables DNS resolution on the router and removes the delay — a classic lab-hygiene command.",
+   "hi": "Default se IOS CLI par type kiye gaye kisi bhi anjaan word ko hostname maan leta hai aur use DNS se resolve karne ki koshish karta hai (name server set na ho toh 255.255.255.255 par broadcast karta hai) taaki us par telnet kar sake. Lookup timeout hone tak session atka rehta hai. no ip domain-lookup router par DNS resolution disable kar deta hai aur yeh delay hata deta hai. Yeh lab mein hamesha lagaya jaane wala classic command hai."
+  },
+  "options": [
+   {
+    "en": "no ip domain-lookup",
+    "hi": "no ip domain-lookup"
+   },
+   {
+    "en": "no ip name-server",
+    "hi": "no ip name-server"
+   },
+   {
+    "en": "exec-timeout 0 0 on the console line",
+    "hi": "Console line par exec-timeout 0 0"
+   },
+   {
+    "en": "no cdp run",
+    "hi": "no cdp run"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "No name server is even configured here (note the broadcast address); removing one would not stop the router from attempting resolution.",
+    "hi": "Yahan koi name server configure hi nahi hai (broadcast address dekho). Use hatane se router resolution ki koshish karna band nahi karega."
+   },
+   {
+    "en": "exec-timeout controls how long an idle session stays logged in — it has no effect on name-lookup stalls.",
+    "hi": "exec-timeout control karta hai ki idle session kitni der logged in rahe. Name-lookup ke atakne par iska koi asar nahi hai."
+   },
+   {
+    "en": "CDP is a Layer 2 neighbor discovery protocol and is unrelated to how the CLI handles unrecognized input.",
+    "hi": "CDP ek Layer 2 neighbor discovery protocol hai. CLI anjaan input ko kaise handle karta hai, usse iska koi lena-dena nahi."
+   }
+  ]
+ },
+ {
+  "id": "d4-013",
+  "domain": 4,
+  "lesson": "ntp",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "An NTP server advertises stratum 2. What does the stratum value indicate?",
+   "hi": "Ek NTP server stratum 2 advertise karta hai. Stratum value kya batati hai?"
+  },
+  "explanation": {
+   "en": "Stratum counts distance from the reference clock: stratum 0 is the atomic/GPS source itself, stratum 1 is a server directly attached to it, stratum 2 learns time from stratum 1, and so on. Lower stratum means a shorter chain and therefore a more authoritative time source. Stratum 16 means unsynchronized.",
+   "hi": "Stratum reference clock se doori ginta hai: stratum 0 khud atomic/GPS source hai, stratum 1 woh server hai jo usse seedha juda hai, stratum 2 stratum 1 se time seekhta hai, aur aise hi aage. Kam stratum matlab chhoti chain, isliye zyaada authoritative time source. Stratum 16 ka matlab unsynchronized."
+  },
+  "options": [
+   {
+    "en": "How many NTP hops the server is from an authoritative reference clock — lower is closer and more trusted",
+    "hi": "Server authoritative reference clock se kitne NTP hops door hai. Kam value matlab zyaada paas aur zyaada trusted"
+   },
+   {
+    "en": "The number of clients allowed to synchronize with the server",
+    "hi": "Server ke saath kitne clients synchronize kar sakte hain"
+   },
+   {
+    "en": "The software version of the NTP daemon",
+    "hi": "NTP daemon ka software version"
+   },
+   {
+    "en": "The offset in milliseconds between the server and its clients",
+    "hi": "Server aur uske clients ke beech milliseconds mein offset"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "NTP imposes no client count through stratum; the value describes distance from the reference, not capacity.",
+    "hi": "NTP stratum ke through koi client count limit nahi lagata. Yeh value reference se doori batati hai, capacity nahi."
+   },
+   {
+    "en": "Stratum has nothing to do with software versions (NTPv3/NTPv4 are protocol versions, tracked separately).",
+    "hi": "Stratum ka software versions se koi lena-dena nahi hai (NTPv3/NTPv4 protocol versions hain, jo alag se track hote hain)."
+   },
+   {
+    "en": "Offset is measured and displayed by NTP (show ntp associations), but it is a separate statistic — stratum is hop distance, not time difference.",
+    "hi": "Offset NTP measure aur display karta hai (show ntp associations), lekin woh alag statistic hai. Stratum hop distance hai, time ka farak nahi."
+   }
+  ]
+ },
+ {
+  "id": "d4-014",
+  "domain": 4,
+  "lesson": "ntp",
+  "difficulty": "easy",
+  "type": "command",
+  "text": {
+   "en": "From global configuration mode, enter the command that makes R1 synchronize its clock to the NTP server at 209.165.200.225.",
+   "hi": "Global configuration mode se woh command enter karo jo R1 ki clock ko 209.165.200.225 wale NTP server se synchronize kare."
+  },
+  "explanation": {
+   "en": "ntp server <address> points the device at an authoritative time source; the router then acts as an NTP client over UDP 123 and settles one stratum below the server. Accurate time matters for log correlation, certificates, and authentication. Verify with show ntp status and show ntp associations.",
+   "hi": "ntp server <address> device ko ek authoritative time source ki taraf point karta hai. Phir router UDP 123 par NTP client ki tarah kaam karta hai aur server se ek stratum neeche settle hota hai. Sahi time log correlation, certificates aur authentication ke liye zaroori hai. show ntp status aur show ntp associations se verify karo."
+  },
+  "commandAnswer": "ntp server 209.165.200.225",
+  "accept": [
+   "ntp server 209.165.200.225 prefer"
+  ]
+ },
+ {
+  "id": "d4-015",
+  "domain": 4,
+  "lesson": "ntp",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "R1 is configured with ntp server 172.16.1.1, and 172.16.1.1 operates at stratum 3. Once R1 synchronizes, which statement is true?",
+   "hi": "R1 par ntp server 172.16.1.1 configure hai, aur 172.16.1.1 stratum 3 par chalta hai. R1 synchronize hone ke baad kaunsa statement sahi hai?"
+  },
+  "explanation": {
+   "en": "A client's stratum is always one greater than the server it synchronizes to, so R1 becomes stratum 4 (172.16.1.1 at stratum 3 + 1 hop). NTP messages use UDP port 123, and when multiple sources exist, lower stratum is preferred. Verify with show ntp status and show ntp associations.",
+   "hi": "Client ka stratum hamesha us server se ek zyaada hota hai jisse woh synchronize karta hai, isliye R1 stratum 4 ban jaata hai (172.16.1.1 ka stratum 3 + 1 hop). NTP messages UDP port 123 use karte hain, aur jab multiple sources hon toh kam stratum prefer hota hai. show ntp status aur show ntp associations se verify karo."
+  },
+  "options": [
+   {
+    "en": "R1 advertises stratum 4 to any devices that use R1 as their NTP source",
+    "hi": "Jo devices R1 ko apna NTP source use karte hain, unhe R1 stratum 4 advertise karta hai"
+   },
+   {
+    "en": "R1 also becomes a stratum 3 device",
+    "hi": "R1 bhi stratum 3 device ban jaata hai"
+   },
+   {
+    "en": "R1 polls the server over TCP port 123",
+    "hi": "R1 server ko TCP port 123 par poll karta hai"
+   },
+   {
+    "en": "R1 will prefer any stratum 5 server over this stratum 3 server",
+    "hi": "R1 is stratum 3 server ke upar kisi bhi stratum 5 server ko prefer karega"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The stratum increments at every hop — R1 sits one NTP hop farther from the reference clock, so it is stratum 4, not 3.",
+    "hi": "Har hop par stratum ek badhta hai. R1 reference clock se ek NTP hop aur door hai, isliye woh stratum 4 hai, 3 nahi."
+   },
+   {
+    "en": "NTP runs over UDP port 123, not TCP.",
+    "hi": "NTP UDP port 123 par chalta hai, TCP par nahi."
+   },
+   {
+    "en": "NTP prefers lower stratum values; a stratum 5 source is farther from the reference and would not be preferred over stratum 3.",
+    "hi": "NTP kam stratum values prefer karta hai. Stratum 5 source reference se zyaada door hai aur stratum 3 ke upar prefer nahi hoga."
+   }
+  ]
+ },
+ {
+  "id": "d4-016",
+  "domain": 4,
+  "lesson": "snmp",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "A syslog message arrives tagged with severity level 0. What does this severity indicate?",
+   "hi": "Ek syslog message severity level 0 tag ke saath aata hai. Yeh severity kya batati hai?"
+  },
+  "explanation": {
+   "en": "Syslog severities run 0–7 from worst to most verbose: Emergency, Alert, Critical, Error, Warning, Notification, Informational, Debugging — 'Every Awesome Cisco Engineer Will Need Ice-cream Daily'. Level 0 means the system is unusable. Counterintuitively for many learners, the LOWER the number, the MORE severe the event.",
+   "hi": "Syslog severities 0–7 tak hoti hain, sabse kharab se sabse verbose tak: Emergency, Alert, Critical, Error, Warning, Notification, Informational, Debugging — 'Every Awesome Cisco Engineer Will Need Ice-cream Daily'. Level 0 ka matlab system unusable hai. Bahut se learners ko yeh ulta lagta hai, lekin number jitna KAM, event utna ZYAADA severe."
+  },
+  "options": [
+   {
+    "en": "Emergency — the system is unusable",
+    "hi": "Emergency — system unusable hai"
+   },
+   {
+    "en": "Debugging — highly detailed developer output",
+    "hi": "Debugging — bahut detailed developer output"
+   },
+   {
+    "en": "Informational — a normal operational message",
+    "hi": "Informational — ek normal operational message"
+   },
+   {
+    "en": "Warning — a condition that may need attention",
+    "hi": "Warning — aisi condition jis par dhyan dena pad sakta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Debugging is severity 7 — the least severe, most verbose end of the scale.",
+    "hi": "Debugging severity 7 hai, yaani scale ka sabse kam severe aur sabse verbose end."
+   },
+   {
+    "en": "Informational is severity 6, used for routine messages like interface state notices.",
+    "hi": "Informational severity 6 hai, jo interface state notices jaise routine messages ke liye use hota hai."
+   },
+   {
+    "en": "Warning is severity 4, a mid-scale condition — far less serious than level 0.",
+    "hi": "Warning severity 4 hai, scale ke beech ki condition. Yeh level 0 se kahin kam serious hai."
+   }
+  ]
+ },
+ {
+  "id": "d4-017",
+  "domain": 4,
+  "lesson": "snmp",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each syslog severity name to its numeric level.",
+   "hi": "Har syslog severity name ko uske numeric level se match karo."
+  },
+  "explanation": {
+   "en": "The full scale is 0 Emergency, 1 Alert, 2 Critical, 3 Error, 4 Warning, 5 Notification, 6 Informational, 7 Debugging. Mnemonic: 'Every Awesome Cisco Engineer Will Need Ice-cream Daily'. Remember that logging trap level 4 on a router sends levels 0 THROUGH 4 (everything at least that severe) to the syslog server.",
+   "hi": "Poora scale hai 0 Emergency, 1 Alert, 2 Critical, 3 Error, 4 Warning, 5 Notification, 6 Informational, 7 Debugging. Mnemonic: 'Every Awesome Cisco Engineer Will Need Ice-cream Daily'. Yaad rakho ki router par logging trap level 4 syslog server ko levels 0 SE 4 TAK bhejta hai (yaani jo bhi kam se kam utna severe ho)."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Emergency",
+     "hi": "Emergency"
+    },
+    "right": {
+     "en": "0",
+     "hi": "0"
+    }
+   },
+   {
+    "left": {
+     "en": "Critical",
+     "hi": "Critical"
+    },
+    "right": {
+     "en": "2",
+     "hi": "2"
+    }
+   },
+   {
+    "left": {
+     "en": "Warning",
+     "hi": "Warning"
+    },
+    "right": {
+     "en": "4",
+     "hi": "4"
+    }
+   },
+   {
+    "left": {
+     "en": "Informational",
+     "hi": "Informational"
+    },
+    "right": {
+     "en": "6",
+     "hi": "6"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d4-018",
+  "domain": 4,
+  "lesson": "snmp",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A security team requires that all device monitoring traffic be authenticated and encrypted. Which advantage of SNMPv3 over SNMPv2c satisfies this requirement?",
+   "hi": "Security team chahti hai ki saara device monitoring traffic authenticated aur encrypted ho. SNMPv2c ke mukable SNMPv3 ka kaunsa advantage is requirement ko poora karta hai?"
+  },
+  "explanation": {
+   "en": "SNMPv3 adds a user-based security model with three levels: noAuthNoPriv, authNoPriv (authentication via MD5/SHA), and authPriv (authentication plus encryption). SNMPv2c relies on plaintext community strings that anyone sniffing the wire can read, which fails the team's requirement.",
+   "hi": "SNMPv3 ek user-based security model laata hai jismein teen levels hain: noAuthNoPriv, authNoPriv (MD5/SHA se authentication), aur authPriv (authentication ke saath encryption bhi). SNMPv2c plaintext community strings par chalta hai jo wire sniff karne wala koi bhi padh sakta hai, isliye woh team ki requirement poori nahi karta."
+  },
+  "options": [
+   {
+    "en": "SNMPv3 supports user-based authentication and encryption of messages",
+    "hi": "SNMPv3 user-based authentication aur messages ka encryption support karta hai"
+   },
+   {
+    "en": "SNMPv3 polls devices faster by using bulk operations",
+    "hi": "SNMPv3 bulk operations use karke devices ko tezi se poll karta hai"
+   },
+   {
+    "en": "SNMPv3 runs over TCP for guaranteed delivery",
+    "hi": "SNMPv3 guaranteed delivery ke liye TCP par chalta hai"
+   },
+   {
+    "en": "SNMPv3 eliminates the need for MIBs on the agent",
+    "hi": "SNMPv3 agent par MIBs ki zaroorat khatam kar deta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Bulk retrieval (GetBulk) was introduced in SNMPv2c — it is not a v3 security feature.",
+    "hi": "Bulk retrieval (GetBulk) SNMPv2c mein aaya tha. Yeh v3 ka security feature nahi hai."
+   },
+   {
+    "en": "All common SNMP versions use UDP (agent port 161, trap port 162), not TCP.",
+    "hi": "Saare common SNMP versions UDP use karte hain (agent port 161, trap port 162), TCP nahi."
+   },
+   {
+    "en": "MIBs define the structure of manageable objects and are required in every SNMP version, including v3.",
+    "hi": "MIBs manageable objects ka structure define karte hain aur har SNMP version mein zaroori hain, v3 mein bhi."
+   }
+  ]
+ },
+ {
+  "id": "d4-019",
+  "domain": 4,
+  "lesson": "snmp",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which three statements about SNMP operation are correct? (Choose three.)",
+   "hi": "SNMP operation ke baare mein kaunse teen statements sahi hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "The manager (NMS) polls agents with Get/Set requests to UDP 161; agents push unsolicited traps (or acknowledged informs) to the manager on UDP 162. Security depends on version: v1/v2c use plaintext community strings, while v3 offers user-based auth and, in authPriv mode, encryption too.",
+   "hi": "Manager (NMS) agents ko UDP 161 par Get/Set requests se poll karta hai. Agents bina maange traps (ya acknowledged informs) manager ko UDP 162 par push karte hain. Security version par depend karti hai: v1/v2c plaintext community strings use karte hain, jabki v3 user-based auth deta hai aur authPriv mode mein encryption bhi."
+  },
+  "options": [
+   {
+    "en": "An SNMP agent listens for manager requests on UDP port 161",
+    "hi": "SNMP agent manager ki requests ke liye UDP port 161 par listen karta hai"
+   },
+   {
+    "en": "Unsolicited trap messages are sent to the manager on UDP port 162",
+    "hi": "Unsolicited trap messages manager ko UDP port 162 par bheje jaate hain"
+   },
+   {
+    "en": "SNMPv2c authenticates managers with usernames and hashed passwords",
+    "hi": "SNMPv2c managers ko usernames aur hashed passwords se authenticate karta hai"
+   },
+   {
+    "en": "SNMPv3 in authPriv mode both authenticates and encrypts messages",
+    "hi": "authPriv mode mein SNMPv3 messages ko authenticate bhi karta hai aur encrypt bhi"
+   },
+   {
+    "en": "Get requests are initiated by the agent to poll the manager",
+    "hi": "Get requests agent shuru karta hai taaki manager ko poll kare"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   3
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Usernames with hashed authentication belong to SNMPv3. SNMPv2c authenticates only with community strings sent in cleartext.",
+    "hi": "Hashed authentication wale usernames SNMPv3 ka feature hain. SNMPv2c sirf cleartext mein bheje gaye community strings se authenticate karta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Polling flows the other way: the manager initiates Get/Set requests, and the agent responds. Agents only initiate traps and informs.",
+    "hi": "Polling ulti direction mein hoti hai: manager Get/Set requests shuru karta hai aur agent respond karta hai. Agents sirf traps aur informs shuru karte hain."
+   }
+  ]
+ },
+ {
+  "id": "d4-020",
+  "domain": 4,
+  "lesson": "qos",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which DSCP marking is the recommended value for voice (RTP audio) packets?",
+   "hi": "Voice (RTP audio) packets ke liye kaunsi DSCP marking recommended value hai?"
+  },
+  "explanation": {
+   "en": "Expedited Forwarding, DSCP 46 (binary 101110), is the standard marking for voice payload. Voice is intolerant of delay, jitter, and loss, so EF packets are typically serviced by a strict-priority queue (LLQ). At Layer 2, voice frames commonly carry CoS 5 in the 802.1Q tag.",
+   "hi": "Expedited Forwarding, DSCP 46 (binary 101110), voice payload ki standard marking hai. Voice delay, jitter aur loss bilkul bardaasht nahi karta, isliye EF packets ko aam taur par strict-priority queue (LLQ) serve karti hai. Layer 2 par voice frames mein aksar 802.1Q tag mein CoS 5 hota hai."
+  },
+  "options": [
+   {
+    "en": "EF (46)",
+    "hi": "EF (46)"
+   },
+   {
+    "en": "AF41 (34)",
+    "hi": "AF41 (34)"
+   },
+   {
+    "en": "CS0 (0)",
+    "hi": "CS0 (0)"
+   },
+   {
+    "en": "AF21 (18)",
+    "hi": "AF21 (18)"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "AF41 is the common marking for interactive video, one class below voice in urgency.",
+    "hi": "AF41 interactive video ki common marking hai, jo urgency mein voice se ek class neeche hai."
+   },
+   {
+    "en": "CS0 (default, 0) is best-effort — the opposite of the treatment voice requires.",
+    "hi": "CS0 (default, 0) best-effort hai, yaani voice ko jo treatment chahiye uska bilkul ulta."
+   },
+   {
+    "en": "AF21 is typically used for transactional data classes, not real-time audio.",
+    "hi": "AF21 aam taur par transactional data classes ke liye use hota hai, real-time audio ke liye nahi."
+   }
+  ]
+ },
+ {
+  "id": "d4-021",
+  "domain": 4,
+  "lesson": "qos",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which statement correctly contrasts traffic policing with traffic shaping?",
+   "hi": "Kaunsa statement traffic policing aur traffic shaping ka farak sahi tarike se batata hai?"
+  },
+  "explanation": {
+   "en": "Both tools enforce a rate, but they react differently to excess: a shaper queues the overflow and releases it later, smoothing bursts at the cost of added delay (typically applied outbound, e.g., toward a provider with a lower committed rate). A policer takes immediate action — dropping the packet or re-marking it to a lower class.",
+   "hi": "Dono tools ek rate enforce karte hain, lekin excess par alag react karte hain: shaper overflow ko queue mein rakhta hai aur baad mein chhodta hai, jisse bursts smooth hote hain lekin delay badhta hai (aam taur par outbound lagaya jaata hai, jaise kam committed rate wale provider ki taraf). Policer turant action leta hai: packet drop kar deta hai ya use neechi class mein re-mark kar deta hai."
+  },
+  "options": [
+   {
+    "en": "Shaping buffers and delays excess traffic to smooth it to the configured rate, while policing drops or re-marks traffic that exceeds the rate",
+    "hi": "Shaping excess traffic ko buffer aur delay karke configured rate par smooth karta hai, jabki policing rate se zyaada traffic ko drop ya re-mark karta hai"
+   },
+   {
+    "en": "Policing buffers excess packets in a queue, while shaping drops them immediately",
+    "hi": "Policing excess packets ko queue mein buffer karta hai, jabki shaping unhe turant drop kar deta hai"
+   },
+   {
+    "en": "Both policing and shaping drop all excess traffic; they differ only in direction",
+    "hi": "Policing aur shaping dono saara excess traffic drop karte hain; farak sirf direction ka hai"
+   },
+   {
+    "en": "Shaping can be applied only inbound, while policing can be applied only outbound",
+    "hi": "Shaping sirf inbound lag sakta hai, jabki policing sirf outbound"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "This reverses the two behaviors: shaping is the one that buffers; policing is the one that drops or re-marks.",
+    "hi": "Isme dono behaviors ulat diye gaye hain: buffer shaping karta hai, drop ya re-mark policing karta hai."
+   },
+   {
+    "en": "Shaping does not drop conforming excess — it delays it. Only policing routinely drops or re-marks on exceed.",
+    "hi": "Shaping excess ko drop nahi karta, delay karta hai. Exceed hone par routinely drop ya re-mark sirf policing karta hai."
+   },
+   {
+    "en": "It is essentially the opposite: shaping works on outbound queues, while policing can be applied inbound or outbound.",
+    "hi": "Asal mein iska ulta hai: shaping outbound queues par kaam karta hai, jabki policing inbound ya outbound dono par lag sakta hai."
+   }
+  ]
+ },
+ {
+  "id": "d4-022",
+  "domain": 4,
+  "lesson": "qos",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A WAN edge router uses CBWFQ with bandwidth guarantees for each class, yet voice calls still become choppy during congestion. Which change addresses the problem?",
+   "hi": "Ek WAN edge router har class ke liye bandwidth guarantees ke saath CBWFQ use karta hai, phir bhi congestion ke time voice calls choppy ho jaati hain. Kaunsa change is problem ko solve karega?"
+  },
+  "explanation": {
+   "en": "CBWFQ guarantees bandwidth but does not guarantee LOW LATENCY — voice packets can still wait behind data in their turn-based schedule. LLQ is CBWFQ plus a strict-priority queue: packets in the priority (voice) class are always sent first, and the priority queue is policed so it cannot starve other classes.",
+   "hi": "CBWFQ bandwidth guarantee karta hai lekin LOW LATENCY guarantee nahi karta. Voice packets ko apni baari wale schedule mein data ke peeche wait karna pad sakta hai. LLQ matlab CBWFQ plus ek strict-priority queue: priority (voice) class ke packets hamesha pehle bheje jaate hain, aur priority queue police hoti hai taaki woh baaki classes ko bhookha na rakhe."
+  },
+  "options": [
+   {
+    "en": "Configure LLQ by adding a strict-priority queue for the voice class",
+    "hi": "Voice class ke liye strict-priority queue jodkar LLQ configure karo"
+   },
+   {
+    "en": "Increase the FIFO queue depth on the WAN interface",
+    "hi": "WAN interface par FIFO queue depth badhao"
+   },
+   {
+    "en": "Replace queuing with traffic shaping on the voice class",
+    "hi": "Voice class par queuing ki jagah traffic shaping lagao"
+   },
+   {
+    "en": "Re-mark the voice traffic to DSCP CS0 so it is processed sooner",
+    "hi": "Voice traffic ko DSCP CS0 par re-mark karo taaki woh jaldi process ho"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Deeper FIFO queues make delay and jitter worse — packets wait longer in line, which is exactly what voice cannot tolerate.",
+    "hi": "Gehri FIFO queues delay aur jitter ko aur bura banati hain. Packets line mein zyaada der wait karte hain, aur yahi voice bardaasht nahi kar sakta."
+   },
+   {
+    "en": "Shaping deliberately delays traffic to smooth its rate; adding delay to voice would degrade call quality further.",
+    "hi": "Shaping jaan-boojh kar traffic ko delay karta hai taaki rate smooth ho. Voice mein delay jodne se call quality aur kharab hogi."
+   },
+   {
+    "en": "CS0 is best-effort, the lowest treatment — re-marking voice down removes what little preferential treatment it had.",
+    "hi": "CS0 best-effort hai, sabse neecha treatment. Voice ko neeche re-mark karne se jo thoda bahut preferential treatment tha woh bhi chala jaayega."
+   }
+  ]
+ },
+ {
+  "id": "d4-023",
+  "domain": 4,
+  "lesson": "qos",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which three statements about QoS classification and marking are true? (Choose three.)",
+   "hi": "QoS classification aur marking ke baare mein kaunse teen statements sahi hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "Classification inspects traffic (ACLs, NBAR, existing markings) to sort it into classes; marking then writes a value so downstream devices can trust it instead of re-classifying. CoS lives in the 3-bit PCP field of the 802.1Q tag (values 0–7) and disappears when the tag is removed, while DSCP rides in the IP header's 6-bit field and crosses routed hops — which is why markings are usually mapped from CoS to DSCP at the access layer.",
+   "hi": "Classification traffic ko inspect karta hai (ACLs, NBAR, existing markings) aur use classes mein baant'ta hai. Phir marking ek value likh deta hai taaki downstream devices dobara classify karne ke bajaay us par trust kar sakein. CoS 802.1Q tag ke 3-bit PCP field mein rehta hai (values 0–7) aur tag hatate hi gayab ho jaata hai, jabki DSCP IP header ke 6-bit field mein chalta hai aur routed hops paar karta hai. Isi wajah se access layer par markings ko aam taur par CoS se DSCP mein map kiya jaata hai."
+  },
+  "options": [
+   {
+    "en": "CoS is a 3-bit field in the 802.1Q tag, so it survives only across trunk links",
+    "hi": "CoS 802.1Q tag mein 3-bit field hai, isliye yeh sirf trunk links par hi bacha rehta hai"
+   },
+   {
+    "en": "DSCP uses 6 bits of the IP header and can persist end-to-end across Layer 3 hops",
+    "hi": "DSCP IP header ke 6 bits use karta hai aur Layer 3 hops ke paar end-to-end bana reh sakta hai"
+   },
+   {
+    "en": "Classification is the process of identifying which class a packet belongs to before marking or queuing it",
+    "hi": "Classification woh process hai jisme marking ya queuing se pehle pehchana jaata hai ki packet kis class ka hai"
+   },
+   {
+    "en": "Routers strip DSCP markings from every packet by default",
+    "hi": "Routers default se har packet se DSCP markings hata dete hain"
+   },
+   {
+    "en": "CoS values are carried inside standard untagged Ethernet frames",
+    "hi": "CoS values standard untagged Ethernet frames ke andar carry hoti hain"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Routers forward the DSCP field unchanged unless a policy explicitly re-marks it; markings are not stripped by default.",
+    "hi": "Routers DSCP field ko bina badle forward karte hain, jab tak koi policy explicitly use re-mark na kare. Default se markings hatai nahi jaati."
+   },
+   {
+    "en": "An untagged Ethernet frame has no 802.1Q header and therefore no field to carry CoS — the value exists only in tagged frames.",
+    "hi": "Untagged Ethernet frame mein 802.1Q header hota hi nahi, isliye CoS carry karne ke liye koi field nahi hai. Yeh value sirf tagged frames mein hoti hai."
+   }
+  ]
+ },
+ {
+  "id": "d4-024",
+  "domain": 4,
+  "lesson": "ssh",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "An engineer types crypto key generate rsa on a new switch and the command is rejected. Which two settings must exist on the device before the RSA key pair can be generated?",
+   "hi": "Ek engineer naye switch par crypto key generate rsa type karta hai aur command reject ho jaata hai. RSA key pair generate karne se pehle device par kaunsi do settings honi chahiye?"
+  },
+  "explanation": {
+   "en": "The RSA key pair is labeled with the device's fully qualified domain name (hostname.domain), so IOS refuses to generate keys while the hostname is the default 'Switch'/'Router' or no ip domain-name is configured. Once both are set, crypto key generate rsa (1024-bit or larger modulus for SSHv2) succeeds.",
+   "hi": "RSA key pair par device ka fully qualified domain name (hostname.domain) label lagta hai, isliye jab tak hostname default 'Switch'/'Router' hai ya ip domain-name configure nahi hai, IOS keys generate karne se mana kar deta hai. Dono set hone ke baad crypto key generate rsa (SSHv2 ke liye 1024-bit ya usse bada modulus) successful hota hai."
+  },
+  "options": [
+   {
+    "en": "A unique hostname and a domain name set with ip domain-name",
+    "hi": "Ek unique hostname aur ip domain-name se set kiya hua domain name"
+   },
+   {
+    "en": "An enable secret and a console password",
+    "hi": "Ek enable secret aur ek console password"
+   },
+   {
+    "en": "An NTP server and a DNS name server",
+    "hi": "Ek NTP server aur ek DNS name server"
+   },
+   {
+    "en": "transport input ssh and login local on the vty lines",
+    "hi": "vty lines par transport input ssh aur login local"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Passwords control login access but are not inputs to key generation — the command works with or without them.",
+    "hi": "Passwords login access control karte hain lekin key generation ke inputs nahi hain. Command unke saath ya unke bina dono tarah chalta hai."
+   },
+   {
+    "en": "Accurate time and name resolution are good practice but are not prerequisites for creating RSA keys.",
+    "hi": "Sahi time aur name resolution achhi practice hai, lekin RSA keys banane ke liye prerequisites nahi hain."
+   },
+   {
+    "en": "Those vty commands enforce SSH once it works; they are applied after key generation, not before.",
+    "hi": "Yeh vty commands SSH chalne ke baad use enforce karte hain. Yeh key generation ke baad lagaye jaate hain, pehle nahi."
+   }
+  ]
+ },
+ {
+  "id": "d4-025",
+  "domain": 4,
+  "lesson": "ssh",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "The switch already has hostname SW1 and ip domain-name corp.local configured. From global configuration mode, enter the command that creates the RSA key pair used by SSH.",
+   "hi": "Switch par pehle se hostname SW1 aur ip domain-name corp.local configure hai. Global configuration mode se woh command enter karo jo SSH ke liye use hone wala RSA key pair banata hai."
+  },
+  "explanation": {
+   "en": "SSH encrypts sessions with an RSA key pair, and IOS refuses to generate one until the device has a hostname and ip domain-name (they form the key label). After crypto key generate rsa (choose a modulus of at least 2048 bits), enable ip ssh version 2 and restrict the vty lines with transport input ssh.",
+   "hi": "SSH sessions ko RSA key pair se encrypt karta hai, aur jab tak device par hostname aur ip domain-name na ho, IOS key generate nahi karta (yahi dono milkar key label banate hain). crypto key generate rsa ke baad (kam se kam 2048 bits ka modulus chuno), ip ssh version 2 enable karo aur vty lines ko transport input ssh se restrict karo."
+  },
+  "commandAnswer": "crypto key generate rsa",
+  "accept": [
+   "crypto key gen rsa"
+  ]
+ },
+ {
+  "id": "d4-026",
+  "domain": 4,
+  "lesson": "ssh",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "What is the effect of applying transport input ssh to the vty lines of a router?",
+   "hi": "Router ki vty lines par transport input ssh lagane ka kya effect hota hai?"
+  },
+  "explanation": {
+   "en": "transport input defines which inbound protocols a line accepts. Setting it to ssh restricts remote CLI access on those vty lines to encrypted SSH (TCP port 22) and rejects plaintext Telnet (TCP 23). Pair it with login local and ip ssh version 2 for a secure management baseline.",
+   "hi": "transport input define karta hai ki line kaunse inbound protocols accept karegi. Ise ssh par set karne se un vty lines par remote CLI access sirf encrypted SSH (TCP port 22) tak limited ho jaata hai aur plaintext Telnet (TCP 23) reject ho jaata hai. Secure management baseline ke liye ise login local aur ip ssh version 2 ke saath use karo."
+  },
+  "options": [
+   {
+    "en": "Only SSH sessions are accepted on those lines; Telnet connections are refused",
+    "hi": "Un lines par sirf SSH sessions accept hote hain; Telnet connections refuse ho jaate hain"
+   },
+   {
+    "en": "Both SSH and Telnet are permitted for backward compatibility",
+    "hi": "Backward compatibility ke liye SSH aur Telnet dono allowed hain"
+   },
+   {
+    "en": "SSH is enabled globally and RSA keys are generated automatically",
+    "hi": "SSH globally enable ho jaata hai aur RSA keys apne aap generate ho jaati hain"
+   },
+   {
+    "en": "Outbound SSH connections from the router are allowed",
+    "hi": "Router se outbound SSH connections allowed hote hain"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Allowing both would require transport input ssh telnet (or transport input all) — naming only ssh excludes Telnet.",
+    "hi": "Dono allow karne ke liye transport input ssh telnet (ya transport input all) chahiye. Sirf ssh likhne se Telnet bahar ho jaata hai."
+   },
+   {
+    "en": "The command only filters line input; it neither enables the SSH server nor generates keys — crypto key generate rsa does that.",
+    "hi": "Yeh command sirf line input filter karta hai. Yeh na SSH server enable karta hai na keys generate karta hai; woh kaam crypto key generate rsa karta hai."
+   },
+   {
+    "en": "transport input governs INBOUND connections to the line; outbound sessions are controlled by transport output.",
+    "hi": "transport input line par aane wale INBOUND connections control karta hai. Outbound sessions transport output se control hote hain."
+   }
+  ]
+ },
+ {
+  "id": "d4-027",
+  "domain": 4,
+  "lesson": "ssh",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "R1 already has hostname R1 and ip domain-name corp.local configured. Which three additional steps complete a configuration allowing administrators to manage R1 only via SSH with local credentials? (Choose three.)",
+   "hi": "R1 par pehle se hostname R1 aur ip domain-name corp.local configure hai. Kaunse teen aur steps configuration poori karenge taaki administrators R1 ko sirf SSH se local credentials ke saath manage kar sakein? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "The remaining recipe: generate RSA keys (enabling the SSH server), define who may log in (username admin secret ... plus login local on the vty lines), and restrict the lines to SSH only (transport input ssh). Best practice also adds ip ssh version 2 — version 2 fixes security flaws in version 1.",
+   "hi": "Baaki recipe: RSA keys generate karo (isse SSH server enable hota hai), define karo ki kaun login kar sakta hai (username admin secret ... aur vty lines par login local), aur lines ko sirf SSH tak restrict karo (transport input ssh). Best practice mein ip ssh version 2 bhi jodte hain, kyunki version 2 version 1 ki security flaws theek karta hai."
+  },
+  "options": [
+   {
+    "en": "Generate an RSA key pair with crypto key generate rsa",
+    "hi": "crypto key generate rsa se RSA key pair generate karo"
+   },
+   {
+    "en": "Create a local username with a secret and apply login local to the vty lines",
+    "hi": "Secret ke saath ek local username banao aur vty lines par login local lagao"
+   },
+   {
+    "en": "Apply transport input ssh to the vty lines",
+    "hi": "vty lines par transport input ssh lagao"
+   },
+   {
+    "en": "Enable ip ssh version 1 for maximum client compatibility",
+    "hi": "Maximum client compatibility ke liye ip ssh version 1 enable karo"
+   },
+   {
+    "en": "Configure ip name-server so SSH clients can be authenticated",
+    "hi": "ip name-server configure karo taaki SSH clients authenticate ho sakein"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "SSH version 1 has known weaknesses; Cisco recommends forcing version 2 with ip ssh version 2. Enabling v1 is a step backward, not a requirement.",
+    "hi": "SSH version 1 ki known weaknesses hain. Cisco ip ssh version 2 se version 2 force karne ki salah deta hai. v1 enable karna peeche jaana hai, requirement nahi."
+   },
+   {
+    "en": "DNS resolution plays no role in SSH authentication — credentials are checked against the local database (or AAA), not a name server.",
+    "hi": "SSH authentication mein DNS resolution ka koi role nahi hai. Credentials local database (ya AAA) se check hote hain, name server se nahi."
+   }
+  ]
+ },
+ {
+  "id": "d4-028",
+  "domain": 4,
+  "lesson": "ftp-tftp",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which ports does active-mode FTP use for its control and data connections?",
+   "hi": "Active-mode FTP apne control aur data connections ke liye kaunse ports use karta hai?"
+  },
+  "explanation": {
+   "en": "FTP separates its conversations: commands and responses flow over the control connection on TCP 21, while file contents flow over a separate data connection — in active mode, from server port TCP 20 back to the client. Contrast this with TFTP, which uses a single simple exchange over UDP 69.",
+   "hi": "FTP apni conversations alag rakhta hai: commands aur responses TCP 21 wale control connection par chalte hain, jabki file contents ek alag data connection par jaate hain. Active mode mein yeh server ke TCP 20 port se wapas client tak aata hai. Iski tulna TFTP se karo, jo UDP 69 par ek single simple exchange use karta hai."
+  },
+  "options": [
+   {
+    "en": "TCP 21 for control and TCP 20 for data",
+    "hi": "Control ke liye TCP 21 aur data ke liye TCP 20"
+   },
+   {
+    "en": "TCP 20 for control and TCP 21 for data",
+    "hi": "Control ke liye TCP 20 aur data ke liye TCP 21"
+   },
+   {
+    "en": "UDP 20 for control and UDP 21 for data",
+    "hi": "Control ke liye UDP 20 aur data ke liye UDP 21"
+   },
+   {
+    "en": "TCP 22 for control and TCP 23 for data",
+    "hi": "Control ke liye TCP 22 aur data ke liye TCP 23"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The numbers are reversed — 21 carries control traffic and 20 carries data in active mode.",
+    "hi": "Numbers ulte hain. Active mode mein 21 control traffic carry karta hai aur 20 data."
+   },
+   {
+    "en": "FTP is connection-oriented and runs entirely over TCP; UDP is used by TFTP (port 69), not FTP.",
+    "hi": "FTP connection-oriented hai aur poora TCP par chalta hai. UDP TFTP (port 69) use karta hai, FTP nahi."
+   },
+   {
+    "en": "TCP 22 is SSH and TCP 23 is Telnet — neither belongs to FTP.",
+    "hi": "TCP 22 SSH hai aur TCP 23 Telnet. Inmein se koi bhi FTP ka nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d4-029",
+  "domain": 4,
+  "lesson": "ftp-tftp",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "An engineer runs copy ftp: flash: on R1 and the transfer fails with an authentication error, yet copy tftp: flash: from the same server IP succeeds. What is the most likely explanation?",
+   "hi": "Ek engineer R1 par copy ftp: flash: chalata hai aur transfer authentication error ke saath fail ho jaata hai, jabki usi server IP se copy tftp: flash: successful hota hai. Sabse likely wajah kya hai?"
+  },
+  "explanation": {
+   "en": "FTP is a full, session-based protocol: the router must log in, so credentials must be supplied (globally with ip ftp username and ip ftp password, or embedded in the copy URL). TFTP is deliberately trivial — no login, no directory listing — which is why the anonymous TFTP copy works while the unauthenticated FTP attempt is rejected.",
+   "hi": "FTP ek poora session-based protocol hai: router ko login karna padta hai, isliye credentials dene padte hain (globally ip ftp username aur ip ftp password se, ya copy URL ke andar). TFTP jaan-boojh kar bahut simple rakha gaya hai, na login na directory listing. Isi wajah se anonymous TFTP copy chal jaati hai jabki bina authentication wala FTP attempt reject ho jaata hai."
+  },
+  "options": [
+   {
+    "en": "FTP requires credentials (e.g., ip ftp username / ip ftp password), while TFTP performs no authentication at all",
+    "hi": "FTP ko credentials chahiye (jaise ip ftp username / ip ftp password), jabki TFTP koi authentication karta hi nahi"
+   },
+   {
+    "en": "The server is blocking UDP, which FTP depends on",
+    "hi": "Server UDP block kar raha hai, jis par FTP depend karta hai"
+   },
+   {
+    "en": "TFTP transfers skip the router's flash write protection",
+    "hi": "TFTP transfers router ki flash write protection ko skip kar dete hain"
+   },
+   {
+    "en": "The FTP service only supports IPv6 transfers",
+    "hi": "FTP service sirf IPv6 transfers support karti hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "It is the reverse: FTP runs over TCP (20/21) and TFTP over UDP (69) — blocked UDP would break the TFTP copy that actually succeeded.",
+    "hi": "Ulta hai: FTP TCP (20/21) par chalta hai aur TFTP UDP (69) par. UDP block hota toh TFTP copy toot jaati, jo asal mein successful hui."
+   },
+   {
+    "en": "Flash write behavior is identical regardless of source protocol; the error reported is authentication, not a filesystem problem.",
+    "hi": "Source protocol koi bhi ho, flash write behavior same rehta hai. Report kiya gaya error authentication ka hai, filesystem problem nahi."
+   },
+   {
+    "en": "FTP on IOS fully supports IPv4; address family is unrelated to an authentication failure.",
+    "hi": "IOS par FTP IPv4 ko poori tarah support karta hai. Address family ka authentication failure se koi lena-dena nahi."
+   }
+  ]
+ },
+ {
+  "id": "d4-030",
+  "domain": 4,
+  "lesson": "ftp-tftp",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "During an IOS upgrade in a lab, a router pulls the image from a server with no login prompt, and a packet capture shows the transfer running over UDP. Which protocol and port are in use?",
+   "hi": "Lab mein IOS upgrade ke dauraan router ek server se bina kisi login prompt ke image kheenchta hai, aur packet capture dikhata hai ki transfer UDP par chal raha hai. Kaunsa protocol aur port use ho raha hai?"
+  },
+  "explanation": {
+   "en": "No authentication plus UDP transport is the TFTP signature: a minimal protocol that listens on UDP 69 and moves files in small acknowledged blocks. Its simplicity makes it a lab and bootstrap favorite (copy tftp: flash:), though its lack of security means FTP, SCP, or HTTPS are preferred in production.",
+   "hi": "Koi authentication nahi plus UDP transport, yahi TFTP ki pehchaan hai: ek minimal protocol jo UDP 69 par listen karta hai aur files ko chhote acknowledged blocks mein bhejta hai. Simple hone ki wajah se yeh lab aur bootstrap mein favorite hai (copy tftp: flash:), lekin security na hone ki wajah se production mein FTP, SCP ya HTTPS prefer kiye jaate hain."
+  },
+  "options": [
+   {
+    "en": "TFTP, UDP port 69",
+    "hi": "TFTP, UDP port 69"
+   },
+   {
+    "en": "FTP, TCP port 21",
+    "hi": "FTP, TCP port 21"
+   },
+   {
+    "en": "FTP, UDP port 69",
+    "hi": "FTP, UDP port 69"
+   },
+   {
+    "en": "TFTP, TCP port 69",
+    "hi": "TFTP, TCP port 69"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "FTP requires a username/password exchange and runs over TCP — both facts contradict the capture.",
+    "hi": "FTP ko username/password exchange chahiye aur yeh TCP par chalta hai. Dono baatein capture se mel nahi khaati."
+   },
+   {
+    "en": "FTP never uses UDP; this mixes FTP's name with TFTP's transport.",
+    "hi": "FTP kabhi UDP use nahi karta. Yeh option FTP ka naam aur TFTP ka transport mila deta hai."
+   },
+   {
+    "en": "TFTP's defining trait is its UDP transport — it does not run over TCP.",
+    "hi": "TFTP ki khaas pehchaan uska UDP transport hai. Yeh TCP par nahi chalta."
+   }
+  ]
+ }
+]

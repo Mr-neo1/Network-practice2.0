@@ -1,0 +1,910 @@
+/* ─── Lesson layout ──────────────────────────────────────────────────────── */
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  gap: 40px;
+  padding: 34px 32px 20px 44px;
+  max-width: 1150px;
+}
+
+.lesson {
+  /* width: 100% matters: with auto margins a grid item would size to its min-content
+     (the diagrams' min-width) and overflow narrow screens. */
+  width: 100%;
+  min-width: 0;
+  max-width: 800px;
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.lesson-head {
+  margin-bottom: 22px;
+}
+
+.crumb {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-3);
+  text-decoration: none;
+}
+
+.crumb:hover {
+  color: var(--accent);
+}
+
+.lesson-head h1 {
+  font-size: clamp(27px, 3.2vw, 36px);
+  margin: 8px 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.lesson-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+.lesson-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.meta-done {
+  color: var(--ok);
+  font-weight: 500;
+}
+
+.lede {
+  font-size: 1.12em;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.outcomes {
+  margin: 22px 0 30px;
+  padding: 16px 20px 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.outcomes ul {
+  margin: 0 0 10px;
+  padding-left: 20px;
+}
+
+.outcomes li {
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+.lesson-anim {
+  margin: 8px 0 36px;
+}
+
+.lesson-section {
+  margin: 0 0 38px;
+}
+
+.lesson-section h2 {
+  font-size: 23px;
+  margin: 0 0 14px;
+  padding-top: 6px;
+}
+
+.lesson-section p,
+.lesson-section li {
+  color: var(--ink);
+}
+
+.lesson-section ul,
+.lesson-section ol {
+  padding-left: 22px;
+  margin: 0 0 1em;
+}
+
+.lesson-section li {
+  margin-bottom: 6px;
+}
+
+ol.steps {
+  list-style: none;
+  counter-reset: step;
+  padding-left: 0 !important;
+}
+
+ol.steps > li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 12px;
+}
+
+ol.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.loading,
+.pending-note {
+  padding: 24px 0;
+  color: var(--ink-3);
+}
+
+.pending-note {
+  border: 1px dashed var(--line-2);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 26px;
+}
+
+/* ─── Callouts ───────────────────────────────────────────────────────────── */
+
+.callout {
+  margin: 18px 0;
+  padding: 13px 16px 2px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid;
+  font-size: 16px;
+}
+
+.callout-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.callout-tip {
+  background: var(--ok-soft);
+  border-color: var(--ok);
+}
+
+.callout-tip .callout-head {
+  color: var(--ok);
+}
+
+.callout-warn {
+  background: var(--warn-soft);
+  border-color: var(--warn);
+}
+
+.callout-warn .callout-head {
+  color: var(--warn);
+}
+
+.callout-exam {
+  background: var(--exam-soft);
+  border-color: var(--exam);
+}
+
+.callout-exam .callout-head {
+  color: var(--exam);
+}
+
+.callout-analogy {
+  background: var(--surface-2);
+  border-color: var(--line-2);
+}
+
+.callout-analogy .callout-head {
+  color: var(--ink-2);
+}
+
+/* ─── Tables ─────────────────────────────────────────────────────────────── */
+
+.table-wrap {
+  margin: 18px 0 22px;
+}
+
+.table-wrap figcaption,
+.cli figcaption,
+.code figcaption {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-2);
+  margin-bottom: 6px;
+}
+
+.lesson table,
+.page table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.lesson th,
+.lesson td,
+.page th,
+.page td {
+  text-align: left;
+  vertical-align: top;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.lesson thead th,
+.page thead th {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+  background: var(--surface-2);
+  border-bottom-color: var(--line-2);
+  white-space: nowrap;
+}
+
+.lesson tbody tr:hover,
+.page tbody tr:hover {
+  background: color-mix(in srgb, var(--surface-2) 55%, transparent);
+}
+
+.cmd-table td:first-child {
+  white-space: nowrap;
+}
+
+.cmd-table code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-size: 13.5px;
+  color: var(--ink);
+  overflow-wrap: normal;
+}
+
+/* ─── CLI and code ───────────────────────────────────────────────────────── */
+
+.cli,
+.code {
+  margin: 18px 0 22px;
+}
+
+.cli-body,
+.code pre {
+  background: #17191c;
+  color: #d7d4cc;
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: 0;
+}
+
+:root[data-theme="dark"] .cli-body,
+:root[data-theme="dark"] .code pre {
+  background: #101214;
+  border: 1px solid var(--line);
+}
+
+.cli-line + .cli-line {
+  margin-top: 1px;
+}
+
+.cli-prompt {
+  color: #8fc79a;
+  margin-right: 8px;
+}
+
+.cli-cmd {
+  color: #f3f1ea;
+  font-weight: 500;
+}
+
+.cli-out {
+  white-space: pre;
+  color: #b9b5ab;
+}
+
+.cli-comment {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: #e6c47c;
+  margin: 2px 0 6px;
+  white-space: normal;
+}
+
+.cli-comment code {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: inherit;
+}
+
+.cli-note {
+  font-size: 15px;
+  color: var(--ink-2);
+  margin: 8px 0 0;
+}
+
+.code figcaption {
+  display: flex;
+  justify-content: space-between;
+}
+
+.code-lang {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.code pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ─── Terms, mistakes, recap, lab ────────────────────────────────────────── */
+
+.terms {
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+
+.terms > div {
+  display: grid;
+  grid-template-columns: minmax(130px, 200px) 1fr;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.terms dt {
+  font-weight: 600;
+  font-size: 15.5px;
+}
+
+.terms dd {
+  margin: 0;
+  font-size: 15.5px;
+  color: var(--ink-2);
+}
+
+.mistakes {
+  list-style: none;
+  padding-left: 0 !important;
+}
+
+.mistakes li {
+  position: relative;
+  padding: 10px 14px 10px 38px;
+  margin-bottom: 8px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 16px;
+}
+
+.mistakes li::before {
+  content: "!";
+  position: absolute;
+  left: 13px;
+  top: 11px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--warn);
+  color: var(--surface);
+  font-size: 11px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.recap {
+  padding: 18px 22px 8px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.recap h2 {
+  font-size: 19px;
+}
+
+.lab {
+  padding: 18px 22px 8px;
+  border-radius: var(--radius);
+  border: 1px dashed var(--line-2);
+}
+
+.lab h2 {
+  font-size: 19px;
+}
+
+/* ─── Videos ─────────────────────────────────────────────────────────────── */
+
+.videos {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.video-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 8px 8px 0;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--line);
+}
+
+.video-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  padding: 8px 12px 10px;
+  border-bottom: 2px solid transparent;
+  font-size: 14px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.video-tabs button.is-on {
+  border-bottom-color: var(--accent);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.lang-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  color: var(--ink-2);
+}
+
+.lang-tag.lang-hi {
+  background: var(--t-orange-soft);
+  color: var(--t-orange);
+}
+
+.lang-tag.lang-en {
+  background: var(--t-blue-soft);
+  color: var(--t-blue);
+}
+
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #0c0d0f;
+}
+
+.video-frame iframe,
+.video-facade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-facade {
+  padding: 0;
+  background: #0c0d0f;
+}
+
+.video-facade img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.video-facade:hover img {
+  opacity: 1;
+}
+
+.video-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: 64px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(20, 20, 20, 0.82);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.15s;
+}
+
+.video-facade:hover .video-play {
+  background: #d9372b;
+}
+
+.video-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px 14px;
+}
+
+.video-title {
+  font-weight: 500;
+  font-size: 15.5px;
+  line-height: 1.4;
+}
+
+.video-sub {
+  font-size: 13.5px;
+  color: var(--ink-3);
+  margin-top: 2px;
+}
+
+.video-note {
+  font-size: 14.5px;
+  color: var(--ink-2);
+  margin: 6px 0 0;
+}
+
+.video-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13.5px;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+/* ─── Quiz ───────────────────────────────────────────────────────────────── */
+
+.quiz {
+  display: grid;
+  gap: 16px;
+}
+
+.q {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 16px 18px;
+}
+
+.q.is-right {
+  border-color: color-mix(in srgb, var(--ok) 45%, var(--line));
+}
+
+.q.is-wrong {
+  border-color: color-mix(in srgb, var(--bad) 45%, var(--line));
+}
+
+.q-head {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.q-num {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--surface-2);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.q-text {
+  font-size: 16.5px;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.q-source {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink-3);
+  margin-bottom: 2px;
+}
+
+.q-options {
+  display: grid;
+  gap: 8px;
+}
+
+.q-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font-size: 15.5px;
+  line-height: 1.45;
+  transition: border-color 0.12s, background-color 0.12s;
+}
+
+.q-option:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.q-letter {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  font-size: 12.5px;
+  font-weight: 600;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  margin-top: 1px;
+}
+
+.q-option-text {
+  flex: 1;
+}
+
+.q-mark {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.q-option.is-picked {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.q-option.is-answer {
+  border-color: var(--ok);
+  background: var(--ok-soft);
+  color: var(--ink);
+}
+
+.q-option.is-answer .q-mark {
+  color: var(--ok);
+}
+
+.q-option.is-chosen {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+}
+
+.q-option.is-chosen .q-mark {
+  color: var(--bad);
+}
+
+.q-option.is-other {
+  opacity: 0.6;
+}
+
+.q-option:disabled {
+  color: var(--ink);
+}
+
+.q-explain {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.q.is-right .q-explain b {
+  color: var(--ok);
+}
+
+.q.is-wrong .q-explain b {
+  color: var(--bad);
+}
+
+.quiz-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+}
+
+.quiz-result > div {
+  display: grid;
+}
+
+.quiz-result span {
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+.quiz-submit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.exam-bar {
+  position: sticky;
+  top: calc(var(--topbar-h) + 8px);
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  box-shadow: var(--shadow);
+  font-size: 15px;
+}
+
+.exam-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-weight: 600;
+}
+
+.exam-time.is-low {
+  color: var(--bad);
+}
+
+/* ─── Finish and pager ───────────────────────────────────────────────────── */
+
+.finish {
+  display: flex;
+  justify-content: center;
+  margin: 34px 0 10px;
+}
+
+.pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.pager-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.pager-link:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.pager-link small {
+  display: block;
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+
+.pager-link.is-next {
+  justify-content: flex-end;
+  text-align: right;
+  grid-column: 2;
+}
+
+/* ─── On this page ───────────────────────────────────────────────────────── */
+
+.toc {
+  position: sticky;
+  top: calc(var(--topbar-h) + 30px);
+  align-self: start;
+  max-height: calc(100vh - var(--topbar-h) - 60px);
+  overflow-y: auto;
+  font-size: 13.5px;
+}
+
+.toc-title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+
+.toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--line);
+}
+
+.toc button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 4px 0 4px 12px;
+  color: var(--ink-3);
+  line-height: 1.35;
+}
+
+.toc button:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 1280px) {
+  .lesson-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .toc {
+    display: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .lesson-grid {
+    padding: 26px 24px 10px;
+  }
+  .lesson {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .lesson-grid {
+    padding: 20px 16px 10px;
+  }
+  .lesson {
+    font-size: 16.5px;
+  }
+  .terms > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .video-meta {
+    flex-direction: column;
+  }
+  .pager {
+    grid-template-columns: 1fr;
+  }
+  .pager-link.is-next {
+    grid-column: 1;
+  }
+}

@@ -1,0 +1,3946 @@
+[
+ {
+  "id": "d3-001",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "A router's IPv4 routing table contains several routes that all match an incoming packet's destination address. Which route does the router use to forward the packet?",
+   "hi": "Ek router ki IPv4 routing table mein kai routes hain jo sab ek incoming packet ke destination address se match karte hain. Router packet ko forward karne ke liye kaunsa route use karta hai?"
+  },
+  "explanation": {
+   "en": "Forwarding is always decided by the longest prefix match: among all routes whose prefix covers the destination, the one with the most bits in its mask wins. Administrative distance and metric are used earlier, when deciding which routes get INSTALLED in the table — not when choosing among different prefixes at forwarding time.",
+   "hi": "Forwarding hamesha longest prefix match se decide hoti hai: jitne bhi routes ka prefix destination ko cover karta hai, unmein se jis route ke mask mein sabse zyada bits hain, wahi jeetta hai. Administrative distance aur metric pehle use hote hain, jab yeh decide hota hai ki kaunse routes table mein INSTALL honge — forwarding ke time alag-alag prefixes ke beech choose karte waqt nahi."
+  },
+  "options": [
+   {
+    "en": "The route with the longest prefix length (most specific match)",
+    "hi": "Sabse lambi prefix length wala route (most specific match)"
+   },
+   {
+    "en": "The route with the lowest administrative distance, regardless of prefix length",
+    "hi": "Sabse kam administrative distance wala route, prefix length chahe kuch bhi ho"
+   },
+   {
+    "en": "The route with the lowest metric, regardless of prefix length",
+    "hi": "Sabse kam metric wala route, prefix length chahe kuch bhi ho"
+   },
+   {
+    "en": "The route that was installed in the table first",
+    "hi": "Woh route jo table mein sabse pehle install hua tha"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "AD selects between different routing sources offering the SAME prefix; it is not compared across routes with different prefix lengths.",
+    "hi": "AD un alag-alag routing sources ke beech choose karta hai jo SAME prefix offer kar rahe hain; alag prefix lengths wale routes ke beech AD compare nahi hota."
+   },
+   {
+    "en": "Metric compares routes to the same prefix learned by the same protocol; a /24 with a high metric still beats a /16 with a low metric.",
+    "hi": "Metric sirf same protocol se seekhe gaye same prefix ke routes ko compare karta hai; high metric wala /24 bhi low metric wale /16 ko hara deta hai."
+   },
+   {
+    "en": "Installation order plays no role in path selection; the table is evaluated for the most specific match on every lookup.",
+    "hi": "Install hone ka order path selection mein koi role nahi rakhta; har lookup par table mein most specific match dhoondha jaata hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-002",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "A routing table contains this entry:\n\nO     10.16.32.0/24 [110/45] via 10.1.13.2, GigabitEthernet0/1\n\nWhat does the value 110 represent?",
+   "hi": "Ek routing table mein yeh entry hai:\n\nO     10.16.32.0/24 [110/45] via 10.1.13.2, GigabitEthernet0/1\n\nValue 110 kya represent karti hai?"
+  },
+  "explanation": {
+   "en": "In the [X/Y] notation, X is the administrative distance and Y is the metric. 110 is OSPF's default AD (how trustworthy the source is), and 45 is the OSPF cost to reach 10.16.32.0/24. Memorize the AD ladder: connected 0, static 1, eBGP 20, EIGRP 90, OSPF 110, IS-IS 115, RIP 120.",
+   "hi": "[X/Y] notation mein X administrative distance hai aur Y metric hai. 110 OSPF ka default AD hai (source kitna trustworthy hai), aur 45 10.16.32.0/24 tak pahunchne ki OSPF cost hai. AD ladder yaad kar lo: connected 0, static 1, eBGP 20, EIGRP 90, OSPF 110, IS-IS 115, RIP 120."
+  },
+  "options": [
+   {
+    "en": "The OSPF cost to reach the network",
+    "hi": "Network tak pahunchne ki OSPF cost"
+   },
+   {
+    "en": "The administrative distance of the route source",
+    "hi": "Route source ka administrative distance"
+   },
+   {
+    "en": "The hop count to the destination",
+    "hi": "Destination tak ka hop count"
+   },
+   {
+    "en": "The OSPF process ID",
+    "hi": "OSPF process ID"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "The cost (metric) is the second number, 45, not 110.",
+    "hi": "Cost (metric) doosra number hai, yaani 45, 110 nahi."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "OSPF does not use hop count as a metric, and neither number in brackets is a hop count for OSPF routes.",
+    "hi": "OSPF hop count ko metric ki tarah use nahi karta, aur OSPF routes ke liye brackets ka koi bhi number hop count nahi hota."
+   },
+   {
+    "en": "The process ID is locally significant configuration and never appears in the [AD/metric] brackets.",
+    "hi": "Process ID ek locally significant configuration hai aur [AD/metric] brackets mein kabhi nahi dikhta."
+   }
+  ]
+ },
+ {
+  "id": "d3-003",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "A router's table shows:\n\nC     192.168.1.0/24 is directly connected, GigabitEthernet0/0\nL     192.168.1.1/32 is directly connected, GigabitEthernet0/0\n\nWhat does the L entry represent?",
+   "hi": "Ek router ki table yeh dikhati hai:\n\nC     192.168.1.0/24 is directly connected, GigabitEthernet0/0\nL     192.168.1.1/32 is directly connected, GigabitEthernet0/0\n\nL entry kya represent karti hai?"
+  },
+  "explanation": {
+   "en": "For every IPv4 address configured on an up interface, IOS installs two routes: a C (connected) route for the subnet, and an L (local) /32 route for the interface's own address. The local route lets the router recognize packets addressed to itself. Here 192.168.1.1 is the address on G0/0.",
+   "hi": "Kisi up interface par configure kiye gaye har IPv4 address ke liye IOS do routes install karta hai: subnet ke liye ek C (connected) route, aur interface ke apne address ke liye ek L (local) /32 route. Local route ki wajah se router apne liye aaye packets pehchaan paata hai. Yahan 192.168.1.1 G0/0 ka address hai."
+  },
+  "options": [
+   {
+    "en": "A host learned dynamically through ARP",
+    "hi": "ARP ke through dynamically seekha gaya ek host"
+   },
+   {
+    "en": "A local host route for the IP address configured on the router's own interface",
+    "hi": "Router ke apne interface par configure kiye gaye IP address ka local host route"
+   },
+   {
+    "en": "A loopback interface network",
+    "hi": "Ek loopback interface network"
+   },
+   {
+    "en": "A static host route added by an administrator",
+    "hi": "Administrator ka add kiya hua static host route"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "ARP entries live in the ARP cache, not in the routing table; L routes come from the interface configuration.",
+    "hi": "ARP entries ARP cache mein rehti hain, routing table mein nahi; L routes interface configuration se aate hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Loopback interfaces also generate C and L entries, but this L route points to GigabitEthernet0/0, a physical interface.",
+    "hi": "Loopback interfaces bhi C aur L entries banate hain, lekin yeh L route GigabitEthernet0/0 ki taraf point karta hai, jo ek physical interface hai."
+   },
+   {
+    "en": "Static routes display code S; L routes are created automatically when the interface address is configured.",
+    "hi": "Static routes code S dikhate hain; L routes interface address configure hote hi automatically ban jaate hain."
+   }
+  ]
+ },
+ {
+  "id": "d3-004",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A router learns the prefix 192.168.50.0/24 from three sources at the same time: OSPF (metric 40), EIGRP (metric 312560), and RIP (metric 3). Which route is installed in the routing table?",
+   "hi": "Ek router prefix 192.168.50.0/24 ek hi time par teen sources se seekhta hai: OSPF (metric 40), EIGRP (metric 312560), aur RIP (metric 3). Routing table mein kaunsa route install hoga?"
+  },
+  "explanation": {
+   "en": "When different protocols offer the exact same prefix, the router compares administrative distance, not metric: EIGRP 90 beats OSPF 110 and RIP 120, so the EIGRP route wins despite its large-looking metric. Metrics are only comparable within a single protocol — 312560 (EIGRP composite) and 3 (RIP hops) measure different things.",
+   "hi": "Jab alag-alag protocols bilkul same prefix offer karte hain, toh router metric nahi, administrative distance compare karta hai: EIGRP 90, OSPF 110 aur RIP 120 dono ko hara deta hai, isliye EIGRP route jeetta hai, chahe uska metric bada dikhe. Metrics sirf ek hi protocol ke andar comparable hote hain — 312560 (EIGRP composite) aur 3 (RIP hops) alag-alag cheezein measure karte hain."
+  },
+  "options": [
+   {
+    "en": "The RIP route, because its metric of 3 is lowest",
+    "hi": "RIP route, kyunki uska metric 3 sabse kam hai"
+   },
+   {
+    "en": "The OSPF route, because OSPF is a link-state protocol",
+    "hi": "OSPF route, kyunki OSPF ek link-state protocol hai"
+   },
+   {
+    "en": "The EIGRP route, because EIGRP has the lowest administrative distance",
+    "hi": "EIGRP route, kyunki EIGRP ka administrative distance sabse kam hai"
+   },
+   {
+    "en": "All three routes are installed and traffic is load-balanced",
+    "hi": "Teeno routes install hote hain aur traffic load-balance hota hai"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "Metrics from different protocols cannot be compared; RIP's hop count of 3 is not 'better' than EIGRP's 312560 — they are different units.",
+    "hi": "Alag protocols ke metrics compare nahi ho sakte; RIP ka hop count 3 EIGRP ke 312560 se 'better' nahi hai — dono alag units hain."
+   },
+   {
+    "en": "Being link-state does not grant preference; OSPF's AD of 110 loses to EIGRP's 90.",
+    "hi": "Link-state hone se koi preference nahi milti; OSPF ka AD 110 EIGRP ke 90 se haar jaata hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Only the route from the source with the lowest AD is installed for a given prefix; multi-source load balancing across protocols does not occur.",
+    "hi": "Kisi prefix ke liye sirf sabse kam AD wale source ka route install hota hai; protocols ke beech multi-source load balancing nahi hoti."
+   }
+  ]
+ },
+ {
+  "id": "d3-005",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A routing table begins with:\n\nGateway of last resort is 203.0.113.1 to network 0.0.0.0\n\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n\nWhat does the asterisk after the S indicate?",
+   "hi": "Ek routing table aise shuru hoti hai:\n\nGateway of last resort is 203.0.113.1 to network 0.0.0.0\n\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n\nS ke baad wala asterisk kya batata hai?"
+  },
+  "explanation": {
+   "en": "The asterisk flags a candidate default route. Because this 0.0.0.0/0 static route is installed, the router sets its gateway of last resort to 203.0.113.1 — the next hop used for any destination that matches no more specific route.",
+   "hi": "Asterisk ek candidate default route ko mark karta hai. Kyunki yeh 0.0.0.0/0 static route install hai, router apna gateway of last resort 203.0.113.1 set kar deta hai — yeh woh next hop hai jo har us destination ke liye use hota hai jo kisi more specific route se match nahi karta."
+  },
+  "options": [
+   {
+    "en": "The route is a candidate default route",
+    "hi": "Yeh route ek candidate default route hai"
+   },
+   {
+    "en": "The route has the best metric of all static routes",
+    "hi": "Is route ka metric saare static routes mein sabse best hai"
+   },
+   {
+    "en": "The route is being advertised to neighboring routers",
+    "hi": "Yeh route neighboring routers ko advertise ho raha hai"
+   },
+   {
+    "en": "The route is permanently installed and cannot be removed",
+    "hi": "Yeh route permanently installed hai aur remove nahi ho sakta"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The asterisk says nothing about metric; a static route's metric is always shown as 0.",
+    "hi": "Asterisk metric ke baare mein kuch nahi batata; static route ka metric hamesha 0 dikhaya jaata hai."
+   },
+   {
+    "en": "Static routes are not advertised to neighbors unless a routing protocol is explicitly configured to originate or redistribute them.",
+    "hi": "Static routes neighbors ko advertise nahi hote jab tak koi routing protocol explicitly unhe originate ya redistribute karne ke liye configure na ho."
+   },
+   {
+    "en": "Removing the ip route command (or losing the next hop) removes the route; the asterisk does not make it permanent.",
+    "hi": "ip route command hata do (ya next hop chala jaaye) toh route hat jaata hai; asterisk usse permanent nahi banata."
+   }
+  ]
+ },
+ {
+  "id": "d3-006",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A router has this routing table:\n\nS     10.0.0.0/8 [1/0] via 203.0.113.2\nO     10.16.0.0/16 [110/20] via 10.1.12.2, GigabitEthernet0/0\nO     10.16.32.0/24 [110/45] via 10.1.13.2, GigabitEthernet0/1\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n\nWhich next hop is used for a packet destined to 10.16.32.9?",
+   "hi": "Ek router ki routing table yeh hai:\n\nS     10.0.0.0/8 [1/0] via 203.0.113.2\nO     10.16.0.0/16 [110/20] via 10.1.12.2, GigabitEthernet0/0\nO     10.16.32.0/24 [110/45] via 10.1.13.2, GigabitEthernet0/1\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n\n10.16.32.9 destination wale packet ke liye kaunsa next hop use hoga?"
+  },
+  "explanation": {
+   "en": "10.16.32.9 falls inside 10.16.32.0/24 (which covers 10.16.32.0 through 10.16.32.255), and /24 is the longest matching prefix, so the packet goes via 10.1.13.2. The /24's higher metric (45 versus 20) is irrelevant — metric never overrides a longer prefix.",
+   "hi": "10.16.32.9, 10.16.32.0/24 ke andar aata hai (jo 10.16.32.0 se 10.16.32.255 tak cover karta hai), aur /24 sabse lamba matching prefix hai, isliye packet 10.1.13.2 ke through jaata hai. /24 ka zyada metric (45 vs 20) koi matter nahi karta — metric kabhi bhi longer prefix ko override nahi karta."
+  },
+  "options": [
+   {
+    "en": "203.0.113.2",
+    "hi": "203.0.113.2"
+   },
+   {
+    "en": "10.1.12.2",
+    "hi": "10.1.12.2"
+   },
+   {
+    "en": "10.1.13.2",
+    "hi": "10.1.13.2"
+   },
+   {
+    "en": "203.0.113.1",
+    "hi": "203.0.113.1"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "10.0.0.0/8 matches, but /8 is the shortest of the matching prefixes and loses to the /24.",
+    "hi": "10.0.0.0/8 match karta hai, lekin matching prefixes mein /8 sabse chhota hai aur /24 se haar jaata hai."
+   },
+   {
+    "en": "10.16.0.0/16 matches, but the /24 route is more specific and is preferred despite its higher metric.",
+    "hi": "10.16.0.0/16 match karta hai, lekin /24 route zyada specific hai aur zyada metric ke bawajood prefer hota hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The default route is used only when no other route matches; here three more specific routes match.",
+    "hi": "Default route sirf tab use hota hai jab koi aur route match na kare; yahan teen more specific routes match kar rahe hain."
+   }
+  ]
+ },
+ {
+  "id": "d3-007",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A router has this routing table:\n\nS     10.0.0.0/8 [1/0] via 203.0.113.2\nO     10.16.0.0/16 [110/20] via 10.1.12.2, GigabitEthernet0/0\nO     10.16.32.0/24 [110/45] via 10.1.13.2, GigabitEthernet0/1\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n\nWhich next hop is used for a packet destined to 10.16.47.10?",
+   "hi": "Ek router ki routing table yeh hai:\n\nS     10.0.0.0/8 [1/0] via 203.0.113.2\nO     10.16.0.0/16 [110/20] via 10.1.12.2, GigabitEthernet0/0\nO     10.16.32.0/24 [110/45] via 10.1.13.2, GigabitEthernet0/1\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n\n10.16.47.10 destination wale packet ke liye kaunsa next hop use hoga?"
+  },
+  "explanation": {
+   "en": "10.16.47.10 is NOT inside 10.16.32.0/24 (that route only covers addresses whose third octet is 32). It does fall inside 10.16.0.0/16, which is more specific than 10.0.0.0/8, so the packet is forwarded via 10.1.12.2.",
+   "hi": "10.16.47.10, 10.16.32.0/24 ke andar NAHI hai (woh route sirf un addresses ko cover karta hai jinka third octet 32 hai). Lekin yeh 10.16.0.0/16 ke andar aata hai, jo 10.0.0.0/8 se zyada specific hai, isliye packet 10.1.12.2 ke through forward hota hai."
+  },
+  "options": [
+   {
+    "en": "203.0.113.2",
+    "hi": "203.0.113.2"
+   },
+   {
+    "en": "10.1.12.2",
+    "hi": "10.1.12.2"
+   },
+   {
+    "en": "10.1.13.2",
+    "hi": "10.1.13.2"
+   },
+   {
+    "en": "203.0.113.1",
+    "hi": "203.0.113.1"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "10.0.0.0/8 matches but is less specific than the /16; longest match wins.",
+    "hi": "10.0.0.0/8 match karta hai lekin /16 se kam specific hai; longest match jeetta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "10.16.32.0/24 covers only 10.16.32.0 through 10.16.32.255; the destination's third octet is 47, so this route does not match at all.",
+    "hi": "10.16.32.0/24 sirf 10.16.32.0 se 10.16.32.255 tak cover karta hai; destination ka third octet 47 hai, isliye yeh route match hi nahi karta."
+   },
+   {
+    "en": "A more specific route (the /16) matches, so the default route is not consulted.",
+    "hi": "Ek more specific route (/16) match kar raha hai, isliye default route dekha hi nahi jaata."
+   }
+  ]
+ },
+ {
+  "id": "d3-008",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A router has this routing table:\n\nO     172.20.16.0/20 [110/30] via 10.0.0.6\nO     172.20.24.0/22 [110/20] via 10.0.0.10\nO     172.20.26.0/23 [110/50] via 10.0.0.14\nS*    0.0.0.0/0 [1/0] via 10.0.0.2\n\nWhich next hop is used for a packet destined to 172.20.27.133?",
+   "hi": "Ek router ki routing table yeh hai:\n\nO     172.20.16.0/20 [110/30] via 10.0.0.6\nO     172.20.24.0/22 [110/20] via 10.0.0.10\nO     172.20.26.0/23 [110/50] via 10.0.0.14\nS*    0.0.0.0/0 [1/0] via 10.0.0.2\n\n172.20.27.133 destination wale packet ke liye kaunsa next hop use hoga?"
+  },
+  "explanation": {
+   "en": "Work out each range: 172.20.16.0/20 covers 172.20.16.0-172.20.31.255; 172.20.24.0/22 covers 172.20.24.0-172.20.27.255; 172.20.26.0/23 covers 172.20.26.0-172.20.27.255. The destination 172.20.27.133 sits inside all three, so the longest prefix (/23) wins and the packet goes via 10.0.0.14 — even though that route has the worst metric (50).",
+   "hi": "Har range nikalo: 172.20.16.0/20 cover karta hai 172.20.16.0-172.20.31.255; 172.20.24.0/22 cover karta hai 172.20.24.0-172.20.27.255; 172.20.26.0/23 cover karta hai 172.20.26.0-172.20.27.255. Destination 172.20.27.133 teeno ke andar hai, isliye longest prefix (/23) jeetta hai aur packet 10.0.0.14 ke through jaata hai — chahe us route ka metric sabse kharab (50) hai."
+  },
+  "options": [
+   {
+    "en": "10.0.0.6",
+    "hi": "10.0.0.6"
+   },
+   {
+    "en": "10.0.0.10",
+    "hi": "10.0.0.10"
+   },
+   {
+    "en": "10.0.0.14",
+    "hi": "10.0.0.14"
+   },
+   {
+    "en": "10.0.0.2",
+    "hi": "10.0.0.2"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "The /20 matches but is the least specific of the three matching routes.",
+    "hi": "/20 match karta hai lekin teen matching routes mein sabse kam specific hai."
+   },
+   {
+    "en": "The /22 matches and has the best metric (20), but metric is never compared across different prefixes — the /23 is more specific.",
+    "hi": "/22 match karta hai aur uska metric sabse best (20) hai, lekin alag prefixes ke beech metric kabhi compare nahi hota — /23 zyada specific hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The default route is only a fallback; three more specific routes cover this destination.",
+    "hi": "Default route sirf fallback hai; is destination ko teen more specific routes cover kar rahe hain."
+   }
+  ]
+ },
+ {
+  "id": "d3-009",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "R1 is configured with ip route 0.0.0.0 0.0.0.0 203.0.113.1 and its table shows S* 0.0.0.0/0 [1/0]. R1 also receives a default route advertisement (0.0.0.0/0) from an OSPF neighbor, but that OSPF default never appears in the routing table. Why?",
+   "hi": "R1 par ip route 0.0.0.0 0.0.0.0 203.0.113.1 configure hai aur uski table S* 0.0.0.0/0 [1/0] dikhati hai. R1 ko ek OSPF neighbor se bhi default route advertisement (0.0.0.0/0) milta hai, lekin woh OSPF default routing table mein kabhi nahi dikhta. Kyun?"
+  },
+  "explanation": {
+   "en": "Both sources offer the identical prefix 0.0.0.0/0, so the tie is broken by administrative distance before anything is installed: static AD 1 is lower (more trusted) than OSPF AD 110, so only the static default is installed. If the static route were removed, the OSPF default would immediately take its place.",
+   "hi": "Dono sources bilkul same prefix 0.0.0.0/0 offer kar rahe hain, isliye kuch bhi install hone se pehle tie administrative distance se tootta hai: static AD 1, OSPF AD 110 se kam (zyada trusted) hai, isliye sirf static default install hota hai. Agar static route hata diya jaaye, toh OSPF default turant uski jagah le lega."
+  },
+  "options": [
+   {
+    "en": "The static route was configured before OSPF converged, and older routes cannot be replaced",
+    "hi": "Static route OSPF converge hone se pehle configure hua tha, aur purane routes replace nahi ho sakte"
+   },
+   {
+    "en": "Both candidates are the same prefix (0.0.0.0/0), so administrative distance decides: static (1) beats OSPF (110)",
+    "hi": "Dono candidates same prefix (0.0.0.0/0) hain, isliye administrative distance decide karta hai: static (1) OSPF (110) ko hara deta hai"
+   },
+   {
+    "en": "Longest prefix match prefers static routes over OSPF routes",
+    "hi": "Longest prefix match static routes ko OSPF routes par prefer karta hai"
+   },
+   {
+    "en": "OSPF cannot carry a default route in its advertisements",
+    "hi": "OSPF apne advertisements mein default route carry nahi kar sakta"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Age and configuration order never protect a route; if a lower-AD source appears, it replaces the installed route for that prefix.",
+    "hi": "Age aur configuration order kabhi route ko protect nahi karte; agar kam AD wala source aata hai, toh woh us prefix ke installed route ko replace kar deta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Longest prefix match compares prefix lengths at forwarding time; here both prefixes are /0, so prefix length cannot break the tie.",
+    "hi": "Longest prefix match forwarding ke time prefix lengths compare karta hai; yahan dono prefixes /0 hain, isliye prefix length tie nahi tod sakti."
+   },
+   {
+    "en": "OSPF can advertise a default route (typically via default-information originate on another router) — R1 is in fact receiving one.",
+    "hi": "OSPF default route advertise kar sakta hai (aam taur par kisi doosre router par default-information originate se) — R1 ko asal mein ek mil bhi raha hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-010",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which THREE statements about IPv4 route selection are true? (Choose three)",
+   "hi": "IPv4 route selection ke baare mein kaunse TEEN statements sahi hain? (Teen choose karo)"
+  },
+  "explanation": {
+   "en": "The three-step logic: (1) forwarding uses the longest prefix match among installed routes; (2) when sources compete to install the SAME prefix, the lowest AD wins (connected 0, static 1, eBGP 20, EIGRP 90, OSPF 110, IS-IS 115, RIP 120); (3) within one protocol, the lowest metric wins. Metrics from different protocols measure different things and are never compared to each other.",
+   "hi": "Teen-step logic: (1) forwarding installed routes mein longest prefix match use karti hai; (2) jab sources SAME prefix install karne ke liye compete karte hain, toh sabse kam AD jeetta hai (connected 0, static 1, eBGP 20, EIGRP 90, OSPF 110, IS-IS 115, RIP 120); (3) ek protocol ke andar sabse kam metric jeetta hai. Alag protocols ke metrics alag cheezein measure karte hain aur ek doosre se kabhi compare nahi hote."
+  },
+  "options": [
+   {
+    "en": "At forwarding time, the longest matching prefix is preferred no matter which protocol supplied the route",
+    "hi": "Forwarding ke time longest matching prefix prefer hota hai, chahe route kisi bhi protocol ne diya ho"
+   },
+   {
+    "en": "Administrative distance decides which source's route is installed when two sources offer the identical prefix",
+    "hi": "Jab do sources bilkul same prefix offer karte hain, toh administrative distance decide karta hai ki kis source ka route install hoga"
+   },
+   {
+    "en": "Metric compares alternative routes to the same prefix learned by the same protocol",
+    "hi": "Metric same protocol se seekhe gaye same prefix ke alternative routes ko compare karta hai"
+   },
+   {
+    "en": "A route with a lower metric is always preferred over a route with a longer prefix",
+    "hi": "Kam metric wala route hamesha longer prefix wale route par prefer hota hai"
+   },
+   {
+    "en": "OSPF cost and EIGRP metric can be compared directly to select the best path",
+    "hi": "Best path choose karne ke liye OSPF cost aur EIGRP metric ko directly compare kiya ja sakta hai"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Prefix length is evaluated first at forwarding time; a /28 with metric 1000 still beats a /24 with metric 1 for destinations inside the /28.",
+    "hi": "Forwarding ke time prefix length pehle evaluate hoti hai; /28 ke andar wale destinations ke liye metric 1000 wala /28 bhi metric 1 wale /24 ko hara deta hai."
+   },
+   {
+    "en": "OSPF cost is bandwidth-derived and EIGRP's composite uses bandwidth plus delay on a different scale — they are incomparable units, which is exactly why AD exists.",
+    "hi": "OSPF cost bandwidth se nikalti hai aur EIGRP ka composite bandwidth plus delay ek alag scale par use karta hai — yeh incomparable units hain, aur isi wajah se AD exist karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-011",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which TWO route sources have a lower (more trusted) default administrative distance than OSPF? (Choose two)",
+   "hi": "Kaunse DO route sources ka default administrative distance OSPF se kam (zyada trusted) hai? (Do choose karo)"
+  },
+  "explanation": {
+   "en": "OSPF's default AD is 110. External BGP (20) and internal EIGRP (90) are both lower, so they would be preferred over OSPF for the same prefix. IS-IS (115) and RIP (120) are higher, so OSPF beats them. Full ladder: connected 0, static 1, eBGP 20, EIGRP 90, OSPF 110, IS-IS 115, RIP 120.",
+   "hi": "OSPF ka default AD 110 hai. External BGP (20) aur internal EIGRP (90) dono kam hain, isliye same prefix ke liye yeh OSPF par prefer honge. IS-IS (115) aur RIP (120) zyada hain, isliye OSPF unhe hara deta hai. Poori ladder: connected 0, static 1, eBGP 20, EIGRP 90, OSPF 110, IS-IS 115, RIP 120."
+  },
+  "options": [
+   {
+    "en": "External BGP",
+    "hi": "External BGP"
+   },
+   {
+    "en": "EIGRP (internal)",
+    "hi": "EIGRP (internal)"
+   },
+   {
+    "en": "IS-IS",
+    "hi": "IS-IS"
+   },
+   {
+    "en": "RIP",
+    "hi": "RIP"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "IS-IS has AD 115, which is higher (less trusted) than OSPF's 110.",
+    "hi": "IS-IS ka AD 115 hai, jo OSPF ke 110 se zyada (kam trusted) hai."
+   },
+   {
+    "en": "RIP has AD 120, the least trusted of the common interior protocols.",
+    "hi": "RIP ka AD 120 hai, common interior protocols mein sabse kam trusted."
+   }
+  ]
+ },
+ {
+  "id": "d3-012",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each route source to its default administrative distance.",
+   "hi": "Har route source ko uske default administrative distance se match karo."
+  },
+  "explanation": {
+   "en": "Administrative distance ranks the trustworthiness of route sources; the lowest AD wins when the same prefix is offered by multiple sources. Connected 0, static 1, eBGP 20, EIGRP 90, OSPF 110, IS-IS 115, RIP 120 — the CCNA expects these cold.",
+   "hi": "Administrative distance route sources ki trustworthiness ko rank karta hai; jab same prefix multiple sources se aata hai toh sabse kam AD jeetta hai. Connected 0, static 1, eBGP 20, EIGRP 90, OSPF 110, IS-IS 115, RIP 120 — CCNA mein yeh sab zubaani yaad hone chahiye."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Connected interface",
+     "hi": "Connected interface"
+    },
+    "right": {
+     "en": "0",
+     "hi": "0"
+    }
+   },
+   {
+    "left": {
+     "en": "Static route",
+     "hi": "Static route"
+    },
+    "right": {
+     "en": "1",
+     "hi": "1"
+    }
+   },
+   {
+    "left": {
+     "en": "External BGP",
+     "hi": "External BGP"
+    },
+    "right": {
+     "en": "20",
+     "hi": "20"
+    }
+   },
+   {
+    "left": {
+     "en": "OSPF",
+     "hi": "OSPF"
+    },
+    "right": {
+     "en": "110",
+     "hi": "110"
+    }
+   },
+   {
+    "left": {
+     "en": "RIP",
+     "hi": "RIP"
+    },
+    "right": {
+     "en": "120",
+     "hi": "120"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d3-013",
+  "domain": 3,
+  "lesson": "routing-basics",
+  "difficulty": "easy",
+  "type": "command",
+  "text": {
+   "en": "Type the privileged EXEC command that displays the router's complete IPv4 routing table.",
+   "hi": "Woh privileged EXEC command type karo jo router ki poori IPv4 routing table display karta hai."
+  },
+  "explanation": {
+   "en": "show ip route lists every installed IPv4 route with its code (L local, C connected, S static, O OSPF, D EIGRP, R RIP, B BGP), the [AD/metric] pair, the next hop, and the exit interface. It is the first command in almost every routing troubleshooting workflow.",
+   "hi": "show ip route har installed IPv4 route ko list karta hai, uske code ke saath (L local, C connected, S static, O OSPF, D EIGRP, R RIP, B BGP), [AD/metric] pair, next hop, aur exit interface. Lagbhag har routing troubleshooting workflow ka yeh pehla command hai."
+  },
+  "commandAnswer": "show ip route",
+  "accept": [
+   "sh ip route",
+   "sh ip ro",
+   "show ip ro"
+  ]
+ },
+ {
+  "id": "d3-014",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which command configures a static route to the 192.168.30.0/24 network through next-hop 10.1.1.2?",
+   "hi": "Kaunsa command 192.168.30.0/24 network ke liye next-hop 10.1.1.2 ke through static route configure karta hai?"
+  },
+  "explanation": {
+   "en": "The IPv4 static route syntax is: ip route network subnet-mask next-hop (or exit-interface). The mask is a normal subnet mask, so /24 is written 255.255.255.0, and the destination network comes before the next hop.",
+   "hi": "IPv4 static route ka syntax hai: ip route network subnet-mask next-hop (ya exit-interface). Mask ek normal subnet mask hota hai, isliye /24 ko 255.255.255.0 likhte hain, aur destination network next hop se pehle aata hai."
+  },
+  "options": [
+   {
+    "en": "ip route 192.168.30.0 255.255.255.0 10.1.1.2",
+    "hi": "ip route 192.168.30.0 255.255.255.0 10.1.1.2"
+   },
+   {
+    "en": "ip route 192.168.30.0 0.0.0.255 10.1.1.2",
+    "hi": "ip route 192.168.30.0 0.0.0.255 10.1.1.2"
+   },
+   {
+    "en": "ip route 10.1.1.2 255.255.255.0 192.168.30.0",
+    "hi": "ip route 10.1.1.2 255.255.255.0 192.168.30.0"
+   },
+   {
+    "en": "ip route 192.168.30.0/24 10.1.1.2",
+    "hi": "ip route 192.168.30.0/24 10.1.1.2"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "0.0.0.255 is a wildcard mask — those belong in OSPF network statements and ACLs, not in ip route.",
+    "hi": "0.0.0.255 ek wildcard mask hai — yeh OSPF network statements aur ACLs mein use hota hai, ip route mein nahi."
+   },
+   {
+    "en": "The arguments are reversed: this tries to route TO 10.1.1.2 VIA 192.168.30.0.",
+    "hi": "Arguments ulte hain: yeh 192.168.30.0 KE THROUGH 10.1.1.2 TAK route karne ki koshish karta hai."
+   },
+   {
+    "en": "IOS does not accept CIDR slash notation in the ip route command; the mask must be written in dotted decimal.",
+    "hi": "IOS ip route command mein CIDR slash notation accept nahi karta; mask dotted decimal mein likhna zaroori hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-015",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which command configures an IPv4 default static route that sends all otherwise-unmatched traffic to 203.0.113.1?",
+   "hi": "Kaunsa command ek IPv4 default static route configure karta hai jo baaki saara unmatched traffic 203.0.113.1 ko bhejta hai?"
+  },
+  "explanation": {
+   "en": "The quad-zero route — network 0.0.0.0 with mask 0.0.0.0 — matches every IPv4 destination with a prefix length of 0, so it is used only when nothing more specific matches. It appears as S* and sets the gateway of last resort.",
+   "hi": "Quad-zero route — network 0.0.0.0 mask 0.0.0.0 ke saath — prefix length 0 ke saath har IPv4 destination ko match karta hai, isliye yeh sirf tab use hota hai jab kuch aur specific match na kare. Yeh S* ki tarah dikhta hai aur gateway of last resort set karta hai."
+  },
+  "options": [
+   {
+    "en": "ip route 0.0.0.0 0.0.0.0 203.0.113.1",
+    "hi": "ip route 0.0.0.0 0.0.0.0 203.0.113.1"
+   },
+   {
+    "en": "ip default-gateway 203.0.113.1",
+    "hi": "ip default-gateway 203.0.113.1"
+   },
+   {
+    "en": "ip route 0.0.0.0 255.255.255.255 203.0.113.1",
+    "hi": "ip route 0.0.0.0 255.255.255.255 203.0.113.1"
+   },
+   {
+    "en": "ip route 255.255.255.255 255.255.255.255 203.0.113.1",
+    "hi": "ip route 255.255.255.255 255.255.255.255 203.0.113.1"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "ip default-gateway is only used by devices that are NOT routing (for example a Layer 2 switch's management plane); a router with ip routing enabled ignores it.",
+    "hi": "ip default-gateway sirf un devices par use hota hai jo routing NAHI kar rahe (jaise Layer 2 switch ka management plane); ip routing enabled router ise ignore kar deta hai."
+   },
+   {
+    "en": "Mask 255.255.255.255 with network 0.0.0.0 defines a host route to the single address 0.0.0.0, not a default route.",
+    "hi": "Network 0.0.0.0 ke saath mask 255.255.255.255 sirf ek address 0.0.0.0 ka host route banata hai, default route nahi."
+   },
+   {
+    "en": "This would be a host route to the local broadcast address — meaningless as a default route.",
+    "hi": "Yeh local broadcast address ka host route hoga — default route ki tarah iska koi matlab nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-016",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "What is the default administrative distance of an IPv4 static route configured with a next-hop address?",
+   "hi": "Next-hop address ke saath configure kiye gaye IPv4 static route ka default administrative distance kya hai?"
+  },
+  "explanation": {
+   "en": "Static routes default to AD 1 — more trusted than every dynamic routing protocol and second only to connected routes (AD 0). That is why a static route normally overrides anything a protocol learns for the same prefix, and why floating statics must raise the AD on purpose.",
+   "hi": "Static routes ka default AD 1 hota hai — har dynamic routing protocol se zyada trusted, aur sirf connected routes (AD 0) se peeche. Isi wajah se static route normally us prefix ke liye protocol ka seekha hua sab kuch override kar deta hai, aur isi wajah se floating statics mein AD jaan-boojh kar badhana padta hai."
+  },
+  "options": [
+   {
+    "en": "0",
+    "hi": "0"
+   },
+   {
+    "en": "1",
+    "hi": "1"
+   },
+   {
+    "en": "5",
+    "hi": "5"
+   },
+   {
+    "en": "110",
+    "hi": "110"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "AD 0 belongs to directly connected routes; a static route can never be more trusted than a connected interface.",
+    "hi": "AD 0 directly connected routes ka hota hai; static route kabhi bhi connected interface se zyada trusted nahi ho sakta."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "5 is the AD of an EIGRP summary route, not a static route.",
+    "hi": "5 EIGRP summary route ka AD hai, static route ka nahi."
+   },
+   {
+    "en": "110 is OSPF's default AD.",
+    "hi": "110 OSPF ka default AD hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-017",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "R1 learns 10.50.0.0/16 through OSPF. You must add a static route through backup next-hop 172.16.1.2 that is used ONLY if the OSPF route disappears. Which command is correct?",
+   "hi": "R1, 10.50.0.0/16 ko OSPF ke through seekhta hai. Tumhe backup next-hop 172.16.1.2 ke through ek static route add karna hai jo SIRF tab use ho jab OSPF route gayab ho jaaye. Kaunsa command sahi hai?"
+  },
+  "explanation": {
+   "en": "A floating static route must have an administrative distance HIGHER than the protocol it backs up. OSPF is 110, so any value above 110 (here 130) keeps the static route dormant while OSPF is healthy; when the OSPF route is withdrawn, the floating static is installed automatically.",
+   "hi": "Floating static route ka administrative distance us protocol se ZYADA hona chahiye jiska woh backup hai. OSPF 110 hai, isliye 110 se upar koi bhi value (yahan 130) static route ko tab tak dormant rakhti hai jab tak OSPF healthy hai; jab OSPF route withdraw hota hai, floating static automatically install ho jaata hai."
+  },
+  "options": [
+   {
+    "en": "ip route 10.50.0.0 255.255.0.0 172.16.1.2 90",
+    "hi": "ip route 10.50.0.0 255.255.0.0 172.16.1.2 90"
+   },
+   {
+    "en": "ip route 10.50.0.0 255.255.0.0 172.16.1.2 110",
+    "hi": "ip route 10.50.0.0 255.255.0.0 172.16.1.2 110"
+   },
+   {
+    "en": "ip route 10.50.0.0 255.255.0.0 172.16.1.2 130",
+    "hi": "ip route 10.50.0.0 255.255.0.0 172.16.1.2 130"
+   },
+   {
+    "en": "ip route 10.50.0.0 255.255.0.0 172.16.1.2",
+    "hi": "ip route 10.50.0.0 255.255.0.0 172.16.1.2"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "AD 90 is lower than OSPF's 110, so the static would always win and OSPF would never be used — the opposite of a backup.",
+    "hi": "AD 90 OSPF ke 110 se kam hai, isliye static hamesha jeetega aur OSPF kabhi use nahi hoga — backup ka bilkul ulta."
+   },
+   {
+    "en": "Equal AD does not make the route yield; it would compete with the OSPF route instead of quietly waiting as a backup. The AD must be strictly greater than 110.",
+    "hi": "Equal AD se route peeche nahi hatta; woh backup ki tarah chupchaap wait karne ki jagah OSPF route se compete karega. AD strictly 110 se zyada hona chahiye."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "With no AD specified the static defaults to 1 and permanently overrides the OSPF route.",
+    "hi": "AD specify nahi kiya toh static default 1 par rehta hai aur OSPF route ko permanently override kar deta hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-018",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "An engineer configures ip route 10.99.0.0 255.255.0.0 GigabitEthernet0/0 on a router whose G0/0 connects to a multi-access Ethernet segment. What is the main drawback of specifying only the exit interface here?",
+   "hi": "Ek engineer ek router par ip route 10.99.0.0 255.255.0.0 GigabitEthernet0/0 configure karta hai jiska G0/0 ek multi-access Ethernet segment se connected hai. Yahan sirf exit interface specify karne ka main nuksaan kya hai?"
+  },
+  "explanation": {
+   "en": "With only an exit interface on Ethernet, the router believes the whole destination network is directly attached, so it sends an ARP request for each individual destination IP. Resolution then depends on the far-end router answering with proxy ARP — fragile and ARP-table-heavy. On multi-access links, configure a next-hop IP (or a fully specified route with both interface and next hop).",
+   "hi": "Ethernet par sirf exit interface dene se router samajhta hai ki poora destination network directly attached hai, isliye woh har individual destination IP ke liye ARP request bhejta hai. Phir resolution is baat par depend karta hai ki doosri taraf ka router proxy ARP se reply kare — yeh fragile hai aur ARP table ko bhar deta hai. Multi-access links par next-hop IP configure karo (ya interface aur next hop dono ke saath fully specified route)."
+  },
+  "options": [
+   {
+    "en": "The route receives a higher administrative distance than a next-hop static route",
+    "hi": "Route ko next-hop static route se zyada administrative distance milta hai"
+   },
+   {
+    "en": "The router treats every destination in 10.99.0.0/16 as directly connected and must ARP for each destination address, which works only if the neighbor performs proxy ARP",
+    "hi": "Router 10.99.0.0/16 ke har destination ko directly connected maanta hai aur har destination address ke liye ARP karna padta hai, jo sirf tab kaam karta hai jab neighbor proxy ARP kare"
+   },
+   {
+    "en": "The route is ignored because Ethernet interfaces cannot be used in static routes",
+    "hi": "Route ignore ho jaata hai kyunki Ethernet interfaces static routes mein use nahi ho sakte"
+   },
+   {
+    "en": "The router forwards the traffic as broadcast frames on the segment",
+    "hi": "Router traffic ko segment par broadcast frames ki tarah forward karta hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Both forms default to AD 1; specifying the exit interface does not change the AD.",
+    "hi": "Dono forms ka default AD 1 hai; exit interface specify karne se AD nahi badalta."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Ethernet interfaces are legal in static routes — the configuration is accepted, it just behaves poorly on multi-access media.",
+    "hi": "Ethernet interfaces static routes mein legal hain — configuration accept hoti hai, bas multi-access media par yeh theek se behave nahi karti."
+   },
+   {
+    "en": "Traffic is still sent as unicast frames; the issue is how the next-hop MAC address gets resolved, not broadcasting.",
+    "hi": "Traffic phir bhi unicast frames ki tarah jaata hai; issue yeh hai ki next-hop MAC address kaise resolve hota hai, broadcasting nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-019",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which command configures an IPv6 default static route through next-hop 2001:db8:12::2?",
+   "hi": "Kaunsa command next-hop 2001:db8:12::2 ke through IPv6 default static route configure karta hai?"
+  },
+  "explanation": {
+   "en": "The IPv6 default route is ::/0 — all zeros with prefix length 0, the direct analog of IPv4's 0.0.0.0/0. It matches any IPv6 destination lacking a more specific route. Remember the router also needs ipv6 unicast-routing enabled to forward IPv6 traffic.",
+   "hi": "IPv6 default route ::/0 hai — saare zeros aur prefix length 0, bilkul IPv4 ke 0.0.0.0/0 jaisa. Yeh har us IPv6 destination ko match karta hai jiska koi more specific route nahi hai. Yaad rakho, IPv6 traffic forward karne ke liye router par ipv6 unicast-routing bhi enabled hona chahiye."
+  },
+  "options": [
+   {
+    "en": "ipv6 route ::/0 2001:db8:12::2",
+    "hi": "ipv6 route ::/0 2001:db8:12::2"
+   },
+   {
+    "en": "ipv6 route 0.0.0.0/0 2001:db8:12::2",
+    "hi": "ipv6 route 0.0.0.0/0 2001:db8:12::2"
+   },
+   {
+    "en": "ipv6 route ::/128 2001:db8:12::2",
+    "hi": "ipv6 route ::/128 2001:db8:12::2"
+   },
+   {
+    "en": "ip route ::/0 2001:db8:12::2",
+    "hi": "ip route ::/0 2001:db8:12::2"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "0.0.0.0/0 is IPv4 notation; the ipv6 route command requires an IPv6 prefix.",
+    "hi": "0.0.0.0/0 IPv4 notation hai; ipv6 route command ko IPv6 prefix chahiye."
+   },
+   {
+    "en": "::/128 is a host route to the single unspecified address, not a default route — the prefix length must be 0.",
+    "hi": "::/128 single unspecified address ka host route hai, default route nahi — prefix length 0 honi chahiye."
+   },
+   {
+    "en": "IPv6 static routes use the ipv6 route command, not ip route.",
+    "hi": "IPv6 static routes ipv6 route command use karte hain, ip route nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-020",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "An engineer wants to use a neighbor's link-local address as the next hop: ipv6 route 2001:db8:9::/64 fe80::2. Why must the command also include an exit interface (for example ipv6 route 2001:db8:9::/64 GigabitEthernet0/1 fe80::2)?",
+   "hi": "Ek engineer neighbor ka link-local address next hop ki tarah use karna chahta hai: ipv6 route 2001:db8:9::/64 fe80::2. Command mein exit interface bhi kyun include karna zaroori hai (jaise ipv6 route 2001:db8:9::/64 GigabitEthernet0/1 fe80::2)?"
+  },
+  "explanation": {
+   "en": "Link-local addresses are only unique per link: fe80::2 could legitimately exist on every attached segment. A recursive lookup on fe80::2 is therefore ambiguous, so IOS requires the exit interface alongside a link-local next hop. This 'directly attached plus next hop' form is a fully specified static route.",
+   "hi": "Link-local addresses sirf ek link par unique hote hain: fe80::2 har attached segment par legitimately exist kar sakta hai. Isliye fe80::2 par recursive lookup ambiguous hai, aur IOS link-local next hop ke saath exit interface maangta hai. Yeh 'directly attached plus next hop' form ek fully specified static route hai."
+  },
+  "options": [
+   {
+    "en": "Link-local next hops are only valid on serial interfaces",
+    "hi": "Link-local next hops sirf serial interfaces par valid hote hain"
+   },
+   {
+    "en": "A link-local address is not unique in the routing domain — the same fe80:: address can exist on every link, so the router cannot determine which interface to use without being told",
+    "hi": "Link-local address routing domain mein unique nahi hota — same fe80:: address har link par ho sakta hai, isliye bina bataye router decide nahi kar sakta ki kaunsa interface use kare"
+   },
+   {
+    "en": "The exit interface lowers the administrative distance so the route can be installed",
+    "hi": "Exit interface administrative distance kam kar deta hai taaki route install ho sake"
+   },
+   {
+    "en": "IOS requires an exit interface on all IPv6 static routes",
+    "hi": "IOS ko saare IPv6 static routes par exit interface chahiye"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Link-local next hops are common on Ethernet; the media type is not the issue.",
+    "hi": "Link-local next hops Ethernet par common hain; media type issue nahi hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The AD is 1 either way; the exit interface resolves ambiguity, it does not change trustworthiness.",
+    "hi": "AD dono tarah 1 hi hai; exit interface ambiguity door karta hai, trustworthiness nahi badalta."
+   },
+   {
+    "en": "Routes using a global unicast next hop can be configured without an exit interface — the requirement applies specifically to link-local next hops.",
+    "hi": "Global unicast next hop wale routes bina exit interface ke configure ho sakte hain — yeh requirement khaas taur par link-local next hops ke liye hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-021",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "R1 was configured with ip route 10.60.0.0 255.255.0.0 GigabitEthernet0/1. The route appeared in show ip route yesterday but is missing today, although the command is still present in the running configuration. What is the most likely cause?",
+   "hi": "R1 par ip route 10.60.0.0 255.255.0.0 GigabitEthernet0/1 configure kiya gaya tha. Kal yeh route show ip route mein dikh raha tha lekin aaj gayab hai, jabki command abhi bhi running configuration mein hai. Sabse likely cause kya hai?"
+  },
+  "explanation": {
+   "en": "A static route is only installed while it is usable: an exit-interface route requires that interface to be up/up, and a next-hop route requires the next hop to be resolvable. When G0/1 went down, IOS pulled the route from the table — while keeping the command in the configuration so the route returns automatically when the interface recovers.",
+   "hi": "Static route sirf tab tak install rehta hai jab tak woh usable hai: exit-interface route ke liye woh interface up/up hona chahiye, aur next-hop route ke liye next hop resolvable hona chahiye. Jab G0/1 down hua, IOS ne route ko table se hata diya — lekin command configuration mein rakhi, taaki interface wapas aane par route automatically laut aaye."
+  },
+  "options": [
+   {
+    "en": "Static routes age out of the table after 24 hours and must be refreshed",
+    "hi": "Static routes 24 ghante baad table se age out ho jaate hain aur unhe refresh karna padta hai"
+   },
+   {
+    "en": "GigabitEthernet0/1 is down, so IOS withdrew the static route from the table",
+    "hi": "GigabitEthernet0/1 down hai, isliye IOS ne static route ko table se withdraw kar diya"
+   },
+   {
+    "en": "An OSPF route to 10.60.0.0/16 replaced the static route",
+    "hi": "10.60.0.0/16 ke ek OSPF route ne static route ko replace kar diya"
+   },
+   {
+    "en": "The ARP entry for the next hop expired",
+    "hi": "Next hop ki ARP entry expire ho gayi"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Static routes never age out; they stay installed as long as they remain valid and configured.",
+    "hi": "Static routes kabhi age out nahi hote; jab tak woh valid aur configured hain, installed rehte hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "OSPF's AD of 110 can never displace a static route at AD 1 for the same prefix.",
+    "hi": "Same prefix ke liye OSPF ka AD 110 kabhi bhi AD 1 wale static route ko hata nahi sakta."
+   },
+   {
+    "en": "ARP expiry triggers a fresh ARP request during forwarding; it does not remove routes from the routing table.",
+    "hi": "ARP expiry se forwarding ke time nayi ARP request jaati hai; isse routing table se routes remove nahi hote."
+   }
+  ]
+ },
+ {
+  "id": "d3-022",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "R1's configuration contains:\n\nip route 10.50.0.0 255.255.0.0 172.16.1.2 130\n\nshow ip route displays only this entry for the prefix:\n\nO     10.50.0.0/16 [110/30] via 10.1.12.2\n\nWhy is the static route absent from the routing table?",
+   "hi": "R1 ki configuration mein yeh hai:\n\nip route 10.50.0.0 255.255.0.0 172.16.1.2 130\n\nshow ip route is prefix ke liye sirf yeh entry dikhata hai:\n\nO     10.50.0.0/16 [110/30] via 10.1.12.2\n\nStatic route routing table mein kyun nahi hai?"
+  },
+  "explanation": {
+   "en": "This is a floating static working exactly as designed. The routing table holds only the best (lowest-AD) route per prefix; with OSPF at 110 versus the static at 130, OSPF wins. The static route waits in the background and is installed the moment the OSPF route is withdrawn — providing an automatic backup path.",
+   "hi": "Yeh floating static hai jo bilkul design ke hisaab se kaam kar raha hai. Routing table mein har prefix ka sirf best (lowest-AD) route hota hai; OSPF 110 vs static 130 mein OSPF jeetta hai. Static route background mein wait karta hai aur jaise hi OSPF route withdraw hota hai, install ho jaata hai — yaani automatic backup path milta hai."
+  },
+  "options": [
+   {
+    "en": "The static route was rejected because 130 is not a valid administrative distance",
+    "hi": "Static route reject ho gaya kyunki 130 valid administrative distance nahi hai"
+   },
+   {
+    "en": "Only the best source per prefix is installed: OSPF's AD 110 beats the floating static's AD 130, which stays out of the table until the OSPF route is lost",
+    "hi": "Har prefix ke liye sirf best source install hota hai: OSPF ka AD 110 floating static ke AD 130 ko hara deta hai, jo OSPF route jaane tak table se bahar rehta hai"
+   },
+   {
+    "en": "Static routes to prefixes learned by OSPF must also be redistributed before they appear",
+    "hi": "OSPF se seekhe gaye prefixes ke static routes ko dikhne se pehle redistribute bhi karna padta hai"
+   },
+   {
+    "en": "The next hop 172.16.1.2 must be a directly connected interface address of R1 itself",
+    "hi": "Next hop 172.16.1.2 khud R1 ke kisi directly connected interface ka address hona chahiye"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Any AD from 1 to 255 is valid on a static route; 130 is a deliberate, legal choice.",
+    "hi": "Static route par 1 se 255 tak koi bhi AD valid hai; 130 jaan-boojh kar chuna gaya legal choice hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Redistribution controls what a protocol advertises to others; it has nothing to do with installing a local static route.",
+    "hi": "Redistribution yeh control karta hai ki protocol doosron ko kya advertise kare; local static route install karne se iska koi lena-dena nahi."
+   },
+   {
+    "en": "A next hop must be reachable, not directly configured on the router; 172.16.1.2 being a neighbor's address is normal.",
+    "hi": "Next hop reachable hona chahiye, router par directly configured nahi; 172.16.1.2 ka neighbor ka address hona normal hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-023",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which TWO are advantages of static routing compared with dynamic routing protocols? (Choose two)",
+   "hi": "Dynamic routing protocols ke comparison mein static routing ke kaunse DO advantages hain? (Do choose karo)"
+  },
+  "explanation": {
+   "en": "Static routes are silent and deterministic: no hello packets, no updates, no protocol computation, and the path is exactly what the administrator typed. The price is manual maintenance — no automatic failover (unless floating statics are pre-built) and configuration workload that grows with every router and prefix.",
+   "hi": "Static routes silent aur deterministic hote hain: na hello packets, na updates, na protocol computation, aur path bilkul wahi hota hai jo administrator ne type kiya. Iski keemat hai manual maintenance — koi automatic failover nahi (jab tak floating statics pehle se na bane hon) aur har router aur prefix ke saath configuration ka kaam badhta jaata hai."
+  },
+  "options": [
+   {
+    "en": "No CPU cycles or link bandwidth are consumed by routing updates",
+    "hi": "Routing updates mein koi CPU cycles ya link bandwidth consume nahi hoti"
+   },
+   {
+    "en": "Traffic is automatically rerouted when a link fails",
+    "hi": "Link fail hone par traffic automatically reroute hota hai"
+   },
+   {
+    "en": "The administrator has exact, predictable control over the path traffic takes",
+    "hi": "Administrator ka traffic ke path par exact, predictable control hota hai"
+   },
+   {
+    "en": "The configuration effort stays small as the network grows",
+    "hi": "Network badhne par bhi configuration effort kam rehta hai"
+   }
+  ],
+  "answer": [
+   0,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Automatic rerouting is precisely what dynamic protocols provide; a static route keeps pointing at a dead path unless it is withdrawn (interface down) or a floating backup exists.",
+    "hi": "Automatic rerouting hi toh dynamic protocols dete hain; static route dead path ki taraf point karta rehta hai jab tak woh withdraw na ho (interface down) ya floating backup na ho."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Scaling is static routing's weakness — every new subnet may require touching many routers by hand.",
+    "hi": "Scaling static routing ki kamzori hai — har naye subnet ke liye kai routers ko haath se chhoona pad sakta hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-024",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which TWO statements about the command ip route 0.0.0.0 0.0.0.0 192.0.2.1 are true? (Choose two)",
+   "hi": "Command ip route 0.0.0.0 0.0.0.0 192.0.2.1 ke baare mein kaunse DO statements sahi hain? (Do choose karo)"
+  },
+  "explanation": {
+   "en": "A quad-zero static route has prefix length 0, so under longest-prefix-match it is the last resort — consulted only when nothing else matches. IOS marks it S* (candidate default) and records the gateway of last resort. It stays local: OSPF only advertises a default if default-information originate is configured under the OSPF process.",
+   "hi": "Quad-zero static route ki prefix length 0 hoti hai, isliye longest-prefix-match mein yeh last resort hai — sirf tab dekha jaata hai jab kuch aur match na kare. IOS ise S* (candidate default) mark karta hai aur gateway of last resort record karta hai. Yeh local hi rehta hai: OSPF default sirf tab advertise karta hai jab OSPF process ke under default-information originate configure ho."
+  },
+  "options": [
+   {
+    "en": "The route is used only when no more specific route matches the destination",
+    "hi": "Yeh route sirf tab use hota hai jab koi more specific route destination se match na kare"
+   },
+   {
+    "en": "The route appears as S* in show ip route and sets the gateway of last resort",
+    "hi": "Yeh route show ip route mein S* ki tarah dikhta hai aur gateway of last resort set karta hai"
+   },
+   {
+    "en": "The route is automatically advertised to the router's OSPF neighbors",
+    "hi": "Yeh route automatically router ke OSPF neighbors ko advertise hota hai"
+   },
+   {
+    "en": "The route has an administrative distance of 0",
+    "hi": "Is route ka administrative distance 0 hai"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Static routes are never advertised automatically; propagating a default into OSPF requires default-information originate (or redistribution).",
+    "hi": "Static routes kabhi automatically advertise nahi hote; OSPF mein default propagate karne ke liye default-information originate (ya redistribution) chahiye."
+   },
+   {
+    "en": "A static route's default AD is 1; AD 0 is reserved for directly connected routes.",
+    "hi": "Static route ka default AD 1 hai; AD 0 directly connected routes ke liye reserved hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-025",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each static route command to the type of route it creates.",
+   "hi": "Har static route command ko us route type se match karo jo woh banata hai."
+  },
+  "explanation": {
+   "en": "Recognize static route variants by shape: mask 0.0.0.0 = default route; mask 255.255.255.255 = /32 host route; a trailing number = custom AD, i.e. a floating backup; both an exit interface AND a next hop = fully specified — the preferred form on multi-access links.",
+   "hi": "Static route variants ko unki shape se pehchano: mask 0.0.0.0 = default route; mask 255.255.255.255 = /32 host route; end mein ek number = custom AD, yaani floating backup; exit interface AUR next hop dono = fully specified — multi-access links par yahi preferred form hai."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "ip route 0.0.0.0 0.0.0.0 203.0.113.1",
+     "hi": "ip route 0.0.0.0 0.0.0.0 203.0.113.1"
+    },
+    "right": {
+     "en": "Default route",
+     "hi": "Default route"
+    }
+   },
+   {
+    "left": {
+     "en": "ip route 10.5.5.5 255.255.255.255 10.1.1.2",
+     "hi": "ip route 10.5.5.5 255.255.255.255 10.1.1.2"
+    },
+    "right": {
+     "en": "Host route (single address)",
+     "hi": "Host route (sirf ek address)"
+    }
+   },
+   {
+    "left": {
+     "en": "ip route 10.9.0.0 255.255.0.0 10.1.1.2 200",
+     "hi": "ip route 10.9.0.0 255.255.0.0 10.1.1.2 200"
+    },
+    "right": {
+     "en": "Floating (backup) static route",
+     "hi": "Floating (backup) static route"
+    }
+   },
+   {
+    "left": {
+     "en": "ip route 10.8.0.0 255.255.0.0 GigabitEthernet0/1 10.1.1.2",
+     "hi": "ip route 10.8.0.0 255.255.0.0 GigabitEthernet0/1 10.1.1.2"
+    },
+    "right": {
+     "en": "Fully specified static route",
+     "hi": "Fully specified static route"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d3-026",
+  "domain": 3,
+  "lesson": "static-routing",
+  "difficulty": "easy",
+  "type": "command",
+  "text": {
+   "en": "Type the command that displays only the static routes from the IPv4 routing table.",
+   "hi": "Woh command type karo jo IPv4 routing table se sirf static routes display karta hai."
+  },
+  "explanation": {
+   "en": "show ip route accepts a protocol filter: show ip route static lists only S entries, show ip route ospf only O entries, and so on. Handy for confirming that a floating static has (or has not) been installed without scrolling the whole table.",
+   "hi": "show ip route ek protocol filter accept karta hai: show ip route static sirf S entries list karta hai, show ip route ospf sirf O entries, waghera. Poori table scroll kiye bina yeh confirm karne ke liye kaam ka hai ki floating static install hua hai (ya nahi)."
+  },
+  "commandAnswer": "show ip route static",
+  "accept": [
+   "sh ip route static",
+   "sh ip ro static",
+   "show ip ro static"
+  ]
+ },
+ {
+  "id": "d3-027",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which type of routing protocol is OSPF, and what algorithm does it use to compute best paths?",
+   "hi": "OSPF kis type ka routing protocol hai, aur best paths compute karne ke liye kaunsa algorithm use karta hai?"
+  },
+  "explanation": {
+   "en": "OSPF is a link-state protocol: every router floods link-state advertisements (LSAs) so that all routers in an area build an identical map (the LSDB), then each router independently runs Dijkstra's SPF algorithm with itself as the root to compute lowest-cost paths.",
+   "hi": "OSPF ek link-state protocol hai: har router link-state advertisements (LSAs) flood karta hai taaki area ke saare routers ek identical map (LSDB) bana lein, phir har router independently khud ko root maan kar Dijkstra ka SPF algorithm chalata hai aur lowest-cost paths compute karta hai."
+  },
+  "options": [
+   {
+    "en": "Distance vector, using the Bellman-Ford algorithm",
+    "hi": "Distance vector, Bellman-Ford algorithm use karta hai"
+   },
+   {
+    "en": "Link-state, using Dijkstra's shortest path first algorithm",
+    "hi": "Link-state, Dijkstra ka shortest path first algorithm use karta hai"
+   },
+   {
+    "en": "Path vector, using best-path attributes",
+    "hi": "Path vector, best-path attributes use karta hai"
+   },
+   {
+    "en": "Hybrid, using the diffusing update algorithm (DUAL)",
+    "hi": "Hybrid, diffusing update algorithm (DUAL) use karta hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Distance vector protocols like RIP learn routes by rumor from neighbors; OSPF builds a full topology map instead.",
+    "hi": "RIP jaise distance vector protocols neighbors se sun-sunaa kar (by rumor) routes seekhte hain; OSPF iski jagah poora topology map banata hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Path vector describes BGP, which selects routes using attributes such as AS path.",
+    "hi": "Path vector BGP ko describe karta hai, jo AS path jaise attributes se routes select karta hai."
+   },
+   {
+    "en": "DUAL is EIGRP's algorithm; EIGRP is the protocol often described as an advanced distance vector or hybrid protocol.",
+    "hi": "DUAL EIGRP ka algorithm hai; EIGRP ko hi aksar advanced distance vector ya hybrid protocol kaha jaata hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-028",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "What are the default OSPF hello and dead intervals on a broadcast network such as Ethernet?",
+   "hi": "Ethernet jaise broadcast network par default OSPF hello aur dead intervals kya hain?"
+  },
+  "explanation": {
+   "en": "On broadcast and point-to-point networks OSPF sends hellos every 10 seconds and declares a neighbor dead after 40 seconds (4x hello) without hearing one. Both values are carried inside the hello packet and MUST match between neighbors, or no adjacency forms.",
+   "hi": "Broadcast aur point-to-point networks par OSPF har 10 seconds mein hello bhejta hai aur agar 40 seconds (4x hello) tak hello na sune toh neighbor ko dead declare kar deta hai. Dono values hello packet ke andar carry hoti hain aur neighbors ke beech MATCH honi chahiye, warna adjacency nahi banti."
+  },
+  "options": [
+   {
+    "en": "Hello 10 seconds, dead 40 seconds",
+    "hi": "Hello 10 seconds, dead 40 seconds"
+   },
+   {
+    "en": "Hello 30 seconds, dead 120 seconds",
+    "hi": "Hello 30 seconds, dead 120 seconds"
+   },
+   {
+    "en": "Hello 5 seconds, dead 20 seconds",
+    "hi": "Hello 5 seconds, dead 20 seconds"
+   },
+   {
+    "en": "Hello 10 seconds, dead 30 seconds",
+    "hi": "Hello 10 seconds, dead 30 seconds"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "30/120 are the defaults on non-broadcast (NBMA) networks, not Ethernet.",
+    "hi": "30/120 non-broadcast (NBMA) networks ke defaults hain, Ethernet ke nahi."
+   },
+   {
+    "en": "5/20 are not OSPF defaults on any standard network type.",
+    "hi": "5/20 kisi bhi standard network type par OSPF defaults nahi hain."
+   },
+   {
+    "en": "The dead interval defaults to four times the hello interval: 40 seconds, not 30.",
+    "hi": "Dead interval by default hello interval ka chaar guna hota hai: 40 seconds, 30 nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-029",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "To which multicast address does an OSPF router send hello packets so that all OSPF routers on the segment receive them?",
+   "hi": "OSPF router hello packets kis multicast address par bhejta hai taaki segment ke saare OSPF routers unhe receive karein?"
+  },
+  "explanation": {
+   "en": "224.0.0.5 is the AllSPFRouters address — every OSPF router listens to it, and hellos are sent there. 224.0.0.6 (AllDRouters) is listened to only by the DR and BDR, so DROTHERs send them updates on that address. OSPF rides directly on IP protocol 89 (no TCP or UDP).",
+   "hi": "224.0.0.5 AllSPFRouters address hai — har OSPF router ise sunta hai, aur hellos yahin bheje jaate hain. 224.0.0.6 (AllDRouters) ko sirf DR aur BDR sunte hain, isliye DROTHERs unhe updates is address par bhejte hain. OSPF seedha IP protocol 89 par chalta hai (na TCP, na UDP)."
+  },
+  "options": [
+   {
+    "en": "224.0.0.5",
+    "hi": "224.0.0.5"
+   },
+   {
+    "en": "224.0.0.6",
+    "hi": "224.0.0.6"
+   },
+   {
+    "en": "224.0.0.9",
+    "hi": "224.0.0.9"
+   },
+   {
+    "en": "224.0.0.18",
+    "hi": "224.0.0.18"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "224.0.0.6 reaches only the DR and BDR; hellos must reach every OSPF router on the link.",
+    "hi": "224.0.0.6 sirf DR aur BDR tak pahunchta hai; hellos ko link ke har OSPF router tak pahunchna chahiye."
+   },
+   {
+    "en": "224.0.0.9 is used by RIPv2.",
+    "hi": "224.0.0.9 RIPv2 use karta hai."
+   },
+   {
+    "en": "224.0.0.18 is used by VRRP.",
+    "hi": "224.0.0.18 VRRP use karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-030",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A router has no router-id command under its OSPF process. Its interfaces are:\n\nLoopback0            10.255.255.1\nLoopback1            172.16.255.1\nGigabitEthernet0/0   192.168.100.1\nGigabitEthernet0/1   203.0.113.5\n\nWhich OSPF router ID does it select?",
+   "hi": "Ek router ke OSPF process ke under koi router-id command nahi hai. Uske interfaces yeh hain:\n\nLoopback0            10.255.255.1\nLoopback1            172.16.255.1\nGigabitEthernet0/0   192.168.100.1\nGigabitEthernet0/1   203.0.113.5\n\nWoh kaunsa OSPF router ID select karega?"
+  },
+  "explanation": {
+   "en": "Router ID selection order: (1) manually configured router-id, (2) highest IP address on any up loopback interface, (3) highest IP address on any up physical interface. With no manual ID, the loopbacks are compared and 172.16.255.1 is numerically higher than 10.255.255.1 — physical addresses are never considered while a loopback exists.",
+   "hi": "Router ID selection ka order: (1) manually configured router-id, (2) kisi bhi up loopback interface ka highest IP address, (3) kisi bhi up physical interface ka highest IP address. Manual ID nahi hai, toh loopbacks compare hote hain aur 172.16.255.1 numerically 10.255.255.1 se bada hai — jab tak loopback hai, physical addresses consider hi nahi hote."
+  },
+  "options": [
+   {
+    "en": "203.0.113.5",
+    "hi": "203.0.113.5"
+   },
+   {
+    "en": "192.168.100.1",
+    "hi": "192.168.100.1"
+   },
+   {
+    "en": "172.16.255.1",
+    "hi": "172.16.255.1"
+   },
+   {
+    "en": "10.255.255.1",
+    "hi": "10.255.255.1"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "203.0.113.5 is the highest physical address, but physical interfaces are only consulted when there are no up loopbacks.",
+    "hi": "203.0.113.5 highest physical address hai, lekin physical interfaces sirf tab dekhe jaate hain jab koi up loopback na ho."
+   },
+   {
+    "en": "192.168.100.1 is a physical interface address and is not even the highest one.",
+    "hi": "192.168.100.1 ek physical interface address hai aur highest bhi nahi hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "10.255.255.1 is a loopback, but 172.16.255.1 is numerically higher (172 beats 10 in the first octet).",
+    "hi": "10.255.255.1 loopback hai, lekin 172.16.255.1 numerically bada hai (first octet mein 172, 10 se bada hai)."
+   }
+  ]
+ },
+ {
+  "id": "d3-031",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "On a multi-access Ethernet segment, R1's show ip ospf neighbor displays:\n\nNeighbor ID     Pri   State           Dead Time   Address      Interface\n2.2.2.2           1   FULL/DR         00:00:35    10.1.1.2     Gi0/0\n3.3.3.3           1   FULL/BDR        00:00:33    10.1.1.3     Gi0/0\n4.4.4.4           1   2WAY/DROTHER    00:00:38    10.1.1.4     Gi0/0\n\nWhy is the neighbor 4.4.4.4 stuck at 2WAY?",
+   "hi": "Ek multi-access Ethernet segment par R1 ka show ip ospf neighbor yeh dikhata hai:\n\nNeighbor ID     Pri   State           Dead Time   Address      Interface\n2.2.2.2           1   FULL/DR         00:00:35    10.1.1.2     Gi0/0\n3.3.3.3           1   FULL/BDR        00:00:33    10.1.1.3     Gi0/0\n4.4.4.4           1   2WAY/DROTHER    00:00:38    10.1.1.4     Gi0/0\n\nNeighbor 4.4.4.4 2WAY par kyun atka hua hai?"
+  },
+  "explanation": {
+   "en": "This output is healthy. On multi-access segments, every router forms FULL adjacencies only with the DR and BDR; pairs of DROTHERs stop at 2-way to avoid a full mesh of adjacencies. R1 shows FULL with the DR (2.2.2.2) and BDR (3.3.3.3), and a normal 2WAY/DROTHER relationship with the other non-designated router.",
+   "hi": "Yeh output healthy hai. Multi-access segments par har router FULL adjacency sirf DR aur BDR ke saath banata hai; DROTHERs ke pairs 2-way par ruk jaate hain taaki adjacencies ka full mesh na bane. R1 DR (2.2.2.2) aur BDR (3.3.3.3) ke saath FULL dikhata hai, aur doosre non-designated router ke saath normal 2WAY/DROTHER relationship."
+  },
+  "options": [
+   {
+    "en": "Its hello parameters do not match R1's",
+    "hi": "Uske hello parameters R1 se match nahi karte"
+   },
+   {
+    "en": "R1 and 4.4.4.4 are both DROTHERs, and DROTHERs remain in 2-way with each other by design — full adjacency is built only with the DR and BDR",
+    "hi": "R1 aur 4.4.4.4 dono DROTHERs hain, aur DROTHERs design ke hisaab se aapas mein 2-way mein rehte hain — full adjacency sirf DR aur BDR ke saath banti hai"
+   },
+   {
+    "en": "An MTU mismatch is preventing database synchronization",
+    "hi": "MTU mismatch database synchronization ko rok raha hai"
+   },
+   {
+    "en": "4.4.4.4 has failed and is about to be removed from the table",
+    "hi": "4.4.4.4 fail ho gaya hai aur table se hatne wala hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Mismatched hello parameters would prevent the neighbor from appearing at all — it would never reach 2-way.",
+    "hi": "Hello parameters mismatch hote toh neighbor dikhta hi nahi — kabhi 2-way tak pahunchta hi nahi."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "An MTU mismatch shows up as neighbors stuck in EXSTART/EXCHANGE, not resting at 2-way.",
+    "hi": "MTU mismatch mein neighbors EXSTART/EXCHANGE mein atke dikhte hain, 2-way par aaram se nahi rehte."
+   },
+   {
+    "en": "The dead timer is refreshing normally (38 seconds remaining); nothing indicates a failure.",
+    "hi": "Dead timer normally refresh ho raha hai (38 seconds baaki); failure ka koi sign nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-032",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Four routers power on simultaneously on a new Ethernet segment:\n\nR1: priority 1,   router ID 1.1.1.1\nR2: priority 1,   router ID 10.10.10.10\nR3: priority 5,   router ID 2.2.2.2\nR4: priority 0,   router ID 99.99.99.99\n\nWhich router becomes the DR?",
+   "hi": "Chaar routers ek naye Ethernet segment par ek saath power on hote hain:\n\nR1: priority 1,   router ID 1.1.1.1\nR2: priority 1,   router ID 10.10.10.10\nR3: priority 5,   router ID 2.2.2.2\nR4: priority 0,   router ID 99.99.99.99\n\nKaunsa router DR banega?"
+  },
+  "explanation": {
+   "en": "DR election compares interface priority first — highest wins — and uses the highest router ID only as a tiebreaker. R3's priority 5 beats everyone: R4 is excluded entirely (priority 0 means never participate), and R1/R2 tie at priority 1, where R2's higher RID makes it the BDR. Note the election is not preemptive: once elected, a DR keeps its role.",
+   "hi": "DR election pehle interface priority compare karta hai — highest jeetta hai — aur highest router ID sirf tiebreaker hai. R3 ki priority 5 sabko hara deti hai: R4 poori tarah bahar hai (priority 0 matlab kabhi participate nahi karna), aur R1/R2 priority 1 par tie hain, jahan R2 ka higher RID use BDR banata hai. Dhyan do, election preemptive nahi hai: ek baar elect hone ke baad DR apna role rakhta hai."
+  },
+  "options": [
+   {
+    "en": "R1",
+    "hi": "R1"
+   },
+   {
+    "en": "R2",
+    "hi": "R2"
+   },
+   {
+    "en": "R3",
+    "hi": "R3"
+   },
+   {
+    "en": "R4",
+    "hi": "R4"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "R1 has the lowest RID of the priority-1 routers; it becomes a DROTHER.",
+    "hi": "Priority-1 routers mein R1 ka RID sabse kam hai; woh DROTHER banta hai."
+   },
+   {
+    "en": "R2 has the highest router ID, but router ID only breaks priority ties — R3's priority 5 wins first. R2 becomes the BDR.",
+    "hi": "R2 ka router ID sabse high hai, lekin router ID sirf priority tie todta hai — R3 ki priority 5 pehle jeet jaati hai. R2 BDR banta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Priority 0 removes R4 from DR/BDR elections completely, no matter how high its router ID is.",
+    "hi": "Priority 0 R4 ko DR/BDR elections se poori tarah hata deti hai, chahe uska router ID kitna bhi high ho."
+   }
+  ]
+ },
+ {
+  "id": "d3-033",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "In a single-area OSPF network that has fully converged, what is true about the link-state database (LSDB)?",
+   "hi": "Ek fully converged single-area OSPF network mein link-state database (LSDB) ke baare mein kya sahi hai?"
+  },
+  "explanation": {
+   "en": "Convergence in link-state routing means LSDB synchronization: every router in the area ends up with the same complete topology map. Each router then runs Dijkstra's SPF independently, placing itself at the root, which is why different routers compute different best paths from the same database.",
+   "hi": "Link-state routing mein convergence ka matlab hai LSDB synchronization: area ke har router ke paas same complete topology map hota hai. Phir har router independently Dijkstra ka SPF chalata hai aur khud ko root par rakhta hai, isi wajah se alag-alag routers same database se alag best paths compute karte hain."
+  },
+  "options": [
+   {
+    "en": "Only the DR maintains the complete LSDB; other routers keep partial copies",
+    "hi": "Sirf DR complete LSDB maintain karta hai; baaki routers partial copies rakhte hain"
+   },
+   {
+    "en": "Every router in the area holds an identical LSDB and independently runs SPF with itself as the root of the tree",
+    "hi": "Area ke har router ke paas identical LSDB hota hai aur woh independently khud ko tree ka root maan kar SPF chalata hai"
+   },
+   {
+    "en": "Each router stores only the LSAs that it generated",
+    "hi": "Har router sirf woh LSAs store karta hai jo usne khud generate kiye"
+   },
+   {
+    "en": "The LSDB and the routing table are the same data structure",
+    "hi": "LSDB aur routing table ek hi data structure hain"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "The DR reduces flooding on a segment but has no monopoly on topology data — all routers hold the full area LSDB.",
+    "hi": "DR segment par flooding kam karta hai lekin topology data par uski monopoly nahi hai — saare routers poora area LSDB rakhte hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Routers flood and store all LSAs for the area, not just their own — otherwise SPF could not see the whole topology.",
+    "hi": "Routers area ke saare LSAs flood aur store karte hain, sirf apne nahi — warna SPF poori topology dekh hi nahi paata."
+   },
+   {
+    "en": "The routing table is the OUTPUT of running SPF over the LSDB; they are distinct structures.",
+    "hi": "Routing table LSDB par SPF chalane ka OUTPUT hai; dono alag structures hain."
+   }
+  ]
+ },
+ {
+  "id": "d3-034",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A segment already has an elected DR and BDR. A new router with interface priority 200 — higher than every existing router — is connected to the segment. What happens?",
+   "hi": "Ek segment par pehle se DR aur BDR elected hain. Interface priority 200 wala ek naya router — jo har existing router se zyada hai — segment se connect kiya jaata hai. Kya hota hai?"
+  },
+  "explanation": {
+   "en": "OSPF's DR election is non-preemptive: joining routers accept the incumbent DR and BDR regardless of priority. The high-priority newcomer becomes a DROTHER. Its priority 200 only matters at the NEXT election — if the DR fails, the BDR is promoted, and the newcomer would then likely win the BDR election.",
+   "hi": "OSPF ka DR election non-preemptive hai: join karne wale routers maujooda DR aur BDR ko accept kar lete hain, priority chahe kuch bhi ho. High-priority naya router DROTHER banta hai. Uski priority 200 sirf AGLE election mein matter karti hai — agar DR fail ho, BDR promote hota hai, aur phir naya router shayad BDR election jeet jaayega."
+  },
+  "options": [
+   {
+    "en": "The new router immediately becomes the DR and the old DR steps down",
+    "hi": "Naya router turant DR ban jaata hai aur purana DR hat jaata hai"
+   },
+   {
+    "en": "The existing DR and BDR keep their roles; the new router becomes a DROTHER despite its higher priority",
+    "hi": "Existing DR aur BDR apne roles rakhte hain; naya router higher priority ke bawajood DROTHER banta hai"
+   },
+   {
+    "en": "A new full election is triggered and all routers restart their adjacencies",
+    "hi": "Ek naya full election trigger hota hai aur saare routers apni adjacencies restart karte hain"
+   },
+   {
+    "en": "The new router becomes the BDR and waits to be promoted",
+    "hi": "Naya router BDR banta hai aur promote hone ka wait karta hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Unlike HSRP with preemption, OSPF never dethrones a working DR — this avoids constant re-elections and LSA churn.",
+    "hi": "Preemption wale HSRP ke ulat, OSPF kabhi bhi kaam kar rahe DR ko nahi hatata — isse baar-baar re-elections aur LSA churn se bacha jaata hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Adjacencies are not reset when a router joins; elections only happen when there is no DR/BDR or one of them fails.",
+    "hi": "Router join karne par adjacencies reset nahi hoti; election sirf tab hota hai jab DR/BDR na ho ya unmein se koi fail ho."
+   },
+   {
+    "en": "The BDR role is already held; the newcomer does not displace the BDR either, for the same non-preemption reason.",
+    "hi": "BDR role pehle se kisi ke paas hai; same non-preemption wajah se naya router BDR ko bhi nahi hatata."
+   }
+  ]
+ },
+ {
+  "id": "d3-035",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "What is the effect of configuring ip ospf priority 0 on a router's Ethernet interface?",
+   "hi": "Router ke Ethernet interface par ip ospf priority 0 configure karne ka kya effect hota hai?"
+  },
+  "explanation": {
+   "en": "Priority 0 means 'never become DR or BDR' — nothing more. The router still sends hellos, still becomes fully adjacent with the DR and BDR, and still receives all routes. It simply stays a permanent DROTHER, which is useful for routers that should not carry the DR's flooding workload.",
+   "hi": "Priority 0 ka matlab hai 'kabhi DR ya BDR nahi banna' — bas itna hi. Router phir bhi hellos bhejta hai, DR aur BDR ke saath fully adjacent hota hai, aur saare routes receive karta hai. Woh bas permanent DROTHER bana rehta hai, jo un routers ke liye useful hai jinhe DR ka flooding workload nahi uthana chahiye."
+  },
+  "options": [
+   {
+    "en": "The interface stops sending hello packets",
+    "hi": "Interface hello packets bhejna band kar deta hai"
+   },
+   {
+    "en": "The router is excluded from DR/BDR elections on that segment but still forms a full adjacency with the DR and BDR and exchanges routes normally",
+    "hi": "Router us segment par DR/BDR elections se bahar ho jaata hai, lekin phir bhi DR aur BDR ke saath full adjacency banata hai aur normally routes exchange karta hai"
+   },
+   {
+    "en": "The router refuses to form any OSPF adjacencies on that interface",
+    "hi": "Router us interface par koi bhi OSPF adjacency banane se mana kar deta hai"
+   },
+   {
+    "en": "OSPF is disabled on the interface",
+    "hi": "Interface par OSPF disable ho jaata hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Hellos continue; suppressing hellos is what passive-interface does.",
+    "hi": "Hellos chalte rehte hain; hellos rokna passive-interface ka kaam hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Adjacencies with the DR and BDR still form and reach FULL; only the election is affected.",
+    "hi": "DR aur BDR ke saath adjacencies phir bhi banti hain aur FULL tak pahunchti hain; sirf election par asar padta hai."
+   },
+   {
+    "en": "OSPF remains fully operational on the interface — compare with passive-interface or removing the network statement.",
+    "hi": "Interface par OSPF poori tarah operational rehta hai — passive-interface ya network statement hatane se compare karo."
+   }
+  ]
+ },
+ {
+  "id": "d3-036",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "During which OSPF neighbor state do routers exchange Database Description (DBD) packets that summarize the contents of their LSDBs?",
+   "hi": "Kis OSPF neighbor state mein routers Database Description (DBD) packets exchange karte hain jo unke LSDBs ke contents ka summary dete hain?"
+  },
+  "explanation": {
+   "en": "The full state sequence is down, init, 2-way, exstart, exchange, loading, full. In EXSTART the routers elect a master/slave and agree on starting sequence numbers; in EXCHANGE they send the actual DBD summaries; in LOADING each router requests (LSR) and receives (LSU) any LSAs it is missing; FULL means the databases are synchronized.",
+   "hi": "Poori state sequence hai down, init, 2-way, exstart, exchange, loading, full. EXSTART mein routers master/slave elect karte hain aur starting sequence numbers par agree karte hain; EXCHANGE mein asli DBD summaries bhejte hain; LOADING mein har router jo LSAs missing hain unhe request (LSR) aur receive (LSU) karta hai; FULL matlab databases synchronized hain."
+  },
+  "options": [
+   {
+    "en": "Exstart",
+    "hi": "Exstart"
+   },
+   {
+    "en": "Exchange",
+    "hi": "Exchange"
+   },
+   {
+    "en": "Loading",
+    "hi": "Loading"
+   },
+   {
+    "en": "2-Way",
+    "hi": "2-Way"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Exstart only negotiates the master/slave relationship and initial sequence numbers that govern the upcoming exchange.",
+    "hi": "Exstart sirf master/slave relationship aur initial sequence numbers negotiate karta hai jo aane wale exchange ko govern karte hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Loading is when Link-State Requests are sent for LSAs found missing during the exchange — the DBD summaries have already been sent.",
+    "hi": "Loading mein exchange ke dauraan missing paaye gaye LSAs ke liye Link-State Requests bheje jaate hain — DBD summaries pehle hi bheje ja chuke hain."
+   },
+   {
+    "en": "2-Way merely confirms bidirectional hello visibility; no database information has been exchanged yet.",
+    "hi": "2-Way sirf bidirectional hello visibility confirm karta hai; abhi tak koi database information exchange nahi hui."
+   }
+  ]
+ },
+ {
+  "id": "d3-037",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which THREE settings must match between two routers on the same link for an OSPF neighbor relationship to form? (Choose three)",
+   "hi": "OSPF neighbor relationship banne ke liye same link par do routers ke beech kaunsi TEEN settings match honi chahiye? (Teen choose karo)"
+  },
+  "explanation": {
+   "en": "Hello packets carry the area ID, timers, subnet mask, authentication data, and stub flags — all of which must match or the hello is discarded and no neighbor forms. The interfaces must also share a subnet. The process ID is locally significant, and priorities are expected to DIFFER (they drive DR election), so neither needs to match.",
+   "hi": "Hello packets area ID, timers, subnet mask, authentication data, aur stub flags carry karte hain — yeh sab match hone chahiye warna hello discard ho jaata hai aur neighbor nahi banta. Interfaces ka same subnet mein hona bhi zaroori hai. Process ID locally significant hai, aur priorities ka ALAG hona expected hai (wahi DR election chalati hain), isliye dono ko match karne ki zaroorat nahi."
+  },
+  "options": [
+   {
+    "en": "Hello and dead intervals",
+    "hi": "Hello aur dead intervals"
+   },
+   {
+    "en": "Area ID",
+    "hi": "Area ID"
+   },
+   {
+    "en": "IP subnet and subnet mask",
+    "hi": "IP subnet aur subnet mask"
+   },
+   {
+    "en": "OSPF process ID",
+    "hi": "OSPF process ID"
+   },
+   {
+    "en": "Interface priority",
+    "hi": "Interface priority"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The process ID in router ospf N never leaves the router — neighbors can use any values.",
+    "hi": "router ospf N mein process ID kabhi router se bahar nahi jaata — neighbors koi bhi values use kar sakte hain."
+   },
+   {
+    "en": "Priority influences who becomes DR; routers with different priorities form adjacencies without any problem.",
+    "hi": "Priority yeh decide karti hai ki DR kaun banega; alag priorities wale routers bina kisi problem ke adjacencies banate hain."
+   }
+  ]
+ },
+ {
+  "id": "d3-038",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which TWO statements about DR and BDR behavior on a multi-access segment are true? (Choose two)",
+   "hi": "Multi-access segment par DR aur BDR behavior ke baare mein kaunse DO statements sahi hain? (Do choose karo)"
+  },
+  "explanation": {
+   "en": "On multi-access networks, full adjacencies are formed only with the DR and BDR (DROTHER pairs stay in 2-way), and the election is non-preemptive — an incumbent DR keeps the role until it fails, no matter who joins later. Priority is the first criterion in elections, with router ID only as tiebreaker, and priority 0 opts a router out entirely.",
+   "hi": "Multi-access networks par full adjacencies sirf DR aur BDR ke saath banti hain (DROTHER pairs 2-way mein rehte hain), aur election non-preemptive hai — maujooda DR fail hone tak role rakhta hai, baad mein koi bhi join kare. Elections mein priority pehla criterion hai, router ID sirf tiebreaker, aur priority 0 router ko poori tarah bahar kar deti hai."
+  },
+  "options": [
+   {
+    "en": "DROTHER routers reach the FULL state only with the DR and BDR",
+    "hi": "DROTHER routers FULL state sirf DR aur BDR ke saath tak pahunchte hain"
+   },
+   {
+    "en": "A router added later with a higher priority does not take over the DR role",
+    "hi": "Baad mein add kiya gaya higher priority wala router DR role nahi leta"
+   },
+   {
+    "en": "The router with the highest router ID always becomes DR, regardless of priority",
+    "hi": "Highest router ID wala router hamesha DR banta hai, priority chahe kuch bhi ho"
+   },
+   {
+    "en": "Setting priority 0 makes a router more likely to win the election",
+    "hi": "Priority 0 set karne se router ke election jeetne ke chances badhte hain"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Priority is compared first; the highest router ID wins only when priorities tie.",
+    "hi": "Priority pehle compare hoti hai; highest router ID sirf tab jeetta hai jab priorities tie hon."
+   },
+   {
+    "en": "Priority 0 has the opposite effect — the router never participates in DR/BDR elections.",
+    "hi": "Priority 0 ka ulta effect hai — router DR/BDR elections mein kabhi participate nahi karta."
+   }
+  ]
+ },
+ {
+  "id": "d3-039",
+  "domain": 3,
+  "lesson": "ospf-basics",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each OSPF neighbor state to its meaning.",
+   "hi": "Har OSPF neighbor state ko uske matlab se match karo."
+  },
+  "explanation": {
+   "en": "The progression down, init, 2-way, exstart, exchange, loading, full tells you exactly how far a neighbor relationship got — and where to look when it stalls: stuck in INIT suggests one-way communication, stuck in EXSTART/EXCHANGE suggests an MTU mismatch or duplicate router IDs.",
+   "hi": "Progression down, init, 2-way, exstart, exchange, loading, full bilkul batata hai ki neighbor relationship kahan tak pahunchi — aur atakne par kahan dekhna hai: INIT mein atka hai toh one-way communication ka shak, EXSTART/EXCHANGE mein atka hai toh MTU mismatch ya duplicate router IDs ka shak."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Init",
+     "hi": "Init"
+    },
+    "right": {
+     "en": "Hello received, but own router ID not yet listed in it",
+     "hi": "Hello receive hua, lekin usmein abhi apna router ID listed nahi hai"
+    }
+   },
+   {
+    "left": {
+     "en": "2-Way",
+     "hi": "2-Way"
+    },
+    "right": {
+     "en": "Bidirectional communication confirmed; DR/BDR election can occur",
+     "hi": "Bidirectional communication confirm; DR/BDR election ho sakta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Exstart",
+     "hi": "Exstart"
+    },
+    "right": {
+     "en": "Master/slave roles and initial sequence numbers negotiated",
+     "hi": "Master/slave roles aur initial sequence numbers negotiate hote hain"
+    }
+   },
+   {
+    "left": {
+     "en": "Loading",
+     "hi": "Loading"
+    },
+    "right": {
+     "en": "Link-State Requests sent for missing LSAs",
+     "hi": "Missing LSAs ke liye Link-State Requests bheje jaate hain"
+    }
+   },
+   {
+    "left": {
+     "en": "Full",
+     "hi": "Full"
+    },
+    "right": {
+     "en": "Link-state databases fully synchronized",
+     "hi": "Link-state databases poori tarah synchronized"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d3-040",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which wildcard mask enables OSPF on all interfaces in the 192.168.10.0/24 subnet with the command network 192.168.10.0 ___ area 0?",
+   "hi": "Command network 192.168.10.0 ___ area 0 ke saath kaunsa wildcard mask 192.168.10.0/24 subnet ke saare interfaces par OSPF enable karta hai?"
+  },
+  "explanation": {
+   "en": "OSPF network statements use wildcard masks — the bit-inverse of the subnet mask. For /24 (255.255.255.0), the wildcard is 0.0.0.255: 0-bits must match exactly, 1-bits are ignored. So any interface whose address starts with 192.168.10 is matched and OSPF is enabled on it.",
+   "hi": "OSPF network statements wildcard masks use karte hain — subnet mask ka bit-inverse. /24 (255.255.255.0) ke liye wildcard 0.0.0.255 hai: 0-bits exactly match hone chahiye, 1-bits ignore hote hain. Isliye har woh interface jiska address 192.168.10 se shuru hota hai, match hota hai aur us par OSPF enable ho jaata hai."
+  },
+  "options": [
+   {
+    "en": "255.255.255.0",
+    "hi": "255.255.255.0"
+   },
+   {
+    "en": "0.0.0.255",
+    "hi": "0.0.0.255"
+   },
+   {
+    "en": "0.0.255.255",
+    "hi": "0.0.255.255"
+   },
+   {
+    "en": "255.255.255.255",
+    "hi": "255.255.255.255"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "255.255.255.0 is the subnet mask; the network command needs its inverse.",
+    "hi": "255.255.255.0 subnet mask hai; network command ko iska inverse chahiye."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "0.0.255.255 would match any interface beginning with 192.168 — a /16 scope, wider than intended.",
+    "hi": "0.0.255.255 har us interface ko match karega jo 192.168 se shuru hota hai — /16 scope, jo intended se zyada wide hai."
+   },
+   {
+    "en": "Wildcard 255.255.255.255 ignores every bit and would match ALL interfaces on the router.",
+    "hi": "Wildcard 255.255.255.255 har bit ignore karta hai aur router ke SAARE interfaces ko match kar lega."
+   }
+  ]
+ },
+ {
+  "id": "d3-041",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "R1 is configured with router ospf 1 and R2 with router ospf 5. Their connected interfaces share a subnet, are in area 0, and have matching timers. Will they become OSPF neighbors?",
+   "hi": "R1 par router ospf 1 configure hai aur R2 par router ospf 5. Unke connected interfaces same subnet mein hain, area 0 mein hain, aur timers match karte hain. Kya woh OSPF neighbors banenge?"
+  },
+  "explanation": {
+   "en": "The number in router ospf N identifies the process on that router only; it is never carried in OSPF packets, so neighbors can use any values. What MUST match: area ID, subnet, hello/dead timers, authentication, and stub flags. Router IDs, in contrast, must be UNIQUE.",
+   "hi": "router ospf N ka number sirf us router par process ko identify karta hai; yeh OSPF packets mein kabhi carry nahi hota, isliye neighbors koi bhi values use kar sakte hain. Jo MATCH hona zaroori hai: area ID, subnet, hello/dead timers, authentication, aur stub flags. Iske ulat, router IDs UNIQUE hone chahiye."
+  },
+  "options": [
+   {
+    "en": "Yes — the process ID is locally significant and does not need to match between routers",
+    "hi": "Haan — process ID locally significant hai aur routers ke beech match hona zaroori nahi"
+   },
+   {
+    "en": "No — the process IDs must be identical on both routers",
+    "hi": "Nahi — dono routers par process IDs identical hone chahiye"
+   },
+   {
+    "en": "Only if their router IDs are also identical",
+    "hi": "Sirf tab jab unke router IDs bhi identical hon"
+   },
+   {
+    "en": "Only after clear ip ospf process is run on both routers",
+    "hi": "Sirf tab jab dono routers par clear ip ospf process chalaya jaaye"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The process ID never appears in hello packets, so the routers cannot even see each other's value.",
+    "hi": "Process ID hello packets mein kabhi nahi aata, isliye routers ek doosre ki value dekh bhi nahi sakte."
+   },
+   {
+    "en": "Identical router IDs actually BREAK adjacency — each router must have a unique RID.",
+    "hi": "Identical router IDs asal mein adjacency TOD dete hain — har router ka RID unique hona chahiye."
+   },
+   {
+    "en": "clear ip ospf process restarts OSPF (for example to apply a new router ID); it is not needed for a normal adjacency.",
+    "hi": "clear ip ospf process OSPF ko restart karta hai (jaise naya router ID apply karne ke liye); normal adjacency ke liye iski zaroorat nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-042",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Instead of using network statements under the OSPF process, how can an engineer enable OSPF for area 0 directly on interface GigabitEthernet0/0?",
+   "hi": "OSPF process ke under network statements use karne ki jagah, ek engineer interface GigabitEthernet0/0 par directly area 0 ke liye OSPF kaise enable kar sakta hai?"
+  },
+  "explanation": {
+   "en": "The interface method — ip ospf process-id area area-id — enables OSPF on that specific interface without any network statement. It is more explicit than wildcard matching and is common in modern configurations; both methods can coexist, and the interface command takes precedence for that interface.",
+   "hi": "Interface method — ip ospf process-id area area-id — bina kisi network statement ke us specific interface par OSPF enable karta hai. Yeh wildcard matching se zyada explicit hai aur modern configurations mein common hai; dono methods saath mein reh sakte hain, aur us interface ke liye interface command precedence leti hai."
+  },
+  "options": [
+   {
+    "en": "Apply ip ospf 1 area 0 in interface configuration mode",
+    "hi": "Interface configuration mode mein ip ospf 1 area 0 apply karo"
+   },
+   {
+    "en": "Apply ospf enable area 0 in interface configuration mode",
+    "hi": "Interface configuration mode mein ospf enable area 0 apply karo"
+   },
+   {
+    "en": "Apply router ospf 1 area 0 in interface configuration mode",
+    "hi": "Interface configuration mode mein router ospf 1 area 0 apply karo"
+   },
+   {
+    "en": "Apply network area 0 in interface configuration mode",
+    "hi": "Interface configuration mode mein network area 0 apply karo"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "ospf enable is not valid IOS syntax for OSPFv2.",
+    "hi": "ospf enable OSPFv2 ke liye valid IOS syntax nahi hai."
+   },
+   {
+    "en": "router ospf 1 is a global configuration command that enters router configuration mode; it is not accepted on an interface.",
+    "hi": "router ospf 1 ek global configuration command hai jo router configuration mode mein le jaata hai; interface par yeh accept nahi hota."
+   },
+   {
+    "en": "network statements exist only under the router ospf process, and their syntax requires an address and wildcard.",
+    "hi": "network statements sirf router ospf process ke under hote hain, aur unke syntax mein address aur wildcard zaroori hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-043",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "An engineer configures passive-interface GigabitEthernet0/2 under router ospf 1. G0/2 connects a user LAN whose subnet is covered by a network statement. What is the result?",
+   "hi": "Ek engineer router ospf 1 ke under passive-interface GigabitEthernet0/2 configure karta hai. G0/2 ek user LAN se connected hai jiska subnet ek network statement se covered hai. Result kya hoga?"
+  },
+  "explanation": {
+   "en": "Passive-interface is the standard way to handle user-facing LANs: the subnet remains in OSPF (other routers can reach it) while the router stops sending hellos out that port, preventing accidental or malicious adjacencies with devices on the LAN. No neighbors can ever form on a passive interface.",
+   "hi": "User-facing LANs ko handle karne ka standard tareeka passive-interface hai: subnet OSPF mein rehta hai (doosre routers usse reach kar sakte hain) jabki router us port se hellos bhejna band kar deta hai, jisse LAN ke devices ke saath galti se ya malicious adjacencies nahi banti. Passive interface par kabhi koi neighbor nahi ban sakta."
+  },
+  "options": [
+   {
+    "en": "The G0/2 subnet is no longer advertised to other OSPF routers",
+    "hi": "G0/2 subnet ab doosre OSPF routers ko advertise nahi hota"
+   },
+   {
+    "en": "OSPF stops sending hellos on G0/2 and forms no adjacency there, but the G0/2 subnet is still advertised into OSPF",
+    "hi": "OSPF G0/2 par hellos bhejna band kar deta hai aur wahan koi adjacency nahi banata, lekin G0/2 subnet phir bhi OSPF mein advertise hota hai"
+   },
+   {
+    "en": "OSPF hellos continue on G0/2 but received routing updates are ignored",
+    "hi": "G0/2 par OSPF hellos chalte rehte hain lekin receive hue routing updates ignore hote hain"
+   },
+   {
+    "en": "The interface is shut down until passive-interface is removed",
+    "hi": "passive-interface hatne tak interface shut down ho jaata hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Advertising continues — that is the point: include the prefix, silence the protocol chatter.",
+    "hi": "Advertising chalti rehti hai — yahi toh point hai: prefix include karo, protocol ki chatter band karo."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Hellos stop entirely on a passive interface; OSPF does not merely filter received updates.",
+    "hi": "Passive interface par hellos poori tarah band ho jaate hain; OSPF sirf received updates filter nahi karta."
+   },
+   {
+    "en": "The interface stays up and forwards user traffic normally; only OSPF hello transmission is suppressed.",
+    "hi": "Interface up rehta hai aur user traffic normally forward karta hai; sirf OSPF hello transmission suppress hota hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-044",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "After auto-cost reference-bandwidth 10000 is configured under the OSPF process, what is the cost of a 1 Gbps interface?",
+   "hi": "OSPF process ke under auto-cost reference-bandwidth 10000 configure karne ke baad, 1 Gbps interface ki cost kya hogi?"
+  },
+  "explanation": {
+   "en": "Cost = reference bandwidth / interface bandwidth. The command sets the reference to 10000 Mbps (10 Gbps), so a 1 Gbps interface costs 10000/1000 = 10. This restores differentiation between fast links (with the default 100 Mbps reference, FastEthernet, 1G and 10G all cost 1). Set the same reference bandwidth on EVERY router, or costs become inconsistent and SPF results unpredictable.",
+   "hi": "Cost = reference bandwidth / interface bandwidth. Yeh command reference ko 10000 Mbps (10 Gbps) set karta hai, isliye 1 Gbps interface ki cost 10000/1000 = 10 hoti hai. Isse fast links ke beech fark wapas aa jaata hai (default 100 Mbps reference ke saath FastEthernet, 1G aur 10G sab ki cost 1 hoti hai). HAR router par same reference bandwidth set karo, warna costs inconsistent ho jaati hain aur SPF results unpredictable."
+  },
+  "options": [
+   {
+    "en": "1",
+    "hi": "1"
+   },
+   {
+    "en": "10",
+    "hi": "10"
+   },
+   {
+    "en": "100",
+    "hi": "100"
+   },
+   {
+    "en": "10000",
+    "hi": "10000"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Cost 1 is what a 1 Gbps interface gets with the DEFAULT reference bandwidth of 100 Mbps (values below 1 round up to 1).",
+    "hi": "Cost 1 woh hai jo 1 Gbps interface ko DEFAULT reference bandwidth 100 Mbps ke saath milti hai (1 se kam values round up hokar 1 ho jaati hain)."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "100 would be the new cost of a 100 Mbps FastEthernet interface (10000/100), not of 1 Gbps.",
+    "hi": "100, 100 Mbps FastEthernet interface ki nayi cost hogi (10000/100), 1 Gbps ki nahi."
+   },
+   {
+    "en": "10000 is the reference bandwidth itself, not a resulting interface cost.",
+    "hi": "10000 khud reference bandwidth hai, koi resulting interface cost nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-045",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A router has these interfaces:\n\nGigabitEthernet0/0   10.0.15.1/24\nGigabitEthernet0/1   10.10.0.1/24\nGigabitEthernet0/2   192.168.10.1/24\nLoopback0            10.0.255.254/32\n\nThe OSPF process contains only: network 10.0.0.0 0.0.255.255 area 0\nOn which interfaces is OSPF enabled?",
+   "hi": "Ek router ke yeh interfaces hain:\n\nGigabitEthernet0/0   10.0.15.1/24\nGigabitEthernet0/1   10.10.0.1/24\nGigabitEthernet0/2   192.168.10.1/24\nLoopback0            10.0.255.254/32\n\nOSPF process mein sirf yeh hai: network 10.0.0.0 0.0.255.255 area 0\nKin interfaces par OSPF enabled hai?"
+  },
+  "explanation": {
+   "en": "Wildcard 0.0.255.255 requires the first 16 bits to equal 10.0 exactly. G0/0 (10.0.15.1) and Loopback0 (10.0.255.254) both start with 10.0, so they match. G0/1 fails because its second octet is 10, not 0 — a classic misread. 192.168.10.1 does not begin with 10 at all.",
+   "hi": "Wildcard 0.0.255.255 ke hisaab se pehle 16 bits exactly 10.0 hone chahiye. G0/0 (10.0.15.1) aur Loopback0 (10.0.255.254) dono 10.0 se shuru hote hain, isliye match karte hain. G0/1 fail hota hai kyunki uska second octet 10 hai, 0 nahi — yeh ek classic galat-padhaai hai. 192.168.10.1 toh 10 se shuru hi nahi hota."
+  },
+  "options": [
+   {
+    "en": "G0/0 only",
+    "hi": "Sirf G0/0"
+   },
+   {
+    "en": "G0/0 and Loopback0",
+    "hi": "G0/0 aur Loopback0"
+   },
+   {
+    "en": "G0/0, G0/1, and Loopback0",
+    "hi": "G0/0, G0/1, aur Loopback0"
+   },
+   {
+    "en": "All four interfaces",
+    "hi": "Chaaron interfaces"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Loopback0 also begins with 10.0 and is matched — loopbacks participate in OSPF like any interface.",
+    "hi": "Loopback0 bhi 10.0 se shuru hota hai aur match hota hai — loopbacks bhi kisi aur interface ki tarah OSPF mein participate karte hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "G0/1 is 10.10.0.1: the second octet (10) does not match the required 0, so the statement does not cover it.",
+    "hi": "G0/1 10.10.0.1 hai: second octet (10) required 0 se match nahi karta, isliye statement use cover nahi karta."
+   },
+   {
+    "en": "G0/1 and G0/2 both fall outside 10.0.0.0/16, so OSPF is not enabled on them.",
+    "hi": "G0/1 aur G0/2 dono 10.0.0.0/16 se bahar hain, isliye un par OSPF enable nahi hota."
+   }
+  ]
+ },
+ {
+  "id": "d3-046",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "R1 connects to R2 over GigabitEthernet. R2 connects to R3 over a 1.544 Mbps T1 serial link. The destination LAN is attached to R3's FastEthernet interface. All routers use the default reference bandwidth (100 Mbps). What is R1's OSPF cost to the destination network?",
+   "hi": "R1, R2 se GigabitEthernet par connected hai. R2, R3 se 1.544 Mbps T1 serial link par connected hai. Destination LAN R3 ke FastEthernet interface se attached hai. Saare routers default reference bandwidth (100 Mbps) use karte hain. Destination network tak R1 ki OSPF cost kya hai?"
+  },
+  "explanation": {
+   "en": "OSPF cost to a network is the sum of the OUTGOING interface costs along the path, including the interface of the final router that connects to the destination network. GigabitEthernet: 100/1000 rounds up to 1. T1: 100000 kbps / 1544 kbps = 64. Destination FastEthernet: 1. Total = 1 + 64 + 1 = 66.",
+   "hi": "Kisi network tak OSPF cost path ke saare OUTGOING interface costs ka sum hoti hai, jismein last router ka woh interface bhi shaamil hai jo destination network se connect karta hai. GigabitEthernet: 100/1000 round up hokar 1. T1: 100000 kbps / 1544 kbps = 64. Destination FastEthernet: 1. Total = 1 + 64 + 1 = 66."
+  },
+  "options": [
+   {
+    "en": "2",
+    "hi": "2"
+   },
+   {
+    "en": "65",
+    "hi": "65"
+   },
+   {
+    "en": "66",
+    "hi": "66"
+   },
+   {
+    "en": "130",
+    "hi": "130"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "2 counts only the two Ethernet interfaces and ignores the T1's cost of 64 — OSPF is not a hop-count protocol.",
+    "hi": "2 sirf do Ethernet interfaces ko count karta hai aur T1 ki cost 64 ko ignore karta hai — OSPF hop-count protocol nahi hai."
+   },
+   {
+    "en": "65 omits the FastEthernet interface on R3 that attaches the destination network; that stub network's cost is part of the SPF calculation.",
+    "hi": "65 mein R3 ka woh FastEthernet interface chhoot gaya jo destination network ko attach karta hai; us stub network ki cost SPF calculation ka hissa hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "130 roughly doubles the serial cost, as if counting both directions of the T1 — only outgoing interfaces toward the destination are summed.",
+    "hi": "130 serial cost ko lagbhag double kar deta hai, jaise T1 ki dono directions count ki hon — sirf destination ki taraf ke outgoing interfaces add hote hain."
+   }
+  ]
+ },
+ {
+  "id": "d3-047",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Edge router R1 has a static default route to its ISP and runs OSPF with the internal routers. Which command makes R1 advertise a default route to its OSPF neighbors?",
+   "hi": "Edge router R1 ke paas ISP ki taraf static default route hai aur woh internal routers ke saath OSPF chalata hai. Kaunsa command R1 se uske OSPF neighbors ko default route advertise karwata hai?"
+  },
+  "explanation": {
+   "en": "default-information originate, configured under router ospf, injects a default route into the OSPF domain — provided R1 itself has a default route installed. Adding the always keyword advertises the default even without one (riskier: R1 could attract traffic it cannot forward). Internal routers then see an external default route via R1.",
+   "hi": "router ospf ke under configure kiya gaya default-information originate OSPF domain mein default route inject karta hai — basharte R1 ke paas khud default route installed ho. always keyword add karne se default bina uske bhi advertise hota hai (zyada risky: R1 aisa traffic attract kar sakta hai jise woh forward nahi kar sakta). Phir internal routers R1 ke through ek external default route dekhte hain."
+  },
+  "options": [
+   {
+    "en": "redistribute static subnets",
+    "hi": "redistribute static subnets"
+   },
+   {
+    "en": "default-information originate",
+    "hi": "default-information originate"
+   },
+   {
+    "en": "network 0.0.0.0 255.255.255.255 area 0",
+    "hi": "network 0.0.0.0 255.255.255.255 area 0"
+   },
+   {
+    "en": "ip route 0.0.0.0 0.0.0.0 ospf",
+    "hi": "ip route 0.0.0.0 0.0.0.0 ospf"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Redistributing statics would inject R1's OTHER static prefixes; IOS specifically excludes the default route from redistribution — the default requires default-information originate.",
+    "hi": "Statics redistribute karne se R1 ke BAAKI static prefixes inject honge; IOS default route ko redistribution se khaas taur par exclude karta hai — default ke liye default-information originate chahiye."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The network command only enables OSPF on matching interfaces; it cannot originate a default route.",
+    "hi": "network command sirf matching interfaces par OSPF enable karta hai; yeh default route originate nahi kar sakta."
+   },
+   {
+    "en": "This is not valid syntax — a static route's next hop must be an IP address or exit interface, not a protocol name.",
+    "hi": "Yeh valid syntax nahi hai — static route ka next hop IP address ya exit interface hona chahiye, protocol ka naam nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-048",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "R1's OSPF router ID is currently 10.0.0.1, derived from a loopback. The design requires the router ID to be 1.1.1.1. Which TWO steps accomplish this? (Choose two)",
+   "hi": "R1 ka OSPF router ID abhi 10.0.0.1 hai, jo ek loopback se aaya hai. Design ke hisaab se router ID 1.1.1.1 hona chahiye. Kaunse DO steps yeh kaam karte hain? (Do choose karo)"
+  },
+  "explanation": {
+   "en": "Two steps: set the ID explicitly with router-id under the OSPF process, then restart the process (clear ip ospf process, or a reload) because the router ID is chosen only at process start. A manual router-id always outranks loopback and physical addresses in the selection order.",
+   "hi": "Do steps: OSPF process ke under router-id se ID explicitly set karo, phir process restart karo (clear ip ospf process, ya reload) kyunki router ID sirf process start par choose hota hai. Selection order mein manual router-id hamesha loopback aur physical addresses se upar hai."
+  },
+  "options": [
+   {
+    "en": "Configure router-id 1.1.1.1 under router ospf 1",
+    "hi": "router ospf 1 ke under router-id 1.1.1.1 configure karo"
+   },
+   {
+    "en": "Run clear ip ospf process (or reload the router)",
+    "hi": "clear ip ospf process chalao (ya router reload karo)"
+   },
+   {
+    "en": "Configure ip ospf router-id 1.1.1.1 on a physical interface",
+    "hi": "Ek physical interface par ip ospf router-id 1.1.1.1 configure karo"
+   },
+   {
+    "en": "Create a new loopback with 1.1.1.1 — it overrides the current router ID immediately without a restart",
+    "hi": "1.1.1.1 ke saath naya loopback banao — yeh bina restart ke current router ID ko turant override kar deta hai"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "router-id is a router-configuration-mode command under the OSPF process; there is no per-interface router ID command in OSPFv2.",
+    "hi": "router-id OSPF process ke under router-configuration-mode command hai; OSPFv2 mein per-interface router ID command nahi hota."
+   },
+   {
+    "en": "Even a higher loopback cannot displace an ALREADY chosen router ID without a process restart — and a manual router-id beats loopbacks anyway.",
+    "hi": "Higher loopback bhi PEHLE SE chune gaye router ID ko bina process restart ke nahi hata sakta — aur waise bhi manual router-id loopbacks ko hara deta hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-049",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which THREE statements about OSPF interface cost are true? (Choose three)",
+   "hi": "OSPF interface cost ke baare mein kaunse TEEN statements sahi hain? (Teen choose karo)"
+  },
+  "explanation": {
+   "en": "Cost = reference bandwidth / interface bandwidth, with results below 1 rounded up to 1 — so at the 100 Mbps default, FastEthernet (1) and GigabitEthernet (0.1, rounded to 1) are indistinguishable. Raising the reference bandwidth fixes that, but must be done everywhere for consistent SPF results. ip ospf cost sets an explicit value that wins over the formula.",
+   "hi": "Cost = reference bandwidth / interface bandwidth, aur 1 se kam results round up hokar 1 ho jaate hain — isliye 100 Mbps default par FastEthernet (1) aur GigabitEthernet (0.1, round hokar 1) mein fark nahi hota. Reference bandwidth badhane se yeh theek hota hai, lekin consistent SPF results ke liye har jagah karna padta hai. ip ospf cost ek explicit value set karta hai jo formula par jeetti hai."
+  },
+  "options": [
+   {
+    "en": "With the default reference bandwidth of 100 Mbps, FastEthernet and GigabitEthernet interfaces both end up with cost 1",
+    "hi": "Default reference bandwidth 100 Mbps ke saath FastEthernet aur GigabitEthernet dono interfaces ki cost 1 hoti hai"
+   },
+   {
+    "en": "If the reference bandwidth is changed, it should be changed identically on every router in the OSPF domain",
+    "hi": "Agar reference bandwidth badla jaaye, toh OSPF domain ke har router par identically badalna chahiye"
+   },
+   {
+    "en": "The command ip ospf cost overrides the automatically calculated value on that interface",
+    "hi": "Command ip ospf cost us interface par automatically calculated value ko override karta hai"
+   },
+   {
+    "en": "OSPF cost is calculated from interface load and delay",
+    "hi": "OSPF cost interface load aur delay se calculate hoti hai"
+   },
+   {
+    "en": "Interfaces with higher bandwidth receive a higher cost",
+    "hi": "Zyada bandwidth wale interfaces ko zyada cost milti hai"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Load and delay feed EIGRP's composite metric options; OSPF cost is derived purely from bandwidth (or set manually).",
+    "hi": "Load aur delay EIGRP ke composite metric options mein jaate hain; OSPF cost sirf bandwidth se nikalti hai (ya manually set hoti hai)."
+   },
+   {
+    "en": "The relationship is inverse: more bandwidth means a LOWER cost, making the link more attractive to SPF.",
+    "hi": "Relationship inverse hai: zyada bandwidth matlab KAM cost, jisse link SPF ke liye zyada attractive banta hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-050",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each OSPF verification command to what it primarily displays.",
+   "hi": "Har OSPF verification command ko us cheez se match karo jo woh mainly display karta hai."
+  },
+  "explanation": {
+   "en": "The OSPF troubleshooting quartet: show ip ospf neighbor answers 'who am I adjacent with and how far did we get'; show ip ospf interface exposes the per-link parameters that must match; show ip protocols summarizes the process (RID, networks, passive interfaces); show ip ospf database reveals the topology map itself.",
+   "hi": "OSPF troubleshooting ke chaar commands: show ip ospf neighbor batata hai 'main kis-kis ke saath adjacent hoon aur hum kahan tak pahunche'; show ip ospf interface woh per-link parameters dikhata hai jo match hone chahiye; show ip protocols process ka summary deta hai (RID, networks, passive interfaces); show ip ospf database khud topology map dikhata hai."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "show ip ospf neighbor",
+     "hi": "show ip ospf neighbor"
+    },
+    "right": {
+     "en": "Neighbor IDs, adjacency states, and dead timers",
+     "hi": "Neighbor IDs, adjacency states, aur dead timers"
+    }
+   },
+   {
+    "left": {
+     "en": "show ip ospf interface",
+     "hi": "show ip ospf interface"
+    },
+    "right": {
+     "en": "Hello/dead intervals, cost, and DR/BDR per interface",
+     "hi": "Har interface ke Hello/dead intervals, cost, aur DR/BDR"
+    }
+   },
+   {
+    "left": {
+     "en": "show ip protocols",
+     "hi": "show ip protocols"
+    },
+    "right": {
+     "en": "Router ID, networks being advertised, and passive interfaces",
+     "hi": "Router ID, advertise ho rahe networks, aur passive interfaces"
+    }
+   },
+   {
+    "left": {
+     "en": "show ip ospf database",
+     "hi": "show ip ospf database"
+    },
+    "right": {
+     "en": "LSAs stored in the link-state database",
+     "hi": "Link-state database mein stored LSAs"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d3-051",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "easy",
+  "type": "command",
+  "text": {
+   "en": "Type the command that lists this router's OSPF neighbors together with their adjacency state and dead timer.",
+   "hi": "Woh command type karo jo is router ke OSPF neighbors ko unki adjacency state aur dead timer ke saath list karta hai."
+  },
+  "explanation": {
+   "en": "show ip ospf neighbor is the go-to adjacency check: it shows each neighbor's router ID, priority, state (for example FULL/DR or 2WAY/DROTHER), remaining dead time, interface address, and the local interface — everything needed to confirm or triage an adjacency.",
+   "hi": "show ip ospf neighbor adjacency check ke liye go-to command hai: yeh har neighbor ka router ID, priority, state (jaise FULL/DR ya 2WAY/DROTHER), baaki dead time, interface address, aur local interface dikhata hai — adjacency confirm ya triage karne ke liye sab kuch."
+  },
+  "commandAnswer": "show ip ospf neighbor",
+  "accept": [
+   "sh ip ospf nei",
+   "sh ip ospf neighbor",
+   "show ip ospf nei"
+  ]
+ },
+ {
+  "id": "d3-052",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "You are in interface configuration mode for GigabitEthernet0/0. Type the command that prevents this router from ever becoming the DR or BDR on that segment.",
+   "hi": "Tum GigabitEthernet0/0 ke interface configuration mode mein ho. Woh command type karo jo is router ko us segment par kabhi DR ya BDR banne se rokta hai."
+  },
+  "explanation": {
+   "en": "ip ospf priority 0 removes the interface from DR/BDR elections permanently — the router remains a DROTHER, still forms full adjacencies with the DR and BDR, and still exchanges routes. Values 1-255 instead bias the election upward (default is 1; highest priority wins, router ID breaks ties).",
+   "hi": "ip ospf priority 0 interface ko DR/BDR elections se permanently hata deta hai — router DROTHER rehta hai, phir bhi DR aur BDR ke saath full adjacencies banata hai, aur routes exchange karta hai. Values 1-255 election ko upar ki taraf jhukaati hain (default 1 hai; highest priority jeetti hai, router ID tie todta hai)."
+  },
+  "commandAnswer": "ip ospf priority 0",
+  "accept": [
+   "ip ospf prio 0",
+   "ip ospf priority 0"
+  ]
+ },
+ {
+  "id": "d3-053",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "In show ip ospf neighbor output, a neighbor is listed as FULL/BDR. What does the FULL state indicate?",
+   "hi": "show ip ospf neighbor output mein ek neighbor FULL/BDR listed hai. FULL state kya batati hai?"
+  },
+  "explanation": {
+   "en": "FULL is the goal state: both routers have completed database description exchange and LSA loading, so their LSDBs are identical. The /BDR portion tells you the NEIGHBOR's role on that segment — this neighbor is the backup designated router.",
+   "hi": "FULL goal state hai: dono routers ne database description exchange aur LSA loading poora kar liya hai, isliye unke LSDBs identical hain. /BDR wala hissa us segment par NEIGHBOR ka role batata hai — yeh neighbor backup designated router hai."
+  },
+  "options": [
+   {
+    "en": "The neighbor relationship is complete: the two routers' link-state databases are fully synchronized",
+    "hi": "Neighbor relationship complete hai: dono routers ke link-state databases fully synchronized hain"
+   },
+   {
+    "en": "The neighbor's routing table is full and cannot accept more routes",
+    "hi": "Neighbor ki routing table full hai aur aur routes accept nahi kar sakti"
+   },
+   {
+    "en": "Hellos are being exchanged but databases have not yet been compared",
+    "hi": "Hellos exchange ho rahe hain lekin databases abhi compare nahi hue"
+   },
+   {
+    "en": "The neighbor is using its maximum interface bandwidth",
+    "hi": "Neighbor apni maximum interface bandwidth use kar raha hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "OSPF neighbor states describe adjacency progress, never routing table capacity.",
+    "hi": "OSPF neighbor states adjacency ki progress batate hain, routing table capacity kabhi nahi."
+   },
+   {
+    "en": "Hello-only visibility corresponds to 2-WAY; by FULL, the entire database synchronization is finished.",
+    "hi": "Sirf hello visibility 2-WAY ko represent karti hai; FULL tak poora database synchronization ho chuka hota hai."
+   },
+   {
+    "en": "Neighbor states have nothing to do with link utilization or bandwidth.",
+    "hi": "Neighbor states ka link utilization ya bandwidth se koi lena-dena nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-054",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "R1's G0/0 is configured in OSPF area 0 and R2's directly connected G0/0 is configured in area 1. Both share the subnet and have default timers. What is the result?",
+   "hi": "R1 ka G0/0 OSPF area 0 mein configure hai aur R2 ka directly connected G0/0 area 1 mein. Dono same subnet share karte hain aur default timers hain. Result kya hoga?"
+  },
+  "explanation": {
+   "en": "The area ID is carried in every hello packet, and a receiving router silently drops hellos whose area does not match the receiving interface's area. The routers never even appear in each other's neighbor tables. Both ends of a link must be placed in the same area.",
+   "hi": "Area ID har hello packet mein carry hota hai, aur receive karne wala router chupchaap woh hellos drop kar deta hai jinka area receiving interface ke area se match nahi karta. Routers ek doosre ki neighbor tables mein dikhte bhi nahi. Link ke dono ends same area mein hone chahiye."
+  },
+  "options": [
+   {
+    "en": "They form an adjacency in area 0, the backbone",
+    "hi": "Woh area 0, yaani backbone, mein adjacency banate hain"
+   },
+   {
+    "en": "No neighbor relationship forms: each router discards the other's hellos because the area ID does not match",
+    "hi": "Koi neighbor relationship nahi banti: har router doosre ke hellos discard kar deta hai kyunki area ID match nahi karta"
+   },
+   {
+    "en": "They form an adjacency but exchange only inter-area routes",
+    "hi": "Woh adjacency banate hain lekin sirf inter-area routes exchange karte hain"
+   },
+   {
+    "en": "They remain stuck in the EXSTART state",
+    "hi": "Woh EXSTART state mein atke rehte hain"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "There is no negotiation or fallback to the backbone; mismatched areas simply mean the hellos are rejected.",
+    "hi": "Backbone par koi negotiation ya fallback nahi hota; mismatched areas ka matlab bas itna hai ki hellos reject ho jaate hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Inter-area routing happens through Area Border Routers that legitimately sit in both areas — not through a mismatched link.",
+    "hi": "Inter-area routing Area Border Routers ke through hoti hai jo legitimately dono areas mein hote hain — mismatched link ke through nahi."
+   },
+   {
+    "en": "EXSTART problems (like MTU mismatches) occur AFTER a neighbor is discovered; an area mismatch prevents discovery entirely.",
+    "hi": "EXSTART problems (jaise MTU mismatch) neighbor discover hone ke BAAD aati hain; area mismatch discovery hi nahi hone deta."
+   }
+  ]
+ },
+ {
+  "id": "d3-055",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "R1 and R2 share an Ethernet link but never become neighbors. show ip ospf interface g0/0 shows:\n\nR1:  Timer intervals configured, Hello 10, Dead 40\nR2:  Timer intervals configured, Hello 30, Dead 120\n\nWhat is the cause?",
+   "hi": "R1 aur R2 ek Ethernet link share karte hain lekin kabhi neighbors nahi bante. show ip ospf interface g0/0 yeh dikhata hai:\n\nR1:  Timer intervals configured, Hello 10, Dead 40\nR2:  Timer intervals configured, Hello 30, Dead 120\n\nCause kya hai?"
+  },
+  "explanation": {
+   "en": "Hello and dead intervals are carried in the hello packet and must match exactly between neighbors on the link; a mismatch makes each side ignore the other's hellos, so the neighbor never appears. R2's 30/120 values look like NBMA defaults — fix with ip ospf hello-interval 10 (dead adjusts to 40) or match the values manually on both sides.",
+   "hi": "Hello aur dead intervals hello packet mein carry hote hain aur link par neighbors ke beech exactly match hone chahiye; mismatch hone par dono side ek doosre ke hellos ignore karte hain, isliye neighbor kabhi dikhta hi nahi. R2 ki 30/120 values NBMA defaults jaisi lagti hain — ip ospf hello-interval 10 se fix karo (dead apne aap 40 ho jaata hai) ya dono sides par values manually match karo."
+  },
+  "options": [
+   {
+    "en": "The hello and dead intervals do not match, so each router discards the other's hellos",
+    "hi": "Hello aur dead intervals match nahi karte, isliye har router doosre ke hellos discard kar deta hai"
+   },
+   {
+    "en": "R2's timers exceed the maximum allowed on Ethernet",
+    "hi": "R2 ke timers Ethernet par allowed maximum se zyada hain"
+   },
+   {
+    "en": "R1 is sending hellos three times faster, overwhelming R2",
+    "hi": "R1 teen guna tezi se hellos bhej raha hai, jisse R2 overwhelm ho raha hai"
+   },
+   {
+    "en": "The dead interval must equal the hello interval for an adjacency to form",
+    "hi": "Adjacency banne ke liye dead interval hello interval ke barabar hona chahiye"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "30/120 are perfectly legal values (they are the NBMA defaults); the problem is only that they differ from R1's.",
+    "hi": "30/120 bilkul legal values hain (yeh NBMA defaults hain); problem sirf yeh hai ki yeh R1 se alag hain."
+   },
+   {
+    "en": "Hello rate does not overwhelm anything at these timescales; the packets are discarded due to the parameter mismatch, not the rate.",
+    "hi": "In timescales par hello rate kuch overwhelm nahi karta; packets parameter mismatch ki wajah se discard hote hain, rate ki wajah se nahi."
+   },
+   {
+    "en": "The dead interval is normally FOUR times the hello interval; the requirement is that both routers use the same pair of values.",
+    "hi": "Dead interval normally hello interval ka CHAAR guna hota hai; requirement yeh hai ki dono routers same pair of values use karein."
+   }
+  ]
+ },
+ {
+  "id": "d3-056",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "R1 shows a neighbor stuck in the INIT state for several minutes. What does this indicate?",
+   "hi": "R1 par ek neighbor kai minutes se INIT state mein atka dikh raha hai. Iska kya matlab hai?"
+  },
+  "explanation": {
+   "en": "INIT means 'I hear you, but you do not hear me': R1 received a hello from R2 that does not list R1's router ID as a seen neighbor. Communication is one-way — a classic symptom of an inbound ACL on R2 blocking OSPF (IP protocol 89) or multicast 224.0.0.5, or a Layer 1/2 problem in one direction. Healthy adjacencies pass through INIT in moments.",
+   "hi": "INIT ka matlab hai 'main tumhe sun raha hoon, lekin tum mujhe nahi sun rahe': R1 ko R2 se ek hello mila jismein R1 ka router ID seen neighbor ki tarah listed nahi hai. Communication one-way hai — iska classic symptom hai R2 par inbound ACL jo OSPF (IP protocol 89) ya multicast 224.0.0.5 ko block kar raha ho, ya ek direction mein Layer 1/2 problem. Healthy adjacencies INIT se pal bhar mein nikal jaati hain."
+  },
+  "options": [
+   {
+    "en": "One-way communication: R1 receives R2's hellos, but R2 is not receiving (or not listing) R1's hellos — R1's router ID never appears in R2's hello packets",
+    "hi": "One-way communication: R1 ko R2 ke hellos mil rahe hain, lekin R2 ko R1 ke hellos nahi mil rahe (ya woh unhe list nahi kar raha) — R1 ka router ID R2 ke hello packets mein kabhi nahi aata"
+   },
+   {
+    "en": "The routers are waiting for the DR election to complete",
+    "hi": "Routers DR election poora hone ka wait kar rahe hain"
+   },
+   {
+    "en": "R1 and R2 have mismatched hello timers",
+    "hi": "R1 aur R2 ke hello timers mismatched hain"
+   },
+   {
+    "en": "Database synchronization is in progress and will complete shortly",
+    "hi": "Database synchronization chal raha hai aur jaldi poora ho jaayega"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The DR election happens at 2-WAY; stuck in INIT means the relationship has not even become bidirectional.",
+    "hi": "DR election 2-WAY par hota hai; INIT mein atkne ka matlab hai relationship abhi bidirectional bhi nahi hui."
+   },
+   {
+    "en": "Mismatched timers cause hellos to be discarded entirely — the neighbor would not appear in the table at all, not sit in INIT.",
+    "hi": "Mismatched timers mein hellos poori tarah discard ho jaate hain — neighbor table mein dikhta hi nahi, INIT mein nahi baithta."
+   },
+   {
+    "en": "Database exchange happens in EXSTART/EXCHANGE/LOADING, which come after 2-WAY.",
+    "hi": "Database exchange EXSTART/EXCHANGE/LOADING mein hota hai, jo 2-WAY ke baad aate hain."
+   }
+  ]
+ },
+ {
+  "id": "d3-057",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "R1 and R2 cycle between EXSTART and EXCHANGE and never reach FULL. R1's interface MTU is 1500 and R2's is 9000. Which action fixes the adjacency?",
+   "hi": "R1 aur R2 EXSTART aur EXCHANGE ke beech ghoomte rehte hain aur kabhi FULL tak nahi pahunchte. R1 ka interface MTU 1500 hai aur R2 ka 9000. Kaunsa action adjacency fix karta hai?"
+  },
+  "explanation": {
+   "en": "The interface MTU is advertised in Database Description packets, and a mismatch makes routers refuse to synchronize — the classic stuck-in-EXSTART/EXCHANGE symptom. Align the MTUs (best) or apply ip ospf mtu-ignore on the interface to suppress the check (a workaround that risks dropping large LSAs).",
+   "hi": "Interface MTU Database Description packets mein advertise hota hai, aur mismatch hone par routers synchronize karne se mana kar dete hain — yahi classic stuck-in-EXSTART/EXCHANGE symptom hai. MTUs align karo (best) ya check suppress karne ke liye interface par ip ospf mtu-ignore apply karo (ek workaround jismein bade LSAs drop hone ka risk hai)."
+  },
+  "options": [
+   {
+    "en": "Configure matching MTU values on both interfaces (or configure ip ospf mtu-ignore)",
+    "hi": "Dono interfaces par matching MTU values configure karo (ya ip ospf mtu-ignore configure karo)"
+   },
+   {
+    "en": "Increase the dead interval on both routers",
+    "hi": "Dono routers par dead interval badhao"
+   },
+   {
+    "en": "Configure identical OSPF process IDs",
+    "hi": "Identical OSPF process IDs configure karo"
+   },
+   {
+    "en": "Set both interface priorities to the same value",
+    "hi": "Dono interface priorities same value par set karo"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Timers already match — the routers found each other and got past 2-WAY; timers are not the blocker here.",
+    "hi": "Timers pehle se match karte hain — routers ne ek doosre ko dhoondh liya aur 2-WAY se aage nikal gaye; yahan timers blocker nahi hain."
+   },
+   {
+    "en": "Process IDs are locally significant and play no role in adjacency formation.",
+    "hi": "Process IDs locally significant hain aur adjacency banne mein koi role nahi rakhte."
+   },
+   {
+    "en": "Priorities affect only DR/BDR election, which already happened at 2-WAY; they do not block database exchange.",
+    "hi": "Priorities sirf DR/BDR election ko affect karti hain, jo 2-WAY par pehle hi ho chuka; yeh database exchange ko block nahi karti."
+   }
+  ]
+ },
+ {
+  "id": "d3-058",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "R1 forms no adjacency with R2 on G0/1, although the subnet appears correctly in R2's routing table via OSPF. On R1, show ip protocols includes:\n\nRouting Protocol is \"ospf 1\"\n  Router ID 1.1.1.1\n  Passive Interface(s):\n    GigabitEthernet0/1\n\nWhat is the problem and the fix?",
+   "hi": "R1, G0/1 par R2 ke saath koi adjacency nahi banata, halaanki subnet R2 ki routing table mein OSPF ke through sahi dikh raha hai. R1 par show ip protocols mein yeh hai:\n\nRouting Protocol is \"ospf 1\"\n  Router ID 1.1.1.1\n  Passive Interface(s):\n    GigabitEthernet0/1\n\nProblem kya hai aur fix kya hai?"
+  },
+  "explanation": {
+   "en": "A passive interface never sends hellos, so no adjacency can form on it — while the interface's subnet is still advertised into OSPF, which is exactly why R2 has the route but no neighbor. Remove the passive setting for that interface (or move the link out of any passive-interface default policy) to bring the adjacency up.",
+   "hi": "Passive interface kabhi hellos nahi bhejta, isliye us par koi adjacency nahi ban sakti — jabki interface ka subnet phir bhi OSPF mein advertise hota hai, isi wajah se R2 ke paas route hai lekin neighbor nahi. Adjacency up karne ke liye us interface ki passive setting hatao (ya link ko kisi bhi passive-interface default policy se bahar karo)."
+  },
+  "options": [
+   {
+    "en": "G0/1 is passive, so R1 sends no hellos on it; configure no passive-interface GigabitEthernet0/1 under router ospf 1",
+    "hi": "G0/1 passive hai, isliye R1 us par koi hellos nahi bhejta; router ospf 1 ke under no passive-interface GigabitEthernet0/1 configure karo"
+   },
+   {
+    "en": "The router ID is invalid; configure a router ID matching the interface address",
+    "hi": "Router ID invalid hai; interface address se match karta router ID configure karo"
+   },
+   {
+    "en": "OSPF is not enabled on G0/1; add a network statement for its subnet",
+    "hi": "G0/1 par OSPF enabled nahi hai; uske subnet ke liye network statement add karo"
+   },
+   {
+    "en": "R2 must also configure a passive interface for symmetry",
+    "hi": "Symmetry ke liye R2 par bhi passive interface configure karna padega"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "1.1.1.1 is a perfectly valid router ID; router IDs need not match any interface address.",
+    "hi": "1.1.1.1 bilkul valid router ID hai; router IDs ka kisi interface address se match hona zaroori nahi."
+   },
+   {
+    "en": "OSPF IS enabled on G0/1 — that is why its subnet is being advertised; the interface is merely passive.",
+    "hi": "G0/1 par OSPF enabled HAI — isi wajah se uska subnet advertise ho raha hai; interface bas passive hai."
+   },
+   {
+    "en": "Passive interfaces suppress adjacencies; making R2 passive too would just guarantee the adjacency never forms.",
+    "hi": "Passive interfaces adjacencies suppress karte hain; R2 ko bhi passive banane se bas yeh pakka ho jaayega ki adjacency kabhi na bane."
+   }
+  ]
+ },
+ {
+  "id": "d3-059",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Two routers on the same segment both use OSPF router ID 1.1.1.1, and the log shows %OSPF-4-DUP_RTRID_NBR messages. What is the impact and the correct fix?",
+   "hi": "Same segment par do routers dono OSPF router ID 1.1.1.1 use karte hain, aur log mein %OSPF-4-DUP_RTRID_NBR messages dikhte hain. Impact kya hai aur sahi fix kya hai?"
+  },
+  "explanation": {
+   "en": "Router IDs must be unique in the OSPF domain: a router ignores neighbors claiming its own RID, and duplicate RIDs elsewhere in the network cause LSAs to overwrite each other and routes to flap. Assign a unique router-id under one router's OSPF process and apply it with clear ip ospf process.",
+   "hi": "OSPF domain mein router IDs unique hone chahiye: router un neighbors ko ignore karta hai jo uska apna RID claim karte hain, aur network mein kahin aur duplicate RIDs hone se LSAs ek doosre ko overwrite karte hain aur routes flap karte hain. Ek router ke OSPF process ke under unique router-id assign karo aur clear ip ospf process se apply karo."
+  },
+  "options": [
+   {
+    "en": "They cannot form an adjacency with each other; configure a unique router-id on one of them and restart its OSPF process",
+    "hi": "Woh aapas mein adjacency nahi bana sakte; unmein se ek par unique router-id configure karo aur uska OSPF process restart karo"
+   },
+   {
+    "en": "They form an adjacency but load-balance all traffic; no action is needed",
+    "hi": "Woh adjacency banate hain lekin saara traffic load-balance karte hain; koi action ki zaroorat nahi"
+   },
+   {
+    "en": "One router automatically increments its router ID; wait for reconvergence",
+    "hi": "Ek router apna router ID automatically increment kar leta hai; reconvergence ka wait karo"
+   },
+   {
+    "en": "The DR election fails for the whole segment until both routers are removed",
+    "hi": "Dono routers hatne tak poore segment ka DR election fail ho jaata hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "No adjacency forms between duplicates — and even distant duplicates corrupt the LSDB view; this always requires action.",
+    "hi": "Duplicates ke beech koi adjacency nahi banti — aur door ke duplicates bhi LSDB view ko corrupt karte hain; isme hamesha action chahiye."
+   },
+   {
+    "en": "IOS never changes a router ID by itself; the duplicate persists until an administrator intervenes.",
+    "hi": "IOS kabhi khud se router ID nahi badalta; administrator ke intervene karne tak duplicate bana rehta hai."
+   },
+   {
+    "en": "Other routers on the segment can still elect a DR; the duplication specifically breaks the relationship between (and LSAs of) the two offenders.",
+    "hi": "Segment ke doosre routers phir bhi DR elect kar sakte hain; duplication khaas taur par un do offenders ke beech ka relationship (aur unke LSAs) todta hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-060",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "R1 and R2 are cabled directly and both have OSPF enabled on the link, but they never appear in each other's neighbor tables:\n\nR1 G0/0:  ip address 10.1.12.1 255.255.255.0\nR2 G0/0:  ip address 10.1.12.130 255.255.255.128\n\nWhat is the cause?",
+   "hi": "R1 aur R2 directly cabled hain aur dono ne link par OSPF enable kiya hai, lekin woh kabhi ek doosre ki neighbor tables mein nahi dikhte:\n\nR1 G0/0:  ip address 10.1.12.1 255.255.255.0\nR2 G0/0:  ip address 10.1.12.130 255.255.255.128\n\nCause kya hai?"
+  },
+  "explanation": {
+   "en": "OSPF hellos on multi-access networks carry the network mask, and a receiving router discards hellos whose subnet/mask do not match its own interface. R2 lives in 10.1.12.128/25; from R2's view, R1's 10.1.12.1 is not even in its subnet — and the masks differ besides. Re-address so both interfaces share one subnet and mask.",
+   "hi": "Multi-access networks par OSPF hellos network mask carry karte hain, aur receive karne wala router woh hellos discard kar deta hai jinka subnet/mask uske apne interface se match nahi karta. R2 10.1.12.128/25 mein hai; R2 ki nazar se R1 ka 10.1.12.1 uske subnet mein hai hi nahi — aur upar se masks bhi alag hain. Re-address karo taaki dono interfaces ek hi subnet aur mask share karein."
+  },
+  "options": [
+   {
+    "en": "The interfaces are not in the same subnet, and their masks differ: R1 expects 10.1.12.0/24 while R2 is in 10.1.12.128/25 — the hello subnet check fails",
+    "hi": "Interfaces same subnet mein nahi hain, aur unke masks alag hain: R1 10.1.12.0/24 expect karta hai jabki R2 10.1.12.128/25 mein hai — hello subnet check fail hota hai"
+   },
+   {
+    "en": "R2's address is a broadcast address and cannot be used",
+    "hi": "R2 ka address broadcast address hai aur use nahi ho sakta"
+   },
+   {
+    "en": "OSPF requires a /30 or /31 mask on point-to-point Ethernet links",
+    "hi": "OSPF ko point-to-point Ethernet links par /30 ya /31 mask chahiye"
+   },
+   {
+    "en": "R1's address is too low in the range to form an adjacency",
+    "hi": "R1 ka address range mein bahut neeche hai isliye adjacency nahi ban sakti"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The broadcast address of 10.1.12.128/25 is 10.1.12.255; .130 is a valid host address in that subnet.",
+    "hi": "10.1.12.128/25 ka broadcast address 10.1.12.255 hai; .130 us subnet ka valid host address hai."
+   },
+   {
+    "en": "Any mask works on Ethernet as long as BOTH ends agree; /30 and /31 are merely common for point-to-point addressing efficiency.",
+    "hi": "Ethernet par koi bhi mask chalta hai jab tak DONO ends agree karein; /30 aur /31 sirf point-to-point addressing efficiency ke liye common hain."
+   },
+   {
+    "en": "Host address values within a subnet are irrelevant to adjacency; only subnet membership and matching parameters matter.",
+    "hi": "Subnet ke andar host address ki value adjacency ke liye irrelevant hai; sirf subnet membership aur matching parameters matter karte hain."
+   }
+  ]
+ },
+ {
+  "id": "d3-061",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "R1's link to R2 is configured with ip ospf authentication message-digest and a matching key command, but R2 has no OSPF authentication configured at all. What is the result?",
+   "hi": "R1 ka R2 ki taraf wala link ip ospf authentication message-digest aur ek matching key command ke saath configure hai, lekin R2 par koi OSPF authentication configure hi nahi hai. Result kya hoga?"
+  },
+  "explanation": {
+   "en": "Authentication type (none, plaintext, or MD5/message-digest) and the key itself are both checked on every OSPF packet. R1 requires MD5 while R2 sends unauthenticated packets, so each side discards the other's hellos and the neighbor never appears. Configure the same authentication mode and key on BOTH ends of the link.",
+   "hi": "Authentication type (none, plaintext, ya MD5/message-digest) aur key dono har OSPF packet par check hote hain. R1 ko MD5 chahiye jabki R2 unauthenticated packets bhejta hai, isliye dono side ek doosre ke hellos discard karte hain aur neighbor kabhi dikhta nahi. Link ke DONO ends par same authentication mode aur key configure karo."
+  },
+  "options": [
+   {
+    "en": "No neighbor relationship forms: each router rejects the other's OSPF packets because the authentication type does not match",
+    "hi": "Koi neighbor relationship nahi banti: har router doosre ke OSPF packets reject karta hai kyunki authentication type match nahi karta"
+   },
+   {
+    "en": "The adjacency forms but all routes are marked as untrusted",
+    "hi": "Adjacency banti hai lekin saare routes untrusted mark hote hain"
+   },
+   {
+    "en": "R2 automatically learns the MD5 key from R1's hellos",
+    "hi": "R2 automatically R1 ke hellos se MD5 key seekh leta hai"
+   },
+   {
+    "en": "The routers fall back to plaintext authentication",
+    "hi": "Routers plaintext authentication par fall back kar jaate hain"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "There is no 'untrusted route' state in OSPF; authentication failure is binary — packets are simply discarded.",
+    "hi": "OSPF mein koi 'untrusted route' state nahi hoti; authentication failure binary hai — packets bas discard ho jaate hain."
+   },
+   {
+    "en": "Keys are never transmitted in a learnable form; MD5 sends only a hash, and configuration must be done manually on each router.",
+    "hi": "Keys kabhi seekhne laayak form mein transmit nahi hoti; MD5 sirf hash bhejta hai, aur configuration har router par manually karni padti hai."
+   },
+   {
+    "en": "OSPF never negotiates authentication downward; a type mismatch is a hard failure, not a fallback trigger.",
+    "hi": "OSPF kabhi authentication ko neeche negotiate nahi karta; type mismatch ek hard failure hai, fallback ka trigger nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-062",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Two OSPF routers discover each other but remain stuck in the EXSTART state. Which TWO are likely causes? (Choose two)",
+   "hi": "Do OSPF routers ek doosre ko discover kar lete hain lekin EXSTART state mein atke rehte hain. Kaunse DO likely causes hain? (Do choose karo)"
+  },
+  "explanation": {
+   "en": "EXSTART is where DBD exchange begins, and two classic failures live there: an MTU mismatch (advertised in DBD packets and rejected by the peer) and duplicate router IDs (master/slave negotiation cannot resolve when both claim the same ID). Both require reaching the neighbor stage first — which mismatched hellos would have prevented entirely.",
+   "hi": "EXSTART woh jagah hai jahan DBD exchange shuru hota hai, aur do classic failures yahin hote hain: MTU mismatch (DBD packets mein advertise hota hai aur peer reject kar deta hai) aur duplicate router IDs (jab dono same ID claim karein toh master/slave negotiation resolve nahi hoti). Dono ke liye pehle neighbor stage tak pahunchna zaroori hai — jo mismatched hellos poori tarah rok dete."
+  },
+  "options": [
+   {
+    "en": "Mismatched interface MTU values",
+    "hi": "Mismatched interface MTU values"
+   },
+   {
+    "en": "Both routers are using the same router ID",
+    "hi": "Dono routers same router ID use kar rahe hain"
+   },
+   {
+    "en": "Mismatched hello intervals",
+    "hi": "Mismatched hello intervals"
+   },
+   {
+    "en": "Both interfaces have priority 0",
+    "hi": "Dono interfaces ki priority 0 hai"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Mismatched hello timers cause hellos to be discarded, so the routers would never appear in each other's neighbor tables — they could not reach EXSTART.",
+    "hi": "Mismatched hello timers mein hellos discard ho jaate hain, isliye routers ek doosre ki neighbor tables mein dikhte hi nahi — EXSTART tak pahunch hi nahi sakte the."
+   },
+   {
+    "en": "With every router at priority 0 no DR can be elected, which strands neighbors at 2-WAY on a broadcast network — not at EXSTART.",
+    "hi": "Har router priority 0 par ho toh koi DR elect nahi ho sakta, jisse broadcast network par neighbors 2-WAY par atak jaate hain — EXSTART par nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-063",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "R1 should form an OSPF adjacency with R2 across G0/0, but show ip ospf neighbor on R1 is empty. Which THREE are possible causes? (Choose three)",
+   "hi": "R1 ko G0/0 ke across R2 ke saath OSPF adjacency banani chahiye, lekin R1 par show ip ospf neighbor khaali hai. Kaunse TEEN possible causes hain? (Teen choose karo)"
+  },
+  "explanation": {
+   "en": "An empty neighbor table means hellos are not being exchanged or are being rejected. Passive interfaces send no hellos; ACLs can silently drop OSPF (protocol 89) or its multicast destination; and mismatched timers make receivers discard otherwise healthy hellos. Also check area IDs, subnets/masks, and authentication — the full mismatch checklist.",
+   "hi": "Khaali neighbor table ka matlab hai ki hellos exchange nahi ho rahe ya reject ho rahe hain. Passive interfaces koi hellos nahi bhejte; ACLs chupchaap OSPF (protocol 89) ya uske multicast destination ko drop kar sakte hain; aur mismatched timers receivers se waise theek hellos bhi discard karwa dete hain. Area IDs, subnets/masks, aur authentication bhi check karo — poori mismatch checklist."
+  },
+  "options": [
+   {
+    "en": "G0/0 is configured as a passive interface",
+    "hi": "G0/0 passive interface ki tarah configure hai"
+   },
+   {
+    "en": "An inbound ACL on the link blocks IP protocol 89 or multicast 224.0.0.5",
+    "hi": "Link par ek inbound ACL IP protocol 89 ya multicast 224.0.0.5 ko block karta hai"
+   },
+   {
+    "en": "The hello and dead intervals differ between R1 and R2",
+    "hi": "R1 aur R2 ke beech hello aur dead intervals alag hain"
+   },
+   {
+    "en": "R1 and R2 use different OSPF process IDs",
+    "hi": "R1 aur R2 alag OSPF process IDs use karte hain"
+   },
+   {
+    "en": "R2 has a higher router ID than R1",
+    "hi": "R2 ka router ID R1 se zyada hai"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Process IDs are locally significant; R1 using process 1 and R2 using process 7 has no effect on adjacency.",
+    "hi": "Process IDs locally significant hain; R1 ka process 1 aur R2 ka process 7 use karna adjacency par koi asar nahi daalta."
+   },
+   {
+    "en": "Router ID values only influence DR/BDR elections; a higher or lower RID never prevents neighbor formation (only DUPLICATE RIDs do).",
+    "hi": "Router ID values sirf DR/BDR elections ko influence karti hain; higher ya lower RID kabhi neighbor banne se nahi rokta (sirf DUPLICATE RIDs rokte hain)."
+   }
+  ]
+ },
+ {
+  "id": "d3-064",
+  "domain": 3,
+  "lesson": "ospf-config",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "Type the command that displays the OSPF hello and dead intervals, cost, state, and DR/BDR for each OSPF-enabled interface.",
+   "hi": "Woh command type karo jo har OSPF-enabled interface ke liye OSPF hello aur dead intervals, cost, state, aur DR/BDR display karta hai."
+  },
+  "explanation": {
+   "en": "show ip ospf interface is the fastest way to compare the parameters that must match between neighbors: hello and dead intervals, area, network type, and authentication, plus this router's cost, priority, and the segment's DR/BDR. Run it on both routers and diff the values when an adjacency will not form.",
+   "hi": "show ip ospf interface un parameters ko compare karne ka sabse tez tareeka hai jo neighbors ke beech match hone chahiye: hello aur dead intervals, area, network type, aur authentication, saath mein is router ki cost, priority, aur segment ka DR/BDR. Jab adjacency na bane, dono routers par chalao aur values ka diff karo."
+  },
+  "commandAnswer": "show ip ospf interface",
+  "accept": [
+   "sh ip ospf int",
+   "sh ip ospf interface",
+   "show ip ospf int"
+  ]
+ },
+ {
+  "id": "d3-065",
+  "domain": 3,
+  "lesson": "fhrp",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "What problem do first-hop redundancy protocols such as HSRP solve?",
+   "hi": "HSRP jaise first-hop redundancy protocols kaunsi problem solve karte hain?"
+  },
+  "explanation": {
+   "en": "Hosts are configured with a single default gateway address and cannot detect a dead router. An FHRP creates a virtual IP (and virtual MAC) that hosts use as their gateway; the routers in the group decide among themselves who actively forwards for it, and another takes over transparently if the active router fails.",
+   "hi": "Hosts par ek hi default gateway address configure hota hai aur woh dead router detect nahi kar sakte. FHRP ek virtual IP (aur virtual MAC) banata hai jise hosts apne gateway ki tarah use karte hain; group ke routers aapas mein decide karte hain ki uske liye actively kaun forward karega, aur agar active router fail ho toh doosra transparently take over kar leta hai."
+  },
+  "options": [
+   {
+    "en": "They let two or more routers share a virtual IP and MAC address, so hosts keep a working default gateway even if one router fails",
+    "hi": "Yeh do ya zyada routers ko ek virtual IP aur MAC address share karne dete hain, taaki ek router fail hone par bhi hosts ka default gateway kaam karta rahe"
+   },
+   {
+    "en": "They load-balance user traffic across multiple internet service providers",
+    "hi": "Yeh user traffic ko multiple internet service providers ke beech load-balance karte hain"
+   },
+   {
+    "en": "They prevent Layer 2 loops between redundant switches",
+    "hi": "Yeh redundant switches ke beech Layer 2 loops rokte hain"
+   },
+   {
+    "en": "They encrypt traffic between hosts and their default gateway",
+    "hi": "Yeh hosts aur unke default gateway ke beech traffic encrypt karte hain"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "ISP load balancing is a routing/BGP design matter; FHRPs operate between gateway routers and hosts on a LAN.",
+    "hi": "ISP load balancing ek routing/BGP design ka matter hai; FHRPs LAN par gateway routers aur hosts ke beech kaam karte hain."
+   },
+   {
+    "en": "Loop prevention is Spanning Tree Protocol's job, at Layer 2.",
+    "hi": "Loop prevention Layer 2 par Spanning Tree Protocol ka kaam hai."
+   },
+   {
+    "en": "FHRPs provide availability, not confidentiality — no user traffic is encrypted.",
+    "hi": "FHRPs availability dete hain, confidentiality nahi — koi user traffic encrypt nahi hota."
+   }
+  ]
+ },
+ {
+  "id": "d3-066",
+  "domain": 3,
+  "lesson": "fhrp",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "What is the default HSRP priority on a Cisco router?",
+   "hi": "Cisco router par default HSRP priority kya hai?"
+  },
+  "explanation": {
+   "en": "HSRP priority defaults to 100 and ranges 0-255; the router with the highest priority becomes active, and to guarantee a specific router wins you raise it (commonly to 110 or 150) with standby group priority value. Remember that a higher-priority router only takes over an existing active router if preemption is configured.",
+   "hi": "HSRP priority ka default 100 hai aur range 0-255 hai; sabse high priority wala router active banta hai, aur kisi specific router ko jitaane ke liye tum use standby group priority value se badhate ho (aam taur par 110 ya 150). Yaad rakho, higher-priority router existing active router ko sirf tab hatata hai jab preemption configured ho."
+  },
+  "options": [
+   {
+    "en": "1",
+    "hi": "1"
+   },
+   {
+    "en": "100",
+    "hi": "100"
+   },
+   {
+    "en": "110",
+    "hi": "110"
+   },
+   {
+    "en": "255",
+    "hi": "255"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "1 is the default OSPF interface priority — a common mix-up between the two protocols.",
+    "hi": "1 default OSPF interface priority hai — dono protocols ke beech common confusion."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "110 is a common CONFIGURED value to win the election (and OSPF's AD), but not the default.",
+    "hi": "110 election jeetne ke liye aksar CONFIGURE ki jaane wali value hai (aur OSPF ka AD), lekin default nahi."
+   },
+   {
+    "en": "255 is the maximum configurable priority, not the default.",
+    "hi": "255 maximum configurable priority hai, default nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-067",
+  "domain": 3,
+  "lesson": "fhrp",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Two routers in HSRP group 1 boot at the same time. Both use the default priority of 100. R1's interface IP is 10.1.1.1 and R2's is 10.1.1.2. Which router becomes active, and why?",
+   "hi": "HSRP group 1 ke do routers ek saath boot hote hain. Dono default priority 100 use karte hain. R1 ka interface IP 10.1.1.1 hai aur R2 ka 10.1.1.2. Kaunsa router active banega, aur kyun?"
+  },
+  "explanation": {
+   "en": "HSRP elects the active router by highest priority; when priorities tie, the highest interface IP address in the group wins the tiebreak. With both at the default 100, R2's 10.1.1.2 beats R1's 10.1.1.1, so R2 becomes active and R1 becomes standby.",
+   "hi": "HSRP active router highest priority se elect karta hai; jab priorities tie hon, toh group mein highest interface IP address tiebreak jeetta hai. Dono default 100 par hain, isliye R2 ka 10.1.1.2 R1 ke 10.1.1.1 ko hara deta hai, R2 active banta hai aur R1 standby."
+  },
+  "options": [
+   {
+    "en": "R1, because lower IP addresses are preferred",
+    "hi": "R1, kyunki lower IP addresses prefer hote hain"
+   },
+   {
+    "en": "R2, because with equal priorities the highest interface IP address wins the election",
+    "hi": "R2, kyunki equal priorities par highest interface IP address election jeetta hai"
+   },
+   {
+    "en": "R1, because it appears first in the configuration",
+    "hi": "R1, kyunki woh configuration mein pehle aata hai"
+   },
+   {
+    "en": "Neither — the group stays down until an administrator sets different priorities",
+    "hi": "Koi nahi — jab tak administrator alag priorities set na kare, group down rehta hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "The tiebreak favors the HIGHEST IP address, not the lowest.",
+    "hi": "Tiebreak HIGHEST IP address ko favor karta hai, lowest ko nahi."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Configuration order on different devices has no meaning to the election; only priority and IP address are compared.",
+    "hi": "Alag devices par configuration order ka election ke liye koi matlab nahi; sirf priority aur IP address compare hote hain."
+   },
+   {
+    "en": "Equal priorities are perfectly workable — the IP tiebreaker guarantees a deterministic winner.",
+    "hi": "Equal priorities se bilkul kaam chalta hai — IP tiebreaker ek deterministic winner pakka karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-068",
+  "domain": 3,
+  "lesson": "fhrp",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "What virtual MAC address does HSRP version 1 use for group 10?",
+   "hi": "HSRP version 1 group 10 ke liye kaunsa virtual MAC address use karta hai?"
+  },
+  "explanation": {
+   "en": "HSRPv1 virtual MACs follow 0000.0c07.acXX, where XX is the group number in HEX. Group 10 decimal = 0x0A, giving 0000.0c07.ac0a. Hosts ARP for the virtual IP and receive this virtual MAC, so whichever router is active answers to it — a failover never requires hosts to update their ARP caches.",
+   "hi": "HSRPv1 virtual MACs 0000.0c07.acXX follow karte hain, jahan XX group number HEX mein hai. Group 10 decimal = 0x0A, toh 0000.0c07.ac0a milta hai. Hosts virtual IP ke liye ARP karte hain aur yeh virtual MAC paate hain, isliye jo bhi router active hai woh isse answer karta hai — failover par hosts ko apne ARP caches update karne ki zaroorat nahi padti."
+  },
+  "options": [
+   {
+    "en": "0000.0c07.ac0a",
+    "hi": "0000.0c07.ac0a"
+   },
+   {
+    "en": "0000.0c07.ac10",
+    "hi": "0000.0c07.ac10"
+   },
+   {
+    "en": "0000.0c9f.f00a",
+    "hi": "0000.0c9f.f00a"
+   },
+   {
+    "en": "0000.5e00.010a",
+    "hi": "0000.5e00.010a"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "This reads the group number as decimal: ac10 would actually be group 16 (0x10).",
+    "hi": "Yeh group number ko decimal ki tarah padhta hai: ac10 asal mein group 16 (0x10) hoga."
+   },
+   {
+    "en": "0000.0c9f.fXXX is the HSRP VERSION 2 format, which carries the group number in its last three hex digits.",
+    "hi": "0000.0c9f.fXXX HSRP VERSION 2 ka format hai, jo group number ko apne last teen hex digits mein carry karta hai."
+   },
+   {
+    "en": "0000.5e00.01XX is the VRRP virtual MAC format.",
+    "hi": "0000.5e00.01XX VRRP virtual MAC format hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-069",
+  "domain": 3,
+  "lesson": "fhrp",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "R1 (priority 150) was the HSRP active router until it lost power; R2 (priority 100) took over as active. R1 later comes back online with its configuration intact, which does not include the preempt command. Which router is active now?",
+   "hi": "R1 (priority 150) HSRP active router tha jab tak uski power nahi gayi; R2 (priority 100) ne active ki tarah take over kiya. Baad mein R1 apni configuration ke saath wapas online aata hai, jismein preempt command nahi hai. Ab kaunsa router active hai?"
+  },
+  "explanation": {
+   "en": "HSRP preemption is OFF by default: an active router keeps its role until it fails, even when a higher-priority router is available. R1 therefore returns as standby. To let the higher-priority router reclaim the active role automatically, configure standby group preempt on R1.",
+   "hi": "HSRP preemption by default OFF hota hai: active router fail hone tak apna role rakhta hai, chahe higher-priority router available ho. Isliye R1 standby ki tarah wapas aata hai. Higher-priority router ko active role automatically wapas lene dene ke liye R1 par standby group preempt configure karo."
+  },
+  "options": [
+   {
+    "en": "R1, because its priority of 150 is higher",
+    "hi": "R1, kyunki uski priority 150 zyada hai"
+   },
+   {
+    "en": "R2 — it remains active because preemption is disabled by default, so R1 waits in standby despite its higher priority",
+    "hi": "R2 — woh active rehta hai kyunki preemption by default disabled hai, isliye R1 higher priority ke bawajood standby mein wait karta hai"
+   },
+   {
+    "en": "R1, because a previously active router always resumes its role",
+    "hi": "R1, kyunki pehle active raha router hamesha apna role wapas leta hai"
+   },
+   {
+    "en": "Neither — both routers become active and share the load",
+    "hi": "Koi nahi — dono routers active ban jaate hain aur load share karte hain"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Priority only decides elections when no active router exists — or when the higher-priority router has preemption enabled.",
+    "hi": "Priority sirf tab election decide karti hai jab koi active router na ho — ya jab higher-priority router par preemption enabled ho."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "HSRP has no memory of past roles; without preemption, incumbency wins.",
+    "hi": "HSRP ko purane roles yaad nahi rehte; preemption ke bina jo pehle se active hai wahi jeetta hai."
+   },
+   {
+    "en": "Two active routers in one group would be a malfunction (usually a communication failure between them), not normal behavior.",
+    "hi": "Ek group mein do active routers ek malfunction hoga (aam taur par unke beech communication failure), normal behavior nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-070",
+  "domain": 3,
+  "lesson": "fhrp",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which pair of interface commands configures HSRP group 1 with virtual IP 10.1.1.254 and makes this router prefer the active role with priority 110?",
+   "hi": "Interface commands ka kaunsa pair HSRP group 1 ko virtual IP 10.1.1.254 ke saath configure karta hai aur is router ko priority 110 ke saath active role prefer karwata hai?"
+  },
+  "explanation": {
+   "en": "Classic IOS HSRP configuration uses the standby keyword on the interface: standby 1 ip 10.1.1.254 defines the group and virtual IP, and standby 1 priority 110 raises this router above the default 100. Add standby 1 preempt if it should take the active role back from a lower-priority incumbent.",
+   "hi": "Classic IOS HSRP configuration interface par standby keyword use karti hai: standby 1 ip 10.1.1.254 group aur virtual IP define karta hai, aur standby 1 priority 110 is router ko default 100 se upar le jaata hai. Agar ise kam priority wale maujooda router se active role wapas lena hai toh standby 1 preempt add karo."
+  },
+  "options": [
+   {
+    "en": "standby 1 ip 10.1.1.254 and standby 1 priority 110",
+    "hi": "standby 1 ip 10.1.1.254 aur standby 1 priority 110"
+   },
+   {
+    "en": "hsrp 1 ip 10.1.1.254 and hsrp 1 priority 110",
+    "hi": "hsrp 1 ip 10.1.1.254 aur hsrp 1 priority 110"
+   },
+   {
+    "en": "standby 1 virtual-ip 10.1.1.254 and standby 1 priority 110",
+    "hi": "standby 1 virtual-ip 10.1.1.254 aur standby 1 priority 110"
+   },
+   {
+    "en": "standby ip 10.1.1.254 group 1 and standby priority 110 group 1",
+    "hi": "standby ip 10.1.1.254 group 1 aur standby priority 110 group 1"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "hsrp is not the configuration keyword in classic IOS — the commands all begin with standby.",
+    "hi": "Classic IOS mein hsrp configuration keyword nahi hai — saare commands standby se shuru hote hain."
+   },
+   {
+    "en": "The keyword is simply ip, not virtual-ip: standby 1 ip address.",
+    "hi": "Keyword sirf ip hai, virtual-ip nahi: standby 1 ip address."
+   },
+   {
+    "en": "The group number comes immediately after standby, not in a trailing group clause.",
+    "hi": "Group number standby ke turant baad aata hai, end mein group clause mein nahi."
+   }
+  ]
+ },
+ {
+  "id": "d3-071",
+  "domain": 3,
+  "lesson": "fhrp",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Which statement correctly contrasts VRRP with HSRP?",
+   "hi": "Kaunsa statement VRRP aur HSRP ka sahi contrast batata hai?"
+  },
+  "explanation": {
+   "en": "VRRP (RFC-standardized) uses master/backup roles, multicast 224.0.0.18, virtual MAC 0000.5e00.01XX — and preempts by default, so the highest-priority router takes over automatically. HSRP and GLBP are Cisco proprietary; HSRP's active/standby election does NOT preempt unless configured, and GLBP adds per-host load balancing via multiple forwarders.",
+   "hi": "VRRP (RFC-standardized) master/backup roles, multicast 224.0.0.18, virtual MAC 0000.5e00.01XX use karta hai — aur by default preempt karta hai, isliye highest-priority router automatically take over karta hai. HSRP aur GLBP Cisco proprietary hain; HSRP ka active/standby election configure kiye bina preempt NAHI karta, aur GLBP multiple forwarders ke through per-host load balancing add karta hai."
+  },
+  "options": [
+   {
+    "en": "VRRP is an IETF open standard whose preemption is enabled by default, whereas HSRP is Cisco proprietary with preemption disabled by default",
+    "hi": "VRRP ek IETF open standard hai jiska preemption by default enabled hai, jabki HSRP Cisco proprietary hai aur uska preemption by default disabled hai"
+   },
+   {
+    "en": "VRRP is Cisco proprietary, while HSRP is the industry standard",
+    "hi": "VRRP Cisco proprietary hai, jabki HSRP industry standard hai"
+   },
+   {
+    "en": "HSRP enables preemption by default, while VRRP requires it to be configured",
+    "hi": "HSRP by default preemption enable karta hai, jabki VRRP mein ise configure karna padta hai"
+   },
+   {
+    "en": "GLBP and VRRP are both open standards supported by all vendors",
+    "hi": "GLBP aur VRRP dono open standards hain jo saare vendors support karte hain"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "It is exactly reversed: HSRP is the Cisco-proprietary protocol and VRRP is the open standard.",
+    "hi": "Bilkul ulta hai: HSRP Cisco-proprietary protocol hai aur VRRP open standard."
+   },
+   {
+    "en": "Also reversed — preemption is default-on in VRRP and default-off in HSRP.",
+    "hi": "Yeh bhi ulta hai — preemption VRRP mein default-on hai aur HSRP mein default-off."
+   },
+   {
+    "en": "GLBP is Cisco proprietary; only VRRP among the two is an open standard.",
+    "hi": "GLBP Cisco proprietary hai; in dono mein sirf VRRP open standard hai."
+   }
+  ]
+ },
+ {
+  "id": "d3-072",
+  "domain": 3,
+  "lesson": "fhrp",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which TWO statements about a two-router HSRP group are true? (Choose two)",
+   "hi": "Do-router HSRP group ke baare mein kaunse DO statements sahi hain? (Do choose karo)"
+  },
+  "explanation": {
+   "en": "The whole design centers on the virtual identity: hosts point their default gateway at the virtual IP, hosts resolve it to the virtual MAC, and the active router alone answers for that MAC while the standby monitors hellos, ready to take over. Within one HSRP group there is no load sharing (that is GLBP's feature, or achieved with multiple HSRP groups per VLAN).",
+   "hi": "Poora design virtual identity par based hai: hosts apna default gateway virtual IP par point karte hain, use virtual MAC mein resolve karte hain, aur sirf active router us MAC ke liye answer karta hai jabki standby hellos monitor karta hai, take over karne ke liye tayyar. Ek HSRP group ke andar koi load sharing nahi hoti (woh GLBP ka feature hai, ya har VLAN mein multiple HSRP groups se hoti hai)."
+  },
+  "options": [
+   {
+    "en": "Hosts on the LAN use the virtual IP address as their default gateway",
+    "hi": "LAN ke hosts virtual IP address ko apne default gateway ki tarah use karte hain"
+   },
+   {
+    "en": "Only the active router forwards traffic sent to the virtual MAC address",
+    "hi": "Virtual MAC address par bheja gaya traffic sirf active router forward karta hai"
+   },
+   {
+    "en": "The active and standby routers load-share traffic for the group by default",
+    "hi": "Active aur standby routers by default group ka traffic load-share karte hain"
+   },
+   {
+    "en": "The virtual IP address must be identical to the active router's physical interface address",
+    "hi": "Virtual IP address active router ke physical interface address ke identical hona chahiye"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A single HSRP group is strictly active/standby; load balancing requires GLBP or running multiple HSRP groups with different active routers.",
+    "hi": "Ek single HSRP group strictly active/standby hota hai; load balancing ke liye GLBP chahiye ya alag active routers ke saath multiple HSRP groups chalane padte hain."
+   },
+   {
+    "en": "The virtual IP must be a separate, unused address in the same subnet — distinct from every physical interface address.",
+    "hi": "Virtual IP same subnet ka ek alag, unused address hona chahiye — har physical interface address se alag."
+   }
+  ]
+ },
+ {
+  "id": "d3-073",
+  "domain": 3,
+  "lesson": "fhrp",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Two routers are configured on the same LAN:\n\nR1 interface G0/0:\n  standby 1 ip 10.1.1.254\n  standby 1 priority 120\n\nR2 interface G0/0:\n  standby 1 ip 10.1.1.254\n  standby 1 preempt\n\nWhich TWO statements are true? (Choose two)",
+   "hi": "Same LAN par do routers aise configure hain:\n\nR1 interface G0/0:\n  standby 1 ip 10.1.1.254\n  standby 1 priority 120\n\nR2 interface G0/0:\n  standby 1 ip 10.1.1.254\n  standby 1 preempt\n\nKaunse DO statements sahi hain? (Do choose karo)"
+  },
+  "explanation": {
+   "en": "At simultaneous boot, the election compares priorities: R1's 120 beats R2's default 100, so R1 is active. When R1 later dies, R2 takes over — and KEEPS the role when R1 returns, because preemption must be configured on the RECOVERING higher-priority router (R1), and it is not. R2's preempt only matters if R2 ever has the higher priority.",
+   "hi": "Ek saath boot hone par election priorities compare karta hai: R1 ka 120 R2 ke default 100 ko hara deta hai, isliye R1 active hai. Jab baad mein R1 down hota hai, R2 take over karta hai — aur R1 ke wapas aane par bhi role RAKHTA hai, kyunki preemption RECOVER hone wale higher-priority router (R1) par configure honi chahiye, aur woh nahi hai. R2 ka preempt sirf tab matter karta hai jab kabhi R2 ki priority zyada ho."
+  },
+  "options": [
+   {
+    "en": "If both routers boot at the same time, R1 becomes active because its priority (120) beats R2's default 100",
+    "hi": "Agar dono routers ek saath boot hon, toh R1 active banta hai kyunki uski priority (120) R2 ke default 100 ko hara deti hai"
+   },
+   {
+    "en": "If R1 fails and later recovers, R2 stays active because R1 does not have preemption configured",
+    "hi": "Agar R1 fail hokar baad mein recover ho, toh R2 active rehta hai kyunki R1 par preemption configured nahi hai"
+   },
+   {
+    "en": "R2 will seize the active role from a healthy R1 because R2 has preempt configured",
+    "hi": "R2 healthy R1 se active role chheen lega kyunki R2 par preempt configured hai"
+   },
+   {
+    "en": "The group uses virtual MAC address 0000.0c07.ac10",
+    "hi": "Group virtual MAC address 0000.0c07.ac10 use karta hai"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Preemption lets a router take over only when its priority is HIGHER than the current active router's; R2's 100 never beats a healthy R1 at 120.",
+    "hi": "Preemption router ko sirf tab take over karne deta hai jab uski priority current active router se ZYADA ho; R2 ka 100 kabhi bhi 120 wale healthy R1 ko nahi harata."
+   },
+   {
+    "en": "Group 1 in HSRPv1 maps to virtual MAC 0000.0c07.ac01 — the group number is expressed in hex as the last octet, so ac10 would be group 16.",
+    "hi": "HSRPv1 mein group 1 virtual MAC 0000.0c07.ac01 par map hota hai — group number last octet mein hex mein likha jaata hai, isliye ac10 group 16 hoga."
+   }
+  ]
+ },
+ {
+  "id": "d3-074",
+  "domain": 3,
+  "lesson": "fhrp",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each HSRP state to its meaning.",
+   "hi": "Har HSRP state ko uske matlab se match karo."
+  },
+  "explanation": {
+   "en": "The HSRP state ladder is init, learn, listen, speak, standby, active. A router climbs from learning the virtual IP, through listening to hellos, to speaking in elections; each group ends up with exactly one active forwarder and one standby, while any additional routers remain in listen.",
+   "hi": "HSRP state ladder hai init, learn, listen, speak, standby, active. Router virtual IP seekhne se shuru karke, hellos sunne se hote hue, elections mein bolne tak upar chadhta hai; har group mein exactly ek active forwarder aur ek standby hota hai, jabki baaki routers listen mein rehte hain."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Learn",
+     "hi": "Learn"
+    },
+    "right": {
+     "en": "Waiting to learn the virtual IP address from the active router",
+     "hi": "Active router se virtual IP address seekhne ka wait kar raha hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Listen",
+     "hi": "Listen"
+    },
+    "right": {
+     "en": "Knows the virtual IP; monitors hellos but is neither active nor standby",
+     "hi": "Virtual IP pata hai; hellos monitor karta hai lekin na active hai na standby"
+    }
+   },
+   {
+    "left": {
+     "en": "Speak",
+     "hi": "Speak"
+    },
+    "right": {
+     "en": "Sends hellos and participates in the active/standby election",
+     "hi": "Hellos bhejta hai aur active/standby election mein participate karta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Standby",
+     "hi": "Standby"
+    },
+    "right": {
+     "en": "Next in line; takes over if the active router fails",
+     "hi": "Line mein agla; active router fail hone par take over karta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Active",
+     "hi": "Active"
+    },
+    "right": {
+     "en": "Currently forwards packets sent to the virtual MAC address",
+     "hi": "Abhi virtual MAC address par bheje gaye packets forward karta hai"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d3-075",
+  "domain": 3,
+  "lesson": "fhrp",
+  "difficulty": "easy",
+  "type": "command",
+  "text": {
+   "en": "Type the command that displays a one-line-per-group summary of HSRP status, including this router's state, the active and standby routers, and the virtual IP.",
+   "hi": "Woh command type karo jo HSRP status ka har group ke liye ek-line summary dikhata hai, jismein is router ki state, active aur standby routers, aur virtual IP shaamil hain."
+  },
+  "explanation": {
+   "en": "show standby brief compresses HSRP status into one line per group: interface, group number, local priority, P flag if preemption is enabled, local state, and the addresses of the active router, standby router, and virtual IP. Use plain show standby for full detail including timers and the virtual MAC.",
+   "hi": "show standby brief HSRP status ko har group ke liye ek line mein compress karta hai: interface, group number, local priority, preemption enabled ho toh P flag, local state, aur active router, standby router aur virtual IP ke addresses. Timers aur virtual MAC samet poori detail ke liye plain show standby use karo."
+  },
+  "commandAnswer": "show standby brief",
+  "accept": [
+   "sh standby brief",
+   "sh standby br",
+   "show standby br"
+  ]
+ }
+]

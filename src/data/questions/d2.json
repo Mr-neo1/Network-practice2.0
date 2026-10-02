@@ -1,0 +1,3206 @@
+[
+ {
+  "id": "d2-001",
+  "domain": 2,
+  "lesson": "ethernet-switching",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "A switch receives a frame on interface Fa0/4. Which information does the switch use to build its MAC address table?",
+   "hi": "Ek switch interface Fa0/4 par ek frame receive karta hai. Switch apni MAC address table banane ke liye kaunsi information use karta hai?"
+  },
+  "explanation": {
+   "en": "Switches learn passively: for every frame received, the switch records the frame's SOURCE MAC address against the ingress interface (and VLAN). The destination MAC is only used afterward to look up where to forward the frame.",
+   "hi": "Switches passively seekhte hain: har receive hue frame ke liye switch frame ka SOURCE MAC address ingress interface (aur VLAN) ke against record karta hai. Destination MAC sirf baad mein yeh dekhne ke liye use hota hai ki frame kahan forward karna hai."
+  },
+  "options": [
+   {
+    "en": "The destination MAC address of the frame",
+    "hi": "Frame ka destination MAC address"
+   },
+   {
+    "en": "The source MAC address of the frame and the interface it arrived on",
+    "hi": "Frame ka source MAC address aur woh interface jis par woh aaya"
+   },
+   {
+    "en": "The source IP address of the packet inside the frame",
+    "hi": "Frame ke andar packet ka source IP address"
+   },
+   {
+    "en": "An ARP request the switch sends to the connected host",
+    "hi": "Ek ARP request jo switch connected host ko bhejta hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "The destination MAC is used to make the forwarding decision, not to learn entries.",
+    "hi": "Destination MAC forwarding decision lene ke liye use hota hai, entries seekhne ke liye nahi."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A Layer 2 switch does not inspect IP addresses to populate the MAC (CAM) table.",
+    "hi": "Layer 2 switch MAC (CAM) table bharne ke liye IP addresses inspect nahi karta."
+   },
+   {
+    "en": "Switches learn from frames they receive; they do not send ARP requests to discover hosts — ARP is a host/router function.",
+    "hi": "Switches receive hue frames se seekhte hain; woh hosts discover karne ke liye ARP requests nahi bhejte — ARP host/router ka function hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-002",
+  "domain": 2,
+  "lesson": "ethernet-switching",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "SW1 receives a unicast frame whose destination MAC address is not in its MAC address table. What does the switch do with the frame?",
+   "hi": "SW1 ek unicast frame receive karta hai jiska destination MAC address uski MAC address table mein nahi hai. Switch us frame ka kya karta hai?"
+  },
+  "explanation": {
+   "en": "An unknown unicast is flooded out every port in the same VLAN except the ingress port. When the destination replies, the switch learns its MAC from that reply's source address and future frames are forwarded out only the correct port.",
+   "hi": "Unknown unicast ko same VLAN ke har port par flood kiya jaata hai, ingress port ko chhod kar. Jab destination reply karta hai, switch us reply ke source address se uska MAC seekh leta hai aur aage ke frames sirf sahi port par forward hote hain."
+  },
+  "options": [
+   {
+    "en": "Drops the frame until the destination is learned",
+    "hi": "Destination seekhne tak frame drop kar deta hai"
+   },
+   {
+    "en": "Floods it out all ports in the same VLAN except the port it arrived on",
+    "hi": "Use same VLAN ke saare ports par flood karta hai, sirf us port ko chhod kar jis par woh aaya"
+   },
+   {
+    "en": "Sends it to the CPU so the switch can generate an ARP request",
+    "hi": "Use CPU ko bhejta hai taaki switch ARP request generate kar sake"
+   },
+   {
+    "en": "Forwards it only out trunk ports",
+    "hi": "Use sirf trunk ports par forward karta hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Dropping would break communication with hosts the switch has not learned yet; flooding guarantees delivery.",
+    "hi": "Drop karne se un hosts ke saath communication toot jaata jinhe switch ne abhi tak seekha nahi; flooding delivery guarantee karti hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The data plane floods the frame; the switch does not ARP on behalf of hosts.",
+    "hi": "Data plane frame ko flood karta hai; switch hosts ki taraf se ARP nahi karta."
+   },
+   {
+    "en": "Flooding covers ALL ports in the VLAN (access and trunk), not just trunks.",
+    "hi": "Flooding VLAN ke SAARE ports (access aur trunk) par hoti hai, sirf trunks par nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-003",
+  "domain": 2,
+  "lesson": "ethernet-switching",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which switching method starts forwarding a frame as soon as the destination MAC address (the first 6 bytes after the preamble) has been read, without waiting for the rest of the frame?",
+   "hi": "Kaunsa switching method destination MAC address (preamble ke baad pehle 6 bytes) padhte hi frame forward karna shuru kar deta hai, baaki frame ka wait kiye bina?"
+  },
+  "explanation": {
+   "en": "Cut-through switching begins forwarding immediately after reading the destination MAC, minimizing latency. The trade-off is that it cannot check the FCS first, so corrupted frames may be propagated.",
+   "hi": "Cut-through switching destination MAC padhne ke turant baad forwarding shuru kar deta hai, jisse latency minimum rehti hai. Iski keemat yeh hai ki yeh pehle FCS check nahi kar sakta, isliye corrupted frames aage ja sakte hain."
+  },
+  "options": [
+   {
+    "en": "Store-and-forward",
+    "hi": "Store-and-forward"
+   },
+   {
+    "en": "Fragment-free",
+    "hi": "Fragment-free"
+   },
+   {
+    "en": "Cut-through",
+    "hi": "Cut-through"
+   },
+   {
+    "en": "Adaptive load balancing",
+    "hi": "Adaptive load balancing"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "Store-and-forward buffers the ENTIRE frame and verifies the FCS/CRC before forwarding.",
+    "hi": "Store-and-forward POORE frame ko buffer karta hai aur forward karne se pehle FCS/CRC verify karta hai."
+   },
+   {
+    "en": "Fragment-free waits for the first 64 bytes (the collision window) before forwarding — a compromise, not immediate forwarding.",
+    "hi": "Fragment-free forward karne se pehle pehle 64 bytes (collision window) ka wait karta hai — yeh ek compromise hai, turant forwarding nahi."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Adaptive load balancing is a NIC-teaming technique, not a switch forwarding method.",
+    "hi": "Adaptive load balancing ek NIC-teaming technique hai, switch forwarding method nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-004",
+  "domain": 2,
+  "lesson": "ethernet-switching",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Examine this output:\n\nSW1# show mac address-table dynamic\n          Mac Address Table\n-------------------------------------------\nVlan    Mac Address       Type        Ports\n----    -----------       --------    -----\n  10    0050.7966.6a01    DYNAMIC     Fa0/1\n  10    0050.7966.6a02    DYNAMIC     Fa0/1\n  10    0050.7966.6a03    DYNAMIC     Fa0/3\n\nA frame arrives on Fa0/1 in VLAN 10 with source MAC 0050.7966.6a01 and destination MAC 0050.7966.6a02. What does SW1 do?",
+   "hi": "Yeh output dekho:\n\nSW1# show mac address-table dynamic\n          Mac Address Table\n-------------------------------------------\nVlan    Mac Address       Type        Ports\n----    -----------       --------    -----\n  10    0050.7966.6a01    DYNAMIC     Fa0/1\n  10    0050.7966.6a02    DYNAMIC     Fa0/1\n  10    0050.7966.6a03    DYNAMIC     Fa0/3\n\nEk frame VLAN 10 mein Fa0/1 par aata hai jiska source MAC 0050.7966.6a01 aur destination MAC 0050.7966.6a02 hai. SW1 kya karta hai?"
+  },
+  "explanation": {
+   "en": "Both MACs live on Fa0/1 (for example two devices behind a small hub or an IP phone). The frame already reached that segment, and a switch never forwards a frame out its ingress port. Since the destination is known and maps to the receiving port, the switch filters (drops) the frame.",
+   "hi": "Dono MACs Fa0/1 par hain (jaise ek chhote hub ke peeche do devices ya ek IP phone). Frame pehle hi us segment tak pahunch chuka hai, aur switch kabhi frame ko uske ingress port par wapas forward nahi karta. Kyunki destination known hai aur receiving port par hi map hota hai, switch frame ko filter (drop) kar deta hai."
+  },
+  "options": [
+   {
+    "en": "Floods the frame out all VLAN 10 ports",
+    "hi": "Frame ko VLAN 10 ke saare ports par flood karta hai"
+   },
+   {
+    "en": "Forwards the frame out Fa0/3",
+    "hi": "Frame ko Fa0/3 par forward karta hai"
+   },
+   {
+    "en": "Discards (filters) the frame because the destination is reachable via the same port it arrived on",
+    "hi": "Frame ko discard (filter) kar deta hai kyunki destination usi port se reachable hai jis par frame aaya"
+   },
+   {
+    "en": "Forwards the frame back out Fa0/1 toward the destination",
+    "hi": "Frame ko destination ki taraf wapas Fa0/1 par forward karta hai"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "Flooding happens only for unknown unicasts, broadcasts, and some multicasts — this destination IS in the table.",
+    "hi": "Flooding sirf unknown unicasts, broadcasts aur kuch multicasts ke liye hoti hai — yeh destination table mein HAI."
+   },
+   {
+    "en": "Fa0/3 holds a different MAC (…6a03); the table maps the destination to Fa0/1.",
+    "hi": "Fa0/3 par ek alag MAC (…6a03) hai; table destination ko Fa0/1 par map karti hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A switch never sends a frame back out the interface it arrived on.",
+    "hi": "Switch kabhi frame ko usi interface par wapas nahi bhejta jis par woh aaya tha."
+   }
+  ]
+ },
+ {
+  "id": "d2-005",
+  "domain": 2,
+  "lesson": "ethernet-switching",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which three statements about MAC address table operation on a Catalyst switch are true? (Choose three.)",
+   "hi": "Catalyst switch par MAC address table operation ke baare mein kaunse teen statements sahi hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "Dynamic entries age out after 300 seconds by default, learning is based on source MAC + ingress port, and when a host moves (or a topology change re-routes its traffic) the switch updates the entry to the most recent port. Broadcasts are flooded but never learned, and unknown unicasts are flooded, not dropped.",
+   "hi": "Dynamic entries default mein 300 seconds baad age out ho jaati hain, learning source MAC + ingress port par based hai, aur jab koi host move karta hai (ya topology change uska traffic re-route karta hai) toh switch entry ko sabse recent port par update kar deta hai. Broadcasts flood hote hain lekin kabhi learn nahi hote, aur unknown unicasts flood hote hain, drop nahi."
+  },
+  "options": [
+   {
+    "en": "Dynamic entries age out after 300 seconds of inactivity by default",
+    "hi": "Dynamic entries default mein 300 seconds inactivity ke baad age out ho jaati hain"
+   },
+   {
+    "en": "The switch records the source MAC and ingress port of each frame it receives",
+    "hi": "Switch har receive hue frame ka source MAC aur ingress port record karta hai"
+   },
+   {
+    "en": "Broadcast frames cause the switch to learn an entry for ffff.ffff.ffff",
+    "hi": "Broadcast frames ki wajah se switch ffff.ffff.ffff ki entry seekh leta hai"
+   },
+   {
+    "en": "If a known MAC is seen arriving on a different port, the entry is updated to the new port",
+    "hi": "Agar ek known MAC alag port par aata dikhe, toh entry naye port par update ho jaati hai"
+   },
+   {
+    "en": "Frames to an unknown unicast destination are dropped until the destination is learned",
+    "hi": "Unknown unicast destination wale frames destination seekhne tak drop hote hain"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   3
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "ffff.ffff.ffff is never a valid SOURCE address, so it is never learned; broadcast frames are simply flooded.",
+    "hi": "ffff.ffff.ffff kabhi valid SOURCE address nahi hota, isliye yeh kabhi learn nahi hota; broadcast frames bas flood ho jaate hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Unknown unicast frames are flooded within the VLAN so the destination can still receive them.",
+    "hi": "Unknown unicast frames VLAN ke andar flood hote hain taaki destination unhe phir bhi receive kar sake."
+   }
+  ]
+ },
+ {
+  "id": "d2-006",
+  "domain": 2,
+  "lesson": "vlans",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "An administrator plans to create VLAN 2500 on a Catalyst switch. Which statement about this VLAN ID is true?",
+   "hi": "Ek administrator Catalyst switch par VLAN 2500 banana chahta hai. Is VLAN ID ke baare mein kaunsa statement sahi hai?"
+  },
+  "explanation": {
+   "en": "Normal-range VLANs are 1–1005 (with 1002–1005 reserved for legacy media). Extended-range VLANs are 1006–4094, so VLAN 2500 falls in the extended range. On VTP version 1 and 2, extended VLANs can only be created in VTP transparent mode.",
+   "hi": "Normal-range VLANs 1–1005 hain (jismein 1002–1005 legacy media ke liye reserved hain). Extended-range VLANs 1006–4094 hain, isliye VLAN 2500 extended range mein aata hai. VTP version 1 aur 2 par extended VLANs sirf VTP transparent mode mein banaye ja sakte hain."
+  },
+  "options": [
+   {
+    "en": "It is a normal-range VLAN like any other",
+    "hi": "Yeh baaki sab ki tarah ek normal-range VLAN hai"
+   },
+   {
+    "en": "It is an extended-range VLAN, because the extended range covers 1006 through 4094",
+    "hi": "Yeh extended-range VLAN hai, kyunki extended range 1006 se 4094 tak hai"
+   },
+   {
+    "en": "It is invalid — VLAN IDs stop at 1005",
+    "hi": "Yeh invalid hai — VLAN IDs 1005 par khatam ho jaate hain"
+   },
+   {
+    "en": "It is reserved for FDDI and Token Ring",
+    "hi": "Yeh FDDI aur Token Ring ke liye reserved hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "The normal range ends at 1005; 2500 is beyond it.",
+    "hi": "Normal range 1005 par khatam hoti hai; 2500 usse aage hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "802.1Q supports VLAN IDs up to 4094, so 2500 is valid.",
+    "hi": "802.1Q 4094 tak VLAN IDs support karta hai, isliye 2500 valid hai."
+   },
+   {
+    "en": "VLANs 1002–1005 are the legacy FDDI/Token Ring VLANs, not 2500.",
+    "hi": "VLANs 1002–1005 legacy FDDI/Token Ring VLANs hain, 2500 nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-007",
+  "domain": 2,
+  "lesson": "vlans",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which configuration correctly makes interface Fa0/8 an access port in VLAN 20?",
+   "hi": "Kaunsi configuration interface Fa0/8 ko sahi tareeke se VLAN 20 mein access port banati hai?"
+  },
+  "explanation": {
+   "en": "An access port carries one data VLAN. The pair of interface commands is: switchport mode access (force access mode, disabling trunk negotiation) and switchport access vlan 20 (assign the VLAN). If VLAN 20 does not exist yet, the switch creates it automatically.",
+   "hi": "Access port ek data VLAN carry karta hai. Interface commands ki jodi hai: switchport mode access (access mode force karo, trunk negotiation disable karke) aur switchport access vlan 20 (VLAN assign karo). Agar VLAN 20 abhi exist nahi karta, toh switch use automatically bana deta hai."
+  },
+  "options": [
+   {
+    "en": "switchport mode access, then switchport access vlan 20",
+    "hi": "switchport mode access, phir switchport access vlan 20"
+   },
+   {
+    "en": "switchport mode trunk, then switchport trunk vlan 20",
+    "hi": "switchport mode trunk, phir switchport trunk vlan 20"
+   },
+   {
+    "en": "switchport vlan 20 access",
+    "hi": "switchport vlan 20 access"
+   },
+   {
+    "en": "vlan 20 mode access",
+    "hi": "vlan 20 mode access"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Trunk mode carries many VLANs with 802.1Q tags — the opposite of a single-VLAN access port, and 'switchport trunk vlan' is not valid syntax.",
+    "hi": "Trunk mode 802.1Q tags ke saath kai VLANs carry karta hai — single-VLAN access port ka ulta, aur 'switchport trunk vlan' valid syntax nahi hai."
+   },
+   {
+    "en": "'switchport vlan 20 access' is not a valid IOS command.",
+    "hi": "'switchport vlan 20 access' valid IOS command nahi hai."
+   },
+   {
+    "en": "'vlan 20 mode access' is not valid — vlan 20 in global config only creates the VLAN.",
+    "hi": "'vlan 20 mode access' valid nahi hai — global config mein vlan 20 sirf VLAN banata hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-008",
+  "domain": 2,
+  "lesson": "vlans",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "PC-A on Fa0/1 and PC-B on Fa0/3 are both supposed to be in the SALES VLAN and cannot ping each other. Both links show connected.\n\nSW1# show vlan brief\nVLAN Name                             Status    Ports\n---- -------------------------------- --------- -----------------------\n1    default                          active    Fa0/2, Fa0/3, Fa0/4\n10   SALES                            active    Fa0/1\n20   ENGINEERING                      active\n\nWhat is the problem?",
+   "hi": "Fa0/1 par PC-A aur Fa0/3 par PC-B dono SALES VLAN mein hone chahiye aur ek doosre ko ping nahi kar pa rahe. Dono links connected dikh rahe hain.\n\nSW1# show vlan brief\nVLAN Name                             Status    Ports\n---- -------------------------------- --------- -----------------------\n1    default                          active    Fa0/2, Fa0/3, Fa0/4\n10   SALES                            active    Fa0/1\n20   ENGINEERING                      active\n\nProblem kya hai?"
+  },
+  "explanation": {
+   "en": "The output shows Fa0/3 listed under VLAN 1 (default), not VLAN 10. Ports keep their default VLAN 1 membership until switchport access vlan 10 is applied. Because the PCs are in different VLANs, they are in separate broadcast domains and cannot reach each other at Layer 2.",
+   "hi": "Output mein Fa0/3 VLAN 1 (default) ke neeche list hai, VLAN 10 ke neeche nahi. Ports tab tak apni default VLAN 1 membership rakhte hain jab tak switchport access vlan 10 apply na kiya jaaye. Kyunki PCs alag VLANs mein hain, woh alag broadcast domains mein hain aur Layer 2 par ek doosre tak nahi pahunch sakte."
+  },
+  "options": [
+   {
+    "en": "Fa0/3 was never assigned to VLAN 10, so PC-B is still in VLAN 1",
+    "hi": "Fa0/3 ko kabhi VLAN 10 assign nahi kiya gaya, isliye PC-B abhi bhi VLAN 1 mein hai"
+   },
+   {
+    "en": "VLAN 10 is not active on the switch",
+    "hi": "Switch par VLAN 10 active nahi hai"
+   },
+   {
+    "en": "Fa0/1 is configured as a trunk",
+    "hi": "Fa0/1 trunk ki tarah configured hai"
+   },
+   {
+    "en": "The ENGINEERING VLAN is overlapping with SALES",
+    "hi": "ENGINEERING VLAN SALES ke saath overlap kar raha hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The Status column shows VLAN 10 as active.",
+    "hi": "Status column VLAN 10 ko active dikhata hai."
+   },
+   {
+    "en": "A trunk port would not appear in the show vlan brief port list at all — Fa0/1 appears under VLAN 10, so it is an access port.",
+    "hi": "Trunk port show vlan brief ki port list mein dikhta hi nahi — Fa0/1 VLAN 10 ke neeche dikh raha hai, isliye yeh access port hai."
+   },
+   {
+    "en": "VLAN 20 has no ports assigned and is unrelated to the problem.",
+    "hi": "VLAN 20 par koi port assigned nahi hai aur iska problem se koi lena dena nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-009",
+  "domain": 2,
+  "lesson": "vlans",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which two statements about VLAN ranges and default VLANs on a Catalyst switch are accurate? (Choose two.)",
+   "hi": "Catalyst switch par VLAN ranges aur default VLANs ke baare mein kaunse do statements sahi hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "VLAN 1 plus the reserved legacy VLANs 1002-1005 always exist and cannot be removed. Under VTP v1/v2 the switch must be in transparent mode to configure extended-range VLANs (VTP v3 can propagate them). Pruning VLAN 1 from a trunk removes user data but control protocols such as CDP, DTP, VTP, and PAgP are still sent.",
+   "hi": "VLAN 1 aur reserved legacy VLANs 1002-1005 hamesha exist karte hain aur hataye nahi ja sakte. VTP v1/v2 mein extended-range VLANs configure karne ke liye switch ka transparent mode mein hona zaroori hai (VTP v3 unhe propagate kar sakta hai). Trunk se VLAN 1 prune karne par user data hat jaata hai lekin CDP, DTP, VTP aur PAgP jaise control protocols phir bhi bheje jaate hain."
+  },
+  "options": [
+   {
+    "en": "VLAN 1 and VLANs 1002-1005 exist by default and cannot be deleted",
+    "hi": "VLAN 1 aur VLANs 1002-1005 default mein exist karte hain aur delete nahi kiye ja sakte"
+   },
+   {
+    "en": "With VTP version 1 or 2, extended-range VLANs (1006-4094) can be created only in VTP transparent mode",
+    "hi": "VTP version 1 ya 2 ke saath extended-range VLANs (1006-4094) sirf VTP transparent mode mein banaye ja sakte hain"
+   },
+   {
+    "en": "The normal VLAN range covers IDs 1 through 4094",
+    "hi": "Normal VLAN range IDs 1 se 4094 tak cover karti hai"
+   },
+   {
+    "en": "Removing VLAN 1 from a trunk's allowed list also blocks CDP, DTP, and other control protocols",
+    "hi": "Trunk ki allowed list se VLAN 1 hatane par CDP, DTP aur doosre control protocols bhi block ho jaate hain"
+   },
+   {
+    "en": "The extended range covers IDs 1002 through 4094",
+    "hi": "Extended range IDs 1002 se 4094 tak cover karti hai"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The normal range is 1-1005; 1006-4094 is the extended range.",
+    "hi": "Normal range 1-1005 hai; 1006-4094 extended range hai."
+   },
+   {
+    "en": "Control-plane protocols like CDP and DTP continue to be sent on the trunk even when VLAN 1 is removed from the allowed list.",
+    "hi": "CDP aur DTP jaise control-plane protocols trunk par bheje jaate rehte hain, chahe VLAN 1 allowed list se hata diya gaya ho."
+   },
+   {
+    "en": "The extended range starts at 1006; 1002-1005 are reserved normal-range VLANs.",
+    "hi": "Extended range 1006 se shuru hoti hai; 1002-1005 reserved normal-range VLANs hain."
+   }
+  ]
+ },
+ {
+  "id": "d2-010",
+  "domain": 2,
+  "lesson": "vlans",
+  "difficulty": "easy",
+  "type": "command",
+  "text": {
+   "en": "Type the command that displays a one-line-per-VLAN summary showing each VLAN's ID, name, status, and assigned access ports.",
+   "hi": "Woh command type karo jo har VLAN ki ek-line summary dikhata hai jismein har VLAN ka ID, name, status aur assigned access ports hon."
+  },
+  "explanation": {
+   "en": "show vlan brief lists every VLAN with its status and the access ports assigned to it. Trunk ports do not appear in this listing, which itself is a useful troubleshooting clue.",
+   "hi": "show vlan brief har VLAN ko uske status aur usse assigned access ports ke saath list karta hai. Trunk ports is listing mein nahi dikhte, jo khud troubleshooting ka ek useful clue hai."
+  },
+  "commandAnswer": "show vlan brief",
+  "accept": [
+   "sh vlan brief",
+   "sh vlan br",
+   "show vlan br"
+  ]
+ },
+ {
+  "id": "d2-011",
+  "domain": 2,
+  "lesson": "trunking",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "How does an 802.1Q trunk carry traffic that belongs to the native VLAN?",
+   "hi": "802.1Q trunk native VLAN ka traffic kaise carry karta hai?"
+  },
+  "explanation": {
+   "en": "802.1Q defines one native VLAN per trunk whose frames cross the link without a tag. Any untagged frame received on the trunk is assumed to belong to the native VLAN — which is why the native VLAN must match on both ends.",
+   "hi": "802.1Q har trunk par ek native VLAN define karta hai jiske frames bina tag ke link cross karte hain. Trunk par receive hua koi bhi untagged frame native VLAN ka maana jaata hai — isi wajah se native VLAN dono ends par match hona chahiye."
+  },
+  "options": [
+   {
+    "en": "It is sent untagged",
+    "hi": "Yeh untagged bheja jaata hai"
+   },
+   {
+    "en": "It is tagged with the native VLAN ID",
+    "hi": "Yeh native VLAN ID se tag kiya jaata hai"
+   },
+   {
+    "en": "It is encapsulated with an additional ISL header",
+    "hi": "Yeh ek extra ISL header ke saath encapsulate hota hai"
+   },
+   {
+    "en": "It is always carried in VLAN 1 with a tag",
+    "hi": "Yeh hamesha tag ke saath VLAN 1 mein carry hota hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Native VLAN frames are the one exception to tagging on an 802.1Q trunk.",
+    "hi": "802.1Q trunk par tagging ka ek hi exception native VLAN frames hain."
+   },
+   {
+    "en": "ISL is a legacy Cisco encapsulation that tagged every frame; it is not used with 802.1Q.",
+    "hi": "ISL ek legacy Cisco encapsulation hai jo har frame ko tag karta tha; 802.1Q ke saath yeh use nahi hota."
+   },
+   {
+    "en": "The native VLAN defaults to VLAN 1 but can be changed, and its traffic is untagged, not tagged.",
+    "hi": "Native VLAN default mein VLAN 1 hota hai lekin badla ja sakta hai, aur iska traffic untagged hota hai, tagged nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-012",
+  "domain": 2,
+  "lesson": "trunking",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Users in VLAN 20 on SW1 cannot reach VLAN 20 servers behind SW2. VLANs 10 and 30 work fine across the same link.\n\nSW1# show interfaces trunk\nPort        Mode         Encapsulation  Status        Native vlan\nGi0/1       on           802.1q         trunking      1\n\nPort        Vlans allowed on trunk\nGi0/1       1,10,30\n\nPort        Vlans allowed and active in management domain\nGi0/1       1,10,30\n\nWhy is VLAN 20 traffic failing?",
+   "hi": "SW1 par VLAN 20 ke users SW2 ke peeche VLAN 20 servers tak nahi pahunch pa rahe. Usi link par VLANs 10 aur 30 theek chal rahe hain.\n\nSW1# show interfaces trunk\nPort        Mode         Encapsulation  Status        Native vlan\nGi0/1       on           802.1q         trunking      1\n\nPort        Vlans allowed on trunk\nGi0/1       1,10,30\n\nPort        Vlans allowed and active in management domain\nGi0/1       1,10,30\n\nVLAN 20 traffic fail kyun ho raha hai?"
+  },
+  "explanation": {
+   "en": "The allowed list shows only 1,10,30 — VLAN 20 was pruned from the trunk, so its frames never cross the link. Fix it with: switchport trunk allowed vlan add 20 (the add keyword preserves the existing list).",
+   "hi": "Allowed list sirf 1,10,30 dikhati hai — VLAN 20 trunk se prune ho gaya hai, isliye uske frames kabhi link cross nahi karte. Ise is command se fix karo: switchport trunk allowed vlan add 20 (add keyword existing list ko bachaye rakhta hai)."
+  },
+  "options": [
+   {
+    "en": "VLAN 20 is not in the trunk's allowed VLAN list",
+    "hi": "VLAN 20 trunk ki allowed VLAN list mein nahi hai"
+   },
+   {
+    "en": "The native VLAN must be changed to 20",
+    "hi": "Native VLAN ko 20 mein badalna padega"
+   },
+   {
+    "en": "VLAN 20 is being blocked by spanning tree",
+    "hi": "VLAN 20 ko spanning tree block kar raha hai"
+   },
+   {
+    "en": "The trunk negotiated the wrong encapsulation",
+    "hi": "Trunk ne galat encapsulation negotiate kiya"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The native VLAN only controls which VLAN travels untagged; it does not need to be 20 for tagged VLAN 20 traffic to pass.",
+    "hi": "Native VLAN sirf yeh control karta hai ki kaunsa VLAN untagged jaayega; tagged VLAN 20 traffic pass hone ke liye ise 20 hone ki zaroorat nahi."
+   },
+   {
+    "en": "STP blocks entire ports per VLAN; here VLAN 20 is simply absent from the allowed list, which is shown directly in the output.",
+    "hi": "STP har VLAN ke liye poore ports block karta hai; yahan VLAN 20 bas allowed list se gayab hai, jo output mein seedha dikh raha hai."
+   },
+   {
+    "en": "Status shows 802.1q and trunking — encapsulation is fine, since VLANs 10 and 30 work.",
+    "hi": "Status 802.1q aur trunking dikha raha hai — encapsulation theek hai, kyunki VLANs 10 aur 30 kaam kar rahe hain."
+   }
+  ]
+ },
+ {
+  "id": "d2-013",
+  "domain": 2,
+  "lesson": "trunking",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Trunk Gi0/1 currently allows VLANs 10, 20, and 30. An administrator intends to add VLAN 40 and types: switchport trunk allowed vlan 40. What is the result?",
+   "hi": "Trunk Gi0/1 abhi VLANs 10, 20 aur 30 allow karta hai. Ek administrator VLAN 40 add karna chahta hai aur type karta hai: switchport trunk allowed vlan 40. Result kya hoga?"
+  },
+  "explanation": {
+   "en": "Without the add keyword, switchport trunk allowed vlan REPLACES the entire list. The trunk now carries only VLAN 40, causing an instant outage for VLANs 10, 20, and 30. The correct command was: switchport trunk allowed vlan add 40. This is a classic real-world (and exam) trap.",
+   "hi": "add keyword ke bina switchport trunk allowed vlan poori list ko REPLACE kar deta hai. Trunk ab sirf VLAN 40 carry karta hai, jisse VLANs 10, 20 aur 30 ke liye turant outage ho jaata hai. Sahi command thi: switchport trunk allowed vlan add 40. Yeh real world (aur exam) ka classic trap hai."
+  },
+  "options": [
+   {
+    "en": "VLAN 40 is added and VLANs 10, 20, and 30 keep working",
+    "hi": "VLAN 40 add ho jaata hai aur VLANs 10, 20 aur 30 kaam karte rehte hain"
+   },
+   {
+    "en": "Only VLAN 40 is now allowed — traffic for VLANs 10, 20, and 30 stops crossing the trunk",
+    "hi": "Ab sirf VLAN 40 allowed hai — VLANs 10, 20 aur 30 ka traffic trunk cross karna band kar deta hai"
+   },
+   {
+    "en": "The command is rejected because the add keyword is mandatory",
+    "hi": "Command reject ho jaata hai kyunki add keyword mandatory hai"
+   },
+   {
+    "en": "All VLANs become allowed because the list is reset to the default",
+    "hi": "Saare VLANs allowed ho jaate hain kyunki list default par reset ho jaati hai"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "That would be the effect of using the add keyword, which was omitted.",
+    "hi": "Yeh add keyword use karne ka effect hota, jo chhoot gaya tha."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "IOS accepts the command; add is optional syntax that changes the behavior, not a required keyword.",
+    "hi": "IOS command accept kar leta hai; add optional syntax hai jo behavior badalta hai, required keyword nahi."
+   },
+   {
+    "en": "The default allow-all list is restored with 'switchport trunk allowed vlan all' or 'no switchport trunk allowed vlan' — not by naming a single VLAN.",
+    "hi": "Default allow-all list 'switchport trunk allowed vlan all' ya 'no switchport trunk allowed vlan' se restore hoti hai — ek single VLAN ka naam lene se nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-014",
+  "domain": 2,
+  "lesson": "trunking",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each switchport mode to its DTP behavior.",
+   "hi": "Har switchport mode ko uske DTP behavior se match karo."
+  },
+  "explanation": {
+   "en": "Desirable initiates negotiation; auto only responds, so auto + auto stays an access link. Mode trunk forces trunking but keeps sending DTP (pair it with nonegotiate to silence DTP). Mode access never trunks. Nonegotiate disables DTP and requires the mode to be statically set.",
+   "hi": "Desirable negotiation initiate karta hai; auto sirf respond karta hai, isliye auto + auto access link hi rehta hai. Mode trunk trunking force karta hai lekin DTP bhejta rehta hai (DTP chup karane ke liye ise nonegotiate ke saath use karo). Mode access kabhi trunk nahi banta. Nonegotiate DTP disable karta hai aur mode ko statically set karna zaroori bana deta hai."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "switchport mode dynamic desirable",
+     "hi": "switchport mode dynamic desirable"
+    },
+    "right": {
+     "en": "Actively sends DTP frames to negotiate a trunk",
+     "hi": "Trunk negotiate karne ke liye actively DTP frames bhejta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "switchport mode dynamic auto",
+     "hi": "switchport mode dynamic auto"
+    },
+    "right": {
+     "en": "Becomes a trunk only if the neighbor initiates negotiation",
+     "hi": "Trunk sirf tab banta hai jab neighbor negotiation initiate kare"
+    }
+   },
+   {
+    "left": {
+     "en": "switchport mode trunk",
+     "hi": "switchport mode trunk"
+    },
+    "right": {
+     "en": "Permanent trunk that still sends DTP frames",
+     "hi": "Permanent trunk jo phir bhi DTP frames bhejta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "switchport mode access",
+     "hi": "switchport mode access"
+    },
+    "right": {
+     "en": "Permanent non-trunk regardless of what the neighbor sends",
+     "hi": "Permanent non-trunk, chahe neighbor kuch bhi bheje"
+    }
+   },
+   {
+    "left": {
+     "en": "switchport nonegotiate",
+     "hi": "switchport nonegotiate"
+    },
+    "right": {
+     "en": "Stops DTP frames from being sent on the port",
+     "hi": "Port par DTP frames bhejna band kar deta hai"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d2-015",
+  "domain": 2,
+  "lesson": "trunking",
+  "difficulty": "easy",
+  "type": "command",
+  "text": {
+   "en": "Type the command that lists the interfaces currently trunking, along with each trunk's mode, encapsulation, native VLAN, and allowed VLANs.",
+   "hi": "Woh command type karo jo abhi trunking kar rahe interfaces ko list karta hai, saath mein har trunk ka mode, encapsulation, native VLAN aur allowed VLANs."
+  },
+  "explanation": {
+   "en": "show interfaces trunk is the first command for any trunking problem: it confirms whether the port is actually trunking, the native VLAN (mismatches cause leakage), and which VLANs are allowed, active, and unpruned.",
+   "hi": "show interfaces trunk kisi bhi trunking problem ke liye pehla command hai: yeh confirm karta hai ki port asal mein trunking kar raha hai ya nahi, native VLAN kya hai (mismatch se leakage hota hai), aur kaunse VLANs allowed, active aur unpruned hain."
+  },
+  "commandAnswer": "show interfaces trunk",
+  "accept": [
+   "sh int trunk",
+   "show int trunk",
+   "sh interfaces trunk",
+   "sh interface trunk",
+   "show interface trunk"
+  ]
+ },
+ {
+  "id": "d2-016",
+  "domain": 2,
+  "lesson": "inter-vlan-routing",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Hosts in VLAN 10 (10.1.10.0/24) and VLAN 20 (10.1.20.0/24) connect to the same Layer 2 switch but cannot communicate with each other. What is required to fix this?",
+   "hi": "VLAN 10 (10.1.10.0/24) aur VLAN 20 (10.1.20.0/24) ke hosts same Layer 2 switch se connected hain lekin ek doosre se communicate nahi kar pa rahe. Ise fix karne ke liye kya zaroori hai?"
+  },
+  "explanation": {
+   "en": "Each VLAN is a separate broadcast domain with its own IP subnet. A Layer 2 switch never forwards frames between VLANs, so traffic must be routed by a Layer 3 device — a router (router-on-a-stick) or a multilayer switch with SVIs.",
+   "hi": "Har VLAN ek alag broadcast domain hai jiska apna IP subnet hai. Layer 2 switch kabhi VLANs ke beech frames forward nahi karta, isliye traffic ko Layer 3 device se route karna padta hai — router (router-on-a-stick) ya SVIs wala multilayer switch."
+  },
+  "options": [
+   {
+    "en": "A router or Layer 3 switch to route between the two VLANs",
+    "hi": "Dono VLANs ke beech route karne ke liye ek router ya Layer 3 switch"
+   },
+   {
+    "en": "A second trunk link between the access switches",
+    "hi": "Access switches ke beech ek doosra trunk link"
+   },
+   {
+    "en": "VTP to synchronize the VLAN database",
+    "hi": "VLAN database synchronize karne ke liye VTP"
+   },
+   {
+    "en": "PortFast on the host-facing ports",
+    "hi": "Host-facing ports par PortFast"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "More Layer 2 links do not cross the VLAN boundary — routing does.",
+    "hi": "Zyada Layer 2 links VLAN boundary cross nahi karte — routing karti hai."
+   },
+   {
+    "en": "VTP only distributes VLAN definitions; it does not move traffic between VLANs.",
+    "hi": "VTP sirf VLAN definitions distribute karta hai; yeh VLANs ke beech traffic move nahi karta."
+   },
+   {
+    "en": "PortFast just speeds up STP convergence on edge ports; it has nothing to do with routing.",
+    "hi": "PortFast sirf edge ports par STP convergence fast karta hai; iska routing se koi lena dena nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-017",
+  "domain": 2,
+  "lesson": "inter-vlan-routing",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which command sequence correctly configures a router-on-a-stick subinterface for VLAN 10?",
+   "hi": "Kaunsa command sequence VLAN 10 ke liye router-on-a-stick subinterface ko sahi configure karta hai?"
+  },
+  "explanation": {
+   "en": "Router-on-a-stick uses one subinterface per VLAN. The encapsulation dot1q 10 command must come BEFORE the ip address, because IOS refuses an IP on a LAN subinterface until it is tied to a VLAN tag. The subinterface number (.10) is cosmetic, but matching it to the VLAN ID is best practice.",
+   "hi": "Router-on-a-stick har VLAN ke liye ek subinterface use karta hai. encapsulation dot1q 10 command ip address se PEHLE aana chahiye, kyunki IOS LAN subinterface par tab tak IP accept nahi karta jab tak woh kisi VLAN tag se na juda ho. Subinterface number (.10) sirf cosmetic hai, lekin ise VLAN ID se match karna best practice hai."
+  },
+  "options": [
+   {
+    "en": "interface g0/0.10 ; encapsulation dot1q 10 ; ip address 10.1.10.1 255.255.255.0",
+    "hi": "interface g0/0.10 ; encapsulation dot1q 10 ; ip address 10.1.10.1 255.255.255.0"
+   },
+   {
+    "en": "interface g0/0 ; encapsulation dot1q 10 ; ip address 10.1.10.1 255.255.255.0",
+    "hi": "interface g0/0 ; encapsulation dot1q 10 ; ip address 10.1.10.1 255.255.255.0"
+   },
+   {
+    "en": "interface g0/0.10 ; ip address 10.1.10.1 255.255.255.0 ; encapsulation dot1q 10",
+    "hi": "interface g0/0.10 ; ip address 10.1.10.1 255.255.255.0 ; encapsulation dot1q 10"
+   },
+   {
+    "en": "interface g0/0.10 ; switchport access vlan 10 ; ip address 10.1.10.1 255.255.255.0",
+    "hi": "interface g0/0.10 ; switchport access vlan 10 ; ip address 10.1.10.1 255.255.255.0"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "encapsulation dot1q belongs on the subinterface, not on the physical routed interface.",
+    "hi": "encapsulation dot1q subinterface par lagta hai, physical routed interface par nahi."
+   },
+   {
+    "en": "IOS rejects the IP address if the subinterface has no encapsulation yet — order matters.",
+    "hi": "Agar subinterface par abhi encapsulation nahi hai toh IOS IP address reject kar deta hai — order matter karta hai."
+   },
+   {
+    "en": "switchport commands exist on switches; router interfaces have no switchport command.",
+    "hi": "switchport commands switches par hote hain; router interfaces par koi switchport command nahi hota."
+   }
+  ]
+ },
+ {
+  "id": "d2-018",
+  "domain": 2,
+  "lesson": "inter-vlan-routing",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "On a Layer 3 switch, interface Vlan20 is in the up/down state. VLAN 20 exists in the VLAN database and the SVI is not shut down. What is the most likely reason?",
+   "hi": "Ek Layer 3 switch par interface Vlan20 up/down state mein hai. VLAN 20 VLAN database mein exist karta hai aur SVI shut down nahi hai. Sabse likely reason kya hai?"
+  },
+  "explanation": {
+   "en": "SVI autostate: interface VlanX only comes up when the VLAN exists AND at least one Layer 2 port carrying that VLAN (access port in the VLAN, or a trunk allowing it) is up and in STP forwarding. With no live port in VLAN 20, the SVI stays up/down.",
+   "hi": "SVI autostate: interface VlanX sirf tab up hota hai jab VLAN exist kare AUR us VLAN ko carry karne wala kam se kam ek Layer 2 port (VLAN mein access port, ya use allow karne wala trunk) up ho aur STP forwarding mein ho. VLAN 20 mein koi live port na hone par SVI up/down hi rehta hai."
+  },
+  "options": [
+   {
+    "en": "No currently-up access port or trunk is carrying VLAN 20, so autostate keeps the SVI down",
+    "hi": "Abhi koi up access port ya trunk VLAN 20 carry nahi kar raha, isliye autostate SVI ko down rakhta hai"
+   },
+   {
+    "en": "The SVI is missing the no switchport command",
+    "hi": "SVI par no switchport command missing hai"
+   },
+   {
+    "en": "ip routing has not been enabled globally",
+    "hi": "ip routing globally enable nahi kiya gaya"
+   },
+   {
+    "en": "The VLAN must be given a name before its SVI can come up",
+    "hi": "SVI up hone se pehle VLAN ko naam dena zaroori hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "no switchport converts a physical port to a routed port; it does not apply to SVIs.",
+    "hi": "no switchport physical port ko routed port mein badalta hai; yeh SVIs par apply nahi hota."
+   },
+   {
+    "en": "Without ip routing the switch would not route between SVIs, but the SVI could still be up/up.",
+    "hi": "ip routing ke bina switch SVIs ke beech route nahi karega, lekin SVI phir bhi up/up ho sakta hai."
+   },
+   {
+    "en": "VLAN names are cosmetic and have no effect on SVI state.",
+    "hi": "VLAN names sirf cosmetic hain aur SVI state par inka koi asar nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-019",
+  "domain": 2,
+  "lesson": "inter-vlan-routing",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A Layer 3 switch has SVIs Vlan10 (10.1.10.1/24) and Vlan20 (10.1.20.1/24), both up/up. Hosts have correct addresses and gateways, and each host can ping its own gateway SVI — but hosts in VLAN 10 cannot reach hosts in VLAN 20. What is the most likely cause?",
+   "hi": "Ek Layer 3 switch par SVIs Vlan10 (10.1.10.1/24) aur Vlan20 (10.1.20.1/24) hain, dono up/up. Hosts ke addresses aur gateways sahi hain, aur har host apne gateway SVI ko ping kar sakta hai — lekin VLAN 10 ke hosts VLAN 20 ke hosts tak nahi pahunch pa rahe. Sabse likely cause kya hai?"
+  },
+  "explanation": {
+   "en": "Many Catalyst switches ship with IP routing disabled. Hosts can still ping their local SVI (the switch answers directly), but transit routing between subnets requires the global command ip routing. Enabling it lets the switch route between its connected SVIs immediately.",
+   "hi": "Kai Catalyst switches IP routing disabled ke saath aate hain. Hosts phir bhi apne local SVI ko ping kar sakte hain (switch seedha jawab deta hai), lekin subnets ke beech transit routing ke liye global command ip routing chahiye. Ise enable karte hi switch apne connected SVIs ke beech route karne lagta hai."
+  },
+  "options": [
+   {
+    "en": "ip routing is not enabled globally, so the switch will not route between its SVIs",
+    "hi": "ip routing globally enable nahi hai, isliye switch apne SVIs ke beech route nahi karega"
+   },
+   {
+    "en": "The two SVIs must share the same subnet to exchange traffic",
+    "hi": "Traffic exchange karne ke liye dono SVIs ka same subnet hona zaroori hai"
+   },
+   {
+    "en": "Each host needs a static route to the other VLAN",
+    "hi": "Har host ko doosre VLAN ke liye static route chahiye"
+   },
+   {
+    "en": "An external router is always required to route between SVIs",
+    "hi": "SVIs ke beech route karne ke liye hamesha ek external router chahiye"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Each VLAN must be a DIFFERENT subnet; overlapping subnets would break routing entirely.",
+    "hi": "Har VLAN ka ALAG subnet hona chahiye; overlapping subnets routing ko poori tarah tod denge."
+   },
+   {
+    "en": "Hosts only need their default gateway; the switch handles the inter-VLAN path.",
+    "hi": "Hosts ko sirf apna default gateway chahiye; inter-VLAN path switch handle karta hai."
+   },
+   {
+    "en": "A multilayer switch routes between SVIs on its own — that is the whole point of SVIs.",
+    "hi": "Multilayer switch SVIs ke beech khud route karta hai — SVIs ka poora point yahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-020",
+  "domain": 2,
+  "lesson": "inter-vlan-routing",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which three elements are required for router-on-a-stick inter-VLAN routing to work? (Choose three.)",
+   "hi": "Router-on-a-stick inter-VLAN routing kaam karne ke liye kaunse teen elements zaroori hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "Router-on-a-stick needs: a trunk from switch to router so all VLANs arrive tagged, a subinterface per VLAN whose dot1q tag matches the VLAN ID, and hosts pointing at the right subinterface address as their gateway. The VLAN subnets are directly connected, so no routing protocol is needed.",
+   "hi": "Router-on-a-stick ko chahiye: switch se router tak ek trunk taaki saare VLANs tagged pahunchein, har VLAN ke liye ek subinterface jiska dot1q tag VLAN ID se match kare, aur hosts jo sahi subinterface address ko apna gateway banayein. VLAN subnets directly connected hain, isliye koi routing protocol nahi chahiye."
+  },
+  "options": [
+   {
+    "en": "The switch port facing the router configured as an 802.1Q trunk",
+    "hi": "Router ki taraf wala switch port 802.1Q trunk ki tarah configured ho"
+   },
+   {
+    "en": "One router subinterface per VLAN with a matching encapsulation dot1q VLAN ID",
+    "hi": "Har VLAN ke liye ek router subinterface jiska encapsulation dot1q VLAN ID match kare"
+   },
+   {
+    "en": "Hosts using their VLAN's subinterface IP address as their default gateway",
+    "hi": "Hosts apne VLAN ke subinterface IP address ko default gateway ki tarah use karein"
+   },
+   {
+    "en": "A dynamic routing protocol such as OSPF running between router and switch",
+    "hi": "Router aur switch ke beech OSPF jaisa dynamic routing protocol chal raha ho"
+   },
+   {
+    "en": "The same IP subnet configured on every subinterface",
+    "hi": "Har subinterface par same IP subnet configured ho"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The subinterface networks are directly connected routes; OSPF adds nothing for local inter-VLAN routing.",
+    "hi": "Subinterface networks directly connected routes hain; local inter-VLAN routing mein OSPF kuch add nahi karta."
+   },
+   {
+    "en": "Every VLAN must be a distinct subnet — duplicate subnets on subinterfaces are rejected.",
+    "hi": "Har VLAN ka alag subnet hona chahiye — subinterfaces par duplicate subnets reject ho jaate hain."
+   }
+  ]
+ },
+ {
+  "id": "d2-021",
+  "domain": 2,
+  "lesson": "cdp-lldp",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "A network mixes Cisco switches with switches from another vendor. Which discovery protocol can identify directly connected neighbors on both?",
+   "hi": "Ek network mein Cisco switches ke saath doosre vendor ke switches bhi hain. Kaunsa discovery protocol dono par directly connected neighbors identify kar sakta hai?"
+  },
+  "explanation": {
+   "en": "LLDP (IEEE 802.1AB) is the standards-based discovery protocol supported across vendors. CDP is Cisco proprietary, so third-party switches generally do not speak it.",
+   "hi": "LLDP (IEEE 802.1AB) standards-based discovery protocol hai jo saare vendors support karte hain. CDP Cisco proprietary hai, isliye third-party switches aam taur par ise nahi bolte."
+  },
+  "options": [
+   {
+    "en": "CDP",
+    "hi": "CDP"
+   },
+   {
+    "en": "LLDP",
+    "hi": "LLDP"
+   },
+   {
+    "en": "DTP",
+    "hi": "DTP"
+   },
+   {
+    "en": "VTP",
+    "hi": "VTP"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "CDP is Cisco proprietary and typically unsupported on other vendors' gear.",
+    "hi": "CDP Cisco proprietary hai aur doosre vendors ke equipment par aam taur par supported nahi hota."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "DTP negotiates trunking on Cisco switches; it is not a discovery protocol.",
+    "hi": "DTP Cisco switches par trunking negotiate karta hai; yeh discovery protocol nahi hai."
+   },
+   {
+    "en": "VTP distributes VLAN definitions; it does not discover neighbors.",
+    "hi": "VTP VLAN definitions distribute karta hai; yeh neighbors discover nahi karta."
+   }
+  ]
+ },
+ {
+  "id": "d2-022",
+  "domain": 2,
+  "lesson": "cdp-lldp",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "By default, how often does a Cisco device send CDP advertisements, and what is the CDP holdtime?",
+   "hi": "Default mein Cisco device kitni der mein CDP advertisements bhejta hai, aur CDP holdtime kya hai?"
+  },
+  "explanation": {
+   "en": "CDP defaults: advertisements every 60 seconds, and entries are aged out if nothing is heard for the 180-second holdtime. Remember the contrast with LLDP defaults: 30-second advertisements and 120-second holdtime.",
+   "hi": "CDP defaults: har 60 seconds mein advertisements, aur 180-second holdtime tak kuch sunai na de toh entries age out ho jaati hain. LLDP defaults se contrast yaad rakho: 30-second advertisements aur 120-second holdtime."
+  },
+  "options": [
+   {
+    "en": "Every 60 seconds, holdtime 180 seconds",
+    "hi": "Har 60 seconds, holdtime 180 seconds"
+   },
+   {
+    "en": "Every 30 seconds, holdtime 120 seconds",
+    "hi": "Har 30 seconds, holdtime 120 seconds"
+   },
+   {
+    "en": "Every 10 seconds, holdtime 60 seconds",
+    "hi": "Har 10 seconds, holdtime 60 seconds"
+   },
+   {
+    "en": "Every 5 seconds, holdtime 15 seconds",
+    "hi": "Har 5 seconds, holdtime 15 seconds"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "30/120 are the default LLDP timers — a favorite exam mix-up.",
+    "hi": "30/120 default LLDP timers hain — exam ka favourite mix-up."
+   },
+   {
+    "en": "10/60 matches neither protocol's defaults.",
+    "hi": "10/60 kisi bhi protocol ke defaults se match nahi karta."
+   },
+   {
+    "en": "5/15 resembles aggressive routing-protocol timers, not CDP.",
+    "hi": "5/15 aggressive routing-protocol timers jaisa lagta hai, CDP nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-023",
+  "domain": 2,
+  "lesson": "cdp-lldp",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Examine this output taken on SW1:\n\nSW1# show cdp neighbors\nCapability Codes: R - Router, S - Switch, I - IGMP\nDevice ID        Local Intrfce     Holdtme    Capability  Platform  Port ID\nSW2              Gig 0/1           155        S I         WS-C2960  Gig 0/2\nR1               Fas 0/24          142        R           ISR4321   Gig 0/0/1\n\nWhich statement about the physical connections is accurate?",
+   "hi": "SW1 par liya gaya yeh output dekho:\n\nSW1# show cdp neighbors\nCapability Codes: R - Router, S - Switch, I - IGMP\nDevice ID        Local Intrfce     Holdtme    Capability  Platform  Port ID\nSW2              Gig 0/1           155        S I         WS-C2960  Gig 0/2\nR1               Fas 0/24          142        R           ISR4321   Gig 0/0/1\n\nPhysical connections ke baare mein kaunsa statement sahi hai?"
+  },
+  "explanation": {
+   "en": "In show cdp neighbors, 'Local Intrfce' is the port on the device where you ran the command (SW1), and 'Port ID' is the NEIGHBOR's port. So SW1 Gig0/1 connects to SW2 Gig0/2, and SW1 Fas0/24 connects to R1 Gig0/0/1. Reading these two columns backwards is the classic mistake.",
+   "hi": "show cdp neighbors mein 'Local Intrfce' us device ka port hai jahan tumne command chalaya (SW1), aur 'Port ID' NEIGHBOR ka port hai. Isliye SW1 Gig0/1 SW2 Gig0/2 se connect hai, aur SW1 Fas0/24 R1 Gig0/0/1 se. In do columns ko ulta padhna classic mistake hai."
+  },
+  "options": [
+   {
+    "en": "SW1's Gig 0/1 connects to SW2's Gig 0/2",
+    "hi": "SW1 ka Gig 0/1 SW2 ke Gig 0/2 se connect hai"
+   },
+   {
+    "en": "SW1's Gig 0/2 connects to SW2's Gig 0/1",
+    "hi": "SW1 ka Gig 0/2 SW2 ke Gig 0/1 se connect hai"
+   },
+   {
+    "en": "R1's Fas 0/24 connects to SW1's Gig 0/0/1",
+    "hi": "R1 ka Fas 0/24 SW1 ke Gig 0/0/1 se connect hai"
+   },
+   {
+    "en": "SW2 reaches SW1 through SW2's interface Gig 0/1",
+    "hi": "SW2, SW2 ke interface Gig 0/1 se SW1 tak pahunchta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "This reverses the columns — Local Intrfce belongs to SW1, Port ID belongs to the neighbor.",
+    "hi": "Yeh columns ko ulta kar deta hai — Local Intrfce SW1 ka hai, Port ID neighbor ka."
+   },
+   {
+    "en": "Fas 0/24 is SW1's local port and Gig 0/0/1 belongs to R1, not SW1.",
+    "hi": "Fas 0/24 SW1 ka local port hai aur Gig 0/0/1 R1 ka hai, SW1 ka nahi."
+   },
+   {
+    "en": "The output shows SW2 uses Gig 0/2 (the Port ID column) to reach SW1.",
+    "hi": "Output dikhata hai ki SW2 SW1 tak pahunchne ke liye Gig 0/2 (Port ID column) use karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-024",
+  "domain": 2,
+  "lesson": "cdp-lldp",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which three statements about LLDP on Cisco IOS devices are true? (Choose three.)",
+   "hi": "Cisco IOS devices par LLDP ke baare mein kaunse teen statements sahi hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "Cisco gear ships with CDP on and LLDP off; lldp run turns LLDP on globally. Per interface you can control each direction separately with lldp transmit and lldp receive. LLDP's default timers are 30 s / 120 s (not CDP's 60/180), and LLDP is the IEEE 802.1AB standard, not Cisco proprietary.",
+   "hi": "Cisco gear CDP on aur LLDP off ke saath aata hai; lldp run LLDP ko globally on karta hai. Har interface par tum lldp transmit aur lldp receive se dono directions alag-alag control kar sakte ho. LLDP ke default timers 30 s / 120 s hain (CDP ke 60/180 nahi), aur LLDP IEEE 802.1AB standard hai, Cisco proprietary nahi."
+  },
+  "options": [
+   {
+    "en": "LLDP is disabled by default on most Cisco IOS devices",
+    "hi": "Zyaadatar Cisco IOS devices par LLDP default mein disabled hota hai"
+   },
+   {
+    "en": "The global command lldp run enables LLDP on the device",
+    "hi": "Global command lldp run device par LLDP enable karta hai"
+   },
+   {
+    "en": "LLDP transmit and receive can be disabled independently on an interface",
+    "hi": "Interface par LLDP transmit aur receive alag-alag disable kiye ja sakte hain"
+   },
+   {
+    "en": "LLDP uses the same default timers as CDP (60 s advertisements, 180 s holdtime)",
+    "hi": "LLDP CDP wale hi default timers use karta hai (60 s advertisements, 180 s holdtime)"
+   },
+   {
+    "en": "LLDP is a Cisco-proprietary enhancement of CDP",
+    "hi": "LLDP CDP ka Cisco-proprietary enhancement hai"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "LLDP defaults are 30-second advertisements with a 120-second holdtime.",
+    "hi": "LLDP defaults 30-second advertisements aur 120-second holdtime hain."
+   },
+   {
+    "en": "LLDP is the vendor-neutral IEEE 802.1AB standard; CDP is the Cisco-proprietary protocol.",
+    "hi": "LLDP vendor-neutral IEEE 802.1AB standard hai; CDP Cisco-proprietary protocol hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-025",
+  "domain": 2,
+  "lesson": "cdp-lldp",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "Type the command that shows full details for every CDP neighbor, including the neighbor's IP address, platform, and IOS version.",
+   "hi": "Woh command type karo jo har CDP neighbor ki full details dikhata hai, jismein neighbor ka IP address, platform aur IOS version shaamil ho."
+  },
+  "explanation": {
+   "en": "show cdp neighbors detail expands the summary table into a per-neighbor block containing management IP address, software version, platform, native VLAN, and duplex — invaluable for mapping a network without documentation.",
+   "hi": "show cdp neighbors detail summary table ko har neighbor ke liye ek block mein expand karta hai jismein management IP address, software version, platform, native VLAN aur duplex hota hai — bina documentation ke network map karne ke liye bahut kaam ka."
+  },
+  "commandAnswer": "show cdp neighbors detail",
+  "accept": [
+   "sh cdp nei det",
+   "sh cdp neighbors detail",
+   "show cdp nei detail",
+   "sh cdp nei detail",
+   "show cdp neighbor detail",
+   "sh cdp neighbor detail"
+  ]
+ },
+ {
+  "id": "d2-026",
+  "domain": 2,
+  "lesson": "etherchannel",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Two switches are connected by four Gigabit links bundled into a single EtherChannel. Compared with leaving them as four independent links, what is the key advantage?",
+   "hi": "Do switches chaar Gigabit links se connected hain jo ek single EtherChannel mein bundled hain. Inhe chaar independent links rehne dene ke comparison mein key advantage kya hai?"
+  },
+  "explanation": {
+   "en": "Four separate parallel links form a loop, so STP would block three of them. EtherChannel presents the bundle to STP as ONE logical interface, so all members forward simultaneously, adding bandwidth and giving sub-second failover when a member fails.",
+   "hi": "Chaar alag parallel links ek loop banate hain, isliye STP unmein se teen ko block kar dega. EtherChannel bundle ko STP ke saamne EK logical interface ki tarah present karta hai, isliye saare members ek saath forward karte hain, bandwidth badhti hai aur kisi member ke fail hone par sub-second failover milta hai."
+  },
+  "options": [
+   {
+    "en": "STP treats the bundle as one logical link, so all four physical links forward instead of most being blocked",
+    "hi": "STP bundle ko ek logical link maanta hai, isliye zyaadatar links block hone ki jagah chaaron physical links forward karte hain"
+   },
+   {
+    "en": "Each physical link runs its own STP instance for faster convergence",
+    "hi": "Har physical link faster convergence ke liye apna STP instance chalata hai"
+   },
+   {
+    "en": "A single large frame is striped across all four links at once",
+    "hi": "Ek single bada frame ek saath chaaron links par stripe hota hai"
+   },
+   {
+    "en": "The bundle encrypts traffic between the switches",
+    "hi": "Bundle switches ke beech traffic encrypt karta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "STP runs on the single logical port-channel, not per member — that is the benefit, not per-link instances.",
+    "hi": "STP single logical port-channel par chalta hai, har member par nahi — fayda yahi hai, per-link instances nahi."
+   },
+   {
+    "en": "Load balancing is per flow (hash of MAC/IP/port); any single frame travels over exactly one member link.",
+    "hi": "Load balancing per flow hoti hai (MAC/IP/port ka hash); koi bhi single frame exactly ek member link par travel karta hai."
+   },
+   {
+    "en": "EtherChannel provides aggregation and redundancy, not encryption.",
+    "hi": "EtherChannel aggregation aur redundancy deta hai, encryption nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-027",
+  "domain": 2,
+  "lesson": "etherchannel",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "SW1's Gi0/1-2 are configured with channel-group 1 mode passive. SW2's matching ports are also set to mode passive. What is the result?",
+   "hi": "SW1 ke Gi0/1-2 channel-group 1 mode passive ke saath configured hain. SW2 ke matching ports bhi mode passive par set hain. Result kya hoga?"
+  },
+  "explanation": {
+   "en": "LACP passive mode listens but never starts the negotiation. With passive on both ends, no LACP PDUs are initiated and the bundle never forms. At least one side must be active (active/active and active/passive both work).",
+   "hi": "LACP passive mode sunta hai lekin kabhi negotiation shuru nahi karta. Dono ends passive hone par koi LACP PDUs initiate nahi hote aur bundle kabhi nahi banta. Kam se kam ek side active honi chahiye (active/active aur active/passive dono kaam karte hain)."
+  },
+  "options": [
+   {
+    "en": "An LACP channel forms because both ends run LACP",
+    "hi": "LACP channel ban jaata hai kyunki dono ends LACP chala rahe hain"
+   },
+   {
+    "en": "No channel forms because neither side initiates the LACP negotiation",
+    "hi": "Koi channel nahi banta kyunki koi bhi side LACP negotiation initiate nahi karti"
+   },
+   {
+    "en": "The switches fall back to PAgP and the channel forms",
+    "hi": "Switches PAgP par fall back karte hain aur channel ban jaata hai"
+   },
+   {
+    "en": "The ports are placed in err-disabled state",
+    "hi": "Ports err-disabled state mein chale jaate hain"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Merely running LACP is not enough — someone must send the first LACP PDUs, and passive mode never does.",
+    "hi": "Sirf LACP chalana kaafi nahi — kisi ko pehle LACP PDUs bhejne padte hain, aur passive mode kabhi nahi bhejta."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "PAgP and LACP are separate protocols; there is no automatic fallback between them.",
+    "hi": "PAgP aur LACP alag protocols hain; inke beech koi automatic fallback nahi hota."
+   },
+   {
+    "en": "The ports keep working as individual links; a failed negotiation does not err-disable them.",
+    "hi": "Ports individual links ki tarah kaam karte rehte hain; failed negotiation unhe err-disable nahi karti."
+   }
+  ]
+ },
+ {
+  "id": "d2-028",
+  "domain": 2,
+  "lesson": "etherchannel",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Examine this output:\n\nSW1# show etherchannel summary\nFlags:  D - down        P - bundled in port-channel\n        I - stand-alone s - suspended\n        R - Layer3      S - Layer2\n        U - in use      f - failed to allocate aggregator\n\nGroup  Port-channel  Protocol    Ports\n------+-------------+-----------+---------------------------\n1      Po1(SU)         LACP      Gi0/1(s)    Gi0/2(P)\n\nWhat is the most likely reason Gi0/1 shows the s flag?",
+   "hi": "Yeh output dekho:\n\nSW1# show etherchannel summary\nFlags:  D - down        P - bundled in port-channel\n        I - stand-alone s - suspended\n        R - Layer3      S - Layer2\n        U - in use      f - failed to allocate aggregator\n\nGroup  Port-channel  Protocol    Ports\n------+-------------+-----------+---------------------------\n1      Po1(SU)         LACP      Gi0/1(s)    Gi0/2(P)\n\nGi0/1 par s flag dikhne ka sabse likely reason kya hai?"
+  },
+  "explanation": {
+   "en": "The s (suspended) flag means the port was excluded from the bundle, most often because a parameter mismatch was detected — speed, duplex, access VLAN, trunk mode/allowed list, or native VLAN differ from the channel. All member ports must have identical Layer 2 configuration.",
+   "hi": "s (suspended) flag ka matlab hai port ko bundle se bahar rakha gaya, aksar isliye kyunki parameter mismatch detect hua — speed, duplex, access VLAN, trunk mode/allowed list, ya native VLAN channel se alag hai. Saare member ports ki Layer 2 configuration identical honi chahiye."
+  },
+  "options": [
+   {
+    "en": "Its configuration (such as speed, duplex, or VLAN settings) does not match the other member or the port-channel",
+    "hi": "Iski configuration (jaise speed, duplex ya VLAN settings) doosre member ya port-channel se match nahi karti"
+   },
+   {
+    "en": "The cable on Gi0/1 is unplugged",
+    "hi": "Gi0/1 ka cable unplugged hai"
+   },
+   {
+    "en": "LACP is not running on the port-channel",
+    "hi": "Port-channel par LACP nahi chal raha"
+   },
+   {
+    "en": "Gi0/1 was administratively shut down",
+    "hi": "Gi0/1 ko administratively shut down kiya gaya"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "An unplugged or dead link shows the D (down) flag, not s.",
+    "hi": "Unplugged ya dead link D (down) flag dikhata hai, s nahi."
+   },
+   {
+    "en": "The Protocol column shows LACP is in use on group 1.",
+    "hi": "Protocol column dikhata hai ki group 1 par LACP use ho raha hai."
+   },
+   {
+    "en": "A shutdown interface also shows as down (D), not suspended.",
+    "hi": "Shutdown interface bhi down (D) dikhta hai, suspended nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-029",
+  "domain": 2,
+  "lesson": "etherchannel",
+  "difficulty": "hard",
+  "type": "match",
+  "text": {
+   "en": "Match each EtherChannel mode combination (one side + other side) to its outcome.",
+   "hi": "Har EtherChannel mode combination (ek side + doosri side) ko uske outcome se match karo."
+  },
+  "explanation": {
+   "en": "LACP: active initiates, passive only responds — at least one active is required. PAgP: desirable initiates, auto only responds — at least one desirable is required. Mode on skips negotiation entirely, so it only works when BOTH sides are on; mixing on with a negotiating mode leaves the bundle down.",
+   "hi": "LACP: active initiate karta hai, passive sirf respond karta hai — kam se kam ek active zaroori hai. PAgP: desirable initiate karta hai, auto sirf respond karta hai — kam se kam ek desirable zaroori hai. Mode on negotiation poori tarah skip karta hai, isliye yeh sirf tab kaam karta hai jab DONO sides on hon; on ko negotiating mode ke saath milane se bundle down rehta hai."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "active + passive",
+     "hi": "active + passive"
+    },
+    "right": {
+     "en": "LACP negotiates and the channel forms",
+     "hi": "LACP negotiate karta hai aur channel ban jaata hai"
+    }
+   },
+   {
+    "left": {
+     "en": "passive + passive",
+     "hi": "passive + passive"
+    },
+    "right": {
+     "en": "No channel — neither side starts LACP",
+     "hi": "Koi channel nahi — koi bhi side LACP shuru nahi karti"
+    }
+   },
+   {
+    "left": {
+     "en": "desirable + auto",
+     "hi": "desirable + auto"
+    },
+    "right": {
+     "en": "PAgP negotiates and the channel forms",
+     "hi": "PAgP negotiate karta hai aur channel ban jaata hai"
+    }
+   },
+   {
+    "left": {
+     "en": "on + desirable",
+     "hi": "on + desirable"
+    },
+    "right": {
+     "en": "No channel — on mode never negotiates",
+     "hi": "Koi channel nahi — on mode kabhi negotiate nahi karta"
+    }
+   },
+   {
+    "left": {
+     "en": "on + on",
+     "hi": "on + on"
+    },
+    "right": {
+     "en": "Channel forms with no negotiation protocol",
+     "hi": "Bina kisi negotiation protocol ke channel ban jaata hai"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d2-030",
+  "domain": 2,
+  "lesson": "etherchannel",
+  "difficulty": "easy",
+  "type": "command",
+  "text": {
+   "en": "Type the command that displays each EtherChannel group, its status flags, protocol, and member ports on one screen.",
+   "hi": "Woh command type karo jo har EtherChannel group, uske status flags, protocol aur member ports ek hi screen par dikhata hai."
+  },
+  "explanation": {
+   "en": "show etherchannel summary is the go-to verification command: SU beside the Po interface means Layer 2 and in use, and each member should show P (bundled). Flags such as s (suspended), I (stand-alone), or D (down) point directly at the problem.",
+   "hi": "show etherchannel summary go-to verification command hai: Po interface ke saath SU ka matlab hai Layer 2 aur in use, aur har member P (bundled) dikhana chahiye. s (suspended), I (stand-alone) ya D (down) jaise flags seedha problem ki taraf ishara karte hain."
+  },
+  "commandAnswer": "show etherchannel summary",
+  "accept": [
+   "sh etherchannel summary",
+   "sh etherchannel sum",
+   "show etherchannel sum",
+   "sh etherc sum",
+   "sh etherc summary"
+  ]
+ },
+ {
+  "id": "d2-031",
+  "domain": 2,
+  "lesson": "troubleshooting-method",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "show interfaces status lists port Gi0/5 in the err-disabled state. Which statement is true?",
+   "hi": "show interfaces status port Gi0/5 ko err-disabled state mein list karta hai. Kaunsa statement sahi hai?"
+  },
+  "explanation": {
+   "en": "err-disabled means the switch itself disabled the port after a violation — port security, BPDU guard, and similar features trigger it. Fix the root cause first, then bounce the port with shutdown / no shutdown (or configure errdisable recovery for automatic re-enable).",
+   "hi": "err-disabled ka matlab hai switch ne khud kisi violation ke baad port disable kiya — port security, BPDU guard aur aise features ise trigger karte hain. Pehle root cause fix karo, phir shutdown / no shutdown se port bounce karo (ya automatic re-enable ke liye errdisable recovery configure karo)."
+  },
+  "options": [
+   {
+    "en": "A protection feature such as port security or BPDU guard shut the port; after fixing the cause, shutdown then no shutdown restores it",
+    "hi": "Port security ya BPDU guard jaise protection feature ne port band kiya; cause fix karne ke baad shutdown phir no shutdown se yeh wapas aa jaata hai"
+   },
+   {
+    "en": "The port was manually disabled with the shutdown command",
+    "hi": "Port ko shutdown command se manually disable kiya gaya"
+   },
+   {
+    "en": "The cable is simply disconnected",
+    "hi": "Cable bas disconnected hai"
+   },
+   {
+    "en": "Autonegotiation failed and the port will recover by itself",
+    "hi": "Autonegotiation fail hua aur port apne aap recover ho jaayega"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A manual shutdown shows as 'disabled', not 'err-disabled'.",
+    "hi": "Manual shutdown 'disabled' dikhta hai, 'err-disabled' nahi."
+   },
+   {
+    "en": "An unplugged cable shows 'notconnect'.",
+    "hi": "Unplugged cable 'notconnect' dikhata hai."
+   },
+   {
+    "en": "err-disabled ports stay down until manually bounced unless errdisable recovery has been configured.",
+    "hi": "err-disabled ports tab tak down rehte hain jab tak manually bounce na kiye jaayein, jab tak errdisable recovery configure na ho."
+   }
+  ]
+ },
+ {
+  "id": "d2-032",
+  "domain": 2,
+  "lesson": "troubleshooting-method",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Users report that file transfers through Fa0/3 are extremely slow, though the link stays up. The neighbor device is hard-coded to full-duplex.\n\nSW1# show interfaces fa0/3 | include duplex|collision|CRC\n  Half-duplex, 100Mb/s\n  941 input errors, 892 CRC, 45 frame\n  3021 collisions, 118 late collisions\n\nWhat is the diagnosis?",
+   "hi": "Users report karte hain ki Fa0/3 se file transfers bahut slow hain, jabki link up rehta hai. Neighbor device full-duplex par hard-coded hai.\n\nSW1# show interfaces fa0/3 | include duplex|collision|CRC\n  Half-duplex, 100Mb/s\n  941 input errors, 892 CRC, 45 frame\n  3021 collisions, 118 late collisions\n\nDiagnosis kya hai?"
+  },
+  "explanation": {
+   "en": "Late collisions plus CRC errors on a half-duplex port whose neighbor is full-duplex is the signature of a duplex mismatch. The full-duplex side transmits whenever it wants; the half-duplex side treats those transmissions as collisions. The link works, but painfully slowly. Set both sides to auto or hard-code both identically.",
+   "hi": "Half-duplex port par late collisions plus CRC errors, jabki neighbor full-duplex ho, duplex mismatch ki pehchaan hai. Full-duplex side jab chahe transmit karti hai; half-duplex side un transmissions ko collisions maanti hai. Link kaam karta hai, lekin bahut slow. Dono sides ko auto par set karo ya dono ko identically hard-code karo."
+  },
+  "options": [
+   {
+    "en": "Duplex mismatch — this side is half-duplex while the neighbor runs full-duplex",
+    "hi": "Duplex mismatch — yeh side half-duplex hai jabki neighbor full-duplex chala raha hai"
+   },
+   {
+    "en": "A failing cable is bringing the link down repeatedly",
+    "hi": "Kharab cable link ko baar-baar down kar raha hai"
+   },
+   {
+    "en": "An MTU mismatch is producing giants",
+    "hi": "MTU mismatch giants paida kar raha hai"
+   },
+   {
+    "en": "STP is intermittently blocking the port",
+    "hi": "STP beech-beech mein port ko block kar raha hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The link is stable and up; a bad cable typically causes flapping or notconnect, not late collisions.",
+    "hi": "Link stable aur up hai; kharab cable aam taur par flapping ya notconnect karta hai, late collisions nahi."
+   },
+   {
+    "en": "Giants would appear in the giants counter; the symptoms here are collision-related.",
+    "hi": "Giants giants counter mein dikhte; yahan symptoms collisions se jude hain."
+   },
+   {
+    "en": "A blocked port passes no traffic at all — it would not cause slow transfers with collisions.",
+    "hi": "Blocked port koi traffic pass hi nahi karta — woh collisions ke saath slow transfers ka cause nahi banega."
+   }
+  ]
+ },
+ {
+  "id": "d2-033",
+  "domain": 2,
+  "lesson": "troubleshooting-method",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "This message repeats on SW1's console:\n\n%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on GigabitEthernet0/1 (10), with SW2 GigabitEthernet0/1 (99).\n\nWhat is the operational impact, and what is the fix?",
+   "hi": "SW1 ke console par yeh message baar-baar aa raha hai:\n\n%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on GigabitEthernet0/1 (10), with SW2 GigabitEthernet0/1 (99).\n\nOperational impact kya hai, aur fix kya hai?"
+  },
+  "explanation": {
+   "en": "The native VLAN is carried untagged, so each switch classifies untagged frames into ITS OWN native VLAN. With 10 on one end and 99 on the other, native-VLAN traffic leaks between VLAN 10 and VLAN 99 — a connectivity and security problem. Make both ends agree, e.g. switchport trunk native vlan 99 on both.",
+   "hi": "Native VLAN untagged carry hota hai, isliye har switch untagged frames ko APNE native VLAN mein classify karta hai. Ek end par 10 aur doosre par 99 hone se native-VLAN traffic VLAN 10 aur VLAN 99 ke beech leak hota hai — yeh connectivity aur security dono problem hai. Dono ends ko agree karwao, jaise dono par switchport trunk native vlan 99."
+  },
+  "options": [
+   {
+    "en": "Untagged frames sent by SW1 in VLAN 10 arrive in VLAN 99 on SW2 (and vice versa); configure the same native VLAN on both trunk ends",
+    "hi": "SW1 dwara VLAN 10 mein bheje gaye untagged frames SW2 par VLAN 99 mein pahunchte hain (aur ulta bhi); dono trunk ends par same native VLAN configure karo"
+   },
+   {
+    "en": "The trunk stays down until the native VLANs match",
+    "hi": "Native VLANs match hone tak trunk down rehta hai"
+   },
+   {
+    "en": "CDP automatically shuts down the interface after three warnings",
+    "hi": "Teen warnings ke baad CDP automatically interface shut down kar deta hai"
+   },
+   {
+    "en": "All tagged VLANs stop crossing the trunk until it is fixed",
+    "hi": "Fix hone tak saare tagged VLANs trunk cross karna band kar dete hain"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The trunk keeps operating despite the mismatch — that is exactly why the leakage is dangerous.",
+    "hi": "Mismatch ke bawajood trunk chalta rehta hai — isi wajah se yeh leakage khatarnak hai."
+   },
+   {
+    "en": "CDP only reports the mismatch; it never disables ports.",
+    "hi": "CDP sirf mismatch report karta hai; yeh kabhi ports disable nahi karta."
+   },
+   {
+    "en": "Tagged VLANs are unaffected; only untagged (native) traffic is misclassified.",
+    "hi": "Tagged VLANs par koi asar nahi; sirf untagged (native) traffic galat classify hota hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-034",
+  "domain": 2,
+  "lesson": "troubleshooting-method",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "SW1 and SW2 are joined on Gi0/1 and should trunk, but VLAN traffic is not passing. The same output appears on both switches:\n\nSW1# show interfaces gi0/1 switchport\nName: Gi0/1\nSwitchport: Enabled\nAdministrative Mode: dynamic auto\nOperational Mode: static access\nAdministrative Trunking Encapsulation: dot1q\nNegotiation of Trunking: On\n\nWhy did the trunk fail to form?",
+   "hi": "SW1 aur SW2 Gi0/1 par jude hain aur trunk hona chahiye, lekin VLAN traffic pass nahi ho raha. Dono switches par same output aata hai:\n\nSW1# show interfaces gi0/1 switchport\nName: Gi0/1\nSwitchport: Enabled\nAdministrative Mode: dynamic auto\nOperational Mode: static access\nAdministrative Trunking Encapsulation: dot1q\nNegotiation of Trunking: On\n\nTrunk kyun nahi bana?"
+  },
+  "explanation": {
+   "en": "dynamic auto is passive: it will trunk only if the OTHER side asks. With auto on both ends nobody asks, so the operational mode collapses to static access. Fix by setting at least one side to dynamic desirable, or best practice: switchport mode trunk on both (optionally with switchport nonegotiate).",
+   "hi": "dynamic auto passive hai: yeh sirf tab trunk karega jab DOOSRI side maange. Dono ends par auto hone se koi nahi maangta, isliye operational mode static access par aa jaata hai. Fix: kam se kam ek side ko dynamic desirable set karo, ya best practice: dono par switchport mode trunk (optionally switchport nonegotiate ke saath)."
+  },
+  "options": [
+   {
+    "en": "Both ends are dynamic auto, so neither initiates DTP and the link falls back to access mode",
+    "hi": "Dono ends dynamic auto hain, isliye koi bhi DTP initiate nahi karta aur link access mode par fall back ho jaata hai"
+   },
+   {
+    "en": "802.1Q encapsulation is not supported on these interfaces",
+    "hi": "In interfaces par 802.1Q encapsulation supported nahi hai"
+   },
+   {
+    "en": "Negotiation of Trunking: On indicates the port is err-disabled",
+    "hi": "Negotiation of Trunking: On batata hai ki port err-disabled hai"
+   },
+   {
+    "en": "Operational Mode: static access means the interface is shut down",
+    "hi": "Operational Mode: static access ka matlab hai interface shut down hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The output lists dot1q as the administrative encapsulation — it is supported.",
+    "hi": "Output administrative encapsulation ke roop mein dot1q dikhata hai — yeh supported hai."
+   },
+   {
+    "en": "'Negotiation of Trunking: On' just means DTP is enabled; err-disabled would appear in the interface status.",
+    "hi": "'Negotiation of Trunking: On' ka bas matlab hai DTP enabled hai; err-disabled interface status mein dikhta."
+   },
+   {
+    "en": "Operational mode describes Layer 2 behavior; a shut interface would show 'down' in show interfaces.",
+    "hi": "Operational mode Layer 2 behavior batata hai; shut interface show interfaces mein 'down' dikhata."
+   }
+  ]
+ },
+ {
+  "id": "d2-035",
+  "domain": 2,
+  "lesson": "troubleshooting-method",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "A PC in VLAN 30 cannot reach its default gateway, an SVI on the distribution switch. Which three Layer 2 checks are appropriate first steps? (Choose three.)",
+   "hi": "VLAN 30 ka ek PC apne default gateway tak nahi pahunch pa raha, jo distribution switch par ek SVI hai. Kaunse teen Layer 2 checks sahi pehle steps hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "Troubleshoot bottom-up: confirm the physical port state, confirm the correct access VLAN, then confirm the VLAN actually rides the trunk toward the SVI (allowed list, pruning, STP forwarding). Only after Layer 2 is proven should you look at Layer 3.",
+   "hi": "Bottom-up troubleshoot karo: pehle physical port state confirm karo, phir sahi access VLAN confirm karo, phir confirm karo ki VLAN sach mein SVI ki taraf trunk par ja raha hai (allowed list, pruning, STP forwarding). Layer 2 prove hone ke baad hi Layer 3 dekhna chahiye."
+  },
+  "options": [
+   {
+    "en": "Verify the access port is up and assigned to VLAN 30",
+    "hi": "Verify karo ki access port up hai aur VLAN 30 ko assigned hai"
+   },
+   {
+    "en": "Verify VLAN 30 is allowed and forwarding on the uplink trunk",
+    "hi": "Verify karo ki uplink trunk par VLAN 30 allowed hai aur forwarding mein hai"
+   },
+   {
+    "en": "Verify the port is not err-disabled or administratively down",
+    "hi": "Verify karo ki port err-disabled ya administratively down nahi hai"
+   },
+   {
+    "en": "Verify the OSPF adjacency between distribution and core",
+    "hi": "Distribution aur core ke beech OSPF adjacency verify karo"
+   },
+   {
+    "en": "Verify NAT translations on the Internet edge router",
+    "hi": "Internet edge router par NAT translations verify karo"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Reaching the local gateway does not involve OSPF — that adjacency matters for traffic beyond the gateway.",
+    "hi": "Local gateway tak pahunchne mein OSPF involved nahi hai — woh adjacency gateway se aage ke traffic ke liye matter karti hai."
+   },
+   {
+    "en": "NAT applies at the Internet edge; a host-to-gateway failure inside one VLAN is purely a LAN issue.",
+    "hi": "NAT Internet edge par apply hota hai; ek VLAN ke andar host-to-gateway failure poori tarah LAN issue hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-036",
+  "domain": 2,
+  "lesson": "stp",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "What problem does Spanning Tree Protocol solve in a switched network built with redundant links?",
+   "hi": "Redundant links se bane switched network mein Spanning Tree Protocol kaunsi problem solve karta hai?"
+  },
+  "explanation": {
+   "en": "Ethernet frames carry no TTL, so a Layer 2 loop lets broadcasts circulate and multiply forever (a broadcast storm) while MAC tables flap between ports. STP logically blocks redundant paths, keeping one loop-free tree while the blocked links remain as backups.",
+   "hi": "Ethernet frames mein koi TTL nahi hota, isliye Layer 2 loop mein broadcasts hamesha ghoomte aur badhte rehte hain (broadcast storm) jabki MAC tables ports ke beech flap karti hain. STP redundant paths ko logically block karta hai, ek loop-free tree rakhta hai aur blocked links backup ki tarah bane rehte hain."
+  },
+  "options": [
+   {
+    "en": "Layer 2 loops, which cause broadcast storms and MAC table instability",
+    "hi": "Layer 2 loops, jo broadcast storms aur MAC table instability paida karte hain"
+   },
+   {
+    "en": "IP routing loops between subnets",
+    "hi": "Subnets ke beech IP routing loops"
+   },
+   {
+    "en": "Duplex mismatches on trunk ports",
+    "hi": "Trunk ports par duplex mismatches"
+   },
+   {
+    "en": "Excessive ARP traffic from hosts",
+    "hi": "Hosts se bahut zyada ARP traffic"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Routing loops are a Layer 3 issue handled by routing protocols and TTL, not STP.",
+    "hi": "Routing loops Layer 3 issue hain jinhe routing protocols aur TTL handle karte hain, STP nahi."
+   },
+   {
+    "en": "Duplex mismatches are negotiated (or hard-coded) per link; STP does not manage duplex.",
+    "hi": "Duplex mismatches har link par negotiate (ya hard-code) hote hain; STP duplex manage nahi karta."
+   },
+   {
+    "en": "ARP volume is normal host behavior; STP does not police it — though a loop makes ARP broadcasts storm.",
+    "hi": "ARP volume normal host behavior hai; STP ise police nahi karta — haalaanki loop ARP broadcasts ka storm bana deta hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-037",
+  "domain": 2,
+  "lesson": "stp",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "How is the STP root bridge elected?",
+   "hi": "STP root bridge kaise elect hota hai?"
+  },
+  "explanation": {
+   "en": "The bridge ID is the priority (default 32768, plus the VLAN ID with PVST+ extended system ID) followed by the switch MAC address. Lowest wins. Because most networks leave priority at default, the OLDEST switch (lowest MAC) often becomes root unless you set priority deliberately.",
+   "hi": "Bridge ID priority (default 32768, PVST+ extended system ID ke saath plus VLAN ID) aur uske baad switch MAC address hota hai. Sabse kam jeet-ta hai. Kyunki zyaadatar networks priority default par chhod dete hain, SABSE PURANA switch (lowest MAC) aksar root ban jaata hai jab tak tum jaan-boojh kar priority set na karo."
+  },
+  "options": [
+   {
+    "en": "The switch with the lowest bridge ID wins — lowest priority first, and lowest MAC address as the tiebreaker",
+    "hi": "Sabse kam bridge ID wala switch jeet-ta hai — pehle lowest priority, aur tiebreaker lowest MAC address"
+   },
+   {
+    "en": "The switch with the highest priority value wins",
+    "hi": "Sabse zyada priority value wala switch jeet-ta hai"
+   },
+   {
+    "en": "The switch with the fastest uplinks wins",
+    "hi": "Sabse fast uplinks wala switch jeet-ta hai"
+   },
+   {
+    "en": "The first switch powered on remains root permanently",
+    "hi": "Sabse pehle power on hua switch hamesha root rehta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Lower is better in the election — a higher priority value makes a switch LESS likely to become root.",
+    "hi": "Election mein kam better hai — zyada priority value switch ke root banne ke chances KAM karti hai."
+   },
+   {
+    "en": "Link speed influences port cost and path selection, not the root election itself.",
+    "hi": "Link speed port cost aur path selection ko affect karti hai, root election ko nahi."
+   },
+   {
+    "en": "Boot order does not matter; a better (lower) bridge ID appearing later takes over as root.",
+    "hi": "Boot order matter nahi karta; baad mein aaya better (lower) bridge ID root ban jaata hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-038",
+  "domain": 2,
+  "lesson": "stp",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Four switches in VLAN 1 all use the default priority. Their bridge IDs are:\n\nSW1: priority 32769, MAC 000a.1111.1111\nSW2: priority 32769, MAC 000a.2222.2222\nSW3: priority 32769, MAC 0009.3333.3333\nSW4: priority 32769, MAC 000b.4444.4444\n\nWhich switch becomes the root bridge?",
+   "hi": "VLAN 1 ke chaar switches sab default priority use karte hain. Unke bridge IDs hain:\n\nSW1: priority 32769, MAC 000a.1111.1111\nSW2: priority 32769, MAC 000a.2222.2222\nSW3: priority 32769, MAC 0009.3333.3333\nSW4: priority 32769, MAC 000b.4444.4444\n\nKaunsa switch root bridge banega?"
+  },
+  "explanation": {
+   "en": "All priorities are tied at 32769 (32768 + VLAN 1), so the lowest MAC address breaks the tie. Comparing the first bytes: 0009 is lower than 000a and 000b, so SW3 wins. To control root placement deliberately, lower the priority, e.g. spanning-tree vlan 1 priority 4096.",
+   "hi": "Saari priorities 32769 (32768 + VLAN 1) par tied hain, isliye lowest MAC address tie todta hai. Pehle bytes compare karo: 0009, 000a aur 000b se kam hai, isliye SW3 jeet-ta hai. Root placement jaan-boojh kar control karne ke liye priority kam karo, jaise spanning-tree vlan 1 priority 4096."
+  },
+  "options": [
+   {
+    "en": "SW1",
+    "hi": "SW1"
+   },
+   {
+    "en": "SW2",
+    "hi": "SW2"
+   },
+   {
+    "en": "SW3",
+    "hi": "SW3"
+   },
+   {
+    "en": "SW4",
+    "hi": "SW4"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "000a.1111.1111 is higher than SW3's 0009.3333.3333 in the leading bytes.",
+    "hi": "000a.1111.1111 leading bytes mein SW3 ke 0009.3333.3333 se zyada hai."
+   },
+   {
+    "en": "000a.2222.2222 loses to any 0009 address.",
+    "hi": "000a.2222.2222 kisi bhi 0009 address se haar jaata hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "000b is the highest leading value of the four — SW4 is last in line.",
+    "hi": "000b chaaron mein sabse zyada leading value hai — SW4 line mein sabse aakhri hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-039",
+  "domain": 2,
+  "lesson": "stp",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "SW3 is not the root. It has two paths to root bridge SW1: FastEthernet0/1 connects directly to SW1, and GigabitEthernet0/1 connects to SW2, which has a Gigabit link to SW1. Using classic 802.1D costs (100 Mb = 19, 1 Gb = 4), which port becomes SW3's root port?",
+   "hi": "SW3 root nahi hai. Iske paas root bridge SW1 tak do paths hain: FastEthernet0/1 seedha SW1 se connect hai, aur GigabitEthernet0/1 SW2 se connect hai, jiska SW1 tak Gigabit link hai. Classic 802.1D costs (100 Mb = 19, 1 Gb = 4) use karke batao, SW3 ka root port kaunsa banega?"
+  },
+  "explanation": {
+   "en": "The root port is the port with the LOWEST cumulative cost to the root, not the fewest hops. Via SW2: SW2's root cost 4 plus SW3's Gi port cost 4 = 8. Direct FastEthernet: 19. 8 beats 19, so Gi0/1 is the root port; Fa0/1 becomes non-designated/blocking (assuming SW1 holds the designated role on that segment).",
+   "hi": "Root port woh port hai jiska root tak cumulative cost SABSE KAM ho, sabse kam hops nahi. SW2 ke through: SW2 ki root cost 4 plus SW3 ke Gi port ki cost 4 = 8. Direct FastEthernet: 19. 8 19 se behtar hai, isliye Gi0/1 root port hai; Fa0/1 non-designated/blocking ban jaata hai (maan kar ki us segment par designated role SW1 ke paas hai)."
+  },
+  "options": [
+   {
+    "en": "Fa0/1, because it is directly connected to the root",
+    "hi": "Fa0/1, kyunki yeh seedha root se connected hai"
+   },
+   {
+    "en": "Gi0/1, because the total path cost of 4 + 4 = 8 is lower than the direct path cost of 19",
+    "hi": "Gi0/1, kyunki total path cost 4 + 4 = 8 direct path cost 19 se kam hai"
+   },
+   {
+    "en": "Fa0/1, because FastEthernet has a lower port cost than Gigabit",
+    "hi": "Fa0/1, kyunki FastEthernet ki port cost Gigabit se kam hai"
+   },
+   {
+    "en": "Both ports forward and load-share traffic toward the root",
+    "hi": "Dono ports root ki taraf forward karte hain aur traffic load-share karte hain"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "Direct connection is irrelevant — only cumulative path cost decides.",
+    "hi": "Direct connection irrelevant hai — sirf cumulative path cost decide karti hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Costs are inverse to speed: FastEthernet = 19, Gigabit = 4.",
+    "hi": "Costs speed ke ulte hote hain: FastEthernet = 19, Gigabit = 4."
+   },
+   {
+    "en": "Classic STP never load-shares; exactly one root port per non-root switch forwards toward the root.",
+    "hi": "Classic STP kabhi load-share nahi karta; har non-root switch par exactly ek root port root ki taraf forward karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-040",
+  "domain": 2,
+  "lesson": "stp",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which two statements about STP bridge IDs and timers are accurate? (Choose two.)",
+   "hi": "STP bridge IDs aur timers ke baare mein kaunse do statements sahi hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "The bridge ID is priority + MAC; with PVST+ the extended system ID embeds the VLAN number into the priority field, which is why VLAN 1 displays 32769. Default timers: hello 2 s, forward delay 15 s, max age 20 s. The LOWEST bridge ID wins the root election.",
+   "hi": "Bridge ID priority + MAC hai; PVST+ mein extended system ID VLAN number ko priority field mein embed karta hai, isi wajah se VLAN 1 32769 dikhata hai. Default timers: hello 2 s, forward delay 15 s, max age 20 s. Root election SABSE KAM bridge ID jeet-ta hai."
+  },
+  "options": [
+   {
+    "en": "The default bridge priority is 32768",
+    "hi": "Default bridge priority 32768 hai"
+   },
+   {
+    "en": "The bridge ID combines the priority (plus the VLAN ID with PVST+) and the switch MAC address",
+    "hi": "Bridge ID priority (PVST+ ke saath plus VLAN ID) aur switch MAC address ko combine karta hai"
+   },
+   {
+    "en": "The root bridge is the switch with the highest bridge ID",
+    "hi": "Root bridge woh switch hai jiska bridge ID sabse zyada ho"
+   },
+   {
+    "en": "Hello BPDUs are sent every 10 seconds by default",
+    "hi": "Hello BPDUs default mein har 10 seconds mein bheje jaate hain"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Lowest bridge ID wins, not highest.",
+    "hi": "Sabse kam bridge ID jeet-ta hai, sabse zyada nahi."
+   },
+   {
+    "en": "The default hello time is 2 seconds.",
+    "hi": "Default hello time 2 seconds hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-041",
+  "domain": 2,
+  "lesson": "stp",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "In which classic 802.1D port state does a switch add source MAC addresses to its table but still refuse to forward user frames?",
+   "hi": "Classic 802.1D ki kis port state mein switch source MAC addresses apni table mein add karta hai lekin user frames forward karne se phir bhi mana karta hai?"
+  },
+  "explanation": {
+   "en": "The 802.1D progression is blocking, listening, learning, forwarding. Learning is the state where the switch starts populating its MAC table (so it will not have to flood everything the moment it forwards) while still discarding user data frames.",
+   "hi": "802.1D ka sequence hai blocking, listening, learning, forwarding. Learning woh state hai jahan switch apni MAC table bharna shuru karta hai (taaki forward karte hi use sab kuch flood na karna pade) jabki user data frames abhi bhi discard karta hai."
+  },
+  "options": [
+   {
+    "en": "Blocking",
+    "hi": "Blocking"
+   },
+   {
+    "en": "Listening",
+    "hi": "Listening"
+   },
+   {
+    "en": "Learning",
+    "hi": "Learning"
+   },
+   {
+    "en": "Forwarding",
+    "hi": "Forwarding"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "Blocking ports only receive BPDUs — no MAC learning, no forwarding.",
+    "hi": "Blocking ports sirf BPDUs receive karte hain — na MAC learning, na forwarding."
+   },
+   {
+    "en": "Listening ports send and receive BPDUs but do not learn MACs yet.",
+    "hi": "Listening ports BPDUs bhejte aur receive karte hain lekin abhi MACs nahi seekhte."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Forwarding ports both learn MACs and forward user traffic.",
+    "hi": "Forwarding ports MACs seekhte bhi hain aur user traffic forward bhi karte hain."
+   }
+  ]
+ },
+ {
+  "id": "d2-042",
+  "domain": 2,
+  "lesson": "stp",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "With default 802.1D timers, how long does a port that has just been unblocked take to reach the forwarding state, and why?",
+   "hi": "Default 802.1D timers ke saath, abhi-abhi unblock hue port ko forwarding state tak pahunchne mein kitna time lagta hai, aur kyun?"
+  },
+  "explanation": {
+   "en": "The forward delay (default 15 s) is applied twice: once for listening and once for learning, giving 30 seconds before user traffic flows. If the switch must first age out old information, max age (20 s) can precede that, making worst-case classic convergence up to 50 seconds — the delay Rapid PVST+ eliminates.",
+   "hi": "Forward delay (default 15 s) do baar lagta hai: ek baar listening ke liye aur ek baar learning ke liye, yaani user traffic chalne se pehle 30 seconds. Agar switch ko pehle purani information age out karni pade, toh usse pehle max age (20 s) bhi lag sakta hai, jisse worst-case classic convergence 50 seconds tak ho jaata hai — yahi delay Rapid PVST+ khatam karta hai."
+  },
+  "options": [
+   {
+    "en": "30 seconds — 15 seconds in listening plus 15 seconds in learning (one forward delay each)",
+    "hi": "30 seconds — 15 seconds listening mein plus 15 seconds learning mein (har ek mein ek forward delay)"
+   },
+   {
+    "en": "20 seconds — one max age timer",
+    "hi": "20 seconds — ek max age timer"
+   },
+   {
+    "en": "15 seconds — a single forward delay covers both transitional states",
+    "hi": "15 seconds — ek single forward delay dono transitional states cover karta hai"
+   },
+   {
+    "en": "2 seconds — one hello interval",
+    "hi": "2 seconds — ek hello interval"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Max age (20 s) is how long stored BPDU info is kept without refresh; it is not the listening/learning time.",
+    "hi": "Max age (20 s) woh time hai jitni der stored BPDU info bina refresh ke rakhi jaati hai; yeh listening/learning time nahi hai."
+   },
+   {
+    "en": "Forward delay applies per state — 15 seconds each for listening AND learning.",
+    "hi": "Forward delay har state par lagta hai — listening AUR learning dono ke liye 15-15 seconds."
+   },
+   {
+    "en": "The 2-second hello is the BPDU transmission interval, not a state-transition timer.",
+    "hi": "2-second hello BPDU transmission interval hai, state-transition timer nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-043",
+  "domain": 2,
+  "lesson": "stp",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Examine this output:\n\nSW3# show spanning-tree vlan 10\nVLAN0010\n  Spanning tree enabled protocol ieee\n  Root ID    Priority    24586\n             Address     0019.e86a.6f80\n             Cost        19\n             Port        1 (FastEthernet0/1)\n             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec\n\n  Bridge ID  Priority    32778  (priority 32768 sys-id-ext 10)\n             Address     001b.0c68.2a00\n\nInterface           Role Sts Cost      Prio.Nbr Type\n------------------- ---- --- --------- -------- ------\nFa0/1               Root FWD 19        128.1    P2p\nFa0/2               Altn BLK 19        128.2    P2p\n\nWhich conclusion is correct?",
+   "hi": "Yeh output dekho:\n\nSW3# show spanning-tree vlan 10\nVLAN0010\n  Spanning tree enabled protocol ieee\n  Root ID    Priority    24586\n             Address     0019.e86a.6f80\n             Cost        19\n             Port        1 (FastEthernet0/1)\n             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec\n\n  Bridge ID  Priority    32778  (priority 32768 sys-id-ext 10)\n             Address     001b.0c68.2a00\n\nInterface           Role Sts Cost      Prio.Nbr Type\n------------------- ---- --- --------- -------- ------\nFa0/1               Root FWD 19        128.1    P2p\nFa0/2               Altn BLK 19        128.2    P2p\n\nKaunsa conclusion sahi hai?"
+  },
+  "explanation": {
+   "en": "The Root ID address (0019.e86a.6f80) differs from SW3's own Bridge ID address (001b.0c68.2a00), so SW3 is not root. The Root ID block names Fa0/1 as the port toward the root at cost 19, matching the Role column (Root, FWD). Fa0/2 is an alternate path held in blocking. When a switch IS the root, the output states 'This bridge is the root'.",
+   "hi": "Root ID address (0019.e86a.6f80) SW3 ke apne Bridge ID address (001b.0c68.2a00) se alag hai, isliye SW3 root nahi hai. Root ID block Fa0/1 ko cost 19 par root ki taraf wala port batata hai, jo Role column (Root, FWD) se match karta hai. Fa0/2 ek alternate path hai jo blocking mein rakha gaya hai. Jab koi switch root HOTA hai, toh output mein 'This bridge is the root' likha aata hai."
+  },
+  "options": [
+   {
+    "en": "SW3 is not the root for VLAN 10; Fa0/1 is its root port with a path cost of 19",
+    "hi": "SW3 VLAN 10 ka root nahi hai; Fa0/1 uska root port hai jiski path cost 19 hai"
+   },
+   {
+    "en": "SW3 is the root bridge because the output shows a Root ID",
+    "hi": "SW3 root bridge hai kyunki output mein Root ID dikh raha hai"
+   },
+   {
+    "en": "Fa0/2 is the root port because it is in the blocking state",
+    "hi": "Fa0/2 root port hai kyunki woh blocking state mein hai"
+   },
+   {
+    "en": "The root bridge is using priority 32778",
+    "hi": "Root bridge priority 32778 use kar raha hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Every switch displays the Root ID it believes in; being root is shown by matching addresses plus the 'This bridge is the root' line.",
+    "hi": "Har switch woh Root ID dikhata hai jise woh maanta hai; root hona matching addresses plus 'This bridge is the root' line se pata chalta hai."
+   },
+   {
+    "en": "The root port is the FORWARDING port with the best path to root — Fa0/1. Blocked Fa0/2 is the alternate.",
+    "hi": "Root port woh FORWARDING port hai jiska root tak best path ho — Fa0/1. Blocked Fa0/2 alternate hai."
+   },
+   {
+    "en": "32778 is SW3's own priority; the root's priority is 24586 (24576 + VLAN 10).",
+    "hi": "32778 SW3 ki apni priority hai; root ki priority 24586 (24576 + VLAN 10) hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-044",
+  "domain": 2,
+  "lesson": "stp",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "show spanning-tree vlan 20 on a switch displays Bridge ID priority 32788, yet no spanning-tree priority command has ever been entered. What explains this value?",
+   "hi": "Ek switch par show spanning-tree vlan 20 Bridge ID priority 32788 dikhata hai, jabki kabhi koi spanning-tree priority command enter nahi kiya gaya. Is value ki wajah kya hai?"
+  },
+  "explanation": {
+   "en": "PVST+ uses the extended system ID: the 12 low-order bits of the priority field carry the VLAN number, so the displayed priority is configured priority + VLAN ID. 32768 + 20 = 32788. This is also why configurable priorities must be multiples of 4096 — only the top 4 bits are settable.",
+   "hi": "PVST+ extended system ID use karta hai: priority field ke 12 low-order bits mein VLAN number hota hai, isliye displayed priority = configured priority + VLAN ID. 32768 + 20 = 32788. Isi wajah se configurable priorities 4096 ke multiples hone chahiye — sirf upar ke 4 bits set kiye ja sakte hain."
+  },
+  "options": [
+   {
+    "en": "The displayed priority is the default 32768 plus the extended system ID, which equals the VLAN number (20)",
+    "hi": "Displayed priority default 32768 plus extended system ID hai, jo VLAN number (20) ke barabar hai"
+   },
+   {
+    "en": "An administrator previously set the priority to 32788",
+    "hi": "Kisi administrator ne pehle priority 32788 set ki thi"
+   },
+   {
+    "en": "BPDU guard adds 20 to the priority when it is enabled",
+    "hi": "BPDU guard enable hone par priority mein 20 jod deta hai"
+   },
+   {
+    "en": "The switch increments the priority by 20 after twenty topology changes",
+    "hi": "Bees topology changes ke baad switch priority 20 se badha deta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "32788 is not even configurable — priority must be a multiple of 4096 (0, 4096, 8192, ...).",
+    "hi": "32788 configure hi nahi ho sakta — priority 4096 ka multiple honi chahiye (0, 4096, 8192, ...)."
+   },
+   {
+    "en": "BPDU guard err-disables ports that receive BPDUs; it never modifies the bridge priority.",
+    "hi": "BPDU guard BPDUs receive karne wale ports ko err-disable karta hai; yeh kabhi bridge priority nahi badalta."
+   },
+   {
+    "en": "Topology change counters are tracked separately and never alter the bridge ID.",
+    "hi": "Topology change counters alag track hote hain aur kabhi bridge ID nahi badalte."
+   }
+  ]
+ },
+ {
+  "id": "d2-045",
+  "domain": 2,
+  "lesson": "stp",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each classic 802.1D port state to its behavior.",
+   "hi": "Har classic 802.1D port state ko uske behavior se match karo."
+  },
+  "explanation": {
+   "en": "The 802.1D sequence is blocking, listening (15 s), learning (15 s), forwarding. RSTP simplifies this to discarding, learning, and forwarding — blocking, listening, and disabled all collapse into discarding.",
+   "hi": "802.1D sequence hai blocking, listening (15 s), learning (15 s), forwarding. RSTP ise simple karke discarding, learning aur forwarding bana deta hai — blocking, listening aur disabled sab discarding mein mil jaate hain."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Blocking",
+     "hi": "Blocking"
+    },
+    "right": {
+     "en": "Receives BPDUs only; no MAC learning, no forwarding",
+     "hi": "Sirf BPDUs receive karta hai; na MAC learning, na forwarding"
+    }
+   },
+   {
+    "left": {
+     "en": "Listening",
+     "hi": "Listening"
+    },
+    "right": {
+     "en": "Sends and receives BPDUs but does not learn MACs yet",
+     "hi": "BPDUs bhejta aur receive karta hai lekin abhi MACs nahi seekhta"
+    }
+   },
+   {
+    "left": {
+     "en": "Learning",
+     "hi": "Learning"
+    },
+    "right": {
+     "en": "Populates the MAC table but still discards user frames",
+     "hi": "MAC table bharta hai lekin user frames abhi bhi discard karta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Forwarding",
+     "hi": "Forwarding"
+    },
+    "right": {
+     "en": "Forwards user traffic and learns MAC addresses",
+     "hi": "User traffic forward karta hai aur MAC addresses seekhta hai"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d2-046",
+  "domain": 2,
+  "lesson": "rapid-pvst",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "What does spanning-tree portfast do when enabled on an access port?",
+   "hi": "Access port par enable karne par spanning-tree portfast kya karta hai?"
+  },
+  "explanation": {
+   "en": "PortFast lets an edge port begin forwarding immediately, so hosts get link (and DHCP) without the 30-second wait. It belongs ONLY on ports facing end devices — a switch attached to a PortFast port could create a temporary loop, which is why PortFast is normally paired with BPDU guard.",
+   "hi": "PortFast edge port ko turant forwarding shuru karne deta hai, taaki hosts ko bina 30-second wait ke link (aur DHCP) mil jaaye. Yeh SIRF end devices ki taraf wale ports par lagna chahiye — PortFast port se juda switch temporary loop bana sakta hai, isi wajah se PortFast ko aam taur par BPDU guard ke saath lagaya jaata hai."
+  },
+  "options": [
+   {
+    "en": "The port skips the listening and learning states and moves straight to forwarding when it comes up",
+    "hi": "Port up hone par listening aur learning states skip karke seedha forwarding mein chala jaata hai"
+   },
+   {
+    "en": "The port drops every BPDU it receives",
+    "hi": "Port har receive hua BPDU drop kar deta hai"
+   },
+   {
+    "en": "The port automatically becomes the designated port for its segment",
+    "hi": "Port automatically apne segment ka designated port ban jaata hai"
+   },
+   {
+    "en": "The port doubles its BPDU hello rate",
+    "hi": "Port apna BPDU hello rate dugna kar deta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "PortFast still processes BPDUs; ignoring them is BPDU filter's behavior (and it is risky).",
+    "hi": "PortFast phir bhi BPDUs process karta hai; unhe ignore karna BPDU filter ka behavior hai (aur woh risky hai)."
+   },
+   {
+    "en": "Port roles are still decided by normal STP rules; PortFast only accelerates the state transition.",
+    "hi": "Port roles ab bhi normal STP rules se decide hote hain; PortFast sirf state transition fast karta hai."
+   },
+   {
+    "en": "The hello timer is a bridge-wide setting; PortFast does not change BPDU rates.",
+    "hi": "Hello timer bridge-wide setting hai; PortFast BPDU rates nahi badalta."
+   }
+  ]
+ },
+ {
+  "id": "d2-047",
+  "domain": 2,
+  "lesson": "rapid-pvst",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "An access port has PortFast and BPDU guard enabled. A technician plugs a small switch into the port, and that switch sends a BPDU. What happens?",
+   "hi": "Ek access port par PortFast aur BPDU guard enabled hain. Ek technician us port mein chhota switch laga deta hai, aur woh switch ek BPDU bhejta hai. Kya hota hai?"
+  },
+  "explanation": {
+   "en": "BPDU guard enforces the assumption that an edge port never hears BPDUs. The moment one arrives, the port goes err-disabled, protecting the STP topology from rogue or accidental switches. Recovery requires shutdown / no shutdown (or errdisable recovery).",
+   "hi": "BPDU guard is assumption ko enforce karta hai ki edge port par kabhi BPDUs nahi aate. Jaise hi ek aata hai, port err-disabled ho jaata hai, jisse STP topology rogue ya galti se lage switches se bachi rehti hai. Recovery ke liye shutdown / no shutdown (ya errdisable recovery) chahiye."
+  },
+  "options": [
+   {
+    "en": "The port is placed into the err-disabled state immediately",
+    "hi": "Port turant err-disabled state mein chala jaata hai"
+   },
+   {
+    "en": "The BPDU is silently ignored and the port stays up",
+    "hi": "BPDU chupchaap ignore ho jaata hai aur port up rehta hai"
+   },
+   {
+    "en": "The port reverts to a normal STP port and starts the listening state",
+    "hi": "Port normal STP port ban jaata hai aur listening state shuru karta hai"
+   },
+   {
+    "en": "The two switches negotiate a trunk",
+    "hi": "Dono switches trunk negotiate karte hain"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Silently ignoring BPDUs describes BPDU filter — a different (and more dangerous) feature.",
+    "hi": "BPDUs ko chupchaap ignore karna BPDU filter hai — ek alag (aur zyada khatarnak) feature."
+   },
+   {
+    "en": "Reverting to normal STP on receipt of a BPDU is plain PortFast behavior WITHOUT BPDU guard.",
+    "hi": "BPDU aane par normal STP par wapas jaana BPDU guard ke BINA plain PortFast ka behavior hai."
+   },
+   {
+    "en": "DTP negotiates trunks; BPDU guard acts long before any trunk negotiation matters.",
+    "hi": "DTP trunks negotiate karta hai; BPDU guard kisi bhi trunk negotiation ke matter karne se bahut pehle act karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-048",
+  "domain": 2,
+  "lesson": "rapid-pvst",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "In RSTP, which port role describes a discarding port that offers an alternate path toward the root bridge and can rapidly take over if the root port fails?",
+   "hi": "RSTP mein kaunsa port role us discarding port ko describe karta hai jo root bridge ki taraf alternate path deta hai aur root port fail hone par turant uski jagah le sakta hai?"
+  },
+  "explanation": {
+   "en": "The alternate port is RSTP's pre-computed fallback for the root port: it stays discarding but can transition to root port almost instantly. This standby knowledge is a key reason RSTP converges so much faster than 802.1D.",
+   "hi": "Alternate port RSTP ka root port ke liye pehle se calculated fallback hai: yeh discarding rehta hai lekin lagbhag turant root port mein transition kar sakta hai. Yeh standby knowledge ek badi wajah hai ki RSTP 802.1D se itna jaldi converge karta hai."
+  },
+  "options": [
+   {
+    "en": "Alternate",
+    "hi": "Alternate"
+   },
+   {
+    "en": "Backup",
+    "hi": "Backup"
+   },
+   {
+    "en": "Designated",
+    "hi": "Designated"
+   },
+   {
+    "en": "Root",
+    "hi": "Root"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A backup port backs up a DESIGNATED port on the same shared segment (two ports of one switch on a hub) — a rare case.",
+    "hi": "Backup port usi shared segment par ek DESIGNATED port ka backup hota hai (hub par ek switch ke do ports) — rare case."
+   },
+   {
+    "en": "Designated ports are forwarding ports — one per segment, closest to the root.",
+    "hi": "Designated ports forwarding ports hote hain — har segment par ek, root ke sabse paas wala."
+   },
+   {
+    "en": "The root port is the active forwarding path to the root, not the standby.",
+    "hi": "Root port root tak active forwarding path hai, standby nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-049",
+  "domain": 2,
+  "lesson": "rapid-pvst",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which three statements about RSTP and Rapid PVST+ are true? (Choose three.)",
+   "hi": "RSTP aur Rapid PVST+ ke baare mein kaunse teen statements sahi hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "RSTP (802.1w) collapses blocking/listening/disabled into discarding, and Cisco's Rapid PVST+ runs one such instance per VLAN. Fast convergence comes from the proposal/agreement handshake between switches on full-duplex point-to-point links plus pre-computed alternate ports — not from timers.",
+   "hi": "RSTP (802.1w) blocking/listening/disabled ko discarding mein mila deta hai, aur Cisco ka Rapid PVST+ har VLAN ke liye ek aisa instance chalata hai. Fast convergence full-duplex point-to-point links par switches ke beech proposal/agreement handshake aur pehle se calculated alternate ports se aata hai — timers se nahi."
+  },
+  "options": [
+   {
+    "en": "RSTP reduces the port states to discarding, learning, and forwarding",
+    "hi": "RSTP port states ko discarding, learning aur forwarding tak kam kar deta hai"
+   },
+   {
+    "en": "Rapid PVST+ runs a separate RSTP instance for every VLAN",
+    "hi": "Rapid PVST+ har VLAN ke liye alag RSTP instance chalata hai"
+   },
+   {
+    "en": "RSTP converges quickly using a proposal/agreement handshake on point-to-point links",
+    "hi": "RSTP point-to-point links par proposal/agreement handshake use karke jaldi converge karta hai"
+   },
+   {
+    "en": "RSTP requires PortFast on trunk links to converge quickly",
+    "hi": "RSTP ko jaldi converge karne ke liye trunk links par PortFast chahiye"
+   },
+   {
+    "en": "An RSTP backup port provides an alternate path to the root bridge",
+    "hi": "RSTP backup port root bridge tak alternate path deta hai"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The edge-port (PortFast) concept applies to host-facing ports; switch-to-switch links converge via the proposal/agreement mechanism.",
+    "hi": "Edge-port (PortFast) concept host-facing ports par apply hota hai; switch-to-switch links proposal/agreement mechanism se converge hote hain."
+   },
+   {
+    "en": "The path toward the root is the ALTERNATE port's job; a backup port protects a designated port on a shared segment.",
+    "hi": "Root ki taraf path ALTERNATE port ka kaam hai; backup port shared segment par designated port ko protect karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-050",
+  "domain": 2,
+  "lesson": "rapid-pvst",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "Type the global configuration command that switches the spanning-tree mode to Rapid PVST+.",
+   "hi": "Woh global configuration command type karo jo spanning-tree mode ko Rapid PVST+ par switch karta hai."
+  },
+  "explanation": {
+   "en": "spanning-tree mode rapid-pvst converts every VLAN instance to RSTP (802.1w) behavior. It interoperates with legacy 802.1D neighbors by falling back to classic timers on those ports, so it can be deployed gradually.",
+   "hi": "spanning-tree mode rapid-pvst har VLAN instance ko RSTP (802.1w) behavior mein convert karta hai. Yeh legacy 802.1D neighbors ke saath un ports par classic timers par fall back karke interoperate karta hai, isliye ise dheere-dheere deploy kiya ja sakta hai."
+  },
+  "commandAnswer": "spanning-tree mode rapid-pvst",
+  "accept": [
+   "span mode rapid-pvst",
+   "spanning-tree mo rapid-pvst",
+   "span tree mode rapid-pvst"
+  ]
+ },
+ {
+  "id": "d2-051",
+  "domain": 2,
+  "lesson": "wireless-architectures",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which wireless deployment model uses lightweight access points whose configuration, security policy, and RF management are centralized on a controller?",
+   "hi": "Kaunsa wireless deployment model lightweight access points use karta hai jinki configuration, security policy aur RF management ek controller par centralized hoti hai?"
+  },
+  "explanation": {
+   "en": "In the split-MAC model, lightweight APs handle real-time 802.11 functions while the WLC centralizes management, authentication, RF tuning, and roaming. Adding or reconfiguring hundreds of APs then happens in one place instead of box by box.",
+   "hi": "Split-MAC model mein lightweight APs real-time 802.11 functions handle karte hain jabki WLC management, authentication, RF tuning aur roaming ko centralize karta hai. Isse saikdon APs ko add ya reconfigure karna ek hi jagah se hota hai, har box par alag-alag nahi."
+  },
+  "options": [
+   {
+    "en": "Split-MAC architecture with a wireless LAN controller (WLC)",
+    "hi": "Wireless LAN controller (WLC) ke saath split-MAC architecture"
+   },
+   {
+    "en": "Autonomous AP architecture",
+    "hi": "Autonomous AP architecture"
+   },
+   {
+    "en": "Ad hoc (IBSS) networking",
+    "hi": "Ad hoc (IBSS) networking"
+   },
+   {
+    "en": "Workgroup bridge deployment",
+    "hi": "Workgroup bridge deployment"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Autonomous APs are self-contained and individually managed — the opposite of centralized control.",
+    "hi": "Autonomous APs self-contained hote hain aur alag-alag manage hote hain — centralized control ka ulta."
+   },
+   {
+    "en": "Ad hoc mode is client-to-client with no AP or controller at all.",
+    "hi": "Ad hoc mode client-to-client hai jismein na AP hota hai na controller."
+   },
+   {
+    "en": "A workgroup bridge connects wired-only devices to a WLAN; it is a client role, not an architecture.",
+    "hi": "Workgroup bridge wired-only devices ko WLAN se connect karta hai; yeh client role hai, architecture nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-052",
+  "domain": 2,
+  "lesson": "wireless-architectures",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which protocol and ports does a lightweight AP use to build its control and data tunnels to the WLC?",
+   "hi": "Lightweight AP WLC tak apne control aur data tunnels banane ke liye kaunsa protocol aur ports use karta hai?"
+  },
+  "explanation": {
+   "en": "CAPWAP builds two UDP tunnels from AP to WLC: control on UDP 5246 (DTLS-encrypted management and configuration) and data on UDP 5247 (client traffic, encryption optional). These ports must be permitted through any firewall between APs and the controller.",
+   "hi": "CAPWAP AP se WLC tak do UDP tunnels banata hai: control UDP 5246 par (DTLS-encrypted management aur configuration) aur data UDP 5247 par (client traffic, encryption optional). APs aur controller ke beech kisi bhi firewall par yeh ports permit hone chahiye."
+  },
+  "options": [
+   {
+    "en": "CAPWAP, using UDP 5246 for control and UDP 5247 for data",
+    "hi": "CAPWAP, control ke liye UDP 5246 aur data ke liye UDP 5247 use karke"
+   },
+   {
+    "en": "CAPWAP, using TCP 5246 and TCP 5247",
+    "hi": "CAPWAP, TCP 5246 aur TCP 5247 use karke"
+   },
+   {
+    "en": "GRE, using IP protocol 47",
+    "hi": "GRE, IP protocol 47 use karke"
+   },
+   {
+    "en": "LWAPP, using UDP 12222 and 12223",
+    "hi": "LWAPP, UDP 12222 aur 12223 use karke"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "CAPWAP runs over UDP, not TCP.",
+    "hi": "CAPWAP UDP par chalta hai, TCP par nahi."
+   },
+   {
+    "en": "GRE is a generic tunneling protocol; it is not what lightweight APs use to reach a WLC.",
+    "hi": "GRE ek generic tunneling protocol hai; lightweight APs WLC tak pahunchne ke liye ise use nahi karte."
+   },
+   {
+    "en": "LWAPP (which used 12222/12223) is the legacy predecessor that CAPWAP replaced.",
+    "hi": "LWAPP (jo 12222/12223 use karta tha) legacy predecessor hai jise CAPWAP ne replace kiya."
+   }
+  ]
+ },
+ {
+  "id": "d2-053",
+  "domain": 2,
+  "lesson": "wireless-architectures",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A branch-office AP must keep serving wireless clients and switch their traffic onto the local LAN even when the WAN link to the central WLC goes down. Which AP mode is appropriate?",
+   "hi": "Branch-office AP ko wireless clients serve karte rehna hai aur unka traffic local LAN par switch karte rehna hai, tab bhi jab central WLC tak WAN link down ho jaaye. Kaunsa AP mode sahi hai?"
+  },
+  "explanation": {
+   "en": "FlexConnect (formerly H-REAP) lets an AP switch client traffic locally at the branch and continue serving existing WLANs while the controller is unreachable. It is the standard design for small sites managed by a central WLC across a WAN.",
+   "hi": "FlexConnect (pehle H-REAP) AP ko branch par client traffic locally switch karne deta hai aur controller unreachable hone par bhi existing WLANs serve karte rehne deta hai. WAN ke across central WLC se manage hone wali chhoti sites ke liye yahi standard design hai."
+  },
+  "options": [
+   {
+    "en": "FlexConnect",
+    "hi": "FlexConnect"
+   },
+   {
+    "en": "Local",
+    "hi": "Local"
+   },
+   {
+    "en": "Monitor",
+    "hi": "Monitor"
+   },
+   {
+    "en": "Sniffer",
+    "hi": "Sniffer"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Local mode tunnels ALL client traffic to the WLC via CAPWAP — if the WAN fails, client service stops.",
+    "hi": "Local mode SAARA client traffic CAPWAP se WLC tak tunnel karta hai — WAN fail hone par client service ruk jaati hai."
+   },
+   {
+    "en": "Monitor mode is a dedicated sensor for rogue/IDS scanning and serves no clients.",
+    "hi": "Monitor mode rogue/IDS scanning ke liye dedicated sensor hai aur koi clients serve nahi karta."
+   },
+   {
+    "en": "Sniffer mode captures 802.11 frames for a protocol analyzer and serves no clients.",
+    "hi": "Sniffer mode protocol analyzer ke liye 802.11 frames capture karta hai aur koi clients serve nahi karta."
+   }
+  ]
+ },
+ {
+  "id": "d2-054",
+  "domain": 2,
+  "lesson": "wireless-architectures",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "In the split-MAC architecture, which three functions are handled by the WLC rather than the lightweight AP? (Choose three.)",
+   "hi": "Split-MAC architecture mein kaunse teen functions lightweight AP ki jagah WLC handle karta hai? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "The WLC owns non-real-time control functions: association/authentication, RF resource management (RRM), roaming coordination, and security/QoS policy. The AP keeps everything with hard real-time deadlines: beacons, probe responses, per-frame acknowledgments, and per-frame encryption.",
+   "hi": "WLC non-real-time control functions sambhalta hai: association/authentication, RF resource management (RRM), roaming coordination, aur security/QoS policy. AP woh sab rakhta hai jinki hard real-time deadlines hain: beacons, probe responses, per-frame acknowledgments aur per-frame encryption."
+  },
+  "options": [
+   {
+    "en": "Client association and authentication processing",
+    "hi": "Client association aur authentication processing"
+   },
+   {
+    "en": "Radio resource management, such as channel and power assignment",
+    "hi": "Radio resource management, jaise channel aur power assignment"
+   },
+   {
+    "en": "Security and QoS policy management",
+    "hi": "Security aur QoS policy management"
+   },
+   {
+    "en": "Transmitting beacons and probe responses",
+    "hi": "Beacons aur probe responses transmit karna"
+   },
+   {
+    "en": "Sending real-time acknowledgments for received 802.11 frames",
+    "hi": "Receive hue 802.11 frames ke liye real-time acknowledgments bhejna"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Beacons and probe responses have strict timing and are generated by the AP itself.",
+    "hi": "Beacons aur probe responses ki timing strict hoti hai aur inhe AP khud generate karta hai."
+   },
+   {
+    "en": "802.11 ACKs must be sent within microseconds — only the AP radio can do that.",
+    "hi": "802.11 ACKs microseconds ke andar bhejne padte hain — yeh sirf AP radio kar sakta hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-055",
+  "domain": 2,
+  "lesson": "wireless-architectures",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each lightweight AP mode to its function.",
+   "hi": "Har lightweight AP mode ko uske function se match karo."
+  },
+  "explanation": {
+   "en": "Local and FlexConnect serve clients (tunneled vs. locally switched). Monitor, sniffer, and rogue detector are dedicated non-client modes: monitor scans the air, sniffer feeds a packet analyzer such as Wireshark, and rogue detector works from the wired side with its radio disabled. Bridge mode (not listed) provides mesh/point-to-point links.",
+   "hi": "Local aur FlexConnect clients serve karte hain (tunneled vs. locally switched). Monitor, sniffer aur rogue detector dedicated non-client modes hain: monitor hawa ko scan karta hai, sniffer Wireshark jaise packet analyzer ko data deta hai, aur rogue detector radio disabled karke wired side se kaam karta hai. Bridge mode (list mein nahi) mesh/point-to-point links deta hai."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Local",
+     "hi": "Local"
+    },
+    "right": {
+     "en": "Default mode; serves clients and tunnels their traffic to the WLC",
+     "hi": "Default mode; clients serve karta hai aur unka traffic WLC tak tunnel karta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "FlexConnect",
+     "hi": "FlexConnect"
+    },
+    "right": {
+     "en": "Can switch client traffic locally if the WLC becomes unreachable",
+     "hi": "WLC unreachable hone par client traffic locally switch kar sakta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Sniffer",
+     "hi": "Sniffer"
+    },
+    "right": {
+     "en": "Captures 802.11 frames and forwards them to a protocol analyzer",
+     "hi": "802.11 frames capture karke protocol analyzer ko forward karta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Rogue detector",
+     "hi": "Rogue detector"
+    },
+    "right": {
+     "en": "Uses only its wired connection to match wired traffic against known rogue MACs",
+     "hi": "Sirf apna wired connection use karke wired traffic ko known rogue MACs se match karta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Monitor",
+     "hi": "Monitor"
+    },
+    "right": {
+     "en": "Radio-only sensor that scans channels for rogues and IDS events, serving no clients",
+     "hi": "Radio-only sensor jo rogues aur IDS events ke liye channels scan karta hai, koi clients serve nahi karta"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d2-056",
+  "domain": 2,
+  "lesson": "wlc-config",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "On a wireless LAN controller, which interface type is created to bind a WLAN's client traffic to a specific VLAN?",
+   "hi": "Wireless LAN controller par WLAN ke client traffic ko kisi specific VLAN se bind karne ke liye kaunsa interface type banaya jaata hai?"
+  },
+  "explanation": {
+   "en": "A dynamic interface on the WLC maps to one VLAN, and each WLAN is tied to a dynamic interface so client traffic lands in the right VLAN and subnet on the wired side. Think of it as the WLC's equivalent of an access VLAN assignment.",
+   "hi": "WLC par dynamic interface ek VLAN se map hota hai, aur har WLAN ek dynamic interface se juda hota hai taaki client traffic wired side par sahi VLAN aur subnet mein pahunche. Ise WLC ka access VLAN assignment wala version samjho."
+  },
+  "options": [
+   {
+    "en": "Dynamic interface",
+    "hi": "Dynamic interface"
+   },
+   {
+    "en": "Virtual interface",
+    "hi": "Virtual interface"
+   },
+   {
+    "en": "Service port interface",
+    "hi": "Service port interface"
+   },
+   {
+    "en": "Redundancy port",
+    "hi": "Redundancy port"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The virtual interface handles client-facing services like web-auth redirects, not VLAN mapping.",
+    "hi": "Virtual interface web-auth redirects jaise client-facing services handle karta hai, VLAN mapping nahi."
+   },
+   {
+    "en": "The service port is an out-of-band management port, separate from data traffic.",
+    "hi": "Service port ek out-of-band management port hai, data traffic se alag."
+   },
+   {
+    "en": "The redundancy port links two WLCs for high availability, not clients to VLANs.",
+    "hi": "Redundancy port high availability ke liye do WLCs ko jodta hai, clients ko VLANs se nahi."
+   }
+  ]
+ },
+ {
+  "id": "d2-057",
+  "domain": 2,
+  "lesson": "wlc-config",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which combination provides secure management access to a wireless LAN controller?",
+   "hi": "Kaunsa combination wireless LAN controller ka secure management access deta hai?"
+  },
+  "explanation": {
+   "en": "Management sessions should always be encrypted: HTTPS protects GUI logins and SSH protects the CLI. Best practice is to explicitly disable HTTP and Telnet on the WLC and restrict which networks may reach the management interface.",
+   "hi": "Management sessions hamesha encrypted hone chahiye: HTTPS GUI logins ko protect karta hai aur SSH CLI ko. Best practice hai WLC par HTTP aur Telnet ko explicitly disable karna aur restrict karna ki kaunse networks management interface tak pahunch sakte hain."
+  },
+  "options": [
+   {
+    "en": "HTTPS for the web GUI and SSH for the CLI",
+    "hi": "Web GUI ke liye HTTPS aur CLI ke liye SSH"
+   },
+   {
+    "en": "HTTP for the web GUI and Telnet for the CLI",
+    "hi": "Web GUI ke liye HTTP aur CLI ke liye Telnet"
+   },
+   {
+    "en": "SNMPv1 with a public read-write community",
+    "hi": "Public read-write community ke saath SNMPv1"
+   },
+   {
+    "en": "Opening the service port to the guest VLAN",
+    "hi": "Service port ko guest VLAN ke liye khol dena"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "HTTP and Telnet send credentials in cleartext and should be disabled.",
+    "hi": "HTTP aur Telnet credentials cleartext mein bhejte hain aur inhe disable kar dena chahiye."
+   },
+   {
+    "en": "SNMPv1 has no encryption and community-string-only security; SNMPv3 is the secure option.",
+    "hi": "SNMPv1 mein koi encryption nahi hai aur security sirf community string par hai; SNMPv3 secure option hai."
+   },
+   {
+    "en": "The service port is for out-of-band maintenance and must never be exposed to user or guest networks.",
+    "hi": "Service port out-of-band maintenance ke liye hai aur ise kabhi user ya guest networks ke saamne expose nahi karna chahiye."
+   }
+  ]
+ },
+ {
+  "id": "d2-058",
+  "domain": 2,
+  "lesson": "wlc-config",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A WLC is configured with the address 192.0.2.1 on an interface that is never routed on the network. Which interface is this, and what is it used for?",
+   "hi": "Ek WLC ek aise interface par 192.0.2.1 address ke saath configured hai jo network par kabhi route nahi hota. Yeh kaunsa interface hai, aur kis kaam aata hai?"
+  },
+  "explanation": {
+   "en": "The virtual interface uses a non-routable placeholder address (commonly 192.0.2.1 or historically 1.1.1.1) that the WLC presents to wireless clients for functions like the web-auth login redirect and as the relay point in client DHCP handling. It must be identical on all WLCs in a mobility group.",
+   "hi": "Virtual interface ek non-routable placeholder address use karta hai (aam taur par 192.0.2.1 ya pehle 1.1.1.1) jo WLC wireless clients ko web-auth login redirect jaise functions ke liye aur client DHCP handling mein relay point ki tarah dikhata hai. Mobility group ke saare WLCs par yeh identical hona chahiye."
+  },
+  "options": [
+   {
+    "en": "The virtual interface — it supports client-facing functions such as web authentication redirects and DHCP relay",
+    "hi": "Virtual interface — yeh web authentication redirects aur DHCP relay jaise client-facing functions support karta hai"
+   },
+   {
+    "en": "The management interface — it terminates CAPWAP tunnels from the APs",
+    "hi": "Management interface — yeh APs ke CAPWAP tunnels terminate karta hai"
+   },
+   {
+    "en": "A dynamic interface — it maps a WLAN to a VLAN",
+    "hi": "Dynamic interface — yeh WLAN ko VLAN se map karta hai"
+   },
+   {
+    "en": "The service port — it provides out-of-band access for maintenance",
+    "hi": "Service port — yeh maintenance ke liye out-of-band access deta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The management interface uses a real, routable address — APs must reach it to build CAPWAP tunnels.",
+    "hi": "Management interface real, routable address use karta hai — CAPWAP tunnels banane ke liye APs ko ispar pahunchna padta hai."
+   },
+   {
+    "en": "Dynamic interfaces carry client data onto VLANs and use routable subnet addresses.",
+    "hi": "Dynamic interfaces client data ko VLANs par le jaate hain aur routable subnet addresses use karte hain."
+   },
+   {
+    "en": "The service port has its own address on a dedicated out-of-band network.",
+    "hi": "Service port ka ek dedicated out-of-band network par apna address hota hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-059",
+  "domain": 2,
+  "lesson": "wlc-config",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which WLC QoS profile should be applied to a WLAN dedicated to voice traffic?",
+   "hi": "Voice traffic ke liye dedicated WLAN par kaunsa WLC QoS profile apply karna chahiye?"
+  },
+  "explanation": {
+   "en": "The WLC QoS profiles rank Platinum (voice), Gold (video), Silver (best effort — the default), and Bronze (background). Applying Platinum lets voice frames receive priority treatment over the air and appropriate markings toward the wired network.",
+   "hi": "WLC QoS profiles ki ranking hai Platinum (voice), Gold (video), Silver (best effort — default), aur Bronze (background). Platinum apply karne se voice frames ko hawa mein priority treatment milta hai aur wired network ki taraf sahi markings milti hain."
+  },
+  "options": [
+   {
+    "en": "Platinum",
+    "hi": "Platinum"
+   },
+   {
+    "en": "Gold",
+    "hi": "Gold"
+   },
+   {
+    "en": "Silver",
+    "hi": "Silver"
+   },
+   {
+    "en": "Bronze",
+    "hi": "Bronze"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Gold is intended for video traffic.",
+    "hi": "Gold video traffic ke liye hai."
+   },
+   {
+    "en": "Silver is the best-effort default — inadequate for latency-sensitive voice.",
+    "hi": "Silver best-effort default hai — latency-sensitive voice ke liye kaafi nahi."
+   },
+   {
+    "en": "Bronze is background priority, the lowest class, used for things like guest traffic.",
+    "hi": "Bronze background priority hai, sabse neeche wali class, jo guest traffic jaisi cheezon ke liye use hoti hai."
+   }
+  ]
+ },
+ {
+  "id": "d2-060",
+  "domain": 2,
+  "lesson": "wlc-config",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which three steps are part of creating a functional WLAN on a wireless LAN controller? (Choose three.)",
+   "hi": "Wireless LAN controller par functional WLAN banane ke kaunse teen steps hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "The WLC workflow: build the dynamic interface (VLAN mapping), define the WLAN (profile name, SSID, ID) and bind it to that interface, then set the security policy and enable it — a new WLAN is disabled by default. The WLC then pushes the WLAN to the APs automatically.",
+   "hi": "WLC workflow: dynamic interface banao (VLAN mapping), WLAN define karo (profile name, SSID, ID) aur use us interface se bind karo, phir security policy set karke use enable karo — naya WLAN default mein disabled hota hai. Iske baad WLC WLAN ko automatically APs tak push kar deta hai."
+  },
+  "options": [
+   {
+    "en": "Create or select a dynamic interface tied to the correct VLAN",
+    "hi": "Sahi VLAN se juda dynamic interface banao ya select karo"
+   },
+   {
+    "en": "Create the WLAN with a profile name, SSID, and ID, and map it to that interface",
+    "hi": "Profile name, SSID aur ID ke saath WLAN banao, aur use us interface se map karo"
+   },
+   {
+    "en": "Configure the security settings (for example WPA2/WPA3 PSK or 802.1X) and enable the WLAN",
+    "hi": "Security settings configure karo (jaise WPA2/WPA3 PSK ya 802.1X) aur WLAN enable karo"
+   },
+   {
+    "en": "Manually configure CAPWAP tunnel endpoints on each access point",
+    "hi": "Har access point par CAPWAP tunnel endpoints manually configure karo"
+   },
+   {
+    "en": "Assign a unique IP address to the SSID itself",
+    "hi": "SSID ko khud ek unique IP address assign karo"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "APs discover and join the WLC automatically (DHCP option 43, DNS, broadcast); CAPWAP tunnels are never configured per WLAN.",
+    "hi": "APs WLC ko automatically discover aur join karte hain (DHCP option 43, DNS, broadcast); CAPWAP tunnels kabhi per WLAN configure nahi hote."
+   },
+   {
+    "en": "SSIDs are names, not IP endpoints — clients get addresses from the VLAN's subnet via DHCP.",
+    "hi": "SSIDs naam hain, IP endpoints nahi — clients VLAN ke subnet se DHCP ke through addresses lete hain."
+   }
+  ]
+ }
+]

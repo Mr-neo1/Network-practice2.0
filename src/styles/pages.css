@@ -1,0 +1,570 @@
+/* ─── Generic page ───────────────────────────────────────────────────────── */
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 36px 24px 10px;
+}
+
+.page.narrow {
+  max-width: 680px;
+}
+
+.page-head {
+  margin-bottom: 26px;
+}
+
+.page-head h1,
+.page h1 {
+  font-size: clamp(28px, 3.4vw, 38px);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.page-head .lede {
+  max-width: 760px;
+}
+
+/* ─── Home ───────────────────────────────────────────────────────────────── */
+
+.home {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 48px 24px 10px;
+}
+
+.intro {
+  max-width: 790px;
+  margin-bottom: 44px;
+}
+
+.intro h1 {
+  font-size: clamp(32px, 4.6vw, 50px);
+  line-height: 1.12;
+  letter-spacing: -0.028em;
+  margin: 10px 0 18px;
+}
+
+.intro .lede {
+  font-size: 18.5px;
+  line-height: 1.65;
+  max-width: 720px;
+}
+
+.intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 26px 0 30px;
+}
+
+.intro-actions .btn {
+  min-height: 46px;
+  font-size: 15.5px;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+  margin: 0;
+}
+
+.facts dt {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.facts dd {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+.overall {
+  margin-top: 28px;
+  max-width: 520px;
+}
+
+.overall-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--ink-2);
+}
+
+.how {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 56px;
+}
+
+.how > div {
+  background: var(--surface);
+  padding: 20px 20px 16px;
+}
+
+.how svg {
+  color: var(--accent);
+}
+
+.how h3 {
+  font-size: 16px;
+  margin: 10px 0 6px;
+}
+
+.how p {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+.path h2 {
+  font-size: 26px;
+  margin-bottom: 18px;
+}
+
+.module-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.module-card header {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) 170px;
+  gap: 18px;
+  padding: 20px 22px 16px;
+}
+
+.module-num {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.level-zero .module-num {
+  background: var(--t-green-soft);
+  color: var(--t-green);
+}
+
+.level-expert .module-num {
+  background: var(--t-purple-soft);
+  color: var(--t-purple);
+}
+
+.module-kicker {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+}
+
+.module-headings h3 {
+  font-size: 20px;
+  margin: 3px 0 6px;
+}
+
+.module-headings p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+
+.module-stats {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  font-size: 13.5px;
+  color: var(--ink-3);
+  text-align: right;
+}
+
+.module-stats .bar {
+  margin-top: 6px;
+}
+
+.module-lessons {
+  list-style: none;
+  margin: 0;
+  padding: 4px 12px 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 12px;
+  border-top: 1px solid var(--line);
+}
+
+.module-lessons a {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: baseline;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.module-lessons a:hover {
+  background: var(--surface-2);
+  color: var(--ink);
+}
+
+.ml-num {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+
+.module-lessons a.is-done .ml-num {
+  color: var(--ok);
+}
+
+.module-lessons a.is-done .ml-title {
+  color: var(--ink-2);
+}
+
+.ml-min {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+/* ─── Practice ───────────────────────────────────────────────────────────── */
+
+.setup {
+  display: grid;
+  gap: 22px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.setup-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+}
+
+.setup-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px 34px;
+  align-items: flex-end;
+}
+
+.setup-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  padding-bottom: 8px;
+}
+
+.setup-check input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--accent);
+}
+
+.setup-go {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.session-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.breakdown {
+  margin-top: 26px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.breakdown td {
+  border-bottom: 1px solid var(--line);
+}
+
+.breakdown .num {
+  font-family: var(--mono);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.breakdown .bar-cell {
+  width: 30%;
+  vertical-align: middle;
+}
+
+/* ─── Labs ───────────────────────────────────────────────────────────────── */
+
+.labs-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.lab-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 20px 22px;
+  min-width: 0;
+}
+
+.lab-card h2 {
+  font-size: 21px;
+  margin-bottom: 6px;
+}
+
+.lab-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.streak {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ok);
+}
+
+.drill-q {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 14px 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.drill-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 12px 14px;
+}
+
+.drill-fields label {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.drill-fields label.is-ok .text-input {
+  border-color: var(--ok);
+  background: var(--ok-soft);
+}
+
+.drill-fields label.is-bad .text-input {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+}
+
+.field-mark {
+  position: absolute;
+  right: 10px;
+  top: 33px;
+}
+
+.is-ok .field-mark {
+  color: var(--ok);
+}
+
+.is-bad .field-mark {
+  color: var(--bad);
+}
+
+.field-expected {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 12.5px;
+  color: var(--ok);
+}
+
+.drill-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.drill-actions .text-input {
+  width: 200px;
+}
+
+.working {
+  margin-top: 18px !important;
+  font-size: 15.5px;
+}
+
+.calc-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 10px;
+  margin: 16px 0 6px;
+}
+
+.calc-results > div {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 7px 12px;
+  background: var(--bg);
+}
+
+.calc-results dt {
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+
+.calc-results dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 14.5px;
+}
+
+.calc-bits {
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+}
+
+.pt-list details {
+  border-bottom: 1px solid var(--line);
+  padding: 10px 2px;
+}
+
+.pt-list summary {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.pt-list ol {
+  margin-top: 12px !important;
+}
+
+/* ─── Reference ──────────────────────────────────────────────────────────── */
+
+.ref-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.ref-bar .text-input {
+  max-width: 320px;
+}
+
+.ref-table td:last-child {
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.lesson-links {
+  white-space: nowrap;
+}
+
+.lesson-links a + a {
+  margin-left: 8px;
+}
+
+.glossary > div {
+  grid-template-columns: minmax(150px, 240px) 1fr;
+}
+
+.term-link {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 4px;
+  text-decoration: none;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .how {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .module-card header {
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+  .module-stats {
+    grid-column: 2;
+    text-align: left;
+    max-width: 240px;
+  }
+  .module-lessons {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .home {
+    padding: 30px 16px 10px;
+  }
+  .page {
+    padding: 26px 16px 10px;
+  }
+  .intro .lede {
+    font-size: 17px;
+  }
+  .how {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .module-card header {
+    padding: 16px;
+    gap: 12px;
+  }
+  .module-lessons {
+    padding: 4px 6px 8px;
+  }
+  .drill-q {
+    font-size: 22px;
+  }
+  .lab-card {
+    padding: 16px;
+  }
+  .setup {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- Dev helper for scripts/shot.mjs: shows the app inside an iframe of an exact width,
+     because headless Chrome will not make its window narrower than ~500px. -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body { margin: 0; background: #777; }
+      iframe { display: block; border: 0; background: #fff; }
+    </style>
+  </head>
+  <body>
+    <iframe id="f"></iframe>
+    <script>
+      const q = new URLSearchParams(location.search);
+      const f = document.getElementById("f");
+      f.style.width = (q.get("w") || 390) + "px";
+      f.style.height = (q.get("h") || 2400) + "px";
+      f.src = "/?prefs=" + encodeURIComponent(q.get("prefs") || "{}") + "#" + (q.get("route") || "/");
+      // ?debug=1: list elements that stick out past the frame's right edge (read with --dump-dom).
+      if (q.get("debug")) {
+        f.addEventListener("load", () =>
+          setTimeout(() => {
+            const d = f.contentDocument, w = f.clientWidth, out = [];
+            for (const el of d.querySelectorAll("body *")) {
+              const r = el.getBoundingClientRect();
+              if (r.width > 0 && r.right > w + 1) out.push(`${Math.round(r.right)} w=${Math.round(r.width)} ${el.tagName.toLowerCase()}.${String(el.className).replace(/\s+/g, ".")}`);
+            }
+            const pre = document.createElement("pre");
+            pre.id = "debug";
+            pre.textContent = `docWidth=${d.documentElement.scrollWidth}\n` + out.slice(0, 60).join("\n");
+            document.body.appendChild(pre);
+          }, 2500),
+        );
+      }
+    </script>
+  </body>
+</html>

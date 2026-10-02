@@ -1,0 +1,3171 @@
+[
+ {
+  "id": "d1-001",
+  "domain": 1,
+  "lesson": "osi-model",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which OSI layer provides reliable end-to-end data delivery using sequence numbers and acknowledgments?",
+   "hi": "Kaunsi OSI layer sequence numbers aur acknowledgments use karke reliable end-to-end data delivery deti hai?"
+  },
+  "explanation": {
+   "en": "The transport layer (Layer 4) is where TCP operates. It numbers segments, acknowledges what arrives, retransmits what is lost, and controls the sending rate — all of which add up to reliable end-to-end delivery between application processes.",
+   "hi": "Transport layer (Layer 4) woh jagah hai jahan TCP kaam karta hai. Yeh segments ko number karta hai, jo pahunchta hai uska acknowledgment bhejta hai, jo lost ho jaaye use retransmit karta hai, aur sending rate control karta hai — yeh sab milkar application processes ke beech reliable end-to-end delivery dete hain."
+  },
+  "options": [
+   {
+    "en": "Network",
+    "hi": "Network"
+   },
+   {
+    "en": "Transport",
+    "hi": "Transport"
+   },
+   {
+    "en": "Session",
+    "hi": "Session"
+   },
+   {
+    "en": "Data link",
+    "hi": "Data link"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "The network layer (Layer 3) provides logical addressing and best-path selection; IP itself is best-effort and offers no delivery guarantee.",
+    "hi": "Network layer (Layer 3) logical addressing aur best-path selection deti hai; IP khud best-effort hai aur delivery ki koi guarantee nahi deta."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The session layer manages dialogs between applications; it does not sequence or acknowledge data.",
+    "hi": "Session layer applications ke beech dialogs manage karti hai; yeh data ko sequence ya acknowledge nahi karti."
+   },
+   {
+    "en": "The data link layer moves frames hop by hop on a single link and only detects errors with the FCS — it does not provide end-to-end reliability.",
+    "hi": "Data link layer ek single link par frames ko hop by hop le jaati hai aur sirf FCS se errors detect karti hai — yeh end-to-end reliability nahi deti."
+   }
+  ]
+ },
+ {
+  "id": "d1-002",
+  "domain": 1,
+  "lesson": "osi-model",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which OSI layers are combined into the single application layer of the TCP/IP model?",
+   "hi": "TCP/IP model ki single application layer mein kaunsi OSI layers combine ki gayi hain?"
+  },
+  "explanation": {
+   "en": "The TCP/IP model collapses OSI Layers 5, 6, and 7 (session, presentation, application) into one application layer. Protocols like HTTP handle their own session management and data formatting, so separate layers were unnecessary.",
+   "hi": "TCP/IP model OSI ki Layers 5, 6 aur 7 (session, presentation, application) ko ek hi application layer mein mila deta hai. HTTP jaise protocols apna session management aur data formatting khud handle karte hain, isliye alag layers ki zaroorat nahi thi."
+  },
+  "options": [
+   {
+    "en": "Application, presentation, and session",
+    "hi": "Application, presentation aur session"
+   },
+   {
+    "en": "Application and presentation only",
+    "hi": "Sirf application aur presentation"
+   },
+   {
+    "en": "Application only",
+    "hi": "Sirf application"
+   },
+   {
+    "en": "Session, transport, and application",
+    "hi": "Session, transport aur application"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The session layer (Layer 5) is also absorbed into the TCP/IP application layer, not just presentation.",
+    "hi": "Session layer (Layer 5) bhi TCP/IP application layer mein absorb ho jaati hai, sirf presentation nahi."
+   },
+   {
+    "en": "The TCP/IP application layer covers OSI Layers 5 through 7, not only Layer 7.",
+    "hi": "TCP/IP application layer OSI ki Layers 5 se 7 tak cover karti hai, sirf Layer 7 nahi."
+   },
+   {
+    "en": "Transport remains its own layer in the TCP/IP model; it is never merged into the application layer.",
+    "hi": "TCP/IP model mein transport apni alag layer hi rehti hai; yeh kabhi application layer mein merge nahi hoti."
+   }
+  ]
+ },
+ {
+  "id": "d1-003",
+  "domain": 1,
+  "lesson": "osi-model",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "PC1 sends a packet to a server that is three router hops away. Which statement describes the addresses as the packet travels?",
+   "hi": "PC1 ek server ko packet bhejta hai jo teen router hops door hai. Packet ke travel karte waqt addresses ke baare mein kaunsa statement sahi hai?"
+  },
+  "explanation": {
+   "en": "Each router strips the incoming frame, keeps the IP packet intact (only TTL and header checksum change), and builds a new frame using its own exit-interface MAC as source and the next hop's MAC as destination. Layer 3 addresses are end-to-end; Layer 2 addresses are per-link.",
+   "hi": "Har router aane wala frame hata deta hai, IP packet ko waisa hi rakhta hai (sirf TTL aur header checksum badalte hain), aur ek naya frame banata hai jismein source apne exit-interface ka MAC hota hai aur destination next hop ka MAC. Layer 3 addresses end-to-end hote hain; Layer 2 addresses har link ke liye alag hote hain."
+  },
+  "options": [
+   {
+    "en": "Source and destination IP addresses stay the same end to end, while source and destination MAC addresses are rewritten at every hop",
+    "hi": "Source aur destination IP addresses end to end same rehte hain, jabki source aur destination MAC addresses har hop par rewrite hote hain"
+   },
+   {
+    "en": "Source and destination MAC addresses stay the same end to end, while IP addresses are rewritten at every hop",
+    "hi": "Source aur destination MAC addresses end to end same rehte hain, jabki IP addresses har hop par rewrite hote hain"
+   },
+   {
+    "en": "Both the IP and MAC addresses are rewritten at every router hop",
+    "hi": "IP aur MAC dono addresses har router hop par rewrite hote hain"
+   },
+   {
+    "en": "All four addresses remain unchanged from PC1 to the server",
+    "hi": "Chaaron addresses PC1 se server tak bilkul nahi badalte"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "This is reversed: MAC addresses are the per-hop addresses and IP addresses persist end to end (barring NAT).",
+    "hi": "Yeh ulta hai: MAC addresses per-hop addresses hote hain aur IP addresses end to end bane rehte hain (NAT ko chhod kar)."
+   },
+   {
+    "en": "Routers rewrite the Layer 2 frame at each hop, but the source and destination IP addresses in the packet are preserved.",
+    "hi": "Routers har hop par Layer 2 frame rewrite karte hain, lekin packet ke source aur destination IP addresses preserve rehte hain."
+   },
+   {
+    "en": "The frame is discarded and rebuilt at every router, so the MAC addresses change on every link.",
+    "hi": "Har router par frame discard karke naya banaya jaata hai, isliye har link par MAC addresses badal jaate hain."
+   }
+  ]
+ },
+ {
+  "id": "d1-004",
+  "domain": 1,
+  "lesson": "osi-model",
+  "difficulty": "easy",
+  "type": "match",
+  "text": {
+   "en": "Match each OSI layer to the protocol data unit (PDU) created at that layer.",
+   "hi": "Har OSI layer ko us layer par banne wale protocol data unit (PDU) se match karo."
+  },
+  "explanation": {
+   "en": "Encapsulation top-down: data becomes a segment (Layer 4, TCP/UDP header), then a packet (Layer 3, IP header), then a frame (Layer 2, header plus FCS trailer), and finally bits on the wire (Layer 1). A common mnemonic is 'Some People Fear Birthdays' going down from Layer 4.",
+   "hi": "Encapsulation upar se neeche: data segment banta hai (Layer 4, TCP/UDP header), phir packet (Layer 3, IP header), phir frame (Layer 2, header plus FCS trailer), aur aakhir mein wire par bits (Layer 1). Layer 4 se neeche jaate hue yaad rakhne ka common mnemonic hai 'Some People Fear Birthdays'."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Transport",
+     "hi": "Transport"
+    },
+    "right": {
+     "en": "Segment",
+     "hi": "Segment"
+    }
+   },
+   {
+    "left": {
+     "en": "Network",
+     "hi": "Network"
+    },
+    "right": {
+     "en": "Packet",
+     "hi": "Packet"
+    }
+   },
+   {
+    "left": {
+     "en": "Data link",
+     "hi": "Data link"
+    },
+    "right": {
+     "en": "Frame",
+     "hi": "Frame"
+    }
+   },
+   {
+    "left": {
+     "en": "Physical",
+     "hi": "Physical"
+    },
+    "right": {
+     "en": "Bits",
+     "hi": "Bits"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d1-005",
+  "domain": 1,
+  "lesson": "network-devices",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "By default, which device separates a network into multiple broadcast domains?",
+   "hi": "Default mein kaunsa device network ko multiple broadcast domains mein baant-ta hai?"
+  },
+  "explanation": {
+   "en": "Routers do not forward Layer 2 broadcasts, so every router interface bounds a separate broadcast domain. Switches can also split broadcast domains, but only when VLANs are configured — not by default.",
+   "hi": "Routers Layer 2 broadcasts forward nahi karte, isliye har router interface ek alag broadcast domain ki boundary hota hai. Switches bhi broadcast domains baant sakte hain, lekin sirf tab jab VLANs configure kiye gaye hon — default mein nahi."
+  },
+  "options": [
+   {
+    "en": "Layer 2 switch",
+    "hi": "Layer 2 switch"
+   },
+   {
+    "en": "Hub",
+    "hi": "Hub"
+   },
+   {
+    "en": "Router",
+    "hi": "Router"
+   },
+   {
+    "en": "Wireless access point",
+    "hi": "Wireless access point"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "A Layer 2 switch separates collision domains per port, but floods broadcasts out every port in the same VLAN — one broadcast domain by default.",
+    "hi": "Layer 2 switch har port par collision domains alag karta hai, lekin broadcasts ko same VLAN ke har port par flood karta hai — default mein ek hi broadcast domain."
+   },
+   {
+    "en": "A hub is a multiport repeater: every attached device shares one collision domain and one broadcast domain.",
+    "hi": "Hub ek multiport repeater hai: saare connected devices ek hi collision domain aur ek hi broadcast domain share karte hain."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "An access point bridges wireless clients into the wired LAN's existing broadcast domain; it does not split it.",
+    "hi": "Access point wireless clients ko wired LAN ke existing broadcast domain mein bridge karta hai; yeh use baant-ta nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-006",
+  "domain": 1,
+  "lesson": "network-devices",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A campus network must route traffic between VLAN 10 and VLAN 20 locally, at wire speed, without sending it to an external router. Which device performs this role?",
+   "hi": "Ek campus network ko VLAN 10 aur VLAN 20 ke beech traffic locally, wire speed par route karna hai, bina use kisi external router par bheje. Yeh kaam kaunsa device karta hai?"
+  },
+  "explanation": {
+   "en": "A Layer 3 (multilayer) switch combines hardware-based switching with routing. Using SVIs or routed ports, it forwards packets between VLANs in ASIC hardware, which is exactly the inter-VLAN routing role at a distribution layer.",
+   "hi": "Layer 3 (multilayer) switch hardware-based switching aur routing dono ko combine karta hai. SVIs ya routed ports use karke yeh VLANs ke beech packets ko ASIC hardware mein forward karta hai, jo distribution layer par inter-VLAN routing ka exactly yahi role hai."
+  },
+  "options": [
+   {
+    "en": "Layer 2 switch",
+    "hi": "Layer 2 switch"
+   },
+   {
+    "en": "Layer 3 switch",
+    "hi": "Layer 3 switch"
+   },
+   {
+    "en": "Hub",
+    "hi": "Hub"
+   },
+   {
+    "en": "Wireless LAN controller",
+    "hi": "Wireless LAN controller"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "A Layer 2 switch forwards frames based on MAC addresses only within a VLAN; it cannot route between VLANs.",
+    "hi": "Layer 2 switch sirf ek VLAN ke andar MAC addresses ke basis par frames forward karta hai; yeh VLANs ke beech route nahi kar sakta."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A hub simply repeats electrical signals to every port; it has no concept of VLANs or IP routing.",
+    "hi": "Hub sirf electrical signals ko har port par repeat karta hai; ise VLANs ya IP routing ka koi concept nahi pata."
+   },
+   {
+    "en": "A WLC centrally manages lightweight access points and wireless policy; it is not the device used to route between wired campus VLANs.",
+    "hi": "WLC lightweight access points aur wireless policy ko centrally manage karta hai; yeh wired campus VLANs ke beech route karne wala device nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d1-007",
+  "domain": 1,
+  "lesson": "network-devices",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which two capabilities distinguish a next-generation firewall (NGFW) from a traditional stateful firewall? (Choose two.)",
+   "hi": "Kaunsi do capabilities next-generation firewall (NGFW) ko traditional stateful firewall se alag karti hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "NGFWs add application visibility (identifying and controlling applications regardless of port), integrated IPS, and often URL filtering and malware inspection on top of classic stateful filtering.",
+   "hi": "NGFWs classic stateful filtering ke upar application visibility (port chahe jo ho, applications ko identify aur control karna), integrated IPS, aur aksar URL filtering aur malware inspection bhi add karte hain."
+  },
+  "options": [
+   {
+    "en": "Application-layer (Layer 7) traffic inspection and control",
+    "hi": "Application-layer (Layer 7) traffic inspection aur control"
+   },
+   {
+    "en": "Integrated intrusion prevention (IPS)",
+    "hi": "Integrated intrusion prevention (IPS)"
+   },
+   {
+    "en": "Filtering based on source and destination IP addresses",
+    "hi": "Source aur destination IP addresses ke basis par filtering"
+   },
+   {
+    "en": "Tracking the state of TCP connections",
+    "hi": "TCP connections ki state track karna"
+   },
+   {
+    "en": "Forwarding frames based on a MAC address table",
+    "hi": "MAC address table ke basis par frames forward karna"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Even basic packet filters and stateful firewalls match on IP addresses and ports; this is not an NGFW differentiator.",
+    "hi": "Basic packet filters aur stateful firewalls bhi IP addresses aur ports par match karte hain; yeh NGFW ki khaasiyat nahi hai."
+   },
+   {
+    "en": "Connection-state tracking is the defining feature of a traditional stateful firewall — NGFWs inherit it rather than add it.",
+    "hi": "Connection-state tracking traditional stateful firewall ki defining feature hai — NGFWs ise inherit karte hain, add nahi karte."
+   },
+   {
+    "en": "MAC-table forwarding is a Layer 2 switch function, not a firewall capability.",
+    "hi": "MAC-table forwarding Layer 2 switch ka function hai, firewall ki capability nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-008",
+  "domain": 1,
+  "lesson": "network-devices",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "An engineer wants an IPS sensor to drop malicious packets before they ever reach the internal servers. How must the sensor be deployed?",
+   "hi": "Ek engineer chahta hai ki IPS sensor malicious packets ko internal servers tak pahunchne se pehle hi drop kar de. Sensor ko kaise deploy karna hoga?"
+  },
+  "explanation": {
+   "en": "To prevent (not just detect), the sensor must sit inline so every packet passes through it and can be dropped in real time. This is what makes it an intrusion prevention system rather than a detection system.",
+   "hi": "Sirf detect nahi, balki prevent karne ke liye sensor ko inline baithna hoga taaki har packet usmein se guzre aur real time mein drop ho sake. Yahi cheez use detection system ki jagah intrusion prevention system banati hai."
+  },
+  "options": [
+   {
+    "en": "Inline, directly in the traffic path between the untrusted network and the servers",
+    "hi": "Inline, untrusted network aur servers ke beech seedha traffic path mein"
+   },
+   {
+    "en": "In promiscuous mode, analyzing copies of traffic from a SPAN session",
+    "hi": "Promiscuous mode mein, SPAN session se aaye traffic ki copies analyze karte hue"
+   },
+   {
+    "en": "Connected only to the out-of-band management network",
+    "hi": "Sirf out-of-band management network se connected"
+   },
+   {
+    "en": "As a DNS forwarder for the internal clients",
+    "hi": "Internal clients ke liye DNS forwarder ki tarah"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Promiscuous (IDS) mode inspects copies of traffic after the original has already been forwarded, so it can alert but cannot stop the packets.",
+    "hi": "Promiscuous (IDS) mode traffic ki copies ko tab inspect karta hai jab original pehle hi forward ho chuka hota hai, isliye yeh alert kar sakta hai lekin packets ko rok nahi sakta."
+   },
+   {
+    "en": "A management network carries device administration traffic only; the sensor would never see the transit traffic it needs to block.",
+    "hi": "Management network sirf device administration traffic carry karta hai; sensor ko woh transit traffic kabhi dikhega hi nahi jise block karna hai."
+   },
+   {
+    "en": "A DNS forwarder influences name resolution only; it cannot inspect or drop general data-plane traffic.",
+    "hi": "DNS forwarder sirf name resolution ko affect karta hai; yeh general data-plane traffic ko inspect ya drop nahi kar sakta."
+   }
+  ]
+ },
+ {
+  "id": "d1-009",
+  "domain": 1,
+  "lesson": "lan-architectures",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "In a two-tier collapsed-core campus design, which two traditional layers are merged into a single layer?",
+   "hi": "Two-tier collapsed-core campus design mein kaunsi do traditional layers ek single layer mein merge hoti hain?"
+  },
+  "explanation": {
+   "en": "A collapsed-core design merges the core and distribution layers into one tier, leaving access as the second tier. It suits small and mid-size campuses where a separate dedicated core is not cost-justified.",
+   "hi": "Collapsed-core design core aur distribution layers ko ek tier mein mila deta hai, aur access doosra tier rehta hai. Yeh chhote aur mid-size campuses ke liye theek hai jahan alag dedicated core ka kharcha justify nahi hota."
+  },
+  "options": [
+   {
+    "en": "Access and distribution",
+    "hi": "Access aur distribution"
+   },
+   {
+    "en": "Core and distribution",
+    "hi": "Core aur distribution"
+   },
+   {
+    "en": "Core and access",
+    "hi": "Core aur access"
+   },
+   {
+    "en": "Access and WAN edge",
+    "hi": "Access aur WAN edge"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "The access layer stays separate — it is where endpoints physically connect and it remains its own tier.",
+    "hi": "Access layer alag hi rehti hai — yahi woh jagah hai jahan endpoints physically connect hote hain, aur yeh apna tier bani rehti hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Access remains a distinct tier; it is core and distribution that collapse together.",
+    "hi": "Access ek alag tier rehta hai; core aur distribution hi aapas mein collapse hote hain."
+   },
+   {
+    "en": "The WAN edge is a functional block, not one of the tiers merged in a collapsed-core design.",
+    "hi": "WAN edge ek functional block hai, collapsed-core design mein merge hone wale tiers mein se nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-010",
+  "domain": 1,
+  "lesson": "lan-architectures",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which statement is true of a data center spine-leaf topology?",
+   "hi": "Data center spine-leaf topology ke baare mein kaunsa statement sahi hai?"
+  },
+  "explanation": {
+   "en": "In a spine-leaf fabric, each leaf uplinks to all spines. Any server-to-server path is exactly leaf-spine-leaf, giving predictable latency and easy horizontal scaling — add spines for capacity, add leaves for ports.",
+   "hi": "Spine-leaf fabric mein har leaf saare spines se uplink karta hai. Koi bhi server-to-server path exactly leaf-spine-leaf hota hai, jisse latency predictable rehti hai aur horizontal scaling aasaan hoti hai — capacity ke liye spines add karo, ports ke liye leaves add karo."
+  },
+  "options": [
+   {
+    "en": "Every leaf switch connects to every spine switch",
+    "hi": "Har leaf switch har spine switch se connect hota hai"
+   },
+   {
+    "en": "Leaf switches connect directly to each other to carry east-west traffic",
+    "hi": "Leaf switches east-west traffic carry karne ke liye seedha ek doosre se connect hote hain"
+   },
+   {
+    "en": "Spine switches connect directly to each other to form the core",
+    "hi": "Spine switches core banane ke liye seedha ek doosre se connect hote hain"
+   },
+   {
+    "en": "Servers attach directly to the spine layer",
+    "hi": "Servers seedha spine layer se attach hote hain"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Leaves are not interconnected; east-west traffic between leaves always transits a spine.",
+    "hi": "Leaves aapas mein interconnected nahi hote; leaves ke beech east-west traffic hamesha ek spine se hokar jaata hai."
+   },
+   {
+    "en": "In the classic design spines do not connect to each other — they only connect down to leaves.",
+    "hi": "Classic design mein spines ek doosre se connect nahi hote — woh sirf neeche leaves se connect hote hain."
+   },
+   {
+    "en": "Endpoints (servers, firewalls, routers) attach to leaf switches; spines carry only leaf-to-leaf traffic.",
+    "hi": "Endpoints (servers, firewalls, routers) leaf switches se attach hote hain; spines sirf leaf-to-leaf traffic carry karte hain."
+   }
+  ]
+ },
+ {
+  "id": "d1-011",
+  "domain": 1,
+  "lesson": "lan-architectures",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which two are advantages of a full-mesh WAN topology? (Choose two.)",
+   "hi": "Full-mesh WAN topology ke kaunse do advantages hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "Full mesh gives maximum redundancy (alternate paths always exist) and optimal any-to-any forwarding with no hub bottleneck. The trade-off is cost: links grow as n(n-1)/2, which gets expensive fast.",
+   "hi": "Full mesh maximum redundancy deta hai (alternate paths hamesha maujood hote hain) aur bina hub bottleneck ke optimal any-to-any forwarding deta hai. Iski keemat hai cost: links n(n-1)/2 ke hisaab se badhte hain, jo jaldi mehenga ho jaata hai."
+  },
+  "options": [
+   {
+    "en": "Any single link failure still leaves every site able to reach every other site",
+    "hi": "Koi bhi ek link fail hone par bhi har site har doosri site tak pahunch sakti hai"
+   },
+   {
+    "en": "Traffic between two sites takes a direct path without transiting a hub site",
+    "hi": "Do sites ke beech traffic bina hub site se guzre direct path leta hai"
+   },
+   {
+    "en": "It requires the fewest possible links for a given number of sites",
+    "hi": "Diye gaye sites ke liye isse kam se kam links chahiye"
+   },
+   {
+    "en": "It is the least expensive topology to scale to many sites",
+    "hi": "Bahut saari sites tak scale karne ke liye yeh sabse sasti topology hai"
+   },
+   {
+    "en": "It removes the need for any routing protocol",
+    "hi": "Isse kisi bhi routing protocol ki zaroorat khatam ho jaati hai"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Hub-and-spoke uses the fewest links (n-1); full mesh uses the most.",
+    "hi": "Hub-and-spoke sabse kam links (n-1) use karta hai; full mesh sabse zyada."
+   },
+   {
+    "en": "Cost is full mesh's biggest weakness — every new site needs a link to every existing site.",
+    "hi": "Cost hi full mesh ki sabse badi kamzori hai — har nayi site ko har existing site se link chahiye."
+   },
+   {
+    "en": "Routing is still required to select paths and react to failures; the topology does not replace it.",
+    "hi": "Paths select karne aur failures par react karne ke liye routing ab bhi zaroori hai; topology iski jagah nahi le sakti."
+   }
+  ]
+ },
+ {
+  "id": "d1-012",
+  "domain": 1,
+  "lesson": "lan-architectures",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A company plans a full-mesh WAN among 6 sites. How many point-to-point links are required?",
+   "hi": "Ek company 6 sites ke beech full-mesh WAN plan kar rahi hai. Kitne point-to-point links chahiye?"
+  },
+  "explanation": {
+   "en": "A full mesh of n nodes needs n(n-1)/2 links: each of the 6 sites links to the other 5, and dividing by 2 avoids counting each link twice. 6 x 5 / 2 = 15.",
+   "hi": "n nodes ke full mesh ko n(n-1)/2 links chahiye: 6 mein se har site baaki 5 se link karti hai, aur 2 se divide karne se har link do baar count nahi hota. 6 x 5 / 2 = 15."
+  },
+  "options": [
+   {
+    "en": "5",
+    "hi": "5"
+   },
+   {
+    "en": "12",
+    "hi": "12"
+   },
+   {
+    "en": "15",
+    "hi": "15"
+   },
+   {
+    "en": "30",
+    "hi": "30"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "5 links is a hub-and-spoke design (n-1), where every site connects only to a central hub.",
+    "hi": "5 links hub-and-spoke design (n-1) hai, jahan har site sirf ek central hub se connect hoti hai."
+   },
+   {
+    "en": "12 links would be an incomplete partial mesh; a full mesh of 6 sites needs more.",
+    "hi": "12 links ek incomplete partial mesh hoga; 6 sites ke full mesh ko isse zyada chahiye."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "30 comes from n(n-1) without dividing by 2 — that counts every link from both ends.",
+    "hi": "30 n(n-1) se aata hai bina 2 se divide kiye — isse har link dono ends se count ho jaata hai."
+   }
+  ]
+ },
+ {
+  "id": "d1-013",
+  "domain": 1,
+  "lesson": "cables-and-interfaces",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which media type should be used to connect two campus buildings 40 km apart at 10 Gbps?",
+   "hi": "40 km door do campus buildings ko 10 Gbps par connect karne ke liye kaunsa media type use karna chahiye?"
+  },
+  "explanation": {
+   "en": "Single-mode fiber uses a tiny core (about 9 microns) and laser light, letting a single light path travel tens of kilometers with low loss — the standard choice for long-haul and inter-building links.",
+   "hi": "Single-mode fiber ek bahut chhota core (lagbhag 9 microns) aur laser light use karta hai, jisse ek single light path kam loss ke saath dasiyon kilometers tak travel kar sakta hai — long-haul aur inter-building links ke liye yahi standard choice hai."
+  },
+  "options": [
+   {
+    "en": "Category 6a UTP",
+    "hi": "Category 6a UTP"
+   },
+   {
+    "en": "Multimode fiber",
+    "hi": "Multimode fiber"
+   },
+   {
+    "en": "Single-mode fiber",
+    "hi": "Single-mode fiber"
+   },
+   {
+    "en": "Coaxial cable",
+    "hi": "Coaxial cable"
+   }
+  ],
+  "answer": [
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "Copper UTP is limited to 100 m per segment regardless of category.",
+    "hi": "Copper UTP chahe kisi bhi category ka ho, har segment 100 m tak limited hai."
+   },
+   {
+    "en": "Multimode fiber suffers modal dispersion; at 10 Gbps it is limited to roughly 300-400 m, far short of 40 km.",
+    "hi": "Multimode fiber mein modal dispersion hota hai; 10 Gbps par yeh lagbhag 300-400 m tak limited hai, jo 40 km se bahut kam hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Coaxial cable is not used for modern long-distance 10 Gbps LAN links.",
+    "hi": "Coaxial cable modern long-distance 10 Gbps LAN links ke liye use nahi hota."
+   }
+  ]
+ },
+ {
+  "id": "d1-014",
+  "domain": 1,
+  "lesson": "cables-and-interfaces",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which statement about 1000BASE-T Gigabit Ethernet over copper is true?",
+   "hi": "Copper par 1000BASE-T Gigabit Ethernet ke baare mein kaunsa statement sahi hai?"
+  },
+  "explanation": {
+   "en": "1000BASE-T achieves 1 Gbps by sending 250 Mbps in both directions on each of the four pairs at once, using echo cancellation to separate the directions. It runs on Cat 5e or better, up to 100 m.",
+   "hi": "1000BASE-T 1 Gbps isliye achieve karta hai kyunki yeh chaaron pairs mein se har pair par ek saath dono directions mein 250 Mbps bhejta hai, aur directions ko alag karne ke liye echo cancellation use karta hai. Yeh Cat 5e ya usse better cable par 100 m tak chalta hai."
+  },
+  "options": [
+   {
+    "en": "It transmits and receives on all four wire pairs simultaneously",
+    "hi": "Yeh chaaron wire pairs par ek saath transmit aur receive karta hai"
+   },
+   {
+    "en": "It requires Category 7 cabling at minimum",
+    "hi": "Ise kam se kam Category 7 cabling chahiye"
+   },
+   {
+    "en": "It supports segments up to 1000 meters",
+    "hi": "Yeh 1000 meters tak ke segments support karta hai"
+   },
+   {
+    "en": "It uses two pairs: one to transmit and one to receive",
+    "hi": "Yeh do pairs use karta hai: ek transmit ke liye aur ek receive ke liye"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Category 5e is the minimum specification for 1000BASE-T; Cat 7 is not required.",
+    "hi": "1000BASE-T ke liye minimum specification Category 5e hai; Cat 7 zaroori nahi."
+   },
+   {
+    "en": "Like all BASE-T standards, the maximum segment length is 100 meters, not 1000.",
+    "hi": "Baaki saare BASE-T standards ki tarah maximum segment length 100 meters hai, 1000 nahi."
+   },
+   {
+    "en": "The dedicated transmit-pair/receive-pair scheme belongs to 10BASE-T and 100BASE-TX, not 1000BASE-T.",
+    "hi": "Dedicated transmit-pair/receive-pair wali scheme 10BASE-T aur 100BASE-TX ki hai, 1000BASE-T ki nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-015",
+  "domain": 1,
+  "lesson": "cables-and-interfaces",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each cable type to its most appropriate use.",
+   "hi": "Har cable type ko uske sabse sahi use se match karo."
+  },
+  "explanation": {
+   "en": "Distance drives media choice: UTP to 100 m for horizontal cabling, multimode fiber for short high-speed backbone runs (LED/VCSEL light, larger 50/62.5 micron core), single-mode fiber for kilometers (laser, 9 micron core). The flat rollover cable is purpose-built for serial console access.",
+   "hi": "Distance hi media choice decide karta hai: horizontal cabling ke liye 100 m tak UTP, chhote high-speed backbone runs ke liye multimode fiber (LED/VCSEL light, bada 50/62.5 micron core), aur kilometers ke liye single-mode fiber (laser, 9 micron core). Flat rollover cable khaas taur par serial console access ke liye bana hai."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Single-mode fiber",
+     "hi": "Single-mode fiber"
+    },
+    "right": {
+     "en": "Campus link spanning tens of kilometers",
+     "hi": "Dasiyon kilometers tak faila campus link"
+    }
+   },
+   {
+    "left": {
+     "en": "Multimode fiber",
+     "hi": "Multimode fiber"
+    },
+    "right": {
+     "en": "High-speed run of a few hundred meters between floors",
+     "hi": "Floors ke beech kuch sau meters ka high-speed run"
+    }
+   },
+   {
+    "left": {
+     "en": "Category 6 UTP",
+     "hi": "Category 6 UTP"
+    },
+    "right": {
+     "en": "Desktop PC to access switch, up to 100 m",
+     "hi": "Desktop PC se access switch tak, 100 m tak"
+    }
+   },
+   {
+    "left": {
+     "en": "Rollover cable",
+     "hi": "Rollover cable"
+    },
+    "right": {
+     "en": "Laptop to a router console port",
+     "hi": "Laptop se router ke console port tak"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d1-016",
+  "domain": 1,
+  "lesson": "cables-and-interfaces",
+  "difficulty": "easy",
+  "type": "command",
+  "text": {
+   "en": "You need a one-screen summary of every switch port showing its connect status, VLAN, duplex, and speed. Enter the privileged EXEC command.",
+   "hi": "Tumhe har switch port ki ek-screen summary chahiye jismein uska connect status, VLAN, duplex aur speed dikhe. Privileged EXEC command enter karo."
+  },
+  "explanation": {
+   "en": "show interfaces status lists every port with its status (connected, notconnect, err-disabled), VLAN, duplex, speed, and media type — the fastest way to audit physical connectivity and spot duplex or speed autonegotiation problems.",
+   "hi": "show interfaces status har port ko uske status (connected, notconnect, err-disabled), VLAN, duplex, speed aur media type ke saath list karta hai — physical connectivity audit karne aur duplex ya speed autonegotiation problems pakadne ka sabse fast tareeka."
+  },
+  "commandAnswer": "show interfaces status",
+  "accept": [
+   "sh int status",
+   "show int status",
+   "sh interfaces status",
+   "sh interface status",
+   "show interface status"
+  ]
+ },
+ {
+  "id": "d1-017",
+  "domain": 1,
+  "lesson": "ethernet-and-mac",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "What do the first 24 bits of a 48-bit MAC address represent?",
+   "hi": "48-bit MAC address ke pehle 24 bits kya represent karte hain?"
+  },
+  "explanation": {
+   "en": "A MAC address splits in half: the first 24 bits are the OUI that the IEEE assigns to a manufacturer, and the last 24 bits are a serial value the vendor assigns to each NIC, making addresses globally unique.",
+   "hi": "MAC address do hisson mein bant-ta hai: pehle 24 bits OUI hain jo IEEE kisi manufacturer ko assign karta hai, aur aakhri 24 bits ek serial value hai jo vendor har NIC ko assign karta hai, jisse addresses globally unique bante hain."
+  },
+  "options": [
+   {
+    "en": "The organizationally unique identifier (OUI) assigned to the vendor",
+    "hi": "Vendor ko assign kiya gaya organizationally unique identifier (OUI)"
+   },
+   {
+    "en": "A value chosen freely by the network administrator",
+    "hi": "Network administrator ki apni marzi se chuni gayi value"
+   },
+   {
+    "en": "The VLAN to which the interface belongs",
+    "hi": "Woh VLAN jiska interface member hai"
+   },
+   {
+    "en": "The frame check sequence",
+    "hi": "Frame check sequence"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Burned-in MAC addresses come from the manufacturer; administrators do not choose the OUI (though a locally administered address can be set, that is the exception).",
+    "hi": "Burned-in MAC addresses manufacturer se aate hain; administrators OUI choose nahi karte (locally administered address set kiya ja sakta hai, lekin woh exception hai)."
+   },
+   {
+    "en": "VLAN membership is a switch configuration concept carried in 802.1Q tags, not part of the MAC address.",
+    "hi": "VLAN membership ek switch configuration concept hai jo 802.1Q tags mein carry hota hai, MAC address ka hissa nahi."
+   },
+   {
+    "en": "The FCS is a 4-byte CRC in the Ethernet frame trailer, unrelated to the address fields.",
+    "hi": "FCS Ethernet frame trailer mein ek 4-byte CRC hai, address fields se iska koi lena dena nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-018",
+  "domain": 1,
+  "lesson": "ethernet-and-mac",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Under which condition does a modern Ethernet NIC actually use CSMA/CD?",
+   "hi": "Modern Ethernet NIC asal mein CSMA/CD kis condition mein use karta hai?"
+  },
+  "explanation": {
+   "en": "CSMA/CD exists to manage collisions on shared media. A full-duplex link has separate transmit and receive paths, so collisions are impossible and CSMA/CD is disabled. It activates only on half-duplex links (hubs or forced half duplex).",
+   "hi": "CSMA/CD shared media par collisions manage karne ke liye hai. Full-duplex link mein transmit aur receive paths alag hote hain, isliye collisions ho hi nahi sakte aur CSMA/CD disabled rehta hai. Yeh sirf half-duplex links (hubs ya forced half duplex) par active hota hai."
+  },
+  "options": [
+   {
+    "en": "Only when the link operates at half duplex",
+    "hi": "Sirf tab jab link half duplex par chal raha ho"
+   },
+   {
+    "en": "Whenever it connects to a switch",
+    "hi": "Jab bhi yeh kisi switch se connect ho"
+   },
+   {
+    "en": "Only on fiber-optic links",
+    "hi": "Sirf fiber-optic links par"
+   },
+   {
+    "en": "On every full-duplex link faster than 100 Mbps",
+    "hi": "100 Mbps se fast har full-duplex link par"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A switched full-duplex port has no collisions, so CSMA/CD is turned off — which is the normal case with switches.",
+    "hi": "Switched full-duplex port par collisions nahi hote, isliye CSMA/CD band rehta hai — switches ke saath yahi normal case hai."
+   },
+   {
+    "en": "Fiber links run full duplex; carrier sensing for collisions does not apply.",
+    "hi": "Fiber links full duplex chalte hain; collisions ke liye carrier sensing yahan apply nahi hota."
+   },
+   {
+    "en": "Full duplex at any speed eliminates collisions, so CSMA/CD is never used there.",
+    "hi": "Kisi bhi speed par full duplex collisions khatam kar deta hai, isliye wahan CSMA/CD kabhi use nahi hota."
+   }
+  ]
+ },
+ {
+  "id": "d1-019",
+  "domain": 1,
+  "lesson": "ethernet-and-mac",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which two statements about Ethernet frames are true? (Choose two.)",
+   "hi": "Ethernet frames ke baare mein kaunse do statements sahi hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "Ethernet requires 64 bytes minimum (historically tied to collision detection timing); senders pad small payloads to reach it. The 4-byte FCS trailer holds a CRC-32 the receiver recomputes — a mismatch means the frame is corrupt and is dropped.",
+   "hi": "Ethernet ko minimum 64 bytes chahiye (historically collision detection timing se juda hua); senders chhote payloads ko pad karke wahan tak pahunchate hain. 4-byte FCS trailer mein CRC-32 hota hai jise receiver dobara calculate karta hai — mismatch ka matlab hai frame corrupt hai aur drop ho jaata hai."
+  },
+  "options": [
+   {
+    "en": "The minimum valid frame size is 64 bytes",
+    "hi": "Minimum valid frame size 64 bytes hai"
+   },
+   {
+    "en": "The frame check sequence uses a CRC so the receiver can detect corrupted frames",
+    "hi": "Frame check sequence CRC use karta hai taaki receiver corrupted frames detect kar sake"
+   },
+   {
+    "en": "The Ethernet header carries the source and destination IP addresses",
+    "hi": "Ethernet header mein source aur destination IP addresses hote hain"
+   },
+   {
+    "en": "The broadcast destination address is 0000.0000.0000",
+    "hi": "Broadcast destination address 0000.0000.0000 hai"
+   },
+   {
+    "en": "Frames that arrive smaller than the minimum are padded by the receiver before processing",
+    "hi": "Minimum se chhote aane wale frames ko receiver processing se pehle pad kar deta hai"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "IP addresses live in the Layer 3 header inside the payload; the Ethernet header carries MAC addresses and a Type field.",
+    "hi": "IP addresses payload ke andar Layer 3 header mein hote hain; Ethernet header mein MAC addresses aur ek Type field hota hai."
+   },
+   {
+    "en": "The broadcast MAC address is ffff.ffff.ffff (all ones); all zeros is not a valid destination.",
+    "hi": "Broadcast MAC address ffff.ffff.ffff (all ones) hai; all zeros valid destination nahi hai."
+   },
+   {
+    "en": "Padding is added by the sender before transmission; a frame received under 64 bytes is a runt and is discarded, not repaired.",
+    "hi": "Padding sender transmission se pehle add karta hai; 64 bytes se chhota receive hua frame runt hota hai aur discard ho jaata hai, repair nahi hota."
+   }
+  ]
+ },
+ {
+  "id": "d1-020",
+  "domain": 1,
+  "lesson": "ethernet-and-mac",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Interface Gi0/1 on a switch shows a steadily growing count of late collisions. What is the most likely cause?",
+   "hi": "Switch ke interface Gi0/1 par late collisions ka count lagatar badh raha hai. Sabse likely cause kya hai?"
+  },
+  "explanation": {
+   "en": "Late collisions occur after the first 64 bytes have been sent — something that should never happen on a properly configured link. The classic cause is a duplex mismatch: the full-duplex side sends whenever it likes, and the half-duplex side detects those transmissions as collisions, including late ones.",
+   "hi": "Late collisions pehle 64 bytes bhejne ke baad hote hain — jo ek properly configured link par kabhi nahi hona chahiye. Iska classic cause duplex mismatch hai: full-duplex side jab chahe bhejti hai, aur half-duplex side un transmissions ko collisions samajhti hai, late collisions bhi."
+  },
+  "options": [
+   {
+    "en": "A duplex mismatch between the two ends of the link",
+    "hi": "Link ke dono ends ke beech duplex mismatch"
+   },
+   {
+    "en": "A speed mismatch that forced the port down",
+    "hi": "Speed mismatch jisne port ko down kar diya"
+   },
+   {
+    "en": "High CPU utilization on the switch",
+    "hi": "Switch par high CPU utilization"
+   },
+   {
+    "en": "Excessive multicast traffic on the VLAN",
+    "hi": "VLAN par bahut zyada multicast traffic"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A speed mismatch typically prevents the link from coming up at all rather than producing late collisions.",
+    "hi": "Speed mismatch aam taur par link ko up hi nahi hone deta, late collisions paida nahi karta."
+   },
+   {
+    "en": "CPU load affects control-plane processes; frame collisions happen in hardware on the wire regardless of CPU.",
+    "hi": "CPU load control-plane processes ko affect karta hai; frame collisions wire par hardware mein hote hain, CPU se koi fark nahi padta."
+   },
+   {
+    "en": "Multicast traffic can consume bandwidth but does not create collisions on a link.",
+    "hi": "Multicast traffic bandwidth kha sakta hai lekin link par collisions create nahi karta."
+   }
+  ]
+ },
+ {
+  "id": "d1-021",
+  "domain": 1,
+  "lesson": "ipv4-addressing",
+  "difficulty": "easy",
+  "type": "multi",
+  "text": {
+   "en": "Which two IPv4 addresses fall within the RFC 1918 private ranges? (Choose two.)",
+   "hi": "Kaunse do IPv4 addresses RFC 1918 private ranges ke andar aate hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "RFC 1918 reserves 10.0.0.0/8 (10.0.0.0-10.255.255.255), 172.16.0.0/12 (172.16.0.0-172.31.255.255), and 192.168.0.0/16 for private internal use. 10.255.254.1 and 192.168.200.45 fall inside those blocks.",
+   "hi": "RFC 1918 private internal use ke liye 10.0.0.0/8 (10.0.0.0-10.255.255.255), 172.16.0.0/12 (172.16.0.0-172.31.255.255), aur 192.168.0.0/16 reserve karta hai. 10.255.254.1 aur 192.168.200.45 inhi blocks ke andar aate hain."
+  },
+  "options": [
+   {
+    "en": "10.255.254.1",
+    "hi": "10.255.254.1"
+   },
+   {
+    "en": "172.32.10.5",
+    "hi": "172.32.10.5"
+   },
+   {
+    "en": "192.168.200.45",
+    "hi": "192.168.200.45"
+   },
+   {
+    "en": "172.15.99.2",
+    "hi": "172.15.99.2"
+   },
+   {
+    "en": "203.0.113.7",
+    "hi": "203.0.113.7"
+   }
+  ],
+  "answer": [
+   0,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The private range covers only 172.16.0.0 through 172.31.255.255; 172.32.x.x is just past the upper boundary and is public.",
+    "hi": "Private range sirf 172.16.0.0 se 172.31.255.255 tak hai; 172.32.x.x upper boundary ke theek baad aata hai aur public hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "172.15.x.x falls just below 172.16.0.0, so it is outside the /12 private block and is public.",
+    "hi": "172.15.x.x 172.16.0.0 se theek neeche aata hai, isliye yeh /12 private block ke bahar hai aur public hai."
+   },
+   {
+    "en": "203.0.113.0/24 is TEST-NET-3, a public documentation range — reserved, but not RFC 1918 private space.",
+    "hi": "203.0.113.0/24 TEST-NET-3 hai, ek public documentation range — reserved hai, lekin RFC 1918 private space nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-022",
+  "domain": 1,
+  "lesson": "ipv4-addressing",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "A Windows PC shows the address 169.254.31.108 with mask 255.255.0.0. What does this indicate?",
+   "hi": "Ek Windows PC par address 169.254.31.108 aur mask 255.255.0.0 dikh raha hai. Iska kya matlab hai?"
+  },
+  "explanation": {
+   "en": "169.254.0.0/16 is the IPv4 link-local range. A host self-assigns an address here (APIPA on Windows) when no DHCP server responds. Seeing it is a strong clue the DHCP process failed — check server reachability, the relay, or the access port.",
+   "hi": "169.254.0.0/16 IPv4 link-local range hai. Jab koi DHCP server respond nahi karta, toh host khud is range se address le leta hai (Windows par APIPA). Yeh dikhna ek strong clue hai ki DHCP process fail hua — server reachability, relay, ya access port check karo."
+  },
+  "options": [
+   {
+    "en": "The PC failed to obtain a DHCP lease and auto-assigned itself a 169.254.0.0/16 link-local (APIPA) address",
+    "hi": "PC ko DHCP lease nahi mila aur usne khud ko 169.254.0.0/16 link-local (APIPA) address auto-assign kar liya"
+   },
+   {
+    "en": "The PC received this address from the DHCP server's pool",
+    "hi": "PC ko yeh address DHCP server ke pool se mila"
+   },
+   {
+    "en": "The address is an RFC 1918 private address routed inside the company",
+    "hi": "Yeh ek RFC 1918 private address hai jo company ke andar route hota hai"
+   },
+   {
+    "en": "The PC is using a multicast address",
+    "hi": "PC ek multicast address use kar raha hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "DHCP servers hand out addresses from configured scopes; 169.254.x.x specifically means DHCP did NOT respond.",
+    "hi": "DHCP servers configured scopes se addresses dete hain; 169.254.x.x ka khaas matlab hai ki DHCP ne respond NAHI kiya."
+   },
+   {
+    "en": "The RFC 1918 ranges are 10/8, 172.16/12, and 192.168/16 — 169.254/16 is link-local, not private-routable space, and routers do not forward it.",
+    "hi": "RFC 1918 ranges 10/8, 172.16/12 aur 192.168/16 hain — 169.254/16 link-local hai, private-routable space nahi, aur routers ise forward nahi karte."
+   },
+   {
+    "en": "Multicast uses 224.0.0.0-239.255.255.255 (Class D); 169.254.x.x is a unicast range.",
+    "hi": "Multicast 224.0.0.0-239.255.255.255 (Class D) use karta hai; 169.254.x.x ek unicast range hai."
+   }
+  ]
+ },
+ {
+  "id": "d1-023",
+  "domain": 1,
+  "lesson": "ipv4-addressing",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Which of the following address and mask combinations can be assigned to a host interface?",
+   "hi": "Neeche diye gaye address aur mask combinations mein se kaunsa host interface ko assign kiya ja sakta hai?"
+  },
+  "explanation": {
+   "en": "With a /23 mask, the subnet is 198.51.100.0-198.51.101.255. The broadcast is 198.51.101.255, so 198.51.100.255 is an ordinary mid-range host address. An octet of 255 only means broadcast when the mask makes it the last address of the subnet.",
+   "hi": "/23 mask ke saath subnet 198.51.100.0-198.51.101.255 hai. Broadcast 198.51.101.255 hai, isliye 198.51.100.255 ek normal beech ka host address hai. 255 wala octet sirf tab broadcast hota hai jab mask use subnet ka last address bana de."
+  },
+  "options": [
+   {
+    "en": "198.51.100.255 255.255.254.0",
+    "hi": "198.51.100.255 255.255.254.0"
+   },
+   {
+    "en": "203.0.113.0 255.255.255.0",
+    "hi": "203.0.113.0 255.255.255.0"
+   },
+   {
+    "en": "127.0.0.10 255.0.0.0",
+    "hi": "127.0.0.10 255.0.0.0"
+   },
+   {
+    "en": "224.0.1.10 255.255.255.0",
+    "hi": "224.0.1.10 255.255.255.0"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "With a /24 mask, 203.0.113.0 is the subnet (network) address — the first address of the block — and cannot be assigned to a host.",
+    "hi": "/24 mask ke saath 203.0.113.0 subnet (network) address hai — block ka pehla address — aur ise host ko assign nahi kiya ja sakta."
+   },
+   {
+    "en": "The entire 127.0.0.0/8 block is reserved for loopback; it is never assigned to a network interface for real traffic.",
+    "hi": "Poora 127.0.0.0/8 block loopback ke liye reserved hai; ise real traffic ke liye kabhi network interface par assign nahi kiya jaata."
+   },
+   {
+    "en": "224.0.0.0-239.255.255.255 is Class D multicast space; multicast addresses identify groups, never individual host interfaces.",
+    "hi": "224.0.0.0-239.255.255.255 Class D multicast space hai; multicast addresses groups ko identify karte hain, kabhi individual host interfaces ko nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-024",
+  "domain": 1,
+  "lesson": "ipv4-addressing",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "In interface configuration mode, enter the command that assigns the address 192.168.1.1 with a 255.255.255.0 mask.",
+   "hi": "Interface configuration mode mein woh command enter karo jo address 192.168.1.1 ko 255.255.255.0 mask ke saath assign karta hai."
+  },
+  "explanation": {
+   "en": "ip address <address> <mask> configures the interface's IPv4 address in dotted-decimal form. Remember to follow it with no shutdown on a router interface, since router ports are administratively down by default.",
+   "hi": "ip address <address> <mask> interface ka IPv4 address dotted-decimal form mein configure karta hai. Router interface par iske baad no shutdown lagana yaad rakho, kyunki router ports default mein administratively down hote hain."
+  },
+  "commandAnswer": "ip address 192.168.1.1 255.255.255.0",
+  "accept": [
+   "ip add 192.168.1.1 255.255.255.0",
+   "ip addr 192.168.1.1 255.255.255.0"
+  ]
+ },
+ {
+  "id": "d1-025",
+  "domain": 1,
+  "lesson": "subnetting",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "How many usable host addresses does a /29 subnet provide?",
+   "hi": "Ek /29 subnet kitne usable host addresses deta hai?"
+  },
+  "explanation": {
+   "en": "A /29 leaves 32 - 29 = 3 host bits, giving 2^3 = 8 total addresses. Subtract the network and broadcast addresses: 8 - 2 = 6 usable hosts.",
+   "hi": "/29 se 32 - 29 = 3 host bits bachte hain, yaani 2^3 = 8 total addresses. Network aur broadcast addresses minus karo: 8 - 2 = 6 usable hosts."
+  },
+  "options": [
+   {
+    "en": "6",
+    "hi": "6"
+   },
+   {
+    "en": "8",
+    "hi": "8"
+   },
+   {
+    "en": "14",
+    "hi": "14"
+   },
+   {
+    "en": "30",
+    "hi": "30"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "8 is the total address count of a /29, but the network and broadcast addresses cannot be assigned to hosts.",
+    "hi": "8 ek /29 ka total address count hai, lekin network aur broadcast addresses hosts ko assign nahi ho sakte."
+   },
+   {
+    "en": "14 usable hosts describes a /28 (16 total minus 2).",
+    "hi": "14 usable hosts /28 ka hota hai (16 total minus 2)."
+   },
+   {
+    "en": "30 usable hosts describes a /27 (32 total minus 2).",
+    "hi": "30 usable hosts /27 ka hota hai (32 total minus 2)."
+   }
+  ]
+ },
+ {
+  "id": "d1-026",
+  "domain": 1,
+  "lesson": "subnetting",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which prefix length corresponds to the subnet mask 255.255.240.0?",
+   "hi": "Subnet mask 255.255.240.0 kis prefix length ke barabar hai?"
+  },
+  "explanation": {
+   "en": "The first two octets contribute 16 ones. 240 in binary is 11110000 — four more ones. 16 + 4 = 20, so the mask is /20.",
+   "hi": "Pehle do octets se 16 ones aate hain. 240 binary mein 11110000 hai — chaar aur ones. 16 + 4 = 20, isliye mask /20 hai."
+  },
+  "options": [
+   {
+    "en": "/19",
+    "hi": "/19"
+   },
+   {
+    "en": "/20",
+    "hi": "/20"
+   },
+   {
+    "en": "/21",
+    "hi": "/21"
+   },
+   {
+    "en": "/28",
+    "hi": "/28"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "/19 would be 255.255.224.0 (224 = 11100000, three ones in the third octet).",
+    "hi": "/19 hota 255.255.224.0 (224 = 11100000, third octet mein teen ones)."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "/21 would be 255.255.248.0 (248 = 11111000, five ones in the third octet).",
+    "hi": "/21 hota 255.255.248.0 (248 = 11111000, third octet mein paanch ones)."
+   },
+   {
+    "en": "/28 would be 255.255.255.240 — the 240 would sit in the fourth octet, not the third.",
+    "hi": "/28 hota 255.255.255.240 — 240 fourth octet mein hota, third mein nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-027",
+  "domain": 1,
+  "lesson": "subnetting",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A team subnets 192.168.50.0/24 using a /28 mask. How many subnets are created, and how many usable hosts does each contain?",
+   "hi": "Ek team 192.168.50.0/24 ko /28 mask se subnet karti hai. Kitne subnets bante hain, aur har ek mein kitne usable hosts hain?"
+  },
+  "explanation": {
+   "en": "Going from /24 to /28 borrows 4 bits: 2^4 = 16 subnets. Each /28 has 32 - 28 = 4 host bits: 2^4 = 16 addresses, minus network and broadcast = 14 usable hosts.",
+   "hi": "/24 se /28 jaane mein 4 bits borrow hote hain: 2^4 = 16 subnets. Har /28 mein 32 - 28 = 4 host bits hain: 2^4 = 16 addresses, minus network aur broadcast = 14 usable hosts."
+  },
+  "options": [
+   {
+    "en": "16 subnets with 14 usable hosts each",
+    "hi": "16 subnets, har ek mein 14 usable hosts"
+   },
+   {
+    "en": "14 subnets with 16 usable hosts each",
+    "hi": "14 subnets, har ek mein 16 usable hosts"
+   },
+   {
+    "en": "16 subnets with 16 usable hosts each",
+    "hi": "16 subnets, har ek mein 16 usable hosts"
+   },
+   {
+    "en": "32 subnets with 6 usable hosts each",
+    "hi": "32 subnets, har ek mein 6 usable hosts"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The numbers are swapped: borrowing 4 bits makes 16 subnets, and each holds 14 (not 16) usable hosts.",
+    "hi": "Numbers ulat gaye hain: 4 bits borrow karne se 16 subnets bante hain, aur har ek mein 14 (16 nahi) usable hosts hote hain."
+   },
+   {
+    "en": "Each subnet has 16 total addresses, but two of them (network and broadcast) are unusable, leaving 14.",
+    "hi": "Har subnet mein 16 total addresses hain, lekin unmein se do (network aur broadcast) usable nahi hain, isliye 14 bachte hain."
+   },
+   {
+    "en": "32 subnets with 6 hosts describes subnetting the /24 into /29s (5 borrowed bits), not /28s.",
+    "hi": "32 subnets aur 6 hosts tab hote jab /24 ko /29s mein subnet karte (5 borrowed bits), /28s mein nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-028",
+  "domain": 1,
+  "lesson": "subnetting",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "What is the network (subnet) address for the host 192.168.10.77/26?",
+   "hi": "Host 192.168.10.77/26 ka network (subnet) address kya hai?"
+  },
+  "explanation": {
+   "en": "A /26 mask (255.255.255.192) creates blocks of 64 in the last octet: 0, 64, 128, 192. Host .77 falls between 64 and 127, so its subnet is 192.168.10.64 (broadcast 192.168.10.127, hosts .65-.126).",
+   "hi": "/26 mask (255.255.255.192) last octet mein 64 ke blocks banata hai: 0, 64, 128, 192. Host .77 64 aur 127 ke beech aata hai, isliye uska subnet 192.168.10.64 hai (broadcast 192.168.10.127, hosts .65-.126)."
+  },
+  "options": [
+   {
+    "en": "192.168.10.0",
+    "hi": "192.168.10.0"
+   },
+   {
+    "en": "192.168.10.64",
+    "hi": "192.168.10.64"
+   },
+   {
+    "en": "192.168.10.96",
+    "hi": "192.168.10.96"
+   },
+   {
+    "en": "192.168.10.128",
+    "hi": "192.168.10.128"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "192.168.10.0/26 covers hosts .1 through .62 only; .77 is beyond that block.",
+    "hi": "192.168.10.0/26 sirf hosts .1 se .62 tak cover karta hai; .77 us block ke bahar hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "96 is not a /26 boundary — /26 blocks start at multiples of 64 (0, 64, 128, 192). A block starting at 96 would require a /27.",
+    "hi": "96 /26 boundary nahi hai — /26 blocks 64 ke multiples (0, 64, 128, 192) par shuru hote hain. 96 se shuru hone wale block ke liye /27 chahiye."
+   },
+   {
+    "en": "192.168.10.128/26 covers .129 through .190; .77 is below that block.",
+    "hi": "192.168.10.128/26 .129 se .190 tak cover karta hai; .77 us block se neeche hai."
+   }
+  ]
+ },
+ {
+  "id": "d1-029",
+  "domain": 1,
+  "lesson": "subnetting",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "What is the broadcast address of the subnet containing 172.16.19.200/27?",
+   "hi": "172.16.19.200/27 wale subnet ka broadcast address kya hai?"
+  },
+  "explanation": {
+   "en": "/27 is 255.255.255.224, so the magic number is 256 - 224 = 32. Multiples of 32: 0, 32, 64, 96, 128, 160, 192, 224. Host .200 lands in the 192 block (192-223). Network = 172.16.19.192, broadcast = next block minus 1 = 172.16.19.223.",
+   "hi": "/27 yaani 255.255.255.224, isliye magic number 256 - 224 = 32 hai. 32 ke multiples: 0, 32, 64, 96, 128, 160, 192, 224. Host .200 192 wale block (192-223) mein aata hai. Network = 172.16.19.192, broadcast = agla block minus 1 = 172.16.19.223."
+  },
+  "options": [
+   {
+    "en": "172.16.19.223",
+    "hi": "172.16.19.223"
+   },
+   {
+    "en": "172.16.19.255",
+    "hi": "172.16.19.255"
+   },
+   {
+    "en": "172.16.19.207",
+    "hi": "172.16.19.207"
+   },
+   {
+    "en": "172.16.19.192",
+    "hi": "172.16.19.192"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "172.16.19.255 is the broadcast of the whole 172.16.19.0/24, not of the /27 block containing .200.",
+    "hi": "172.16.19.255 poore 172.16.19.0/24 ka broadcast hai, .200 wale /27 block ka nahi."
+   },
+   {
+    "en": "172.16.19.207 would be the broadcast of 172.16.19.192/28 (a 16-address block); with /27 the block extends through .223.",
+    "hi": "172.16.19.207 172.16.19.192/28 (16-address block) ka broadcast hota; /27 ke saath block .223 tak jaata hai."
+   },
+   {
+    "en": "172.16.19.192 is the network address (first address) of this subnet, not the broadcast (last address).",
+    "hi": "172.16.19.192 is subnet ka network address (pehla address) hai, broadcast (aakhri address) nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-030",
+  "domain": 1,
+  "lesson": "subnetting",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A host is configured as 172.31.200.21 255.255.255.240. What is the range of valid host addresses in its subnet?",
+   "hi": "Ek host 172.31.200.21 255.255.255.240 ke saath configured hai. Uske subnet mein valid host addresses ki range kya hai?"
+  },
+  "explanation": {
+   "en": "Mask 255.255.255.240 (/28): magic number 256 - 240 = 16, so blocks start at 0, 16, 32... Host .21 is in the 16 block: network 172.31.200.16, broadcast 172.31.200.31, usable hosts .17 through .30.",
+   "hi": "Mask 255.255.255.240 (/28): magic number 256 - 240 = 16, isliye blocks 0, 16, 32... par shuru hote hain. Host .21 16 wale block mein hai: network 172.31.200.16, broadcast 172.31.200.31, usable hosts .17 se .30 tak."
+  },
+  "options": [
+   {
+    "en": "172.31.200.17 through 172.31.200.30",
+    "hi": "172.31.200.17 se 172.31.200.30 tak"
+   },
+   {
+    "en": "172.31.200.16 through 172.31.200.31",
+    "hi": "172.31.200.16 se 172.31.200.31 tak"
+   },
+   {
+    "en": "172.31.200.1 through 172.31.200.14",
+    "hi": "172.31.200.1 se 172.31.200.14 tak"
+   },
+   {
+    "en": "172.31.200.21 through 172.31.200.36",
+    "hi": "172.31.200.21 se 172.31.200.36 tak"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": ".16 is the network address and .31 is the broadcast — the two endpoints of the block are not valid host addresses.",
+    "hi": ".16 network address hai aur .31 broadcast — block ke yeh dono endpoints valid host addresses nahi hain."
+   },
+   {
+    "en": ".1 through .14 is the host range of the 172.31.200.0/28 block; host .21 lives in the next block up.",
+    "hi": ".1 se .14 172.31.200.0/28 block ki host range hai; host .21 usse agle block mein hai."
+   },
+   {
+    "en": "Host ranges are anchored to subnet boundaries (multiples of 16 here), not to the host's own address.",
+    "hi": "Host ranges subnet boundaries (yahan 16 ke multiples) se tay hoti hain, host ke apne address se nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-031",
+  "domain": 1,
+  "lesson": "subnetting",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "What is the broadcast address of the subnet that contains the host 10.130.6.55/22?",
+   "hi": "Host 10.130.6.55/22 wale subnet ka broadcast address kya hai?"
+  },
+  "explanation": {
+   "en": "/22 is 255.255.252.0 — the interesting octet is the THIRD one. Magic number: 256 - 252 = 4, so third-octet blocks are 0, 4, 8... The 6 in 10.130.6.55 falls in the 4-7 block: network 10.130.4.0, broadcast 10.130.7.255 (1022 usable hosts: 10.130.4.1-10.130.7.254).",
+   "hi": "/22 yaani 255.255.252.0 — interesting octet THIRD wala hai. Magic number: 256 - 252 = 4, isliye third-octet blocks 0, 4, 8... hain. 10.130.6.55 ka 6 4-7 wale block mein aata hai: network 10.130.4.0, broadcast 10.130.7.255 (1022 usable hosts: 10.130.4.1-10.130.7.254)."
+  },
+  "options": [
+   {
+    "en": "10.130.7.255",
+    "hi": "10.130.7.255"
+   },
+   {
+    "en": "10.130.6.255",
+    "hi": "10.130.6.255"
+   },
+   {
+    "en": "10.130.5.255",
+    "hi": "10.130.5.255"
+   },
+   {
+    "en": "10.130.255.255",
+    "hi": "10.130.255.255"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "10.130.6.255 is a normal host address inside this /22 — the .255 fourth octet is only a broadcast when the mask ends the subnet there.",
+    "hi": "10.130.6.255 is /22 ke andar ek normal host address hai — .255 fourth octet sirf tab broadcast hota hai jab mask subnet ko wahin khatam kare."
+   },
+   {
+    "en": "10.130.5.255 is also an ordinary host address inside the 10.130.4.0/22 block.",
+    "hi": "10.130.5.255 bhi 10.130.4.0/22 block ke andar ek normal host address hai."
+   },
+   {
+    "en": "10.130.255.255 would be the broadcast of 10.130.0.0/16, not of a /22 subnet.",
+    "hi": "10.130.255.255 10.130.0.0/16 ka broadcast hota, /22 subnet ka nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-032",
+  "domain": 1,
+  "lesson": "subnetting",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Host A (192.168.5.90/26) and Host B (192.168.5.130/26) connect to the same Layer 2 switch with no gateway configured. Why can they not communicate?",
+   "hi": "Host A (192.168.5.90/26) aur Host B (192.168.5.130/26) same Layer 2 switch se connected hain aur koi gateway configured nahi hai. Yeh communicate kyun nahi kar pa rahe?"
+  },
+  "explanation": {
+   "en": "With a /26 the blocks are 0, 64, 128, 192. Host A (.90) is in 192.168.5.64/26 (hosts .65-.126); Host B (.130) is in 192.168.5.128/26 (hosts .129-.190). Each host sees the other as remote, tries to forward via a default gateway, and with none configured the traffic goes nowhere.",
+   "hi": "/26 mein blocks 0, 64, 128, 192 hain. Host A (.90) 192.168.5.64/26 mein hai (hosts .65-.126); Host B (.130) 192.168.5.128/26 mein hai (hosts .129-.190). Dono ek doosre ko remote samajhte hain, default gateway se forward karne ki koshish karte hain, aur gateway configured na hone se traffic kahin nahi jaata."
+  },
+  "options": [
+   {
+    "en": "They are in different subnets — 192.168.5.64/26 and 192.168.5.128/26 — so they need a router between them",
+    "hi": "Yeh alag subnets mein hain — 192.168.5.64/26 aur 192.168.5.128/26 — isliye inke beech router chahiye"
+   },
+   {
+    "en": "Host B is using its subnet's broadcast address",
+    "hi": "Host B apne subnet ka broadcast address use kar raha hai"
+   },
+   {
+    "en": "They are in the same subnet, so the problem must be a duplex mismatch",
+    "hi": "Yeh same subnet mein hain, isliye problem duplex mismatch hi hogi"
+   },
+   {
+    "en": "A /26 mask allows only one host per subnet",
+    "hi": "/26 mask har subnet mein sirf ek host allow karta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The broadcast of Host B's subnet is 192.168.5.191; .130 is a normal usable host address.",
+    "hi": "Host B ke subnet ka broadcast 192.168.5.191 hai; .130 ek normal usable host address hai."
+   },
+   {
+    "en": "The magic-number check shows they are in different /26 blocks, so this is a Layer 3 design issue, not a physical one.",
+    "hi": "Magic-number check dikhata hai ki yeh alag /26 blocks mein hain, isliye yeh Layer 3 design issue hai, physical nahi."
+   },
+   {
+    "en": "A /26 provides 62 usable hosts (64 addresses minus network and broadcast), not one.",
+    "hi": "/26 62 usable hosts deta hai (64 addresses minus network aur broadcast), ek nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-033",
+  "domain": 1,
+  "lesson": "vlsm",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A LAN must support 60 hosts. Which prefix length provides enough addresses while wasting the fewest?",
+   "hi": "Ek LAN ko 60 hosts support karne hain. Kaunsi prefix length kaafi addresses deti hai aur sabse kam waste karti hai?"
+  },
+  "explanation": {
+   "en": "A /26 leaves 6 host bits: 2^6 - 2 = 62 usable addresses — just enough for 60 hosts with minimal waste. Always compute 2^n - 2 and pick the smallest subnet that still fits.",
+   "hi": "/26 se 6 host bits bachte hain: 2^6 - 2 = 62 usable addresses — 60 hosts ke liye bilkul kaafi aur minimum waste. Hamesha 2^n - 2 calculate karo aur sabse chhota subnet chuno jo fit ho jaaye."
+  },
+  "options": [
+   {
+    "en": "/25",
+    "hi": "/25"
+   },
+   {
+    "en": "/26",
+    "hi": "/26"
+   },
+   {
+    "en": "/27",
+    "hi": "/27"
+   },
+   {
+    "en": "/28",
+    "hi": "/28"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "A /25 supplies 126 usable hosts — it works, but wastes twice the space a /26 would.",
+    "hi": "/25 126 usable hosts deta hai — kaam karega, lekin /26 se dugna space waste karta hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A /27 offers only 30 usable hosts (2^5 - 2), which cannot fit 60.",
+    "hi": "/27 sirf 30 usable hosts (2^5 - 2) deta hai, jismein 60 fit nahi ho sakte."
+   },
+   {
+    "en": "A /28 offers only 14 usable hosts (2^4 - 2), far too small.",
+    "hi": "/28 sirf 14 usable hosts (2^4 - 2) deta hai, bahut hi chhota."
+   }
+  ]
+ },
+ {
+  "id": "d1-034",
+  "domain": 1,
+  "lesson": "vlsm",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Using standard subnetting rules (network and broadcast reserved), which mask is the most efficient choice for a point-to-point link between two routers?",
+   "hi": "Standard subnetting rules (network aur broadcast reserved) ke hisaab se, do routers ke beech point-to-point link ke liye sabse efficient mask kaunsa hai?"
+  },
+  "explanation": {
+   "en": "255.255.255.252 (/30) gives 4 addresses: network, two usable hosts, and broadcast — exactly matching a two-router link. (RFC 3021 also permits /31 on point-to-point links with no network/broadcast reserved, but under standard rules /30 is the answer.)",
+   "hi": "255.255.255.252 (/30) 4 addresses deta hai: network, do usable hosts, aur broadcast — do-router link se bilkul match. (RFC 3021 point-to-point links par /31 bhi allow karta hai jismein network/broadcast reserved nahi hote, lekin standard rules mein answer /30 hai.)"
+  },
+  "options": [
+   {
+    "en": "255.255.255.252",
+    "hi": "255.255.255.252"
+   },
+   {
+    "en": "255.255.255.248",
+    "hi": "255.255.255.248"
+   },
+   {
+    "en": "255.255.255.240",
+    "hi": "255.255.255.240"
+   },
+   {
+    "en": "255.255.255.0",
+    "hi": "255.255.255.0"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "/29 provides 6 usable addresses, wasting 4 on a link that needs only 2.",
+    "hi": "/29 6 usable addresses deta hai, jisse sirf 2 chahiye wale link par 4 waste hote hain."
+   },
+   {
+    "en": "/28 provides 14 usable addresses — 12 of them wasted on a point-to-point link.",
+    "hi": "/28 14 usable addresses deta hai — point-to-point link par unmein se 12 waste."
+   },
+   {
+    "en": "/24 wastes 252 addresses on a link that needs 2.",
+    "hi": "/24 sirf 2 chahiye wale link par 252 addresses waste karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d1-035",
+  "domain": 1,
+  "lesson": "vlsm",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "An engineer allocates VLSM subnets from 192.168.100.0/24 largest-first: 192.168.100.0/25 for a 100-host LAN, then 192.168.100.128/26 for a 40-host LAN. Which subnet should be assigned next for a LAN of 12 hosts?",
+   "hi": "Ek engineer 192.168.100.0/24 se VLSM subnets largest-first allocate karta hai: 100-host LAN ke liye 192.168.100.0/25, phir 40-host LAN ke liye 192.168.100.128/26. 12 hosts wale LAN ko agla kaunsa subnet assign karna chahiye?"
+  },
+  "explanation": {
+   "en": "The /25 consumes .0-.127 and the /26 consumes .128-.191, so the next free address is .192. Twelve hosts need a /28 (14 usable), and .192 is a valid /28 boundary (a multiple of 16), so 192.168.100.192/28 (.193-.206 usable) is the tightest fit.",
+   "hi": "/25 .0-.127 le leta hai aur /26 .128-.191 le leta hai, isliye agla free address .192 hai. Barah hosts ko /28 chahiye (14 usable), aur .192 ek valid /28 boundary hai (16 ka multiple), isliye 192.168.100.192/28 (.193-.206 usable) sabse tight fit hai."
+  },
+  "options": [
+   {
+    "en": "192.168.100.192/28",
+    "hi": "192.168.100.192/28"
+   },
+   {
+    "en": "192.168.100.176/28",
+    "hi": "192.168.100.176/28"
+   },
+   {
+    "en": "192.168.100.192/26",
+    "hi": "192.168.100.192/26"
+   },
+   {
+    "en": "192.168.100.224/27",
+    "hi": "192.168.100.224/27"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "192.168.100.176 sits inside the 192.168.100.128/26 block, which extends through .191 — assigning it would overlap.",
+    "hi": "192.168.100.176 192.168.100.128/26 block ke andar baitha hai, jo .191 tak jaata hai — ise assign karne se overlap hoga."
+   },
+   {
+    "en": "A /26 provides 62 hosts where 12 are needed, wasting most of the block and defeating the purpose of VLSM.",
+    "hi": "/26 62 hosts deta hai jabki 12 chahiye, block ka zyada hissa waste hota hai aur VLSM ka purpose hi khatam ho jaata hai."
+   },
+   {
+    "en": "Starting at .224 skips the free block at .192, and a /27 (30 hosts) is larger than the 14-host /28 that suffices.",
+    "hi": ".224 se shuru karne par .192 wala free block skip ho jaata hai, aur /27 (30 hosts) us 14-host /28 se bada hai jo kaafi hai."
+   }
+  ]
+ },
+ {
+  "id": "d1-036",
+  "domain": 1,
+  "lesson": "vlsm",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which two rules apply when designing an addressing plan with VLSM? (Choose two.)",
+   "hi": "VLSM ke saath addressing plan design karte waqt kaunse do rules apply hote hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "Allocating largest-first prevents fragmentation that would leave no room for big subnets later, and every subnet must start on an alignment boundary of its own size (a /26 starts at 0, 64, 128, 192; a /28 at multiples of 16). Both rules keep subnets from overlapping.",
+   "hi": "Largest-first allocate karne se fragmentation nahi hota jo baad mein bade subnets ke liye jagah na chhode, aur har subnet ko apne size ki alignment boundary par shuru hona chahiye (/26 0, 64, 128, 192 par; /28 16 ke multiples par). Dono rules subnets ko overlap hone se bachate hain."
+  },
+  "options": [
+   {
+    "en": "Assign the largest subnets first from the start of the address block",
+    "hi": "Address block ki shuruaat se sabse bade subnets pehle assign karo"
+   },
+   {
+    "en": "Each subnet must begin on a boundary that is a multiple of its own block size",
+    "hi": "Har subnet ek aisi boundary par shuru hona chahiye jo uske apne block size ka multiple ho"
+   },
+   {
+    "en": "All subnets carved from the block must use the same mask length",
+    "hi": "Block se nikale gaye saare subnets ki mask length same honi chahiye"
+   },
+   {
+    "en": "A classful routing protocol such as RIPv1 must be used",
+    "hi": "RIPv1 jaisa classful routing protocol use karna zaroori hai"
+   },
+   {
+    "en": "Point-to-point links may not be subnetted smaller than /24",
+    "hi": "Point-to-point links ko /24 se chhota subnet nahi kiya ja sakta"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Variable-length is the entire point of VLSM — different subnets deliberately use different mask lengths.",
+    "hi": "Variable-length hi VLSM ka poora point hai — alag subnets jaan-boojh kar alag mask lengths use karte hain."
+   },
+   {
+    "en": "It is the opposite: VLSM requires a classless routing protocol (OSPF, EIGRP, RIPv2) that sends the mask in updates; RIPv1 cannot carry it.",
+    "hi": "Ulta hai: VLSM ko classless routing protocol (OSPF, EIGRP, RIPv2) chahiye jo updates mein mask bheje; RIPv1 ise carry nahi kar sakta."
+   },
+   {
+    "en": "Point-to-point links are usually given /30 (or /31) masks — much smaller than /24 — to conserve space.",
+    "hi": "Point-to-point links ko aam taur par /30 (ya /31) masks diye jaate hain — /24 se bahut chhote — taaki space bache."
+   }
+  ]
+ },
+ {
+  "id": "d1-037",
+  "domain": 1,
+  "lesson": "ipv6-types",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which IPv6 prefix identifies link-local unicast addresses?",
+   "hi": "Kaunsa IPv6 prefix link-local unicast addresses ko identify karta hai?"
+  },
+  "explanation": {
+   "en": "Link-local addresses come from fe80::/10 and are automatically created on every IPv6-enabled interface. They are valid only on the local link and are used for neighbor discovery, routing protocol adjacencies, and next-hop addresses.",
+   "hi": "Link-local addresses fe80::/10 se aate hain aur har IPv6-enabled interface par automatically ban jaate hain. Yeh sirf local link par valid hote hain aur neighbor discovery, routing protocol adjacencies aur next-hop addresses ke liye use hote hain."
+  },
+  "options": [
+   {
+    "en": "fe80::/10",
+    "hi": "fe80::/10"
+   },
+   {
+    "en": "fc00::/7",
+    "hi": "fc00::/7"
+   },
+   {
+    "en": "ff00::/8",
+    "hi": "ff00::/8"
+   },
+   {
+    "en": "2000::/3",
+    "hi": "2000::/3"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "fc00::/7 is the unique local address (ULA) range — private, routable inside a site but not on the internet.",
+    "hi": "fc00::/7 unique local address (ULA) range hai — private, site ke andar routable lekin internet par nahi."
+   },
+   {
+    "en": "ff00::/8 is the multicast range (for example ff02::1 is all nodes on the link).",
+    "hi": "ff00::/8 multicast range hai (jaise ff02::1 link par all nodes hai)."
+   },
+   {
+    "en": "2000::/3 is the global unicast range currently allocated for internet-routable addresses.",
+    "hi": "2000::/3 global unicast range hai jo abhi internet-routable addresses ke liye allocated hai."
+   }
+  ]
+ },
+ {
+  "id": "d1-038",
+  "domain": 1,
+  "lesson": "ipv6-types",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each IPv6 address type to its identifying prefix.",
+   "hi": "Har IPv6 address type ko uske identifying prefix se match karo."
+  },
+  "explanation": {
+   "en": "Global unicast (2000::/3) is public and internet-routable; unique local (fc00::/7, in practice fd00::/8) is the IPv6 analog of private addressing; link-local (fe80::/10) exists on every interface and never leaves the link; multicast (ff00::/8) replaces broadcast for one-to-many delivery.",
+   "hi": "Global unicast (2000::/3) public aur internet-routable hai; unique local (fc00::/7, practice mein fd00::/8) private addressing ka IPv6 version hai; link-local (fe80::/10) har interface par hota hai aur kabhi link se bahar nahi jaata; multicast (ff00::/8) one-to-many delivery ke liye broadcast ki jagah leta hai."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Global unicast",
+     "hi": "Global unicast"
+    },
+    "right": {
+     "en": "2000::/3",
+     "hi": "2000::/3"
+    }
+   },
+   {
+    "left": {
+     "en": "Unique local",
+     "hi": "Unique local"
+    },
+    "right": {
+     "en": "fc00::/7",
+     "hi": "fc00::/7"
+    }
+   },
+   {
+    "left": {
+     "en": "Link-local",
+     "hi": "Link-local"
+    },
+    "right": {
+     "en": "fe80::/10",
+     "hi": "fe80::/10"
+    }
+   },
+   {
+    "left": {
+     "en": "Multicast",
+     "hi": "Multicast"
+    },
+    "right": {
+     "en": "ff00::/8",
+     "hi": "ff00::/8"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d1-039",
+  "domain": 1,
+  "lesson": "ipv6-types",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which two statements about IPv6 are true? (Choose two.)",
+   "hi": "IPv6 ke baare mein kaunse do statements sahi hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "IPv6 eliminated broadcast in favor of targeted multicast groups (all-nodes ff02::1, all-routers ff02::2, solicited-node ff02::1:ff00:0/104). A link-local fe80:: address is created automatically on every IPv6 interface and is required for core operations like neighbor discovery.",
+   "hi": "IPv6 ne broadcast hata kar targeted multicast groups use kiye (all-nodes ff02::1, all-routers ff02::2, solicited-node ff02::1:ff00:0/104). Har IPv6 interface par link-local fe80:: address automatically banta hai aur neighbor discovery jaise core operations ke liye zaroori hai."
+  },
+  "options": [
+   {
+    "en": "IPv6 has no broadcast addresses",
+    "hi": "IPv6 mein koi broadcast addresses nahi hote"
+   },
+   {
+    "en": "Every IPv6-enabled interface automatically has a link-local address",
+    "hi": "Har IPv6-enabled interface par automatically ek link-local address hota hai"
+   },
+   {
+    "en": "IPv6 uses ARP to resolve Layer 2 addresses",
+    "hi": "IPv6 Layer 2 addresses resolve karne ke liye ARP use karta hai"
+   },
+   {
+    "en": "IPv6 addresses are 64 bits long",
+    "hi": "IPv6 addresses 64 bits lambe hote hain"
+   },
+   {
+    "en": "The IPv6 header includes a checksum field",
+    "hi": "IPv6 header mein checksum field hota hai"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "IPv6 replaces ARP with Neighbor Discovery (NDP), using ICMPv6 Neighbor Solicitation and Neighbor Advertisement messages.",
+    "hi": "IPv6 ARP ki jagah Neighbor Discovery (NDP) use karta hai, jismein ICMPv6 Neighbor Solicitation aur Neighbor Advertisement messages hote hain."
+   },
+   {
+    "en": "IPv6 addresses are 128 bits; 64 bits is just the typical size of the interface-ID half.",
+    "hi": "IPv6 addresses 128 bits ke hote hain; 64 bits sirf interface-ID wale half ka typical size hai."
+   },
+   {
+    "en": "The IPv6 header deliberately dropped the checksum to streamline router processing; error checking is left to Layer 2 and Layer 4.",
+    "hi": "IPv6 header ne router processing simple karne ke liye jaan-boojh kar checksum hata diya; error checking Layer 2 aur Layer 4 par chhod di gayi."
+   }
+  ]
+ },
+ {
+  "id": "d1-040",
+  "domain": 1,
+  "lesson": "ipv6-types",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "An interface with MAC address 000c.295a.1b2c builds its IPv6 interface ID using modified EUI-64. What is the resulting interface ID?",
+   "hi": "MAC address 000c.295a.1b2c wala ek interface modified EUI-64 use karke apna IPv6 interface ID banata hai. Resulting interface ID kya hoga?"
+  },
+  "explanation": {
+   "en": "EUI-64: split the MAC in half (000c29 | 5a1b2c), insert fffe in the middle (000c29 fffe 5a1b2c), then flip the seventh bit (U/L bit) of the first byte: 00 (00000000) becomes 02 (00000010). Result: 020c:29ff:fe5a:1b2c.",
+   "hi": "EUI-64: MAC ko do hisson mein baanto (000c29 | 5a1b2c), beech mein fffe daalo (000c29 fffe 5a1b2c), phir pehle byte ka seventh bit (U/L bit) flip karo: 00 (00000000) ban jaata hai 02 (00000010). Result: 020c:29ff:fe5a:1b2c."
+  },
+  "options": [
+   {
+    "en": "020c:29ff:fe5a:1b2c",
+    "hi": "020c:29ff:fe5a:1b2c"
+   },
+   {
+    "en": "000c:29ff:fe5a:1b2c",
+    "hi": "000c:29ff:fe5a:1b2c"
+   },
+   {
+    "en": "020c:29fe:ff5a:1b2c",
+    "hi": "020c:29fe:ff5a:1b2c"
+   },
+   {
+    "en": "000c:295a:1b2c:fffe",
+    "hi": "000c:295a:1b2c:fffe"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The universal/local bit — the seventh bit of the first byte — must be inverted, turning 00 into 02.",
+    "hi": "Universal/local bit — pehle byte ka seventh bit — invert karna zaroori hai, jisse 00 ban jaata hai 02."
+   },
+   {
+    "en": "The inserted 16-bit value is fffe in that order (ff then fe); this option swaps the two bytes.",
+    "hi": "Insert hone wali 16-bit value isi order mein fffe hai (pehle ff phir fe); yeh option dono bytes ko swap kar deta hai."
+   },
+   {
+    "en": "fffe is inserted between the two halves of the MAC, not appended to the end.",
+    "hi": "fffe MAC ke do hisson ke beech insert hota hai, end mein append nahi hota."
+   }
+  ]
+ },
+ {
+  "id": "d1-041",
+  "domain": 1,
+  "lesson": "ipv6-basics",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A host uses SLAAC to configure a global IPv6 address. How is the address formed?",
+   "hi": "Ek host SLAAC use karke global IPv6 address configure karta hai. Address kaise banta hai?"
+  },
+  "explanation": {
+   "en": "With stateless address autoconfiguration, the host sends a Router Solicitation, receives a Router Advertisement carrying the /64 prefix, and appends its own interface ID (EUI-64 based or randomly generated for privacy). No server tracks the assignment — that is what makes it stateless.",
+   "hi": "Stateless address autoconfiguration mein host Router Solicitation bhejta hai, /64 prefix wala Router Advertisement receive karta hai, aur usmein apna interface ID jod deta hai (EUI-64 based ya privacy ke liye randomly generated). Koi server assignment track nahi karta — isi wajah se yeh stateless hai."
+  },
+  "options": [
+   {
+    "en": "The host combines the /64 prefix learned from a router advertisement with an interface ID it generates itself",
+    "hi": "Host router advertisement se seekha hua /64 prefix aur khud generate kiya hua interface ID combine karta hai"
+   },
+   {
+    "en": "The host requests the entire 128-bit address from a DHCPv6 server",
+    "hi": "Host poora 128-bit address DHCPv6 server se maangta hai"
+   },
+   {
+    "en": "The router assigns the complete address to the host inside the RA message",
+    "hi": "Router RA message ke andar host ko complete address assign karta hai"
+   },
+   {
+    "en": "The host copies the router's global address and increments it by one",
+    "hi": "Host router ka global address copy karke use ek se badha deta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Requesting a full address from a server is stateful DHCPv6, a different mechanism from SLAAC.",
+    "hi": "Server se poora address maangna stateful DHCPv6 hai, jo SLAAC se alag mechanism hai."
+   },
+   {
+    "en": "The RA advertises only the prefix and flags; the router never dictates the full host address in SLAAC.",
+    "hi": "RA sirf prefix aur flags advertise karta hai; SLAAC mein router kabhi poora host address tay nahi karta."
+   },
+   {
+    "en": "No such copy-and-increment mechanism exists; the interface ID is generated independently by the host.",
+    "hi": "Aisa koi copy-and-increment mechanism nahi hai; interface ID host khud independently generate karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d1-042",
+  "domain": 1,
+  "lesson": "ipv6-basics",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which is the correctly compressed form of 2001:0db8:0000:0000:0000:0000:00a4:0001?",
+   "hi": "2001:0db8:0000:0000:0000:0000:00a4:0001 ka sahi compressed form kaunsa hai?"
+  },
+  "explanation": {
+   "en": "Two rules: drop leading zeros in each hextet (0db8 to db8, 00a4 to a4, 0001 to 1) and replace the single longest run of all-zero hextets with :: exactly once. The four consecutive zero hextets collapse, giving 2001:db8::a4:1.",
+   "hi": "Do rules: har hextet ke leading zeros hata do (0db8 se db8, 00a4 se a4, 0001 se 1) aur all-zero hextets ke sabse lambe single run ko sirf ek baar :: se replace karo. Chaar lagatar zero hextets collapse hokar 2001:db8::a4:1 bante hain."
+  },
+  "options": [
+   {
+    "en": "2001:db8::a4:1",
+    "hi": "2001:db8::a4:1"
+   },
+   {
+    "en": "2001:db8:::a4:1",
+    "hi": "2001:db8:::a4:1"
+   },
+   {
+    "en": "2001:db8::a4::1",
+    "hi": "2001:db8::a4::1"
+   },
+   {
+    "en": "2001:0db8::00a4:00001",
+    "hi": "2001:0db8::00a4:00001"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Three consecutive colons are never valid; the zero-compression marker is exactly two colons.",
+    "hi": "Teen lagatar colons kabhi valid nahi hote; zero-compression marker exactly do colons ka hota hai."
+   },
+   {
+    "en": "The :: marker may appear only once per address — two occurrences make the number of missing hextets ambiguous.",
+    "hi": ":: marker ek address mein sirf ek baar aa sakta hai — do baar aane se missing hextets ki ginti ambiguous ho jaati hai."
+   },
+   {
+    "en": "A hextet holds at most 4 hex digits, so 00001 is invalid, and leading zeros should be removed anyway.",
+    "hi": "Ek hextet mein maximum 4 hex digits hote hain, isliye 00001 invalid hai, aur leading zeros waise bhi hata dene chahiye."
+   }
+  ]
+ },
+ {
+  "id": "d1-043",
+  "domain": 1,
+  "lesson": "ipv6-basics",
+  "difficulty": "easy",
+  "type": "command",
+  "text": {
+   "en": "Enter the global configuration command that enables a router to forward IPv6 packets.",
+   "hi": "Woh global configuration command enter karo jo router ko IPv6 packets forward karne deta hai."
+  },
+  "explanation": {
+   "en": "IOS routers do not route IPv6 by default. ipv6 unicast-routing turns on IPv6 forwarding globally; without it, interfaces can hold IPv6 addresses but the router acts only as an IPv6 host and will not forward packets or send router advertisements.",
+   "hi": "IOS routers default mein IPv6 route nahi karte. ipv6 unicast-routing globally IPv6 forwarding on karta hai; iske bina interfaces par IPv6 addresses ho sakte hain lekin router sirf IPv6 host ki tarah behave karta hai aur na packets forward karta hai na router advertisements bhejta hai."
+  },
+  "commandAnswer": "ipv6 unicast-routing",
+  "accept": [
+   "ipv6 uni",
+   "ipv6 unicast",
+   "ipv6 unicast-r"
+  ]
+ },
+ {
+  "id": "d1-044",
+  "domain": 1,
+  "lesson": "ipv6-basics",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "Enter the command that displays a concise per-interface summary of IPv6 addresses and interface status.",
+   "hi": "Woh command enter karo jo har interface ke IPv6 addresses aur interface status ki concise summary dikhata hai."
+  },
+  "explanation": {
+   "en": "show ipv6 interface brief lists each interface with its status and all IPv6 addresses, including the automatic link-local fe80:: address — the quickest check that IPv6 addressing came up as expected.",
+   "hi": "show ipv6 interface brief har interface ko uske status aur saare IPv6 addresses ke saath list karta hai, automatic link-local fe80:: address bhi — yeh check karne ka sabse fast tareeka hai ki IPv6 addressing expected tareeke se up hua ya nahi."
+  },
+  "commandAnswer": "show ipv6 interface brief",
+  "accept": [
+   "sh ipv6 int br",
+   "sh ipv6 int brief",
+   "show ipv6 int brief",
+   "show ipv6 int br",
+   "sh ipv6 interface brief"
+  ]
+ },
+ {
+  "id": "d1-045",
+  "domain": 1,
+  "lesson": "tcp-udp",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "In which order are segments exchanged during the TCP three-way handshake?",
+   "hi": "TCP three-way handshake mein segments kis order mein exchange hote hain?"
+  },
+  "explanation": {
+   "en": "The client sends SYN (synchronize, carrying its initial sequence number), the server answers SYN-ACK (its own sequence number plus acknowledgment of the client's), and the client completes with ACK. Both sides now agree on sequence numbers and the connection is established.",
+   "hi": "Client SYN bhejta hai (synchronize, apne initial sequence number ke saath), server SYN-ACK se jawab deta hai (apna sequence number plus client ke number ka acknowledgment), aur client ACK se complete karta hai. Ab dono sides sequence numbers par agree karti hain aur connection established ho jaata hai."
+  },
+  "options": [
+   {
+    "en": "SYN, SYN-ACK, ACK",
+    "hi": "SYN, SYN-ACK, ACK"
+   },
+   {
+    "en": "SYN, ACK, SYN-ACK",
+    "hi": "SYN, ACK, SYN-ACK"
+   },
+   {
+    "en": "ACK, SYN, SYN-ACK",
+    "hi": "ACK, SYN, SYN-ACK"
+   },
+   {
+    "en": "SYN, SYN, ACK",
+    "hi": "SYN, SYN, ACK"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The server's SYN and ACK travel together as one SYN-ACK segment in step two — a lone ACK never comes second.",
+    "hi": "Server ka SYN aur ACK step two mein ek saath ek SYN-ACK segment ki tarah jaate hain — akela ACK kabhi doosre number par nahi aata."
+   },
+   {
+    "en": "A connection cannot begin with an ACK; there is nothing yet to acknowledge.",
+    "hi": "Connection ACK se shuru nahi ho sakta; abhi acknowledge karne ke liye kuch hai hi nahi."
+   },
+   {
+    "en": "Only the client's opening segment is a pure SYN; the server responds with a combined SYN-ACK, not another bare SYN.",
+    "hi": "Sirf client ka opening segment pure SYN hota hai; server combined SYN-ACK se respond karta hai, ek aur bare SYN se nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-046",
+  "domain": 1,
+  "lesson": "tcp-udp",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Why is UDP preferred over TCP for live voice traffic?",
+   "hi": "Live voice traffic ke liye TCP ki jagah UDP kyun prefer kiya jaata hai?"
+  },
+  "explanation": {
+   "en": "Voice is real-time: a lost packet is simply concealed, because a TCP-style retransmission would arrive after its playback moment has passed. UDP's small 8-byte header and lack of connection state, acknowledgments, and retransmissions minimize delay — RTP on top adds sequencing and timestamps.",
+   "hi": "Voice real-time hai: lost packet ko bas conceal kar diya jaata hai, kyunki TCP-style retransmission uske playback moment nikal jaane ke baad pahunchega. UDP ka chhota 8-byte header aur connection state, acknowledgments aur retransmissions ki kami delay ko minimum rakhti hai — upar RTP sequencing aur timestamps add karta hai."
+  },
+  "options": [
+   {
+    "en": "A retransmitted voice packet would arrive too late to be replayed, so UDP's low-overhead best-effort delivery is a better fit",
+    "hi": "Retransmit kiya hua voice packet replay hone ke liye bahut late pahunchega, isliye UDP ki low-overhead best-effort delivery better fit hai"
+   },
+   {
+    "en": "UDP guarantees ordered delivery, which voice requires",
+    "hi": "UDP ordered delivery guarantee karta hai, jo voice ke liye zaroori hai"
+   },
+   {
+    "en": "UDP headers carry timestamps that keep the audio synchronized",
+    "hi": "UDP headers mein timestamps hote hain jo audio ko synchronized rakhte hain"
+   },
+   {
+    "en": "UDP completes its three-way handshake faster than TCP",
+    "hi": "UDP apna three-way handshake TCP se jaldi complete karta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "UDP makes no ordering or delivery guarantees at all; any reordering is handled by RTP at the application layer.",
+    "hi": "UDP ordering ya delivery ki koi guarantee nahi deta; koi bhi reordering application layer par RTP handle karta hai."
+   },
+   {
+    "en": "The UDP header has only ports, length, and checksum; timestamps come from RTP, not UDP.",
+    "hi": "UDP header mein sirf ports, length aur checksum hote hain; timestamps RTP se aate hain, UDP se nahi."
+   },
+   {
+    "en": "UDP has no handshake of any kind — it is connectionless.",
+    "hi": "UDP mein kisi tarah ka handshake hota hi nahi — yeh connectionless hai."
+   }
+  ]
+ },
+ {
+  "id": "d1-047",
+  "domain": 1,
+  "lesson": "tcp-udp",
+  "difficulty": "easy",
+  "type": "match",
+  "text": {
+   "en": "Match each application protocol to its transport protocol and well-known port.",
+   "hi": "Har application protocol ko uske transport protocol aur well-known port se match karo."
+  },
+  "explanation": {
+   "en": "SSH needs reliable delivery for its encrypted session (TCP 22). Ordinary DNS queries use lightweight UDP 53 (TCP 53 handles zone transfers and oversized responses). HTTPS is HTTP over TLS on TCP 443. DHCP servers listen on UDP 67 while clients use UDP 68.",
+   "hi": "SSH ko apne encrypted session ke liye reliable delivery chahiye (TCP 22). Normal DNS queries halka UDP 53 use karti hain (TCP 53 zone transfers aur bade responses handle karta hai). HTTPS TLS ke upar HTTP hai, TCP 443 par. DHCP servers UDP 67 par listen karte hain jabki clients UDP 68 use karte hain."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "SSH",
+     "hi": "SSH"
+    },
+    "right": {
+     "en": "TCP 22",
+     "hi": "TCP 22"
+    }
+   },
+   {
+    "left": {
+     "en": "DNS query",
+     "hi": "DNS query"
+    },
+    "right": {
+     "en": "UDP 53",
+     "hi": "UDP 53"
+    }
+   },
+   {
+    "left": {
+     "en": "HTTPS",
+     "hi": "HTTPS"
+    },
+    "right": {
+     "en": "TCP 443",
+     "hi": "TCP 443"
+    }
+   },
+   {
+    "left": {
+     "en": "DHCP server",
+     "hi": "DHCP server"
+    },
+    "right": {
+     "en": "UDP 67",
+     "hi": "UDP 67"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d1-048",
+  "domain": 1,
+  "lesson": "tcp-udp",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which two mechanisms does TCP use that UDP lacks? (Choose two.)",
+   "hi": "TCP kaunse do mechanisms use karta hai jo UDP mein nahi hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "Flow control via the advertised window and sequencing/acknowledgment are TCP-only mechanisms — they require connection state that UDP deliberately avoids. Everything a datagram needs to reach the right process (ports, checksum) exists in both protocols.",
+   "hi": "Advertised window ke through flow control aur sequencing/acknowledgment sirf TCP ke mechanisms hain — inhe connection state chahiye jisse UDP jaan-boojh kar bachta hai. Datagram ko sahi process tak pahunchane ke liye jo chahiye (ports, checksum) woh dono protocols mein hai."
+  },
+  "options": [
+   {
+    "en": "A sliding window that adjusts how much data may be sent before an acknowledgment",
+    "hi": "Ek sliding window jo decide karta hai ki acknowledgment se pehle kitna data bheja ja sakta hai"
+   },
+   {
+    "en": "Sequence numbers that let the receiver reorder and detect missing segments",
+    "hi": "Sequence numbers jinse receiver segments ko reorder kar sakta hai aur missing segments detect kar sakta hai"
+   },
+   {
+    "en": "Port numbers that identify the sending and receiving application processes",
+    "hi": "Port numbers jo sending aur receiving application processes ko identify karte hain"
+   },
+   {
+    "en": "A length field describing the size of the datagram",
+    "hi": "Ek length field jo datagram ka size batata hai"
+   },
+   {
+    "en": "A checksum for detecting corrupted data",
+    "hi": "Corrupted data detect karne ke liye checksum"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Both TCP and UDP headers carry source and destination port numbers.",
+    "hi": "TCP aur UDP dono ke headers mein source aur destination port numbers hote hain."
+   },
+   {
+    "en": "UDP is the protocol that actually has a length field; TCP has none and derives segment length from the IP header.",
+    "hi": "Asal mein UDP mein length field hota hai; TCP mein nahi hota aur woh segment length IP header se nikalta hai."
+   },
+   {
+    "en": "Both protocols include a checksum (mandatory for TCP; required for UDP over IPv6 and nearly always used over IPv4).",
+    "hi": "Dono protocols mein checksum hota hai (TCP ke liye mandatory; IPv6 par UDP ke liye required aur IPv4 par lagbhag hamesha use hota hai)."
+   }
+  ]
+ },
+ {
+  "id": "d1-049",
+  "domain": 1,
+  "lesson": "virtualization-cloud",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "What defines a Type 1 hypervisor?",
+   "hi": "Type 1 hypervisor ki definition kya hai?"
+  },
+  "explanation": {
+   "en": "A Type 1 (bare-metal) hypervisor — such as VMware ESXi or Microsoft Hyper-V Server — boots directly on the hardware and allocates CPU, memory, storage, and NICs to guest VMs. Data centers prefer it for performance and stability.",
+   "hi": "Type 1 (bare-metal) hypervisor — jaise VMware ESXi ya Microsoft Hyper-V Server — seedha hardware par boot hota hai aur guest VMs ko CPU, memory, storage aur NICs allocate karta hai. Data centers performance aur stability ke liye ise prefer karte hain."
+  },
+  "options": [
+   {
+    "en": "It runs directly on the physical server hardware without an underlying host operating system",
+    "hi": "Yeh bina kisi underlying host operating system ke seedha physical server hardware par chalta hai"
+   },
+   {
+    "en": "It installs as an application on top of a desktop operating system",
+    "hi": "Yeh desktop operating system ke upar ek application ki tarah install hota hai"
+   },
+   {
+    "en": "It can host only one virtual machine at a time",
+    "hi": "Yeh ek time par sirf ek virtual machine host kar sakta hai"
+   },
+   {
+    "en": "It runs only inside a container",
+    "hi": "Yeh sirf ek container ke andar chalta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Running as an application on a host OS describes a Type 2 (hosted) hypervisor, like VMware Workstation or VirtualBox.",
+    "hi": "Host OS par application ki tarah chalna Type 2 (hosted) hypervisor hai, jaise VMware Workstation ya VirtualBox."
+   },
+   {
+    "en": "Hypervisors of both types run many VMs concurrently — consolidation is the main point of virtualization.",
+    "hi": "Dono types ke hypervisors kai VMs ek saath chalate hain — consolidation hi virtualization ka main point hai."
+   },
+   {
+    "en": "Containers and hypervisors are different technologies; a hypervisor does not run inside a container engine.",
+    "hi": "Containers aur hypervisors alag technologies hain; hypervisor container engine ke andar nahi chalta."
+   }
+  ]
+ },
+ {
+  "id": "d1-050",
+  "domain": 1,
+  "lesson": "virtualization-cloud",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "How do containers differ from virtual machines?",
+   "hi": "Containers virtual machines se kaise alag hain?"
+  },
+  "explanation": {
+   "en": "A container packages an application with its libraries but relies on the host kernel via a container engine (such as Docker), so it is megabytes in size and starts in seconds. A VM emulates hardware and boots a full OS, costing more memory and startup time but giving stronger isolation.",
+   "hi": "Container ek application ko uski libraries ke saath package karta hai lekin container engine (jaise Docker) ke through host kernel par depend karta hai, isliye iska size megabytes mein hota hai aur yeh seconds mein start hota hai. VM hardware emulate karta hai aur poora OS boot karta hai, jisse zyada memory aur startup time lagta hai lekin isolation zyada strong milta hai."
+  },
+  "options": [
+   {
+    "en": "Containers share the host operating system's kernel, while each VM runs its own complete guest OS",
+    "hi": "Containers host operating system ka kernel share karte hain, jabki har VM apna complete guest OS chalata hai"
+   },
+   {
+    "en": "Each container includes its own full guest operating system, making it larger than a VM",
+    "hi": "Har container mein apna full guest operating system hota hai, jisse woh VM se bada hota hai"
+   },
+   {
+    "en": "Containers can run only on a Type 1 hypervisor",
+    "hi": "Containers sirf Type 1 hypervisor par chal sakte hain"
+   },
+   {
+    "en": "Containers take longer to start than virtual machines",
+    "hi": "Containers virtual machines se start hone mein zyada time lete hain"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "It is the reverse: containers omit the guest OS, which is exactly why they are smaller and lighter than VMs.",
+    "hi": "Ulta hai: containers mein guest OS nahi hota, isi wajah se woh VMs se chhote aur halke hote hain."
+   },
+   {
+    "en": "Containers need a container engine on a host OS, not a hypervisor — they commonly run on bare-metal servers or inside VMs alike.",
+    "hi": "Containers ko host OS par container engine chahiye, hypervisor nahi — yeh bare-metal servers par ya VMs ke andar dono jagah aam taur par chalte hain."
+   },
+   {
+    "en": "Containers start in seconds or less; VMs must boot an entire operating system and are slower to start.",
+    "hi": "Containers seconds ya usse bhi kam mein start hote hain; VMs ko poora operating system boot karna padta hai aur woh slow start hote hain."
+   }
+  ]
+ },
+ {
+  "id": "d1-051",
+  "domain": 1,
+  "lesson": "virtualization-cloud",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A single physical router must keep the routes of customer A and customer B completely separate, even though both use overlapping 10.0.0.0/8 addressing. Which technology provides this?",
+   "hi": "Ek single physical router ko customer A aur customer B ke routes bilkul alag rakhne hain, jabki dono overlapping 10.0.0.0/8 addressing use karte hain. Yeh kaunsi technology deti hai?"
+  },
+  "explanation": {
+   "en": "Virtual Routing and Forwarding creates multiple independent routing table instances on one router. Interfaces are assigned to a VRF, and routes in one VRF are invisible to the others — so both customers can use the same 10.0.0.0/8 space without conflict.",
+   "hi": "Virtual Routing and Forwarding ek router par multiple independent routing table instances banata hai. Interfaces ek VRF ko assign hote hain, aur ek VRF ke routes doosre VRFs ko dikhte hi nahi — isliye dono customers bina conflict ke same 10.0.0.0/8 space use kar sakte hain."
+  },
+  "options": [
+   {
+    "en": "VRF",
+    "hi": "VRF"
+   },
+   {
+    "en": "VLAN",
+    "hi": "VLAN"
+   },
+   {
+    "en": "HSRP",
+    "hi": "HSRP"
+   },
+   {
+    "en": "NAT",
+    "hi": "NAT"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "VLANs separate Layer 2 broadcast domains; without VRFs the router still merges everything into one global routing table where the overlapping routes would collide.",
+    "hi": "VLANs Layer 2 broadcast domains alag karte hain; VRFs ke bina router phir bhi sab kuch ek global routing table mein mila deta hai jahan overlapping routes takrayenge."
+   },
+   {
+    "en": "HSRP provides a redundant default gateway; it does nothing to separate routing tables.",
+    "hi": "HSRP redundant default gateway deta hai; routing tables alag karne mein iska koi role nahi."
+   },
+   {
+    "en": "NAT translates addresses at a boundary but the router would still hold one routing table, so the overlapping internal routes would still conflict.",
+    "hi": "NAT boundary par addresses translate karta hai lekin router mein phir bhi ek hi routing table hogi, isliye overlapping internal routes conflict karenge."
+   }
+  ]
+ },
+ {
+  "id": "d1-052",
+  "domain": 1,
+  "lesson": "virtualization-cloud",
+  "difficulty": "medium",
+  "type": "command",
+  "text": {
+   "en": "Enter the command that lists the VRF instances configured on a router together with their assigned interfaces.",
+   "hi": "Woh command enter karo jo router par configured VRF instances ko unke assigned interfaces ke saath list karta hai."
+  },
+  "explanation": {
+   "en": "show vrf displays each VRF name, its route distinguisher, supported protocols, and member interfaces — the first check when verifying that interfaces landed in the intended routing instance.",
+   "hi": "show vrf har VRF ka naam, uska route distinguisher, supported protocols aur member interfaces dikhata hai — yeh verify karne ka pehla check ki interfaces sahi routing instance mein gaye hain."
+  },
+  "commandAnswer": "show vrf",
+  "accept": [
+   "sh vrf"
+  ]
+ },
+ {
+  "id": "d1-053",
+  "domain": 1,
+  "lesson": "virtualization-cloud",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "A company subscribes to a provider-hosted email and office suite accessed through a web browser; the provider manages the servers, storage, and the application itself. Which cloud service model is this?",
+   "hi": "Ek company provider-hosted email aur office suite subscribe karti hai jo web browser se access hota hai; servers, storage aur application khud provider manage karta hai. Yeh kaunsa cloud service model hai?"
+  },
+  "explanation": {
+   "en": "Software as a Service delivers a finished application over the network — the customer only consumes it, while the provider runs everything underneath. Hosted email suites are the textbook example.",
+   "hi": "Software as a Service network par ek ready application deliver karta hai — customer sirf use karta hai, jabki neeche sab kuch provider chalata hai. Hosted email suites iska textbook example hain."
+  },
+  "options": [
+   {
+    "en": "SaaS",
+    "hi": "SaaS"
+   },
+   {
+    "en": "IaaS",
+    "hi": "IaaS"
+   },
+   {
+    "en": "PaaS",
+    "hi": "PaaS"
+   },
+   {
+    "en": "Hybrid cloud",
+    "hi": "Hybrid cloud"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "With IaaS the customer rents infrastructure (VMs, storage, networks) and must install and manage the OS and applications — not the case here.",
+    "hi": "IaaS mein customer infrastructure (VMs, storage, networks) rent karta hai aur OS aur applications khud install aur manage karta hai — yahan aisa nahi hai."
+   },
+   {
+    "en": "With PaaS the customer deploys its own code onto a managed platform; here the application itself belongs to the provider.",
+    "hi": "PaaS mein customer apna code managed platform par deploy karta hai; yahan application khud provider ki hai."
+   },
+   {
+    "en": "Hybrid cloud is a deployment model (private plus public combined), not a service model describing what is delivered.",
+    "hi": "Hybrid cloud ek deployment model hai (private plus public combined), service model nahi jo batata hai ki kya deliver hota hai."
+   }
+  ]
+ },
+ {
+  "id": "d1-054",
+  "domain": 1,
+  "lesson": "virtualization-cloud",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A development team wants to deploy its own application code while the provider manages the operating system, runtime, and underlying servers. Which cloud service model fits?",
+   "hi": "Ek development team apna application code deploy karna chahti hai jabki provider operating system, runtime aur underlying servers manage kare. Kaunsa cloud service model fit hota hai?"
+  },
+  "explanation": {
+   "en": "Platform as a Service exposes a managed development and runtime platform: developers push code and the provider handles OS patching, runtime, scaling, and hardware. It sits between IaaS (more customer control) and SaaS (no customer code at all).",
+   "hi": "Platform as a Service ek managed development aur runtime platform deta hai: developers code push karte hain aur provider OS patching, runtime, scaling aur hardware handle karta hai. Yeh IaaS (customer ka zyada control) aur SaaS (customer ka koi code nahi) ke beech mein aata hai."
+  },
+  "options": [
+   {
+    "en": "PaaS",
+    "hi": "PaaS"
+   },
+   {
+    "en": "IaaS",
+    "hi": "IaaS"
+   },
+   {
+    "en": "SaaS",
+    "hi": "SaaS"
+   },
+   {
+    "en": "Private cloud",
+    "hi": "Private cloud"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "With IaaS the team would receive raw VMs and have to manage the operating system and runtime themselves.",
+    "hi": "IaaS mein team ko raw VMs milte aur operating system aur runtime khud manage karne padte."
+   },
+   {
+    "en": "SaaS delivers a finished third-party application; the team could not deploy its own code onto it.",
+    "hi": "SaaS ek ready third-party application deta hai; team us par apna code deploy nahi kar sakti."
+   },
+   {
+    "en": "Private cloud describes who owns and uses the infrastructure (a deployment model), not the division of management duties.",
+    "hi": "Private cloud batata hai ki infrastructure ka owner aur user kaun hai (deployment model), management duties ka batwara nahi."
+   }
+  ]
+ },
+ {
+  "id": "d1-055",
+  "domain": 1,
+  "lesson": "virtualization-cloud",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which two are essential characteristics of cloud computing as defined by NIST? (Choose two.)",
+   "hi": "NIST ki definition ke hisaab se cloud computing ki kaunsi do essential characteristics hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "NIST lists five essential characteristics: on-demand self-service, broad network access, resource pooling, rapid elasticity (capacity scales up and down with demand), and measured service (usage is metered and billed).",
+   "hi": "NIST paanch essential characteristics list karta hai: on-demand self-service, broad network access, resource pooling, rapid elasticity (capacity demand ke saath upar-neeche scale hoti hai), aur measured service (usage meter hota hai aur bill hota hai)."
+  },
+  "options": [
+   {
+    "en": "Rapid elasticity",
+    "hi": "Rapid elasticity"
+   },
+   {
+    "en": "Measured service",
+    "hi": "Measured service"
+   },
+   {
+    "en": "Dedicated single-tenant hardware for every customer",
+    "hi": "Har customer ke liye dedicated single-tenant hardware"
+   },
+   {
+    "en": "Provisioning performed manually through provider support tickets",
+    "hi": "Provider support tickets ke through manually kiya gaya provisioning"
+   },
+   {
+    "en": "A guarantee that all data stays on the customer's premises",
+    "hi": "Guarantee ki saara data customer ke premises par hi rahega"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Clouds are built on resource pooling — multi-tenant infrastructure shared across customers — the opposite of mandatory single-tenant hardware.",
+    "hi": "Clouds resource pooling par bante hain — customers ke beech shared multi-tenant infrastructure — jo mandatory single-tenant hardware ka ulta hai."
+   },
+   {
+    "en": "On-demand self-service means customers provision resources themselves through a portal or API, without waiting on tickets.",
+    "hi": "On-demand self-service ka matlab hai customers portal ya API se khud resources provision karte hain, tickets ka wait kiye bina."
+   },
+   {
+    "en": "Data location depends on the deployment model; public cloud data lives in provider facilities, so this is not a defining characteristic.",
+    "hi": "Data location deployment model par depend karti hai; public cloud data provider ki facilities mein rehta hai, isliye yeh defining characteristic nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d1-056",
+  "domain": 1,
+  "lesson": "virtualization-cloud",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A company needs connectivity from its data center to a public cloud provider with predictable latency and bandwidth that never traverses the public internet. Which connection method meets the requirement?",
+   "hi": "Ek company ko apne data center se public cloud provider tak aisi connectivity chahiye jismein latency aur bandwidth predictable ho aur jo kabhi public internet se na guzre. Kaunsa connection method yeh requirement poori karta hai?"
+  },
+  "explanation": {
+   "en": "Private interconnect offerings (such as a dedicated circuit or an MPLS provider cross-connect into the cloud edge) bypass the internet entirely, giving contracted bandwidth and consistent latency — the choice for latency-sensitive or high-volume hybrid workloads.",
+   "hi": "Private interconnect offerings (jaise dedicated circuit ya cloud edge mein MPLS provider cross-connect) internet ko poori tarah bypass karte hain, contracted bandwidth aur consistent latency dete hain — latency-sensitive ya high-volume hybrid workloads ke liye yahi choice hai."
+  },
+  "options": [
+   {
+    "en": "A dedicated private WAN circuit into the cloud provider's edge (private interconnect)",
+    "hi": "Cloud provider ke edge tak dedicated private WAN circuit (private interconnect)"
+   },
+   {
+    "en": "A site-to-site IPsec VPN across the internet",
+    "hi": "Internet ke across site-to-site IPsec VPN"
+   },
+   {
+    "en": "Accessing the cloud workloads over HTTPS",
+    "hi": "Cloud workloads ko HTTPS par access karna"
+   },
+   {
+    "en": "A GRE tunnel built over a broadband internet connection",
+    "hi": "Broadband internet connection par bana GRE tunnel"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "IPsec encrypts the traffic, but the packets still ride the public internet, so latency and throughput remain unpredictable.",
+    "hi": "IPsec traffic ko encrypt karta hai, lekin packets phir bhi public internet par chalte hain, isliye latency aur throughput unpredictable rehte hain."
+   },
+   {
+    "en": "HTTPS is just encrypted application access — still over the internet with no performance guarantees.",
+    "hi": "HTTPS sirf encrypted application access hai — phir bhi internet par, bina kisi performance guarantee ke."
+   },
+   {
+    "en": "A GRE tunnel over broadband also transits the internet, and GRE adds no encryption either.",
+    "hi": "Broadband par GRE tunnel bhi internet se guzarta hai, aur GRE koi encryption bhi add nahi karta."
+   }
+  ]
+ },
+ {
+  "id": "d1-057",
+  "domain": 1,
+  "lesson": "wireless-fundamentals",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which set of 2.4 GHz channels is non-overlapping and recommended for adjacent access points (FCC domain)?",
+   "hi": "2.4 GHz channels ka kaunsa set non-overlapping hai aur adjacent access points ke liye recommended hai (FCC domain)?"
+  },
+  "explanation": {
+   "en": "2.4 GHz channels are spaced only 5 MHz apart, but each transmission is about 22 MHz wide, so neighbors overlap heavily. Channels 1, 6, and 11 are far enough apart to avoid overlap, so adjacent APs alternate among them.",
+   "hi": "2.4 GHz channels sirf 5 MHz ki doori par hain, lekin har transmission lagbhag 22 MHz chauda hota hai, isliye paas wale channels bahut zyada overlap karte hain. Channels 1, 6 aur 11 itne door hain ki overlap nahi hota, isliye adjacent APs inhi mein alternate karte hain."
+  },
+  "options": [
+   {
+    "en": "1, 6, and 11",
+    "hi": "1, 6 aur 11"
+   },
+   {
+    "en": "1, 5, and 9",
+    "hi": "1, 5 aur 9"
+   },
+   {
+    "en": "2, 7, and 12",
+    "hi": "2, 7 aur 12"
+   },
+   {
+    "en": "1, 2, and 3",
+    "hi": "1, 2 aur 3"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Channels 4 apart (1, 5, 9) still overlap with 22 MHz-wide signals; the accepted non-overlapping plan in the FCC domain is 1, 6, 11.",
+    "hi": "4 ki doori wale channels (1, 5, 9) 22 MHz-wide signals ke saath phir bhi overlap karte hain; FCC domain mein accepted non-overlapping plan 1, 6, 11 hai."
+   },
+   {
+    "en": "Channels 2, 7, and 12 overlap channels around them, and channel 12 is restricted in the FCC domain.",
+    "hi": "Channels 2, 7 aur 12 apne aas-paas ke channels se overlap karte hain, aur FCC domain mein channel 12 restricted hai."
+   },
+   {
+    "en": "Adjacent channels 1, 2, and 3 overlap almost completely and would interfere severely.",
+    "hi": "Adjacent channels 1, 2 aur 3 lagbhag poori tarah overlap karte hain aur bahut zyada interfere karenge."
+   }
+  ]
+ },
+ {
+  "id": "d1-058",
+  "domain": 1,
+  "lesson": "wireless-fundamentals",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which 802.11 standard can operate in both the 2.4 GHz and 5 GHz bands?",
+   "hi": "Kaunsa 802.11 standard 2.4 GHz aur 5 GHz dono bands mein operate kar sakta hai?"
+  },
+  "explanation": {
+   "en": "802.11n (Wi-Fi 4) was the first standard to run in either band and introduced MIMO and channel bonding. (802.11ax, Wi-Fi 6, is also dual-band — and adds 6 GHz as Wi-Fi 6E — but it is not among these options.)",
+   "hi": "802.11n (Wi-Fi 4) pehla standard tha jo dono mein se kisi bhi band mein chal sakta tha, aur isne MIMO aur channel bonding introduce kiye. (802.11ax, Wi-Fi 6, bhi dual-band hai — aur Wi-Fi 6E ke roop mein 6 GHz add karta hai — lekin woh in options mein nahi hai.)"
+  },
+  "options": [
+   {
+    "en": "802.11n",
+    "hi": "802.11n"
+   },
+   {
+    "en": "802.11a",
+    "hi": "802.11a"
+   },
+   {
+    "en": "802.11b",
+    "hi": "802.11b"
+   },
+   {
+    "en": "802.11ac",
+    "hi": "802.11ac"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "802.11a operates only in the 5 GHz band (54 Mbps, OFDM).",
+    "hi": "802.11a sirf 5 GHz band mein operate karta hai (54 Mbps, OFDM)."
+   },
+   {
+    "en": "802.11b operates only in the 2.4 GHz band (11 Mbps, DSSS).",
+    "hi": "802.11b sirf 2.4 GHz band mein operate karta hai (11 Mbps, DSSS)."
+   },
+   {
+    "en": "802.11ac (Wi-Fi 5) operates only in the 5 GHz band.",
+    "hi": "802.11ac (Wi-Fi 5) sirf 5 GHz band mein operate karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d1-059",
+  "domain": 1,
+  "lesson": "wireless-fundamentals",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which two conditions commonly degrade performance on a 2.4 GHz WLAN? (Choose two.)",
+   "hi": "Kaunsi do conditions aam taur par 2.4 GHz WLAN ki performance kharab karti hain? (Do chuno.)"
+  },
+  "explanation": {
+   "en": "The 2.4 GHz ISM band is crowded: microwave ovens, Bluetooth, cordless phones, and other non-Wi-Fi emitters all raise the noise floor. APs on channels that partially overlap create adjacent-channel interference — noise the radios cannot decode or defer to cleanly, which is worse than sharing the exact same channel.",
+   "hi": "2.4 GHz ISM band bahut bhara hua hai: microwave ovens, Bluetooth, cordless phones aur doosre non-Wi-Fi emitters sab noise floor badhate hain. Partially overlapping channels par chal rahe APs adjacent-channel interference create karte hain — aisa noise jise radios na theek se decode kar sakte hain na uske liye defer kar sakte hain, jo exact same channel share karne se bhi bura hai."
+  },
+  "options": [
+   {
+    "en": "Interference from microwave ovens and Bluetooth devices sharing the band",
+    "hi": "Band share karne wale microwave ovens aur Bluetooth devices se interference"
+   },
+   {
+    "en": "Nearby access points operating on partially overlapping channels such as 3 and 6",
+    "hi": "Paas ke access points jo 3 aur 6 jaise partially overlapping channels par chal rahe hon"
+   },
+   {
+    "en": "Too many non-overlapping channels being available",
+    "hi": "Bahut zyada non-overlapping channels available hona"
+   },
+   {
+    "en": "Radar-triggered DFS channel changes",
+    "hi": "Radar-triggered DFS channel changes"
+   },
+   {
+    "en": "Using WPA2 with AES encryption",
+    "hi": "AES encryption ke saath WPA2 use karna"
+   }
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The band's real problem is the opposite — only three non-overlapping channels exist, which forces reuse and co-channel contention.",
+    "hi": "Band ki asli problem ulti hai — sirf teen non-overlapping channels hain, jisse reuse aur co-channel contention majboori ban jaata hai."
+   },
+   {
+    "en": "Dynamic frequency selection applies to certain 5 GHz channels shared with radar systems, not to the 2.4 GHz band.",
+    "hi": "Dynamic frequency selection radar systems ke saath shared kuch 5 GHz channels par apply hota hai, 2.4 GHz band par nahi."
+   },
+   {
+    "en": "WPA2-AES encryption is performed in hardware and has no meaningful effect on RF performance.",
+    "hi": "WPA2-AES encryption hardware mein hota hai aur RF performance par iska koi khaas asar nahi padta."
+   }
+  ]
+ },
+ {
+  "id": "d1-060",
+  "domain": 1,
+  "lesson": "wireless-fundamentals",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A wireless survey at a client location records a received signal strength of -65 dBm and a noise floor of -90 dBm. What is the signal-to-noise ratio?",
+   "hi": "Ek client location par wireless survey -65 dBm received signal strength aur -90 dBm noise floor record karta hai. Signal-to-noise ratio kya hai?"
+  },
+  "explanation": {
+   "en": "SNR = signal minus noise: -65 - (-90) = 25 dB. Because both values are negative dBm, the signal being 'less negative' than the noise floor by 25 means it is 25 dB stronger. An SNR of 25 dB supports solid data rates; voice designs typically target 25 dB or better.",
+   "hi": "SNR = signal minus noise: -65 - (-90) = 25 dB. Kyunki dono values negative dBm hain, signal ka noise floor se 25 'kam negative' hona matlab woh 25 dB zyada strong hai. 25 dB ka SNR achhe data rates support karta hai; voice designs aam taur par 25 dB ya usse better target karte hain."
+  },
+  "options": [
+   {
+    "en": "25 dB",
+    "hi": "25 dB"
+   },
+   {
+    "en": "-25 dB",
+    "hi": "-25 dB"
+   },
+   {
+    "en": "-155 dB",
+    "hi": "-155 dB"
+   },
+   {
+    "en": "155 dB",
+    "hi": "155 dB"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A negative SNR would mean the signal sits below the noise floor and is undecodable; here the signal is clearly above the noise.",
+    "hi": "Negative SNR ka matlab hota ki signal noise floor se neeche hai aur decode nahi ho sakta; yahan signal saaf taur par noise se upar hai."
+   },
+   {
+    "en": "-155 comes from adding the two dBm figures; SNR is the difference between them, not the sum.",
+    "hi": "-155 dono dBm figures ko jodne se aata hai; SNR inka difference hai, sum nahi."
+   },
+   {
+    "en": "155 results from adding the magnitudes; subtract the noise floor from the signal level instead: -65 - (-90) = 25.",
+    "hi": "155 magnitudes ko jodne se aata hai; iski jagah signal level se noise floor subtract karo: -65 - (-90) = 25."
+   }
+  ]
+ }
+]

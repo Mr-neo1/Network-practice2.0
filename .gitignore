@@ -1,0 +1,46 @@
+# Dependencies and builds
+node_modules/
+dist/
+*.tsbuildinfo
+coverage/
+
+# Local environment (the committed .env.production holds only public keys)
+.env
+.env.local
+.env.*.local
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local SQLite database for the Node server, and workflow scratch
+/data/
+*.sqlite
+*.sqlite3
+.workflows/
+.vercel/
+
+# The old Manus export: unused by the app, backed up in archive/ (kept out of the repo)
+/archive/
+/client/
+/server/
+/shared/
+/drizzle/
+/patches/
+/drizzle.config.ts
+/components.json
+/template.json
+/pnpm-lock.yaml
+/todo.md
+/animation_audit.md
+/static_diagram_audit.md
+/qa_findings.md
+/qa_references.md
+*.bak

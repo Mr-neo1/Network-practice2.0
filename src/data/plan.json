@@ -1,0 +1,1486 @@
+[
+ {
+  "id": "w1d1",
+  "week": 1,
+  "day": 1,
+  "title": {
+   "en": "Models of Networking",
+   "hi": "Networking ke Models"
+  },
+  "focus": {
+   "en": "How data moves: the OSI and TCP/IP models, and the devices that build a network.",
+   "hi": "Data kaise move hota hai: OSI aur TCP/IP models, aur woh devices jinse network banta hai."
+  },
+  "lessons": [
+   "osi-model",
+   "network-devices"
+  ],
+  "lab": "lab-01",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "osi-model",
+    "network-devices"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w1d2",
+  "week": 1,
+  "day": 2,
+  "title": {
+   "en": "Topologies & Cabling",
+   "hi": "Topologies aur Cabling"
+  },
+  "focus": {
+   "en": "Enterprise designs (2-tier, 3-tier, spine-leaf) and the physical layer that carries every bit.",
+   "hi": "Enterprise designs (2-tier, 3-tier, spine-leaf) aur woh physical layer jo har bit ko carry karti hai."
+  },
+  "lessons": [
+   "lan-architectures",
+   "cables-and-interfaces"
+  ],
+  "lab": "lab-02",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "lan-architectures",
+    "cables-and-interfaces"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w1d3",
+  "week": 1,
+  "day": 3,
+  "title": {
+   "en": "Ethernet",
+   "hi": "Ethernet"
+  },
+  "focus": {
+   "en": "Frames, MAC addresses, speed/duplex, and how to read interface errors.",
+   "hi": "Frames, MAC addresses, speed/duplex, aur interface errors kaise padhein."
+  },
+  "lessons": [
+   "ethernet-and-mac"
+  ],
+  "lab": "lab-03",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "ethernet-and-mac"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w1d4",
+  "week": 1,
+  "day": 4,
+  "title": {
+   "en": "IPv4 Addressing",
+   "hi": "IPv4 Addressing"
+  },
+  "focus": {
+   "en": "Address structure, classes, private vs public ranges, and configuring addresses.",
+   "hi": "Address structure, classes, private vs public ranges, aur addresses configure karna."
+  },
+  "lessons": [
+   "ipv4-addressing"
+  ],
+  "lab": "lab-04",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "ipv4-addressing"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w1d5",
+  "week": 1,
+  "day": 5,
+  "title": {
+   "en": "Subnetting Fundamentals",
+   "hi": "Subnetting ki Basics"
+  },
+  "focus": {
+   "en": "Masks, network and broadcast addresses, usable hosts — the math behind every subnet.",
+   "hi": "Masks, network aur broadcast addresses, usable hosts — har subnet ke peeche ka math."
+  },
+  "lessons": [
+   "subnetting"
+  ],
+  "lab": "lab-05",
+  "drill": "subnetting",
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "subnetting"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w1d6",
+  "week": 1,
+  "day": 6,
+  "title": {
+   "en": "Fast Subnetting",
+   "hi": "Fast Subnetting"
+  },
+  "focus": {
+   "en": "The magic-number method: solve any subnet question in under 30 seconds.",
+   "hi": "Magic-number method: koi bhi subnet question 30 seconds se kam mein solve karo."
+  },
+  "lessons": [
+   "subnetting"
+  ],
+  "lab": "lab-06",
+  "drill": "subnetting",
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "subnetting"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w1d7",
+  "week": 1,
+  "day": 7,
+  "title": {
+   "en": "Week 1 Review & Exam",
+   "hi": "Week 1 Review aur Exam"
+  },
+  "focus": {
+   "en": "Revisit weak spots from the week, then take the 25-question weekly exam.",
+   "hi": "Hafte ke weak spots dobara dekho, phir 25-question weekly exam do."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": null,
+  "quiz": {
+   "mode": "weekly",
+   "domains": [
+    1
+   ],
+   "count": 25
+  },
+  "review": true,
+  "examDay": false
+ },
+ {
+  "id": "w2d1",
+  "week": 2,
+  "day": 1,
+  "title": {
+   "en": "VLSM & Subnet Design",
+   "hi": "VLSM aur Subnet Design"
+  },
+  "focus": {
+   "en": "Design efficient addressing plans with variable-length masks. Daily subnet drills start now.",
+   "hi": "Variable-length masks se efficient addressing plans design karo. Daily subnet drills ab shuru."
+  },
+  "lessons": [
+   "vlsm"
+  ],
+  "lab": "lab-07",
+  "drill": "subnetting",
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "vlsm",
+    "subnetting"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w2d2",
+  "week": 2,
+  "day": 2,
+  "title": {
+   "en": "IPv6 Addressing",
+   "hi": "IPv6 Addressing"
+  },
+  "focus": {
+   "en": "128-bit addresses: format, compression, and the address types you must recognize.",
+   "hi": "128-bit addresses: format, compression, aur woh address types jo tumhe pehchanne aane chahiye."
+  },
+  "lessons": [
+   "ipv6-types"
+  ],
+  "lab": "lab-08",
+  "drill": "subnetting",
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "ipv6-types"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w2d3",
+  "week": 2,
+  "day": 3,
+  "title": {
+   "en": "IPv6 in Practice",
+   "hi": "IPv6 Practice mein"
+  },
+  "focus": {
+   "en": "Static addressing, SLAAC, EUI-64 and verification commands.",
+   "hi": "Static addressing, SLAAC, EUI-64 aur verification commands."
+  },
+  "lessons": [
+   "ipv6-basics"
+  ],
+  "lab": "lab-09",
+  "drill": "subnetting",
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "ipv6-basics",
+    "ipv6-types"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w2d4",
+  "week": 2,
+  "day": 4,
+  "title": {
+   "en": "TCP & UDP",
+   "hi": "TCP aur UDP"
+  },
+  "focus": {
+   "en": "Reliability vs speed: headers, the three-way handshake, and the port numbers to memorize.",
+   "hi": "Reliability vs speed: headers, three-way handshake, aur yaad karne wale port numbers."
+  },
+  "lessons": [
+   "tcp-udp"
+  ],
+  "lab": "lab-10",
+  "drill": "subnetting",
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "tcp-udp"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w2d5",
+  "week": 2,
+  "day": 5,
+  "title": {
+   "en": "Virtualization",
+   "hi": "Virtualization"
+  },
+  "focus": {
+   "en": "Hypervisors, VMs, containers and VRFs — the foundation of modern data centers.",
+   "hi": "Hypervisors, VMs, containers aur VRFs — modern data centers ki neev."
+  },
+  "lessons": [
+   "virtualization-cloud"
+  ],
+  "lab": "lab-11",
+  "drill": "subnetting",
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "virtualization-cloud"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w2d6",
+  "week": 2,
+  "day": 6,
+  "title": {
+   "en": "Cloud Concepts",
+   "hi": "Cloud Concepts"
+  },
+  "focus": {
+   "en": "Cloud service models and how cloud-managed networking (v1.1 focus) changes operations.",
+   "hi": "Cloud service models aur cloud-managed networking (v1.1 focus) operations ko kaise badalta hai."
+  },
+  "lessons": [
+   "virtualization-cloud"
+  ],
+  "lab": "lab-12",
+  "drill": "subnetting",
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "virtualization-cloud"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w2d7",
+  "week": 2,
+  "day": 7,
+  "title": {
+   "en": "Week 2 Review & Exam",
+   "hi": "Week 2 Review aur Exam"
+  },
+  "focus": {
+   "en": "Full fundamentals check: subnetting speed run plus the weekly exam.",
+   "hi": "Poora fundamentals check: subnetting speed run aur weekly exam."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": "subnetting",
+  "quiz": {
+   "mode": "weekly",
+   "domains": [
+    1
+   ],
+   "count": 25
+  },
+  "review": true,
+  "examDay": false
+ },
+ {
+  "id": "w3d1",
+  "week": 3,
+  "day": 1,
+  "title": {
+   "en": "Switching & VLANs",
+   "hi": "Switching aur VLANs"
+  },
+  "focus": {
+   "en": "How switches learn MACs and forward frames; segmenting the LAN with VLANs.",
+   "hi": "Switches MACs kaise seekhte hain aur frames kaise forward karte hain; VLANs se LAN ko segment karna."
+  },
+  "lessons": [
+   "ethernet-switching",
+   "vlans"
+  ],
+  "lab": "lab-13",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "ethernet-switching",
+    "vlans"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w3d2",
+  "week": 3,
+  "day": 2,
+  "title": {
+   "en": "Trunking (802.1Q)",
+   "hi": "Trunking (802.1Q)"
+  },
+  "focus": {
+   "en": "Carrying many VLANs on one link: tagging, native VLAN, and DTP pitfalls.",
+   "hi": "Ek link par kai VLANs carry karna: tagging, native VLAN, aur DTP ke pitfalls."
+  },
+  "lessons": [
+   "trunking"
+  ],
+  "lab": "lab-14",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "trunking",
+    "vlans"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w3d3",
+  "week": 3,
+  "day": 3,
+  "title": {
+   "en": "Inter-VLAN Routing",
+   "hi": "Inter-VLAN Routing"
+  },
+  "focus": {
+   "en": "Router-on-a-stick and Layer-3 switch SVIs — getting traffic between VLANs.",
+   "hi": "Router-on-a-stick aur Layer-3 switch SVIs — VLANs ke beech traffic pahunchana."
+  },
+  "lessons": [
+   "inter-vlan-routing"
+  ],
+  "lab": "lab-15",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "inter-vlan-routing"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w3d4",
+  "week": 3,
+  "day": 4,
+  "title": {
+   "en": "Discovery Protocols",
+   "hi": "Discovery Protocols"
+  },
+  "focus": {
+   "en": "CDP and LLDP: mapping a network you cannot see.",
+   "hi": "CDP aur LLDP: aise network ka map banana jo tumhe dikhta nahi."
+  },
+  "lessons": [
+   "cdp-lldp"
+  ],
+  "lab": "lab-16",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "cdp-lldp"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w3d5",
+  "week": 3,
+  "day": 5,
+  "title": {
+   "en": "EtherChannel",
+   "hi": "EtherChannel"
+  },
+  "focus": {
+   "en": "Bundling links with LACP for bandwidth and redundancy — and why mismatches break it.",
+   "hi": "Bandwidth aur redundancy ke liye LACP se links bundle karna — aur mismatches ise kyun tod dete hain."
+  },
+  "lessons": [
+   "etherchannel"
+  ],
+  "lab": "lab-17",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "etherchannel"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w3d6",
+  "week": 3,
+  "day": 6,
+  "title": {
+   "en": "Layer 2 Troubleshooting",
+   "hi": "Layer 2 Troubleshooting"
+  },
+  "focus": {
+   "en": "A repeatable workflow for broken VLANs, trunks, and port channels.",
+   "hi": "Toote hue VLANs, trunks aur port channels ke liye ek repeatable workflow."
+  },
+  "lessons": [
+   "troubleshooting-method"
+  ],
+  "lab": "lab-18",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "troubleshooting-method",
+    "trunking",
+    "etherchannel"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w3d7",
+  "week": 3,
+  "day": 7,
+  "title": {
+   "en": "Week 3 Review & Exam",
+   "hi": "Week 3 Review aur Exam"
+  },
+  "focus": {
+   "en": "Switching consolidation and the weekly exam.",
+   "hi": "Switching consolidation aur weekly exam."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": null,
+  "quiz": {
+   "mode": "weekly",
+   "domains": [
+    2
+   ],
+   "count": 25
+  },
+  "review": true,
+  "examDay": false
+ },
+ {
+  "id": "w4d1",
+  "week": 4,
+  "day": 1,
+  "title": {
+   "en": "Spanning Tree: Why & Root Election",
+   "hi": "Spanning Tree: Kyun aur Root Election"
+  },
+  "focus": {
+   "en": "Loops kill networks. How STP blocks them and how the root bridge is chosen.",
+   "hi": "Loops network ko khatam kar dete hain. STP unhe kaise block karta hai aur root bridge kaise chuna jaata hai."
+  },
+  "lessons": [
+   "stp"
+  ],
+  "lab": "lab-19",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "stp"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w4d2",
+  "week": 4,
+  "day": 2,
+  "title": {
+   "en": "STP Operations & Rapid PVST+",
+   "hi": "STP Operations aur Rapid PVST+"
+  },
+  "focus": {
+   "en": "Port roles and states, PVST+, and the modern rapid version with PortFast/BPDU Guard.",
+   "hi": "Port roles aur states, PVST+, aur PortFast/BPDU Guard ke saath modern rapid version."
+  },
+  "lessons": [
+   "stp",
+   "rapid-pvst"
+  ],
+  "lab": "lab-20",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "stp",
+    "rapid-pvst"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w4d3",
+  "week": 4,
+  "day": 3,
+  "title": {
+   "en": "Wireless Principles",
+   "hi": "Wireless Principles"
+  },
+  "focus": {
+   "en": "RF basics, non-overlapping channels, SSIDs and the 802.11 standards.",
+   "hi": "RF basics, non-overlapping channels, SSIDs aur 802.11 standards."
+  },
+  "lessons": [
+   "wireless-fundamentals"
+  ],
+  "lab": "lab-21",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "wireless-fundamentals"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w4d4",
+  "week": 4,
+  "day": 4,
+  "title": {
+   "en": "Wireless Architecture",
+   "hi": "Wireless Architecture"
+  },
+  "focus": {
+   "en": "Autonomous vs lightweight APs, WLCs, CAPWAP and AP modes.",
+   "hi": "Autonomous vs lightweight APs, WLCs, CAPWAP aur AP modes."
+  },
+  "lessons": [
+   "wireless-architectures"
+  ],
+  "lab": "lab-22",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "wireless-architectures"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w4d5",
+  "week": 4,
+  "day": 5,
+  "title": {
+   "en": "WLAN Configuration",
+   "hi": "WLAN Configuration"
+  },
+  "focus": {
+   "en": "Build a WLAN on a WLC: interfaces, WPA2/WPA3 settings and management access.",
+   "hi": "WLC par WLAN banao: interfaces, WPA2/WPA3 settings aur management access."
+  },
+  "lessons": [
+   "wlc-config"
+  ],
+  "lab": "lab-23",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "wlc-config",
+    "wireless-architectures"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w4d6",
+  "week": 4,
+  "day": 6,
+  "title": {
+   "en": "Midpoint Exam (Weeks 1–4)",
+   "hi": "Midpoint Exam (Weeks 1–4)"
+  },
+  "focus": {
+   "en": "50 questions across everything so far. Treat it like the real thing.",
+   "hi": "Ab tak ki har cheez par 50 questions. Ise asli exam ki tarah lo."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": null,
+  "quiz": {
+   "mode": "midpoint",
+   "domains": [
+    1,
+    2
+   ],
+   "count": 50
+  },
+  "review": false,
+  "examDay": true
+ },
+ {
+  "id": "w4d7",
+  "week": 4,
+  "day": 7,
+  "title": {
+   "en": "Midpoint Review",
+   "hi": "Midpoint Review"
+  },
+  "focus": {
+   "en": "Go through every miss from the midpoint exam; re-read the lessons behind them.",
+   "hi": "Midpoint exam ki har galti ko dekho; unke peeche ke lessons dobara padho."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": null,
+  "quiz": {
+   "mode": "weak",
+   "count": 15
+  },
+  "review": true,
+  "examDay": false
+ },
+ {
+  "id": "w5d1",
+  "week": 5,
+  "day": 1,
+  "title": {
+   "en": "Routing Fundamentals",
+   "hi": "Routing Fundamentals"
+  },
+  "focus": {
+   "en": "Reading the routing table: routes, next hops, longest match, AD and metrics.",
+   "hi": "Routing table padhna: routes, next hops, longest match, AD aur metrics."
+  },
+  "lessons": [
+   "routing-basics"
+  ],
+  "lab": "lab-24",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "routing-basics"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w5d2",
+  "week": 5,
+  "day": 2,
+  "title": {
+   "en": "Static Routing",
+   "hi": "Static Routing"
+  },
+  "focus": {
+   "en": "IPv4/IPv6 static routes, default routes, and floating statics for backup paths.",
+   "hi": "IPv4/IPv6 static routes, default routes, aur backup paths ke liye floating statics."
+  },
+  "lessons": [
+   "static-routing"
+  ],
+  "lab": "lab-25",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "static-routing",
+    "routing-basics"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w5d3",
+  "week": 5,
+  "day": 3,
+  "title": {
+   "en": "OSPF Fundamentals",
+   "hi": "OSPF Fundamentals"
+  },
+  "focus": {
+   "en": "Link-state routing: neighbors, LSAs, DR/BDR elections and cost.",
+   "hi": "Link-state routing: neighbors, LSAs, DR/BDR elections aur cost."
+  },
+  "lessons": [
+   "ospf-basics"
+  ],
+  "lab": "lab-26",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "ospf-basics"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w5d4",
+  "week": 5,
+  "day": 4,
+  "title": {
+   "en": "OSPF Configuration",
+   "hi": "OSPF Configuration"
+  },
+  "focus": {
+   "en": "Single-area OSPFv2: network statements, router-id, passive interfaces, verification.",
+   "hi": "Single-area OSPFv2: network statements, router-id, passive interfaces, verification."
+  },
+  "lessons": [
+   "ospf-config"
+  ],
+  "lab": "lab-27",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "ospf-config",
+    "ospf-basics"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w5d5",
+  "week": 5,
+  "day": 5,
+  "title": {
+   "en": "OSPF Troubleshooting",
+   "hi": "OSPF Troubleshooting"
+  },
+  "focus": {
+   "en": "Why neighbors do not form: the classic mismatch checklist.",
+   "hi": "Neighbors kyun nahi bante: classic mismatch checklist."
+  },
+  "lessons": [
+   "ospf-config"
+  ],
+  "lab": "lab-28",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "ospf-config"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w5d6",
+  "week": 5,
+  "day": 6,
+  "title": {
+   "en": "First-Hop Redundancy",
+   "hi": "First-Hop Redundancy"
+  },
+  "focus": {
+   "en": "HSRP: virtual gateways that survive a router failure.",
+   "hi": "HSRP: virtual gateways jo router failure ke baad bhi chalte rehte hain."
+  },
+  "lessons": [
+   "fhrp"
+  ],
+  "lab": "lab-29",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "fhrp"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w5d7",
+  "week": 5,
+  "day": 7,
+  "title": {
+   "en": "Week 5 Review & Exam",
+   "hi": "Week 5 Review aur Exam"
+  },
+  "focus": {
+   "en": "Routing consolidation and the weekly exam — the heaviest exam domain (25%).",
+   "hi": "Routing consolidation aur weekly exam — sabse bhaari exam domain (25%)."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": null,
+  "quiz": {
+   "mode": "weekly",
+   "domains": [
+    3
+   ],
+   "count": 25
+  },
+  "review": true,
+  "examDay": false
+ },
+ {
+  "id": "w6d1",
+  "week": 6,
+  "day": 1,
+  "title": {
+   "en": "NAT & PAT",
+   "hi": "NAT aur PAT"
+  },
+  "focus": {
+   "en": "Private addresses on a public internet: static NAT, dynamic NAT and PAT overload.",
+   "hi": "Public internet par private addresses: static NAT, dynamic NAT aur PAT overload."
+  },
+  "lessons": [
+   "nat"
+  ],
+  "lab": "lab-30",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "nat"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w6d2",
+  "week": 6,
+  "day": 2,
+  "title": {
+   "en": "DHCP & DNS",
+   "hi": "DHCP aur DNS"
+  },
+  "focus": {
+   "en": "Automatic addressing (server, relay, client roles) and name resolution.",
+   "hi": "Automatic addressing (server, relay, client roles) aur name resolution."
+  },
+  "lessons": [
+   "dhcp",
+   "dns"
+  ],
+  "lab": "lab-31",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "dhcp",
+    "dns"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w6d3",
+  "week": 6,
+  "day": 3,
+  "title": {
+   "en": "NTP, SNMP & Syslog",
+   "hi": "NTP, SNMP aur Syslog"
+  },
+  "focus": {
+   "en": "Time sync, monitoring and logging — the operations trio.",
+   "hi": "Time sync, monitoring aur logging — operations ki trio."
+  },
+  "lessons": [
+   "ntp",
+   "snmp"
+  ],
+  "lab": "lab-32",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "ntp",
+    "snmp"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w6d4",
+  "week": 6,
+  "day": 4,
+  "title": {
+   "en": "QoS Concepts",
+   "hi": "QoS Concepts"
+  },
+  "focus": {
+   "en": "Classification, marking, queuing, policing and shaping — keeping voice usable.",
+   "hi": "Classification, marking, queuing, policing aur shaping — voice ko usable rakhna."
+  },
+  "lessons": [
+   "qos"
+  ],
+  "lab": null,
+  "drill": "subnetting",
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "qos"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w6d5",
+  "week": 6,
+  "day": 5,
+  "title": {
+   "en": "Secure Management & File Transfer",
+   "hi": "Secure Management aur File Transfer"
+  },
+  "focus": {
+   "en": "SSH instead of Telnet, plus FTP/TFTP for IOS images and configs.",
+   "hi": "Telnet ki jagah SSH, aur IOS images aur configs ke liye FTP/TFTP."
+  },
+  "lessons": [
+   "ssh",
+   "ftp-tftp"
+  ],
+  "lab": "lab-33",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "ssh",
+    "ftp-tftp"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w6d6",
+  "week": 6,
+  "day": 6,
+  "title": {
+   "en": "Services Challenge",
+   "hi": "Services Challenge"
+  },
+  "focus": {
+   "en": "Rebuild NAT + DHCP + NTP from memory in one topology.",
+   "hi": "Ek topology mein NAT + DHCP + NTP ko yaad se dobara banao."
+  },
+  "lessons": [],
+  "lab": "lab-34",
+  "drill": null,
+  "quiz": {
+   "mode": "domain",
+   "domains": [
+    4
+   ],
+   "count": 25
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w6d7",
+  "week": 6,
+  "day": 7,
+  "title": {
+   "en": "Week 6 Review & Exam",
+   "hi": "Week 6 Review aur Exam"
+  },
+  "focus": {
+   "en": "IP services consolidation and the weekly exam.",
+   "hi": "IP services consolidation aur weekly exam."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": null,
+  "quiz": {
+   "mode": "weekly",
+   "domains": [
+    4
+   ],
+   "count": 25
+  },
+  "review": true,
+  "examDay": false
+ },
+ {
+  "id": "w7d1",
+  "week": 7,
+  "day": 1,
+  "title": {
+   "en": "Security Concepts & AAA",
+   "hi": "Security Concepts aur AAA"
+  },
+  "focus": {
+   "en": "Threats, vulnerabilities and mitigations; securing device access with local auth and AAA.",
+   "hi": "Threats, vulnerabilities aur mitigations; local auth aur AAA se device access secure karna."
+  },
+  "lessons": [
+   "security-concepts",
+   "device-passwords"
+  ],
+  "lab": "lab-35",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "security-concepts",
+    "device-passwords"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w7d2",
+  "week": 7,
+  "day": 2,
+  "title": {
+   "en": "Access Control Lists",
+   "hi": "Access Control Lists"
+  },
+  "focus": {
+   "en": "Standard vs extended ACLs, wildcard masks, placement rules and verification.",
+   "hi": "Standard vs extended ACLs, wildcard masks, placement rules aur verification."
+  },
+  "lessons": [
+   "acl-extended"
+  ],
+  "lab": "lab-36",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "acl-extended"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w7d3",
+  "week": 7,
+  "day": 3,
+  "title": {
+   "en": "Layer 2 Security",
+   "hi": "Layer 2 Security"
+  },
+  "focus": {
+   "en": "Port security, DHCP snooping and Dynamic ARP Inspection against LAN attacks.",
+   "hi": "LAN attacks ke khilaf port security, DHCP snooping aur Dynamic ARP Inspection."
+  },
+  "lessons": [
+   "port-security"
+  ],
+  "lab": "lab-37",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "port-security"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w7d4",
+  "week": 7,
+  "day": 4,
+  "title": {
+   "en": "VPNs & Wireless Security",
+   "hi": "VPNs aur Wireless Security"
+  },
+  "focus": {
+   "en": "Site-to-site IPsec and remote-access VPNs; WPA/WPA2/WPA3 compared.",
+   "hi": "Site-to-site IPsec aur remote-access VPNs; WPA/WPA2/WPA3 ka comparison."
+  },
+  "lessons": [
+   "vpn",
+   "wireless-security"
+  ],
+  "lab": "lab-38",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "vpn",
+    "wireless-security"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w7d5",
+  "week": 7,
+  "day": 5,
+  "title": {
+   "en": "SDN & REST APIs",
+   "hi": "SDN aur REST APIs"
+  },
+  "focus": {
+   "en": "Controller-based networking, Catalyst Center, northbound/southbound APIs, CRUD and REST.",
+   "hi": "Controller-based networking, Catalyst Center, northbound/southbound APIs, CRUD aur REST."
+  },
+  "lessons": [
+   "sdn",
+   "rest-apis"
+  ],
+  "lab": "lab-39",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "sdn",
+    "rest-apis"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w7d6",
+  "week": 7,
+  "day": 6,
+  "title": {
+   "en": "JSON, Config Management & AI",
+   "hi": "JSON, Config Management aur AI"
+  },
+  "focus": {
+   "en": "Read JSON fluently; Ansible/Terraform awareness; AI/ML in modern networks (v1.1).",
+   "hi": "JSON aaram se padhna; Ansible/Terraform ki samajh; modern networks mein AI/ML (v1.1)."
+  },
+  "lessons": [
+   "json-data",
+   "ansible-terraform",
+   "ai-ml-netops"
+  ],
+  "lab": "lab-40",
+  "drill": null,
+  "quiz": {
+   "mode": "lessons",
+   "lessons": [
+    "json-data",
+    "ansible-terraform",
+    "ai-ml-netops"
+   ],
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w7d7",
+  "week": 7,
+  "day": 7,
+  "title": {
+   "en": "Week 7 Review & Exam",
+   "hi": "Week 7 Review aur Exam"
+  },
+  "focus": {
+   "en": "Security + automation consolidation and the weekly exam.",
+   "hi": "Security + automation consolidation aur weekly exam."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": null,
+  "quiz": {
+   "mode": "weekly",
+   "domains": [
+    5,
+    6
+   ],
+   "count": 25
+  },
+  "review": true,
+  "examDay": false
+ },
+ {
+  "id": "w8d1",
+  "week": 8,
+  "day": 1,
+  "title": {
+   "en": "Mock Exam 1",
+   "hi": "Mock Exam 1"
+  },
+  "focus": {
+   "en": "Full 100-question, 120-minute simulation. No notes, no pausing.",
+   "hi": "Poora 100-question, 120-minute simulation. Na notes, na pause."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": null,
+  "quiz": {
+   "mode": "mock"
+  },
+  "review": false,
+  "examDay": true
+ },
+ {
+  "id": "w8d2",
+  "week": 8,
+  "day": 2,
+  "title": {
+   "en": "Targeted Drills 1",
+   "hi": "Targeted Drills 1"
+  },
+  "focus": {
+   "en": "Attack the weakest domains from Mock 1 with drills and lesson re-reads.",
+   "hi": "Mock 1 ke sabse weak domains par drills aur lessons dobara padh kar kaam karo."
+  },
+  "lessons": [],
+  "lab": "lab-41",
+  "drill": "subnetting",
+  "quiz": {
+   "mode": "weak",
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w8d3",
+  "week": 8,
+  "day": 3,
+  "title": {
+   "en": "Mock Exam 2",
+   "hi": "Mock Exam 2"
+  },
+  "focus": {
+   "en": "Second full simulation. Aim to beat Mock 1 in every domain.",
+   "hi": "Doosra full simulation. Har domain mein Mock 1 se behtar karne ka target rakho."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": null,
+  "quiz": {
+   "mode": "mock"
+  },
+  "review": false,
+  "examDay": true
+ },
+ {
+  "id": "w8d4",
+  "week": 8,
+  "day": 4,
+  "title": {
+   "en": "Targeted Drills 2",
+   "hi": "Targeted Drills 2"
+  },
+  "focus": {
+   "en": "Weak-area drills plus the services/security super-lab from memory.",
+   "hi": "Weak-area drills aur services/security super-lab yaad se."
+  },
+  "lessons": [],
+  "lab": "lab-42",
+  "drill": null,
+  "quiz": {
+   "mode": "weak",
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w8d5",
+  "week": 8,
+  "day": 5,
+  "title": {
+   "en": "Mock Exam 3",
+   "hi": "Mock Exam 3"
+  },
+  "focus": {
+   "en": "Final full simulation. Target: 85%+ with every domain above 75%.",
+   "hi": "Aakhri full simulation. Target: 85%+ aur har domain 75% se upar."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": null,
+  "quiz": {
+   "mode": "mock"
+  },
+  "review": false,
+  "examDay": true
+ },
+ {
+  "id": "w8d6",
+  "week": 8,
+  "day": 6,
+  "title": {
+   "en": "Final Weak-Area Sweep",
+   "hi": "Final Weak-Area Sweep"
+  },
+  "focus": {
+   "en": "Last drills, flashcard sweep, and review the exam-day checklist in Labs.",
+   "hi": "Aakhri drills, flashcard sweep, aur Labs mein exam-day checklist review karo."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": "subnetting",
+  "quiz": {
+   "mode": "weak",
+   "count": 15
+  },
+  "review": false,
+  "examDay": false
+ },
+ {
+  "id": "w8d7",
+  "week": 8,
+  "day": 7,
+  "title": {
+   "en": "Rest & Exam-Day Prep",
+   "hi": "Rest aur Exam-Day Prep"
+  },
+  "focus": {
+   "en": "Light flashcard review only. Sleep well — check the Ready-to-Book panel in Analytics.",
+   "hi": "Sirf halka flashcard review. Achhi neend lo — Analytics mein Ready-to-Book panel check karo."
+  },
+  "lessons": [],
+  "lab": null,
+  "drill": null,
+  "quiz": null,
+  "review": true,
+  "examDay": false
+ }
+]

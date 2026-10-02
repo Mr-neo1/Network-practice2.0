@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A free CCNA 200-301 course from zero to expert, in English and Hinglish, with step-by-step network animations, videos and practice questions." />
+    <title>Network Zero2Hero · CCNA from zero</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231c6e8c'/%3E%3Ccircle cx='9' cy='16' r='3.2' fill='white'/%3E%3Ccircle cx='23' cy='9' r='3.2' fill='white'/%3E%3Ccircle cx='23' cy='23' r='3.2' fill='white'/%3E%3Cpath d='M9 16 23 9M9 16l14 7' stroke='white' stroke-width='2'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <script>
+      // Apply the saved theme before first paint to avoid a flash.
+      try {
+        // ?prefs={...} presets theme/language (used by scripts/shot.mjs for screenshots).
+        var qp = new URLSearchParams(location.search).get("prefs");
+        if (qp) localStorage.setItem("nz2h.prefs", qp);
+        var p = JSON.parse(localStorage.getItem("nz2h.prefs") || "{}");
+        var dark = p.theme === "dark" || (p.theme !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

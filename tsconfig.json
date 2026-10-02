@@ -1,0 +1,24 @@
+{
+  "include": ["src/**/*", "backend/**/*.ts", "scripts/**/*.ts", "vite.config.ts"],
+  "exclude": ["node_modules", "dist", "archive", "client", "server", "shared", "drizzle", ".workflows"],
+  "compilerOptions": {
+    "target": "ES2022",
+    "noEmit": true,
+    "module": "ESNext",
+    "strict": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
+    "types": ["node", "vite/client"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}

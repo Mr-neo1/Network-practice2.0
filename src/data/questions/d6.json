@@ -1,0 +1,1694 @@
+[
+ {
+  "id": "d6-001",
+  "domain": 6,
+  "lesson": "sdn",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Which activity is a function of a network device's control plane?",
+   "hi": "Kaunsi activity network device ke control plane ka function hai?"
+  },
+  "explanation": {
+   "en": "The control plane is the device's brain: it runs protocols like OSPF, STP, and ARP to DECIDE how traffic should be handled, producing tables (RIB/FIB, MAC table) that the data plane consults. The data plane then does the high-speed work of actually moving each frame or packet, and the management plane handles admin access such as SSH and SNMP.",
+   "hi": "Control plane device ka dimaag hai: yeh OSPF, STP aur ARP jaise protocols chalakar DECIDE karta hai ki traffic ko kaise handle karna hai, aur tables (RIB/FIB, MAC table) banata hai jinhe data plane dekhta hai. Phir data plane har frame ya packet ko asal mein move karne ka high-speed kaam karta hai, aur management plane SSH aur SNMP jaise admin access handle karta hai."
+  },
+  "options": [
+   {
+    "en": "Exchanging OSPF updates with neighbors to build the routing table",
+    "hi": "Routing table banane ke liye neighbors ke saath OSPF updates exchange karna"
+   },
+   {
+    "en": "Forwarding a received frame out the correct port based on the MAC address table",
+    "hi": "MAC address table ke basis par received frame ko sahi port se forward karna"
+   },
+   {
+    "en": "Carrying an administrator's SSH session used to configure the device",
+    "hi": "Device configure karne ke liye administrator ka SSH session carry karna"
+   },
+   {
+    "en": "Storing the startup configuration in NVRAM",
+    "hi": "Startup configuration ko NVRAM mein store karna"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Looking up a destination and forwarding the frame is the data (forwarding) plane executing decisions the control plane already made.",
+    "hi": "Destination dhoondh kar frame forward karna data (forwarding) plane ka kaam hai, jo control plane ke pehle se liye gaye decisions execute karta hai."
+   },
+   {
+    "en": "Administrative access for configuration and monitoring belongs to the management plane.",
+    "hi": "Configuration aur monitoring ke liye administrative access management plane ka hissa hai."
+   },
+   {
+    "en": "Saving configuration files is a management function of the operating system, not control-plane protocol logic.",
+    "hi": "Configuration files save karna operating system ka management function hai, control-plane protocol logic nahi."
+   }
+  ]
+ },
+ {
+  "id": "d6-002",
+  "domain": 6,
+  "lesson": "sdn",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "What is the fundamental architectural change that software-defined networking (SDN) introduces compared with traditional networking?",
+   "hi": "Traditional networking ke mukable software-defined networking (SDN) kaunsa fundamental architectural change laata hai?"
+  },
+  "explanation": {
+   "en": "In SDN, decision-making intelligence (the control plane) is lifted out of individual devices — fully or partially — and centralized in a controller that has a network-wide view. The devices keep their data planes and forward traffic according to instructions the controller programs into them via southbound interfaces.",
+   "hi": "SDN mein decision lene wali intelligence (control plane) ko individual devices se poori tarah ya kuch had tak nikal kar ek controller mein centralize kar diya jaata hai, jiske paas poore network ka view hota hai. Devices apna data plane rakhte hain aur controller jo instructions southbound interfaces ke through unme program karta hai, unke hisaab se traffic forward karte hain."
+  },
+  "options": [
+   {
+    "en": "The control plane is separated from the data plane and centralized in a controller",
+    "hi": "Control plane ko data plane se alag karke ek controller mein centralize kiya jaata hai"
+   },
+   {
+    "en": "The data plane is moved from network devices into the controller",
+    "hi": "Data plane ko network devices se nikal kar controller mein le jaaya jaata hai"
+   },
+   {
+    "en": "Every device runs its own independent control plane with no central coordination",
+    "hi": "Har device bina kisi central coordination ke apna independent control plane chalata hai"
+   },
+   {
+    "en": "Management access is limited to the console port of each device",
+    "hi": "Management access har device ke console port tak limited ho jaata hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Forwarding stays on the devices — packets would be hopelessly slow if every frame had to pass through the controller.",
+    "hi": "Forwarding devices par hi rehti hai. Agar har frame ko controller se guzarna pade toh packets bahut zyaada slow ho jaayenge."
+   },
+   {
+    "en": "Autonomous per-device control planes describe TRADITIONAL networking; SDN centralizes that intelligence.",
+    "hi": "Har device ka apna autonomous control plane TRADITIONAL networking hai. SDN us intelligence ko centralize karta hai."
+   },
+   {
+    "en": "SDN expands management options (APIs, controllers, automation) rather than restricting access to consoles.",
+    "hi": "SDN management options badhata hai (APIs, controllers, automation), access ko consoles tak limited nahi karta."
+   }
+  ]
+ },
+ {
+  "id": "d6-003",
+  "domain": 6,
+  "lesson": "sdn",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A Python script retrieves the full device inventory from Cisco Catalyst Center (formerly DNA Center) to feed a reporting dashboard. Which interface does the script use?",
+   "hi": "Ek Python script reporting dashboard ke liye Cisco Catalyst Center (pehle DNA Center) se poori device inventory nikalti hai. Script kaunsa interface use karti hai?"
+  },
+  "explanation": {
+   "en": "Northbound interfaces face 'up' toward applications, scripts, and orchestration tools — Catalyst Center exposes a northbound REST API (sometimes called the intent API) that returns JSON over HTTPS. Southbound interfaces face 'down' toward the managed devices, using protocols such as NETCONF, RESTCONF, SSH, and SNMP.",
+   "hi": "Northbound interfaces 'upar' applications, scripts aur orchestration tools ki taraf hote hain. Catalyst Center ek northbound REST API (kabhi-kabhi intent API kehte hain) deta hai jo HTTPS par JSON return karti hai. Southbound interfaces 'neeche' managed devices ki taraf hote hain, aur NETCONF, RESTCONF, SSH aur SNMP jaise protocols use karte hain."
+  },
+  "options": [
+   {
+    "en": "The controller's northbound REST API",
+    "hi": "Controller ki northbound REST API"
+   },
+   {
+    "en": "The controller's southbound interface",
+    "hi": "Controller ka southbound interface"
+   },
+   {
+    "en": "A NETCONF session from the controller to the devices",
+    "hi": "Controller se devices tak NETCONF session"
+   },
+   {
+    "en": "An SNMPv3 poll of each individual switch",
+    "hi": "Har individual switch ka SNMPv3 poll"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The southbound interface is how the CONTROLLER talks to network devices — an external script does not use it.",
+    "hi": "Southbound interface woh raasta hai jisse CONTROLLER network devices se baat karta hai. External script ise use nahi karti."
+   },
+   {
+    "en": "NETCONF is a southbound protocol between controller and devices; the script talks to the controller, not to devices.",
+    "hi": "NETCONF controller aur devices ke beech southbound protocol hai. Script controller se baat karti hai, devices se nahi."
+   },
+   {
+    "en": "Polling every switch directly bypasses the controller entirely and defeats the purpose of the centralized inventory.",
+    "hi": "Har switch ko seedha poll karna controller ko poori tarah bypass kar deta hai aur centralized inventory ka maqsad hi khatam kar deta hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-004",
+  "domain": 6,
+  "lesson": "sdn",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which set of protocols would a controller such as Catalyst Center typically use on its SOUTHBOUND interface to communicate with managed network devices?",
+   "hi": "Catalyst Center jaisa controller managed network devices se baat karne ke liye apne SOUTHBOUND interface par aam taur par kaunse protocols use karega?"
+  },
+  "explanation": {
+   "en": "Southbound interfaces carry the controller-to-device conversation: NETCONF (XML over SSH) and RESTCONF (HTTP/JSON) for model-driven configuration, plus traditional SSH CLI and SNMP for devices that lack modern APIs. Catalyst Center uses this mix to discover, configure, and monitor the fleet.",
+   "hi": "Southbound interfaces controller-se-device baatcheet carry karte hain: model-driven configuration ke liye NETCONF (SSH par XML) aur RESTCONF (HTTP/JSON), aur jin devices mein modern APIs nahi hain unke liye traditional SSH CLI aur SNMP. Catalyst Center isi mix se fleet ko discover, configure aur monitor karta hai."
+  },
+  "options": [
+   {
+    "en": "NETCONF, RESTCONF, SSH, and SNMP",
+    "hi": "NETCONF, RESTCONF, SSH aur SNMP"
+   },
+   {
+    "en": "HTTP REST calls from business applications",
+    "hi": "Business applications se HTTP REST calls"
+   },
+   {
+    "en": "OSPF and EIGRP adjacencies with each device",
+    "hi": "Har device ke saath OSPF aur EIGRP adjacencies"
+   },
+   {
+    "en": "SMTP and FTP sessions to each device",
+    "hi": "Har device ke saath SMTP aur FTP sessions"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "REST calls from applications arrive on the NORTHBOUND interface — the opposite direction.",
+    "hi": "Applications se REST calls NORTHBOUND interface par aati hain, yaani ulti direction mein."
+   },
+   {
+    "en": "Routing protocols build forwarding topologies between routers; a controller does not form OSPF/EIGRP adjacencies to manage devices.",
+    "hi": "Routing protocols routers ke beech forwarding topologies banate hain. Controller devices manage karne ke liye OSPF/EIGRP adjacencies nahi banata."
+   },
+   {
+    "en": "SMTP is email and FTP is generic file transfer — neither is a device-management southbound protocol.",
+    "hi": "SMTP email hai aur FTP generic file transfer. Dono mein se koi device-management southbound protocol nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-005",
+  "domain": 6,
+  "lesson": "sdn",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which three are benefits of controller-based networking compared with managing each device individually? (Choose three.)",
+   "hi": "Har device ko alag-alag manage karne ke mukable controller-based networking ke kaunse teen fayde hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "Centralizing control delivers consistency (one intent pushed everywhere), fewer fat-finger errors (the controller renders configurations programmatically), and a single pane of glass with full network context for assurance and troubleshooting. These are the classic exam-cited advantages of controller-based architectures.",
+   "hi": "Control centralize karne se consistency milti hai (ek intent har jagah push hota hai), typing ki galtiyan kam hoti hain (controller configurations programmatically banata hai), aur assurance aur troubleshooting ke liye poore network context ke saath single pane of glass milta hai. Exam mein controller-based architectures ke yahi classic fayde poochhe jaate hain."
+  },
+  "options": [
+   {
+    "en": "Policies can be defined once and deployed consistently across the entire network",
+    "hi": "Policies ek baar define karke poore network par consistently deploy ki ja sakti hain"
+   },
+   {
+    "en": "Automation reduces human typing errors during configuration changes",
+    "hi": "Automation configuration changes ke dauraan insaani typing errors kam karta hai"
+   },
+   {
+    "en": "The controller provides centralized, network-wide visibility for monitoring and troubleshooting",
+    "hi": "Controller monitoring aur troubleshooting ke liye centralized, network-wide visibility deta hai"
+   },
+   {
+    "en": "The data plane is no longer needed on individual devices",
+    "hi": "Individual devices par data plane ki ab zaroorat nahi rehti"
+   },
+   {
+    "en": "Configuration changes can only be made during maintenance windows",
+    "hi": "Configuration changes sirf maintenance windows mein hi kiye ja sakte hain"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Devices always keep their data planes — hardware forwarding on the device is what makes line-rate networking possible.",
+    "hi": "Devices hamesha apna data plane rakhte hain. Device par hardware forwarding hi line-rate networking possible banati hai."
+   },
+   {
+    "en": "Controllers make changes SAFER and faster to deploy at any time; they impose no maintenance-window restriction.",
+    "hi": "Controllers changes ko kabhi bhi deploy karna ZYAADA SAFE aur tez banate hain. Woh koi maintenance-window restriction nahi lagate."
+   }
+  ]
+ },
+ {
+  "id": "d6-006",
+  "domain": 6,
+  "lesson": "sdn",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each SDN architecture component to its role.",
+   "hi": "Har SDN architecture component ko uske role se match karo."
+  },
+  "explanation": {
+   "en": "Picture the controller in the middle of the diagram: applications sit above it (northbound), devices sit below it (southbound). Inside each device, the control plane thinks and the data plane forwards. Catalyst Center's northbound side is REST/JSON; its southbound side speaks NETCONF, RESTCONF, SSH, and SNMP.",
+   "hi": "Diagram ke beech mein controller socho: applications uske upar hain (northbound), devices uske neeche (southbound). Har device ke andar control plane sochta hai aur data plane forward karta hai. Catalyst Center ka northbound side REST/JSON hai; southbound side NETCONF, RESTCONF, SSH aur SNMP bolta hai."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Control plane",
+     "hi": "Control plane"
+    },
+    "right": {
+     "en": "Makes forwarding decisions and builds routing/MAC tables",
+     "hi": "Forwarding decisions leta hai aur routing/MAC tables banata hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Data plane",
+     "hi": "Data plane"
+    },
+    "right": {
+     "en": "Physically forwards user traffic through the device",
+     "hi": "Device ke through user traffic ko physically forward karta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Northbound API",
+     "hi": "Northbound API"
+    },
+    "right": {
+     "en": "Connects the controller to applications and automation scripts",
+     "hi": "Controller ko applications aur automation scripts se jodta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Southbound API",
+     "hi": "Southbound API"
+    },
+    "right": {
+     "en": "Connects the controller to the managed network devices",
+     "hi": "Controller ko managed network devices se jodta hai"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d6-007",
+  "domain": 6,
+  "lesson": "rest-apis",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "In a REST API, which HTTP verb corresponds to the Read operation in CRUD?",
+   "hi": "REST API mein kaunsa HTTP verb CRUD ke Read operation se match karta hai?"
+  },
+  "explanation": {
+   "en": "CRUD maps cleanly onto HTTP verbs: Create → POST, Read → GET, Update → PUT (full replace) or PATCH (partial), Delete → DELETE. GET retrieves a representation of a resource without changing it, which is why it is considered a safe operation.",
+   "hi": "CRUD seedha HTTP verbs par map hota hai: Create → POST, Read → GET, Update → PUT (poora replace) ya PATCH (partial), Delete → DELETE. GET resource ko badle bina uska representation laata hai, isliye ise safe operation maana jaata hai."
+  },
+  "options": [
+   {
+    "en": "GET",
+    "hi": "GET"
+   },
+   {
+    "en": "POST",
+    "hi": "POST"
+   },
+   {
+    "en": "PUT",
+    "hi": "PUT"
+   },
+   {
+    "en": "DELETE",
+    "hi": "DELETE"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "POST creates a new resource — the C in CRUD.",
+    "hi": "POST naya resource banata hai, yaani CRUD ka C."
+   },
+   {
+    "en": "PUT updates (replaces) an existing resource — the U in CRUD.",
+    "hi": "PUT existing resource ko update (replace) karta hai, yaani CRUD ka U."
+   },
+   {
+    "en": "DELETE removes a resource — the D in CRUD.",
+    "hi": "DELETE resource hatata hai, yaani CRUD ka D."
+   }
+  ]
+ },
+ {
+  "id": "d6-008",
+  "domain": 6,
+  "lesson": "rest-apis",
+  "difficulty": "easy",
+  "type": "match",
+  "text": {
+   "en": "Match each HTTP verb to the CRUD operation it performs in a REST API.",
+   "hi": "Har HTTP verb ko us CRUD operation se match karo jo woh REST API mein karta hai."
+  },
+  "explanation": {
+   "en": "Create-Read-Update-Delete maps to POST-GET-PUT/PATCH-DELETE. The two update verbs differ in scope: PUT replaces the entire resource with the body you send, while PATCH changes only the fields included in the request.",
+   "hi": "Create-Read-Update-Delete map hota hai POST-GET-PUT/PATCH-DELETE par. Dono update verbs ka scope alag hai: PUT poore resource ko tumhari bheji hui body se replace karta hai, jabki PATCH sirf request mein diye gaye fields badalta hai."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "POST",
+     "hi": "POST"
+    },
+    "right": {
+     "en": "Create a new resource",
+     "hi": "Naya resource banana"
+    }
+   },
+   {
+    "left": {
+     "en": "GET",
+     "hi": "GET"
+    },
+    "right": {
+     "en": "Read a resource without modifying it",
+     "hi": "Resource ko badle bina padhna"
+    }
+   },
+   {
+    "left": {
+     "en": "PATCH",
+     "hi": "PATCH"
+    },
+    "right": {
+     "en": "Update part of an existing resource",
+     "hi": "Existing resource ka kuch hissa update karna"
+    }
+   },
+   {
+    "left": {
+     "en": "DELETE",
+     "hi": "DELETE"
+    },
+    "right": {
+     "en": "Remove a resource",
+     "hi": "Resource hatana"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d6-009",
+  "domain": 6,
+  "lesson": "rest-apis",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A script sends a POST request to a controller's REST API to add a new VLAN object, and the API responds with status code 201. What does this response indicate?",
+   "hi": "Ek script naya VLAN object add karne ke liye controller ki REST API ko POST request bhejti hai, aur API status code 201 ke saath respond karti hai. Yeh response kya batata hai?"
+  },
+  "explanation": {
+   "en": "2xx codes signal success. 200 OK is the generic success reply, 201 Created specifically confirms that a new resource now exists (the response often includes its URI), and 204 No Content means success with nothing in the body — common after DELETE. A 201 after a POST is exactly the outcome the script wanted.",
+   "hi": "2xx codes success batate hain. 200 OK generic success reply hai, 201 Created khaas taur par confirm karta hai ki ab ek naya resource exist karta hai (response mein aksar uska URI hota hai), aur 204 No Content ka matlab success lekin body mein kuch nahi, jo DELETE ke baad common hai. POST ke baad 201 bilkul wahi result hai jo script chahti thi."
+  },
+  "options": [
+   {
+    "en": "The request succeeded and a new resource was created",
+    "hi": "Request successful rahi aur naya resource ban gaya"
+   },
+   {
+    "en": "The request was malformed and rejected",
+    "hi": "Request malformed thi aur reject ho gayi"
+   },
+   {
+    "en": "The client must authenticate before the request can be processed",
+    "hi": "Request process hone se pehle client ko authenticate karna padega"
+   },
+   {
+    "en": "The server encountered an internal error",
+    "hi": "Server ko internal error aaya"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A malformed request returns 400 Bad Request — a 4xx client-error code, not a 2xx success.",
+    "hi": "Malformed request 400 Bad Request return karti hai, jo 4xx client-error code hai, 2xx success nahi."
+   },
+   {
+    "en": "A missing or invalid authentication credential returns 401 Unauthorized.",
+    "hi": "Missing ya invalid authentication credential 401 Unauthorized return karta hai."
+   },
+   {
+    "en": "Server-side failures return 5xx codes such as 500 Internal Server Error.",
+    "hi": "Server-side failures 500 Internal Server Error jaise 5xx codes return karte hain."
+   }
+  ]
+ },
+ {
+  "id": "d6-010",
+  "domain": 6,
+  "lesson": "rest-apis",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "An automation script's bearer token expired overnight. When the script sends its next GET request to the REST API, which HTTP status code should it expect?",
+   "hi": "Ek automation script ka bearer token raat mein expire ho gaya. Jab script REST API ko apni agli GET request bhejegi, toh use kaunsa HTTP status code milna chahiye?"
+  },
+  "explanation": {
+   "en": "401 Unauthorized means the request lacks valid authentication credentials — exactly what happens with a missing, invalid, or expired token. The fix is to re-authenticate and obtain a fresh token. Distinguish it carefully from 403 Forbidden: with 403 the server knows who you are but your account is not allowed to perform the action.",
+   "hi": "401 Unauthorized ka matlab hai request mein valid authentication credentials nahi hain. Missing, invalid ya expired token ke saath bilkul yahi hota hai. Fix hai dobara authenticate karke fresh token lena. Ise 403 Forbidden se dhyan se alag karo: 403 mein server jaanta hai ki tum kaun ho, lekin tumhare account ko woh action karne ki permission nahi hai."
+  },
+  "options": [
+   {
+    "en": "400",
+    "hi": "400"
+   },
+   {
+    "en": "401",
+    "hi": "401"
+   },
+   {
+    "en": "403",
+    "hi": "403"
+   },
+   {
+    "en": "404",
+    "hi": "404"
+   }
+  ],
+  "answer": [
+   1
+  ],
+  "whyWrong": [
+   {
+    "en": "400 Bad Request indicates a malformed request (bad syntax, invalid JSON body) — the request here is well-formed; only the credential is stale.",
+    "hi": "400 Bad Request malformed request batata hai (galat syntax, invalid JSON body). Yahan request theek bani hai, sirf credential purana ho gaya hai."
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "403 Forbidden applies when authentication SUCCEEDED but the authenticated identity lacks permission for the resource.",
+    "hi": "403 Forbidden tab aata hai jab authentication SUCCESSFUL ho gaya lekin authenticated identity ko resource ki permission nahi hai."
+   },
+   {
+    "en": "404 Not Found means the requested resource/URI does not exist — unrelated to credentials.",
+    "hi": "404 Not Found ka matlab requested resource/URI exist nahi karta. Iska credentials se koi lena-dena nahi."
+   }
+  ]
+ },
+ {
+  "id": "d6-011",
+  "domain": 6,
+  "lesson": "rest-apis",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "REST APIs are described as stateless. What does this mean for a client making a series of API calls?",
+   "hi": "REST APIs ko stateless kaha jaata hai. API calls ki series bhejne wale client ke liye iska kya matlab hai?"
+  },
+  "explanation": {
+   "en": "Stateless means the server treats each request as independent and complete in itself — it remembers nothing about previous requests. That is why every call repeats its authentication (token, API key, or basic credentials) and full context. Statelessness makes APIs easy to scale, since any server instance can answer any request.",
+   "hi": "Stateless ka matlab server har request ko independent aur apne aap mein poora maanta hai. Use pichhli requests ke baare mein kuch yaad nahi rehta. Isi wajah se har call apna authentication (token, API key ya basic credentials) aur poora context dobara bhejti hai. Statelessness se APIs ko scale karna aasaan hota hai, kyunki koi bhi server instance kisi bhi request ka jawab de sakta hai."
+  },
+  "options": [
+   {
+    "en": "Every request must carry all the information the server needs, including authentication, because the server keeps no client session between requests",
+    "hi": "Har request mein woh saari information honi chahiye jo server ko chahiye, authentication samet, kyunki server requests ke beech koi client session nahi rakhta"
+   },
+   {
+    "en": "The server stores each client's session so later requests can omit credentials",
+    "hi": "Server har client ka session store karta hai taaki baad ki requests mein credentials na bhejne padein"
+   },
+   {
+    "en": "Requests must be sent in a strict sequence or they will be rejected",
+    "hi": "Requests ek strict sequence mein bhejni padti hain warna reject ho jaati hain"
+   },
+   {
+    "en": "The TCP connection must remain open for the lifetime of the client application",
+    "hi": "Client application ke poore lifetime tak TCP connection open rehna chahiye"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Server-side session storage is the definition of a STATEFUL design — the opposite of REST's model.",
+    "hi": "Server-side session storage hi STATEFUL design ki definition hai, jo REST ke model ka ulta hai."
+   },
+   {
+    "en": "Because requests are independent, they can arrive in any order; no sequence is enforced by REST itself.",
+    "hi": "Kyunki requests independent hain, woh kisi bhi order mein aa sakti hain. REST khud koi sequence enforce nahi karta."
+   },
+   {
+    "en": "HTTP connections may be reused for efficiency, but REST does not require a persistent connection — each request stands alone.",
+    "hi": "Efficiency ke liye HTTP connections reuse ho sakte hain, lekin REST ko persistent connection ki zaroorat nahi. Har request akeli khadi hoti hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-012",
+  "domain": 6,
+  "lesson": "rest-apis",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which three are common methods for authenticating to a REST API? (Choose three.)",
+   "hi": "REST API par authenticate karne ke kaunse teen common methods hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "REST APIs commonly use basic auth (username:password Base64-encoded in the Authorization header — safe only over HTTPS), bearer/token auth (log in once, then present the issued token on every call, as Catalyst Center does with X-Auth-Token), and API keys (a long-lived static credential identifying the calling app).",
+   "hi": "REST APIs aam taur par basic auth use karti hain (Authorization header mein Base64-encoded username:password, jo sirf HTTPS par safe hai), bearer/token auth (ek baar login karo, phir har call ke saath mila hua token bhejo, jaise Catalyst Center X-Auth-Token ke saath karta hai), aur API keys (lambe samay tak chalne wala static credential jo calling app ko identify karta hai)."
+  },
+  "options": [
+   {
+    "en": "Basic authentication with a username and password in the request header",
+    "hi": "Request header mein username aur password ke saath basic authentication"
+   },
+   {
+    "en": "A bearer token obtained from a login endpoint and sent with each request",
+    "hi": "Login endpoint se mila bearer token jo har request ke saath bheja jaata hai"
+   },
+   {
+    "en": "A static API key issued to the client application",
+    "hi": "Client application ko issue ki gayi static API key"
+   },
+   {
+    "en": "An SNMP community string included in the URL",
+    "hi": "URL mein daala gaya SNMP community string"
+   },
+   {
+    "en": "TACACS+ command authorization on the API server",
+    "hi": "API server par TACACS+ command authorization"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Community strings authenticate SNMP polls between an NMS and an agent — they are not an HTTP/REST mechanism.",
+    "hi": "Community strings NMS aur agent ke beech SNMP polls authenticate karte hain. Yeh HTTP/REST mechanism nahi hai."
+   },
+   {
+    "en": "TACACS+ authorizes CLI commands on network devices via AAA; it is not how a client authenticates HTTP API calls.",
+    "hi": "TACACS+ AAA ke through network devices par CLI commands authorize karta hai. Client HTTP API calls aise authenticate nahi karta."
+   }
+  ]
+ },
+ {
+  "id": "d6-013",
+  "domain": 6,
+  "lesson": "rest-apis",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A REST API manages an interface resource with fields for description, speed, and duplex. What is the key difference between updating it with PUT versus PATCH?",
+   "hi": "Ek REST API interface resource manage karti hai jismein description, speed aur duplex fields hain. Ise PUT se update karne aur PATCH se update karne mein main farak kya hai?"
+  },
+  "explanation": {
+   "en": "PUT is a full replacement: the body you send BECOMES the resource, so omitting the duplex field in a PUT could wipe it out. PATCH is a partial update: send only {\"description\": \"uplink\"} and the other fields survive untouched. Both map to the U (Update) in CRUD; choosing wrongly is a classic cause of accidentally blanked attributes.",
+   "hi": "PUT poora replacement hai: tum jo body bhejte ho wahi resource BAN jaati hai, isliye PUT mein duplex field chhod diya toh woh mit sakta hai. PATCH partial update hai: sirf {\"description\": \"uplink\"} bhejo aur baaki fields waise hi bache rehte hain. Dono CRUD ke U (Update) par map hote hain; galat verb chunna attributes ke galti se khaali ho jaane ki classic wajah hai."
+  },
+  "options": [
+   {
+    "en": "PUT replaces the entire resource with the body supplied, while PATCH modifies only the fields included in the request",
+    "hi": "PUT poore resource ko di gayi body se replace karta hai, jabki PATCH sirf request mein diye gaye fields modify karta hai"
+   },
+   {
+    "en": "PATCH replaces the entire resource, while PUT changes a single field",
+    "hi": "PATCH poore resource ko replace karta hai, jabki PUT ek single field badalta hai"
+   },
+   {
+    "en": "PUT is read-only, while PATCH performs all writes",
+    "hi": "PUT read-only hai, jabki PATCH saare writes karta hai"
+   },
+   {
+    "en": "PATCH creates the resource if it is missing, while PUT can never create anything",
+    "hi": "PATCH resource missing ho toh use bana deta hai, jabki PUT kabhi kuch nahi bana sakta"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "This reverses the definitions — PATCH is the partial-update verb and PUT is the full replacement.",
+    "hi": "Isme definitions ulti hain. PATCH partial-update verb hai aur PUT full replacement."
+   },
+   {
+    "en": "The read-only verb is GET; both PUT and PATCH modify resources.",
+    "hi": "Read-only verb GET hai. PUT aur PATCH dono resources modify karte hain."
+   },
+   {
+    "en": "Semantics are closer to the opposite: PUT to a new URI is commonly allowed to create the resource, while PATCH assumes an existing resource to modify.",
+    "hi": "Semantics lagbhag ulte hain: naye URI par PUT se aam taur par resource banana allowed hota hai, jabki PATCH maan kar chalta hai ki modify karne ke liye resource pehle se hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-014",
+  "domain": 6,
+  "lesson": "json-data",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Consider this JSON object:\n\n{\n  \"hostname\": \"SW1\",\n  \"uptime\": 4534,\n  \"inService\": true\n}\n\nWhat is the data type of the value of \"uptime\"?",
+   "hi": "Yeh JSON object dekho:\n\n{\n  \"hostname\": \"SW1\",\n  \"uptime\": 4534,\n  \"inService\": true\n}\n\n\"uptime\" ki value ka data type kya hai?"
+  },
+  "explanation": {
+   "en": "4534 appears without quotation marks, making it a JSON number. Quotes are the giveaway in JSON typing: \"4534\" would be a string, while bare true/false are booleans. Automation scripts care deeply about this — a string \"4534\" cannot be compared numerically without conversion.",
+   "hi": "4534 bina quotation marks ke hai, isliye yeh JSON number hai. JSON typing mein quotes hi pehchaan hain: \"4534\" string hota, jabki bina quotes ke true/false booleans hain. Automation scripts ke liye yeh bahut matter karta hai, kyunki string \"4534\" ko conversion ke bina numerically compare nahi kiya ja sakta."
+  },
+  "options": [
+   {
+    "en": "Number",
+    "hi": "Number"
+   },
+   {
+    "en": "String",
+    "hi": "String"
+   },
+   {
+    "en": "Boolean",
+    "hi": "Boolean"
+   },
+   {
+    "en": "Array",
+    "hi": "Array"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Strings are always wrapped in double quotes, like \"SW1\". 4534 has no quotes, so it is not a string.",
+    "hi": "Strings hamesha double quotes mein hoti hain, jaise \"SW1\". 4534 par quotes nahi hain, isliye yeh string nahi hai."
+   },
+   {
+    "en": "Booleans are the bare literals true or false — that is the type of \"inService\", not \"uptime\".",
+    "hi": "Booleans bina quotes ke literals true ya false hote hain. Yeh \"inService\" ka type hai, \"uptime\" ka nahi."
+   },
+   {
+    "en": "Arrays are comma-separated lists inside square brackets [ ], which do not appear here.",
+    "hi": "Arrays square brackets [ ] ke andar comma-separated lists hote hain, jo yahan nahi hain."
+   }
+  ]
+ },
+ {
+  "id": "d6-015",
+  "domain": 6,
+  "lesson": "json-data",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A REST API returns:\n\n{\n  \"device\": {\n    \"name\": \"R1\",\n    \"interfaces\": [\"Gig0/0\", \"Gig0/1\", \"Gig0/2\"]\n  }\n}\n\nWhich value does a script retrieve when it reads element 1 of the \"interfaces\" array?",
+   "hi": "Ek REST API yeh return karti hai:\n\n{\n  \"device\": {\n    \"name\": \"R1\",\n    \"interfaces\": [\"Gig0/0\", \"Gig0/1\", \"Gig0/2\"]\n  }\n}\n\nJab script \"interfaces\" array ka element 1 padhti hai, toh use kaunsi value milti hai?"
+  },
+  "explanation": {
+   "en": "JSON arrays are zero-indexed: element 0 is \"Gig0/0\", element 1 is \"Gig0/1\", and element 2 is \"Gig0/2\". The array itself is nested inside the \"device\" object, so a script would reference something like device.interfaces[1]. Off-by-one errors here are among the most common automation bugs.",
+   "hi": "JSON arrays zero-indexed hote hain: element 0 \"Gig0/0\" hai, element 1 \"Gig0/1\" hai, aur element 2 \"Gig0/2\" hai. Array khud \"device\" object ke andar nested hai, isliye script kuch aisa reference karegi: device.interfaces[1]. Yahan off-by-one errors sabse common automation bugs mein se hain."
+  },
+  "options": [
+   {
+    "en": "Gig0/1",
+    "hi": "Gig0/1"
+   },
+   {
+    "en": "Gig0/0",
+    "hi": "Gig0/0"
+   },
+   {
+    "en": "Gig0/2",
+    "hi": "Gig0/2"
+   },
+   {
+    "en": "R1",
+    "hi": "R1"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "\"Gig0/0\" is element 0 — the FIRST element, because array indexing starts at zero.",
+    "hi": "\"Gig0/0\" element 0 hai, yaani PEHLA element, kyunki array indexing zero se shuru hoti hai."
+   },
+   {
+    "en": "\"Gig0/2\" is element 2, the third and last entry in the array.",
+    "hi": "\"Gig0/2\" element 2 hai, array ki teesri aur aakhri entry."
+   },
+   {
+    "en": "\"R1\" is the value of the \"name\" key inside the device object; it is not part of the interfaces array at all.",
+    "hi": "\"R1\" device object ke andar \"name\" key ki value hai. Yeh interfaces array ka hissa hi nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-016",
+  "domain": 6,
+  "lesson": "json-data",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Examine this JSON returned by a controller:\n\n{\n  \"vlans\": [\n    { \"id\": 10, \"name\": \"USERS\" },\n    { \"id\": 20, \"name\": \"VOICE\" },\n    { \"id\": 30, \"name\": \"MGMT\" }\n  ]\n}\n\nWhich statement about the structure is accurate?",
+   "hi": "Controller se aaya yeh JSON dekho:\n\n{\n  \"vlans\": [\n    { \"id\": 10, \"name\": \"USERS\" },\n    { \"id\": 20, \"name\": \"VOICE\" },\n    { \"id\": 30, \"name\": \"MGMT\" }\n  ]\n}\n\nStructure ke baare mein kaunsa statement sahi hai?"
+  },
+  "explanation": {
+   "en": "The square brackets after \"vlans\" declare an array, and each of its three elements is an object (curly braces) holding an \"id\" number and a \"name\" string. This array-of-objects pattern is how APIs return lists of structured records, and iterating over it is the bread and butter of network automation scripts.",
+   "hi": "\"vlans\" ke baad wale square brackets ek array declare karte hain, aur uske teeno elements objects (curly braces) hain jinme ek \"id\" number aur ek \"name\" string hai. Yeh array-of-objects pattern hi woh tarika hai jisse APIs structured records ki lists return karti hain, aur us par iterate karna network automation scripts ka roz ka kaam hai."
+  },
+  "options": [
+   {
+    "en": "The value of \"vlans\" is an array containing three objects",
+    "hi": "\"vlans\" ki value ek array hai jismein teen objects hain"
+   },
+   {
+    "en": "The value of \"vlans\" is an object with three keys",
+    "hi": "\"vlans\" ki value ek object hai jismein teen keys hain"
+   },
+   {
+    "en": "The value paired with \"id\" in the first element is the string \"10\"",
+    "hi": "Pehle element mein \"id\" ke saath judi value string \"10\" hai"
+   },
+   {
+    "en": "The snippet is invalid because objects cannot be placed inside an array",
+    "hi": "Snippet invalid hai kyunki objects ko array ke andar nahi rakha ja sakta"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Square brackets [ ] denote an array. An object would use curly braces { } with key/value pairs directly inside.",
+    "hi": "Square brackets [ ] array batate hain. Object mein curly braces { } hote jinke andar seedha key/value pairs hote."
+   },
+   {
+    "en": "10 is written without quotes, so it is a JSON number — \"10\" with quotes would be a string.",
+    "hi": "10 bina quotes ke likha hai, isliye yeh JSON number hai. Quotes ke saath \"10\" string hota."
+   },
+   {
+    "en": "Nesting objects inside arrays (and arrays inside objects) is completely legal JSON and extremely common in API responses.",
+    "hi": "Arrays ke andar objects (aur objects ke andar arrays) nest karna bilkul valid JSON hai aur API responses mein bahut common hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-017",
+  "domain": 6,
+  "lesson": "json-data",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "A configuration template fails to parse:\n\n{\n  \"hostname\": \"R1\",\n  \"location\": \"HQ\",\n}\n\nWhy is this JSON invalid?",
+   "hi": "Ek configuration template parse nahi ho raha:\n\n{\n  \"hostname\": \"R1\",\n  \"location\": \"HQ\",\n}\n\nYeh JSON invalid kyun hai?"
+  },
+  "explanation": {
+   "en": "JSON forbids a comma after the final member of an object or the final element of an array — the comma after \"HQ\" makes the parser expect another pair that never comes. Trailing commas are tolerated in modern JavaScript and Python literals, which is exactly why they sneak into handwritten JSON so often.",
+   "hi": "JSON object ke aakhri member ya array ke aakhri element ke baad comma allow nahi karta. \"HQ\" ke baad wale comma ki wajah se parser ek aur pair ka intezaar karta hai jo kabhi aata hi nahi. Modern JavaScript aur Python literals mein trailing commas chal jaate hain, aur isi wajah se yeh haath se likhe JSON mein itni baar ghus jaate hain."
+  },
+  "options": [
+   {
+    "en": "There is a trailing comma after the last key/value pair",
+    "hi": "Aakhri key/value pair ke baad ek trailing comma hai"
+   },
+   {
+    "en": "Keys are not allowed to be enclosed in double quotes",
+    "hi": "Keys ko double quotes mein rakhna allowed nahi hai"
+   },
+   {
+    "en": "The braces should be square brackets",
+    "hi": "Braces ki jagah square brackets hone chahiye"
+   },
+   {
+    "en": "String values must use single quotes instead of double quotes",
+    "hi": "String values ko double quotes ki jagah single quotes use karne chahiye"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "The opposite is true: JSON REQUIRES every key to be a double-quoted string.",
+    "hi": "Ulta sach hai: JSON mein har key ka double-quoted string hona ZAROORI hai."
+   },
+   {
+    "en": "Curly braces are correct for an object of key/value pairs; square brackets would declare an array, which this is not.",
+    "hi": "Key/value pairs wale object ke liye curly braces sahi hain. Square brackets array declare karte, jo yeh nahi hai."
+   },
+   {
+    "en": "JSON strings must use double quotes — single quotes are the invalid choice, not the required one.",
+    "hi": "JSON strings mein double quotes zaroori hain. Single quotes invalid choice hain, required nahi."
+   }
+  ]
+ },
+ {
+  "id": "d6-018",
+  "domain": 6,
+  "lesson": "json-data",
+  "difficulty": "medium",
+  "type": "multi",
+  "text": {
+   "en": "Which three are valid JSON value types? (Choose three.)",
+   "hi": "Kaunse teen valid JSON value types hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "JSON supports exactly six value types: string, number, boolean (true/false), null, object, and array. Everything in an API payload is built from these six. Types like function and undefined exist in JavaScript the language, but they cannot be serialized into JSON.",
+   "hi": "JSON exactly chhe value types support karta hai: string, number, boolean (true/false), null, object aur array. API payload ki har cheez inhi chhe se banti hai. function aur undefined jaise types JavaScript language mein hain, lekin unhe JSON mein serialize nahi kiya ja sakta."
+  },
+  "options": [
+   {
+    "en": "String",
+    "hi": "String"
+   },
+   {
+    "en": "Boolean",
+    "hi": "Boolean"
+   },
+   {
+    "en": "null",
+    "hi": "null"
+   },
+   {
+    "en": "Function",
+    "hi": "Function"
+   },
+   {
+    "en": "undefined",
+    "hi": "undefined"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Functions are executable JavaScript code — JSON is a pure data format and has no way to represent them.",
+    "hi": "Functions executable JavaScript code hain. JSON sirf data format hai aur unhe represent karne ka koi tarika nahi hai."
+   },
+   {
+    "en": "undefined is a JavaScript-only concept; JSON expresses the absence of a value with null instead.",
+    "hi": "undefined sirf JavaScript ka concept hai. JSON value na hone ko null se express karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-019",
+  "domain": 6,
+  "lesson": "json-data",
+  "difficulty": "easy",
+  "type": "match",
+  "text": {
+   "en": "Match each JSON value to its data type.",
+   "hi": "Har JSON value ko uske data type se match karo."
+  },
+  "explanation": {
+   "en": "Punctuation identifies the type at a glance: double quotes = string, bare digits = number, bare true/false = boolean, square brackets = array (ordered list), curly braces = object (key/value pairs). The sixth JSON type, null, represents 'no value'.",
+   "hi": "Punctuation dekhte hi type pata chal jaata hai: double quotes = string, bina quotes ke digits = number, bina quotes ke true/false = boolean, square brackets = array (ordered list), curly braces = object (key/value pairs). Chhatha JSON type, null, 'koi value nahi' ko represent karta hai."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "\"GigabitEthernet0/1\"",
+     "hi": "\"GigabitEthernet0/1\""
+    },
+    "right": {
+     "en": "String",
+     "hi": "String"
+    }
+   },
+   {
+    "left": {
+     "en": "1500",
+     "hi": "1500"
+    },
+    "right": {
+     "en": "Number",
+     "hi": "Number"
+    }
+   },
+   {
+    "left": {
+     "en": "false",
+     "hi": "false"
+    },
+    "right": {
+     "en": "Boolean",
+     "hi": "Boolean"
+    }
+   },
+   {
+    "left": {
+     "en": "[10, 20, 30]",
+     "hi": "[10, 20, 30]"
+    },
+    "right": {
+     "en": "Array",
+     "hi": "Array"
+    }
+   },
+   {
+    "left": {
+     "en": "{\"vlan\": 10}",
+     "hi": "{\"vlan\": 10}"
+    },
+    "right": {
+     "en": "Object",
+     "hi": "Object"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d6-020",
+  "domain": 6,
+  "lesson": "ansible-terraform",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "Ansible is described as an agentless configuration management tool. What does agentless mean in this context?",
+   "hi": "Ansible ko agentless configuration management tool kaha jaata hai. Is context mein agentless ka kya matlab hai?"
+  },
+  "explanation": {
+   "en": "Agentless means nothing extra is installed on the managed device: the Ansible control node simply opens SSH (or API) connections and executes its modules remotely. This suits network gear perfectly, since routers and switches usually cannot host third-party agent software.",
+   "hi": "Agentless ka matlab managed device par kuch extra install nahi hota: Ansible control node bas SSH (ya API) connections kholta hai aur apne modules remotely execute karta hai. Network gear ke liye yeh ekdum sahi hai, kyunki routers aur switches aam taur par third-party agent software host nahi kar sakte."
+  },
+  "options": [
+   {
+    "en": "Managed devices need no special software installed; Ansible connects to them over standard SSH",
+    "hi": "Managed devices par koi special software install nahi karna padta; Ansible unse standard SSH par connect hota hai"
+   },
+   {
+    "en": "Ansible runs without a control node",
+    "hi": "Ansible bina control node ke chalta hai"
+   },
+   {
+    "en": "Ansible can only manage devices that have a REST API",
+    "hi": "Ansible sirf unhi devices ko manage kar sakta hai jinme REST API ho"
+   },
+   {
+    "en": "Managed devices poll the Ansible server for their configurations",
+    "hi": "Managed devices apni configurations ke liye Ansible server ko poll karte hain"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "A control node is still required — it is where playbooks run. 'Agentless' describes the managed devices, not the controller.",
+    "hi": "Control node phir bhi chahiye, playbooks wahin chalti hain. 'Agentless' managed devices ko describe karta hai, controller ko nahi."
+   },
+   {
+    "en": "SSH is the classic transport for Ansible network modules; a REST API is an option, not a requirement.",
+    "hi": "Ansible network modules ka classic transport SSH hai. REST API ek option hai, requirement nahi."
+   },
+   {
+    "en": "Devices never poll Ansible. Ansible uses a push model — the control node initiates every connection.",
+    "hi": "Devices kabhi Ansible ko poll nahi karte. Ansible push model use karta hai: har connection control node shuru karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-021",
+  "domain": 6,
+  "lesson": "ansible-terraform",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "In which language are Ansible playbooks written?",
+   "hi": "Ansible playbooks kis language mein likhe jaate hain?"
+  },
+  "explanation": {
+   "en": "Playbooks are YAML documents: human-readable, indentation-structured files that list plays and tasks to run against inventory hosts. YAML's readability is a core part of Ansible's appeal — a playbook reads almost like a runbook written in English.",
+   "hi": "Playbooks YAML documents hain: insaan ke padhne layak, indentation se structured files jo inventory hosts par chalne wale plays aur tasks list karti hain. YAML ki readability Ansible ki popularity ka bada hissa hai. Playbook lagbhag English mein likhe runbook jaisi padhti hai."
+  },
+  "options": [
+   {
+    "en": "YAML",
+    "hi": "YAML"
+   },
+   {
+    "en": "HCL",
+    "hi": "HCL"
+   },
+   {
+    "en": "XML",
+    "hi": "XML"
+   },
+   {
+    "en": "JSON only",
+    "hi": "Sirf JSON"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "HCL (HashiCorp Configuration Language) is what Terraform configurations use, not Ansible playbooks.",
+    "hi": "HCL (HashiCorp Configuration Language) Terraform configurations use karti hain, Ansible playbooks nahi."
+   },
+   {
+    "en": "XML is the encoding NETCONF uses for device data; Ansible playbooks are not written in it.",
+    "hi": "XML woh encoding hai jo NETCONF device data ke liye use karta hai. Ansible playbooks isme nahi likhe jaate."
+   },
+   {
+    "en": "Although YAML is a superset of JSON, playbooks are conventionally written in YAML — 'JSON only' is wrong.",
+    "hi": "Haalanki YAML JSON ka superset hai, playbooks conventionally YAML mein likhe jaate hain. 'Sirf JSON' galat hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-022",
+  "domain": 6,
+  "lesson": "ansible-terraform",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "Which statement best describes Terraform's approach to managing infrastructure?",
+   "hi": "Kaunsa statement Terraform ke infrastructure manage karne ke tarike ko sabse sahi describe karta hai?"
+  },
+  "explanation": {
+   "en": "Terraform is declarative: you describe WHAT should exist (in HCL — HashiCorp Configuration Language), and the tool figures out HOW — comparing your code with the recorded state, showing the difference with terraform plan, and converging reality to the code with terraform apply, using provider plugins for each platform or cloud.",
+   "hi": "Terraform declarative hai: tum describe karte ho ki KYA exist karna chahiye (HCL, yaani HashiCorp Configuration Language mein), aur tool khud KAISE figure out karta hai: tumhare code ko recorded state se compare karta hai, terraform plan se farak dikhata hai, aur terraform apply se reality ko code ke barabar le aata hai. Har platform ya cloud ke liye provider plugins use hote hain."
+  },
+  "options": [
+   {
+    "en": "Declarative infrastructure-as-code: HCL files define the desired end state, and Terraform computes and applies the changes needed to reach it",
+    "hi": "Declarative infrastructure-as-code: HCL files desired end state define karti hain, aur Terraform wahan pahunchne ke liye zaroori changes compute aur apply karta hai"
+   },
+   {
+    "en": "Imperative task lists pushed to devices over SSH from YAML playbooks",
+    "hi": "YAML playbooks se SSH par devices ko push ki gayi imperative task lists"
+   },
+   {
+    "en": "An agent installed on every device pulls its configuration on a schedule",
+    "hi": "Har device par install agent schedule par apni configuration pull karta hai"
+   },
+   {
+    "en": "A GUI-only tool that records an administrator's clicks and replays them",
+    "hi": "Sirf GUI wala tool jo administrator ke clicks record karke replay karta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "YAML task lists pushed over SSH describe Ansible's model, not Terraform's.",
+    "hi": "SSH par push ki gayi YAML task lists Ansible ka model hai, Terraform ka nahi."
+   },
+   {
+    "en": "Terraform is agentless and push-driven from where it runs; scheduled agent pulls describe tools like classic Puppet/Chef.",
+    "hi": "Terraform agentless hai aur jahan chalta hai wahan se push karta hai. Scheduled agent pulls classic Puppet/Chef jaise tools ka tarika hai."
+   },
+   {
+    "en": "Terraform is driven by code and CLI (init/plan/apply), which is precisely what makes it repeatable — it is not a click-recorder.",
+    "hi": "Terraform code aur CLI (init/plan/apply) se chalta hai, aur yahi use repeatable banata hai. Yeh click-recorder nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-023",
+  "domain": 6,
+  "lesson": "ansible-terraform",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "What is the purpose of the state file that Terraform maintains?",
+   "hi": "Terraform jo state file maintain karta hai uska purpose kya hai?"
+  },
+  "explanation": {
+   "en": "The state file (terraform.tfstate) is Terraform's memory: a mapping between resources declared in code and the real objects that exist. When you run terraform plan, the tool diffs code against state (and refreshes state against reality) to decide what to create, change, or destroy. Lose or corrupt the state and Terraform no longer knows what it owns.",
+   "hi": "State file (terraform.tfstate) Terraform ki memory hai: code mein declare kiye gaye resources aur asal mein exist karne wale objects ke beech mapping. Jab tum terraform plan chalate ho, tool code ko state se diff karta hai (aur state ko reality se refresh karta hai) taaki decide kare ki kya create, change ya destroy karna hai. State kho gayi ya corrupt ho gayi toh Terraform ko pata hi nahi rehta ki uska kya hai."
+  },
+  "options": [
+   {
+    "en": "It records the resources Terraform actually deployed, so plan can compare desired configuration against reality and compute only the necessary changes",
+    "hi": "Yeh record karti hai ki Terraform ne asal mein kaunse resources deploy kiye, taaki plan desired configuration ko reality se compare karke sirf zaroori changes compute kar sake"
+   },
+   {
+    "en": "It stores encrypted device passwords for the managed infrastructure",
+    "hi": "Yeh managed infrastructure ke encrypted device passwords store karti hai"
+   },
+   {
+    "en": "It is a rolling log of every CLI command an administrator has typed",
+    "hi": "Yeh administrator ke type kiye har CLI command ka rolling log hai"
+   },
+   {
+    "en": "It is a compressed backup of the HCL configuration files",
+    "hi": "Yeh HCL configuration files ka compressed backup hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "State is not a credential vault — secrets management is handled elsewhere (and state may even need protecting BECAUSE resource attributes can appear in it).",
+    "hi": "State credential vault nahi hai. Secrets management kahin aur hota hai (aur state ko protect karna bhi pad sakta hai, KYUNKI resource attributes usme aa sakte hain)."
+   },
+   {
+    "en": "Terraform tracks resources, not keystrokes; it keeps no CLI command history.",
+    "hi": "Terraform resources track karta hai, keystrokes nahi. Yeh koi CLI command history nahi rakhta."
+   },
+   {
+    "en": "The HCL files are the source of truth for DESIRED configuration; state complements them by recording what was actually built — it is not a copy of them.",
+    "hi": "HCL files DESIRED configuration ka source of truth hain. State unke saath yeh record karti hai ki asal mein kya bana. Yeh unki copy nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-024",
+  "domain": 6,
+  "lesson": "ansible-terraform",
+  "difficulty": "hard",
+  "type": "single",
+  "text": {
+   "en": "Which statement accurately describes Ansible's operational model when configuring network devices?",
+   "hi": "Network devices configure karte waqt Ansible ke operational model ko kaunsa statement sahi describe karta hai?"
+  },
+  "explanation": {
+   "en": "Ansible pushes: when a playbook runs, the control node reads its inventory, opens SSH sessions to the targets, and executes each task, then disconnects. Nothing runs on the devices between plays. This push-over-SSH, agentless design is the pairing to remember for the exam, in contrast with agent/pull architectures.",
+   "hi": "Ansible push karta hai: jab playbook chalti hai, control node apni inventory padhta hai, targets se SSH sessions kholta hai, har task execute karta hai, aur phir disconnect ho jaata hai. Plays ke beech devices par kuch nahi chalta. Exam ke liye yahi jodi yaad rakho: push-over-SSH aur agentless design, jo agent/pull architectures se alag hai."
+  },
+  "options": [
+   {
+    "en": "It uses a push model: the control node connects out to devices over SSH and executes tasks, with no agent installed on the devices",
+    "hi": "Yeh push model use karta hai: control node SSH par devices se connect karke tasks execute karta hai, aur devices par koi agent install nahi hota"
+   },
+   {
+    "en": "It uses a pull model: an agent on each device periodically polls the control node for updates",
+    "hi": "Yeh pull model use karta hai: har device par ek agent samay-samay par updates ke liye control node ko poll karta hai"
+   },
+   {
+    "en": "It requires a lightweight agent on every managed router and switch",
+    "hi": "Ise har managed router aur switch par ek lightweight agent chahiye"
+   },
+   {
+    "en": "It communicates with devices exclusively through SNMP set operations",
+    "hi": "Yeh devices se sirf SNMP set operations ke through baat karta hai"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Periodic agent polling is a pull model — the architecture of classic Puppet/Chef deployments, not Ansible.",
+    "hi": "Periodic agent polling pull model hai, jo classic Puppet/Chef deployments ka architecture hai, Ansible ka nahi."
+   },
+   {
+    "en": "Agentless is one of Ansible's defining traits; managed network devices need only reachable SSH (or an API).",
+    "hi": "Agentless hona Ansible ki khaas pehchaan hai. Managed network devices ko sirf reachable SSH (ya ek API) chahiye."
+   },
+   {
+    "en": "Ansible network modules ride over SSH/CLI or device APIs (NETCONF/RESTCONF/HTTPAPI); SNMP is not its configuration channel.",
+    "hi": "Ansible network modules SSH/CLI ya device APIs (NETCONF/RESTCONF/HTTPAPI) par chalte hain. SNMP iska configuration channel nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-025",
+  "domain": 6,
+  "lesson": "ansible-terraform",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which three characteristics belong to Terraform rather than Ansible? (Choose three.)",
+   "hi": "Kaunsi teen khaasiyatein Ansible ki nahi balki Terraform ki hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "Terraform's fingerprint is HCL + state file + init/plan/apply with providers — a declarative tool focused on provisioning infrastructure. Ansible's fingerprint is YAML playbooks + inventory + push over SSH — a procedural-leaning tool focused on configuration tasks. The exam loves asking you to sort these traits into the right bucket.",
+   "hi": "Terraform ki pehchaan hai HCL + state file + providers ke saath init/plan/apply, yaani infrastructure provisioning par focused declarative tool. Ansible ki pehchaan hai YAML playbooks + inventory + SSH par push, yaani configuration tasks par focused, procedural ki taraf jhuka hua tool. Exam ko in traits ko sahi bucket mein daalne wale sawaal bahut pasand hain."
+  },
+  "options": [
+   {
+    "en": "Configurations are written in HCL",
+    "hi": "Configurations HCL mein likhi jaati hain"
+   },
+   {
+    "en": "A state file tracks the mapping between code and deployed resources",
+    "hi": "Ek state file code aur deployed resources ke beech mapping track karti hai"
+   },
+   {
+    "en": "The core workflow is init, plan, and apply using provider plugins",
+    "hi": "Core workflow provider plugins ke saath init, plan aur apply hai"
+   },
+   {
+    "en": "Automation tasks are defined in YAML playbooks",
+    "hi": "Automation tasks YAML playbooks mein define hote hain"
+   },
+   {
+    "en": "Devices are reached over SSH using hosts listed in an inventory file",
+    "hi": "Inventory file mein listed hosts ke through devices tak SSH se pahuncha jaata hai"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "YAML playbooks are Ansible's format for describing plays and tasks — Terraform uses HCL configuration files instead.",
+    "hi": "YAML playbooks plays aur tasks describe karne ka Ansible ka format hai. Terraform iski jagah HCL configuration files use karta hai."
+   },
+   {
+    "en": "The SSH-plus-inventory pattern is Ansible's; Terraform talks to provider APIs (cloud/platform endpoints) rather than pushing CLI over SSH.",
+    "hi": "SSH-plus-inventory pattern Ansible ka hai. Terraform SSH par CLI push karne ke bajaay provider APIs (cloud/platform endpoints) se baat karta hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-026",
+  "domain": 6,
+  "lesson": "ansible-terraform",
+  "difficulty": "medium",
+  "type": "match",
+  "text": {
+   "en": "Match each configuration-management term to its description.",
+   "hi": "Har configuration-management term ko uske description se match karo."
+  },
+  "explanation": {
+   "en": "Playbooks and inventories are the Ansible pair (what to do, and to which hosts); HCL and the init/plan/apply workflow are the Terraform pair. terraform plan is the safety net — it diffs desired configuration against recorded state so you can review every change before terraform apply enacts it.",
+   "hi": "Playbooks aur inventories Ansible ki jodi hain (kya karna hai, aur kin hosts par); HCL aur init/plan/apply workflow Terraform ki jodi hain. terraform plan safety net hai: yeh desired configuration ko recorded state se diff karta hai taaki terraform apply ke lagu karne se pehle tum har change review kar sako."
+  },
+  "pairs": [
+   {
+    "left": {
+     "en": "Playbook",
+     "hi": "Playbook"
+    },
+    "right": {
+     "en": "YAML file listing the tasks Ansible runs against hosts",
+     "hi": "YAML file jo woh tasks list karti hai jo Ansible hosts par chalata hai"
+    }
+   },
+   {
+    "left": {
+     "en": "Inventory",
+     "hi": "Inventory"
+    },
+    "right": {
+     "en": "List of the devices and groups Ansible manages",
+     "hi": "Un devices aur groups ki list jinhe Ansible manage karta hai"
+    }
+   },
+   {
+    "left": {
+     "en": "HCL",
+     "hi": "HCL"
+    },
+    "right": {
+     "en": "Language used to write Terraform configurations",
+     "hi": "Terraform configurations likhne ki language"
+    }
+   },
+   {
+    "left": {
+     "en": "terraform plan",
+     "hi": "terraform plan"
+    },
+    "right": {
+     "en": "Previews the changes Terraform would make before applying them",
+     "hi": "Apply karne se pehle Terraform ke hone wale changes ka preview dikhata hai"
+    }
+   }
+  ]
+ },
+ {
+  "id": "d6-027",
+  "domain": 6,
+  "lesson": "ai-ml-netops",
+  "difficulty": "easy",
+  "type": "single",
+  "text": {
+   "en": "What distinguishes supervised learning from other machine learning approaches?",
+   "hi": "Supervised learning ko baaki machine learning approaches se kya alag karta hai?"
+  },
+  "explanation": {
+   "en": "Supervised learning learns from examples with answer keys: historical data where each input is labeled with the correct outcome (this traffic flow WAS an attack; this link DID fail). After training, the model predicts labels for new, unseen inputs. Unsupervised learning, by contrast, works on unlabeled data to find structure on its own.",
+   "hi": "Supervised learning answer key wale examples se seekhta hai: historical data jismein har input par sahi outcome ka label laga hota hai (yeh traffic flow attack THA; yeh link fail HUA THA). Training ke baad model naye, anjaan inputs ke labels predict karta hai. Iske ulat unsupervised learning bina label wale data par kaam karke khud structure dhoondhta hai."
+  },
+  "options": [
+   {
+    "en": "The model is trained on labeled data — inputs paired with the known correct output",
+    "hi": "Model labeled data par train hota hai, yaani inputs jinke saath sahi output pata hai"
+   },
+   {
+    "en": "The model discovers hidden patterns in data that has no labels",
+    "hi": "Model bina labels wale data mein chhupe patterns dhoondhta hai"
+   },
+   {
+    "en": "The model generates entirely new content such as text or images",
+    "hi": "Model text ya images jaisa bilkul naya content generate karta hai"
+   },
+   {
+    "en": "The model requires no training data at all",
+    "hi": "Model ko koi training data nahi chahiye"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Finding structure in unlabeled data — clustering, anomaly grouping — is the definition of UNSUPERVISED learning.",
+    "hi": "Bina label wale data mein structure dhoondhna (clustering, anomaly grouping) UNSUPERVISED learning ki definition hai."
+   },
+   {
+    "en": "Creating new content is generative AI, a different capability from learning labeled input-output mappings.",
+    "hi": "Naya content banana generative AI hai, jo labeled input-output mappings seekhne se alag capability hai."
+   },
+   {
+    "en": "All machine learning requires training data; supervised learning specifically requires LABELED data.",
+    "hi": "Har machine learning ko training data chahiye. Supervised learning ko khaas taur par LABELED data chahiye."
+   }
+  ]
+ },
+ {
+  "id": "d6-028",
+  "domain": 6,
+  "lesson": "ai-ml-netops",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "A network assistant tool accepts the request 'create a config to enable OSPF area 0 on all uplinks' and produces a ready-to-review IOS configuration snippet. Which category of AI is this?",
+   "hi": "Ek network assistant tool 'create a config to enable OSPF area 0 on all uplinks' request leta hai aur review ke liye taiyaar IOS configuration snippet bana deta hai. Yeh AI ki kaunsi category hai?"
+  },
+  "explanation": {
+   "en": "Generative AI creates new content — text, images, code, or in this case IOS configuration — from a natural-language prompt, using large models trained on vast corpora. Predictive AI instead forecasts outcomes (will this link fail? is this traffic anomalous?) from patterns in historical data. The v1.1 exam expects you to tell these two apart.",
+   "hi": "Generative AI natural-language prompt se naya content banata hai: text, images, code, ya is case mein IOS configuration. Iske liye bahut bade corpora par train kiye gaye large models use hote hain. Predictive AI iske bajaay historical data ke patterns se outcomes forecast karta hai (kya yeh link fail hoga? kya yeh traffic anomalous hai?). v1.1 exam chahta hai ki tum in dono mein farak kar sako."
+  },
+  "options": [
+   {
+    "en": "Generative AI",
+    "hi": "Generative AI"
+   },
+   {
+    "en": "Predictive AI",
+    "hi": "Predictive AI"
+   },
+   {
+    "en": "Unsupervised clustering",
+    "hi": "Unsupervised clustering"
+   },
+   {
+    "en": "Reinforcement learning applied to routing tables",
+    "hi": "Routing tables par lagaya gaya reinforcement learning"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Predictive AI estimates future values or classifies events; it does not author new configuration text from a prompt.",
+    "hi": "Predictive AI future values estimate karta hai ya events classify karta hai. Yeh prompt se naya configuration text nahi likhta."
+   },
+   {
+    "en": "Clustering groups similar unlabeled data points — it produces groupings, not written configurations.",
+    "hi": "Clustering milte-julte bina label wale data points ko group karta hai. Yeh groupings banata hai, likhi hui configurations nahi."
+   },
+   {
+    "en": "Reinforcement learning optimizes actions via trial-and-error rewards; generating a config from a natural-language request is not its typical role.",
+    "hi": "Reinforcement learning trial-and-error rewards se actions optimize karta hai. Natural-language request se config banana iska typical role nahi hai."
+   }
+  ]
+ },
+ {
+  "id": "d6-029",
+  "domain": 6,
+  "lesson": "ai-ml-netops",
+  "difficulty": "medium",
+  "type": "single",
+  "text": {
+   "en": "How does machine-learning-based anomaly detection typically identify problems in network operations?",
+   "hi": "Machine-learning-based anomaly detection network operations mein problems aam taur par kaise pehchaanta hai?"
+  },
+  "explanation": {
+   "en": "ML anomaly detection continuously models what 'normal' looks like for each device, link, and application — traffic volumes, latency patterns, client counts, time-of-day rhythms — then raises alerts when live telemetry strays far from the learned baseline. This catches subtle problems static thresholds miss and adapts as the network's normal evolves.",
+   "hi": "ML anomaly detection lagataar model karta rehta hai ki har device, link aur application ke liye 'normal' kaisa dikhta hai: traffic volumes, latency patterns, client counts, din ke time ke hisaab se rhythm. Phir jab live telemetry seekhe hue baseline se kaafi door jaati hai toh alert deta hai. Isse woh subtle problems pakad mein aati hain jo static thresholds miss kar dete hain, aur network ka normal badalne ke saath yeh khud adapt hota hai."
+  },
+  "options": [
+   {
+    "en": "It learns a baseline of normal behavior from telemetry and flags significant deviations from that baseline",
+    "hi": "Yeh telemetry se normal behavior ka baseline seekhta hai aur us baseline se significant deviations ko flag karta hai"
+   },
+   {
+    "en": "It compares every metric against fixed thresholds configured by the administrator",
+    "hi": "Yeh har metric ko administrator ke configure kiye fixed thresholds se compare karta hai"
+   },
+   {
+    "en": "It blocks any traffic type it has never seen before",
+    "hi": "Yeh har woh traffic type block kar deta hai jo usne pehle kabhi nahi dekha"
+   },
+   {
+    "en": "It encrypts telemetry streams so attackers cannot read them",
+    "hi": "Yeh telemetry streams ko encrypt karta hai taaki attackers unhe padh na sakein"
+   }
+  ],
+  "answer": [
+   0
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Fixed thresholds are the TRADITIONAL approach that ML improves upon — baselines are learned and adaptive, not manually configured constants.",
+    "hi": "Fixed thresholds TRADITIONAL approach hai jise ML behtar banata hai. Baselines seekhe jaate hain aur adaptive hote hain, manually configure kiye constants nahi."
+   },
+   {
+    "en": "Anomaly detection observes and alerts; enforcement decisions are separate, and 'block everything unknown' would break legitimate new services.",
+    "hi": "Anomaly detection observe aur alert karta hai. Enforcement decisions alag hote hain, aur 'har anjaan cheez block karo' legitimate nayi services ko tod dega."
+   },
+   {
+    "en": "Encryption protects data confidentiality; it has nothing to do with detecting abnormal behavior.",
+    "hi": "Encryption data confidentiality protect karta hai. Abnormal behavior detect karne se iska koi lena-dena nahi."
+   }
+  ]
+ },
+ {
+  "id": "d6-030",
+  "domain": 6,
+  "lesson": "ai-ml-netops",
+  "difficulty": "hard",
+  "type": "multi",
+  "text": {
+   "en": "Which three are realistic applications of AI/ML in modern network operations platforms? (Choose three.)",
+   "hi": "Modern network operations platforms mein AI/ML ki kaunsi teen realistic applications hain? (Teen chuno.)"
+  },
+  "explanation": {
+   "en": "Platforms such as Catalyst Center apply ML to assurance data for anomaly detection and trend-based failure prediction, and generative AI assistants now help draft, explain, and validate configurations. The common thread: AI augments operations — it informs and accelerates human decisions rather than removing the need for network fundamentals.",
+   "hi": "Catalyst Center jaise platforms assurance data par ML lagakar anomaly detection aur trend-based failure prediction karte hain, aur ab generative AI assistants configurations draft, explain aur validate karne mein madad karte hain. Common baat: AI operations ko augment karta hai, yaani insaani decisions ko information deta hai aur tez banata hai, network fundamentals ki zaroorat khatam nahi karta."
+  },
+  "options": [
+   {
+    "en": "Predictive maintenance that forecasts device or link failures from telemetry trends",
+    "hi": "Predictive maintenance jo telemetry trends se device ya link failures forecast karta hai"
+   },
+   {
+    "en": "Anomaly detection that compares live behavior against learned baselines",
+    "hi": "Anomaly detection jo live behavior ko seekhe hue baselines se compare karta hai"
+   },
+   {
+    "en": "AI assistants that draft or validate device configurations from natural-language intent",
+    "hi": "AI assistants jo natural-language intent se device configurations draft ya validate karte hain"
+   },
+   {
+    "en": "Replacing routing protocols so packets are forwarded without any control plane",
+    "hi": "Routing protocols ko replace karna taaki packets bina kisi control plane ke forward hon"
+   },
+   {
+    "en": "Eliminating the need to monitor the network at all",
+    "hi": "Network ko monitor karne ki zaroorat hi khatam kar dena"
+   }
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "whyWrong": [
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "",
+    "hi": ""
+   },
+   {
+    "en": "Forwarding still depends on control-plane logic (whether on-device or on a controller); AI analyzes and optimizes networks, it does not replace routing protocols wholesale.",
+    "hi": "Forwarding ab bhi control-plane logic par depend karti hai (chahe device par ho ya controller par). AI networks ko analyze aur optimize karta hai, routing protocols ko poori tarah replace nahi karta."
+   },
+   {
+    "en": "AI makes monitoring smarter — it consumes MORE telemetry, not less. Networks still must be instrumented and observed.",
+    "hi": "AI monitoring ko smarter banata hai. Yeh ZYAADA telemetry use karta hai, kam nahi. Networks ko ab bhi instrument aur observe karna padta hai."
+   }
+  ]
+ }
+]

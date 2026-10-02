@@ -1,0 +1,1342 @@
+[
+ {
+  "cmd": "enable",
+  "mode": "user",
+  "category": "Basics",
+  "desc": {
+   "en": "Moves from user EXEC to privileged EXEC mode, unlocking all show, debug, and configuration-entry commands.",
+   "hi": "User EXEC se privileged EXEC mode mein le jaata hai, jisse saare show, debug aur configuration-entry commands unlock ho jaate hain."
+  },
+  "example": "Switch> enable\nPassword:\nSwitch#"
+ },
+ {
+  "cmd": "configure terminal",
+  "mode": "priv",
+  "category": "Basics",
+  "desc": {
+   "en": "Enters global configuration mode from privileged EXEC so you can change the running configuration.",
+   "hi": "Privileged EXEC se global configuration mode mein le jaata hai taaki tum running configuration badal sako."
+  },
+  "example": "R1# configure terminal\nEnter configuration commands, one per line.  End with CNTL/Z.\nR1(config)#"
+ },
+ {
+  "cmd": "hostname <name>",
+  "mode": "global",
+  "category": "Basics",
+  "desc": {
+   "en": "Sets the device name shown in the prompt; required (with ip domain-name) before generating RSA keys for SSH.",
+   "hi": "Device ka naam set karta hai jo prompt mein dikhta hai; SSH ke liye RSA keys generate karne se pehle yeh (ip domain-name ke saath) zaroori hai."
+  },
+  "example": "Router(config)# hostname R1\nR1(config)#"
+ },
+ {
+  "cmd": "banner motd <delimiter> <message> <delimiter>",
+  "mode": "global",
+  "category": "Basics",
+  "desc": {
+   "en": "Displays a message-of-the-day legal warning to anyone connecting, before login; the delimiter character marks the start and end of the text.",
+   "hi": "Connect karne wale har insaan ko login se pehle message-of-the-day legal warning dikhata hai; delimiter character text ki shuruaat aur end mark karta hai."
+  },
+  "example": "R1(config)# banner motd #\nEnter TEXT message.  End with the character '#'.\nUnauthorized access is prohibited!\n#\nR1(config)#"
+ },
+ {
+  "cmd": "copy running-config startup-config",
+  "mode": "priv",
+  "category": "Basics",
+  "desc": {
+   "en": "Saves the active configuration in RAM to NVRAM so it survives a reload or power cycle.",
+   "hi": "RAM mein active configuration ko NVRAM mein save karta hai taaki woh reload ya power cycle ke baad bhi bachi rahe."
+  },
+  "example": "R1# copy running-config startup-config\nDestination filename [startup-config]?\nBuilding configuration...\n[OK]"
+ },
+ {
+  "cmd": "write memory",
+  "mode": "priv",
+  "category": "Basics",
+  "desc": {
+   "en": "Legacy shortcut that saves the running configuration to NVRAM, identical in effect to copy running-config startup-config.",
+   "hi": "Purana shortcut jo running configuration ko NVRAM mein save karta hai, effect mein bilkul copy running-config startup-config jaisa."
+  },
+  "example": "R1# write memory\nBuilding configuration...\n[OK]"
+ },
+ {
+  "cmd": "reload",
+  "mode": "priv",
+  "category": "Basics",
+  "desc": {
+   "en": "Reboots the device, discarding any unsaved running-config changes; IOS asks you to save first if the config was modified.",
+   "hi": "Device ko reboot karta hai aur unsaved running-config changes discard ho jaate hain; agar config modify hua hai toh IOS pehle save karne ko poochta hai."
+  },
+  "example": "R1# reload\nSystem configuration has been modified. Save? [yes/no]: yes\nProceed with reload? [confirm]"
+ },
+ {
+  "cmd": "show running-config",
+  "mode": "priv",
+  "category": "Basics",
+  "desc": {
+   "en": "Displays the active configuration currently in RAM, the first place to look when verifying any change you just made.",
+   "hi": "RAM mein abhi ki active configuration dikhata hai — koi bhi change verify karne ke liye sabse pehle yahin dekho."
+  },
+  "example": "R1# show running-config\nBuilding configuration...\nCurrent configuration : 1284 bytes\n!\nversion 15.7\nhostname R1\n!\ninterface GigabitEthernet0/0\n ip address 192.168.1.1 255.255.255.0"
+ },
+ {
+  "cmd": "show startup-config",
+  "mode": "priv",
+  "category": "Basics",
+  "desc": {
+   "en": "Displays the saved configuration stored in NVRAM, useful for spotting changes that were made but never saved.",
+   "hi": "NVRAM mein saved configuration dikhata hai, un changes ko pakadne ke liye kaam ka jo kiye gaye lekin kabhi save nahi hue."
+  },
+  "example": "R1# show startup-config\nUsing 1284 out of 262136 bytes\n!\nversion 15.7\nhostname R1"
+ },
+ {
+  "cmd": "show version",
+  "mode": "priv",
+  "category": "Basics",
+  "desc": {
+   "en": "Shows the IOS version, uptime, system image file, hardware model, memory, and the configuration register.",
+   "hi": "IOS version, uptime, system image file, hardware model, memory aur configuration register dikhata hai."
+  },
+  "example": "R1# show version\nCisco IOS Software, C2900 Software (C2900-UNIVERSALK9-M), Version 15.7(3)M2\nR1 uptime is 2 weeks, 4 days, 6 hours\nSystem image file is \"flash0:c2900-universalk9-mz.SPA.157-3.M2.bin\"\nCisco CISCO2911/K9 (revision 1.0) with 483328K/40960K bytes of memory.\nConfiguration register is 0x2102"
+ },
+ {
+  "cmd": "show history",
+  "mode": "user",
+  "category": "Basics",
+  "desc": {
+   "en": "Lists the commands recently typed in the current EXEC session (10 by default), handy for recalling long commands.",
+   "hi": "Current EXEC session mein haal hi mein type kiye commands ki list dikhata hai (default 10), lambe commands dobara yaad karne ke liye kaam ka."
+  },
+  "example": "R1# show history\n  show ip interface brief\n  show ip route\n  configure terminal\n  show history"
+ },
+ {
+  "cmd": "do <exec-command>",
+  "mode": "global",
+  "category": "Basics",
+  "desc": {
+   "en": "Runs a privileged EXEC command (such as show or ping) from within any configuration mode without leaving it.",
+   "hi": "Kisi bhi configuration mode ke andar se, bina bahar nikle, privileged EXEC command (jaise show ya ping) chalata hai."
+  },
+  "example": "R1(config-if)# do show ip interface brief\nInterface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet0/0     192.168.1.1     YES manual up                    up"
+ },
+ {
+  "cmd": "exit",
+  "mode": "other",
+  "category": "Basics",
+  "desc": {
+   "en": "Backs out one level, from a sub-configuration mode to global config, from global config to privileged EXEC, or logs out of an EXEC session.",
+   "hi": "Ek level peeche jaata hai — sub-configuration mode se global config, global config se privileged EXEC, ya EXEC session se log out."
+  },
+  "example": "R1(config-if)# exit\nR1(config)# exit\nR1#"
+ },
+ {
+  "cmd": "end",
+  "mode": "other",
+  "category": "Basics",
+  "desc": {
+   "en": "Returns straight to privileged EXEC from any configuration mode, no matter how deep; Ctrl+Z does the same thing.",
+   "hi": "Kisi bhi configuration mode se, chahe kitna bhi andar ho, seedha privileged EXEC par wapas laata hai; Ctrl+Z bhi yahi karta hai."
+  },
+  "example": "R1(config-if)# end\nR1#"
+ },
+ {
+  "cmd": "no shutdown",
+  "mode": "interface",
+  "category": "Basics",
+  "desc": {
+   "en": "Administratively enables an interface; router interfaces are shut down by default, so this is required after assigning an IP address.",
+   "hi": "Interface ko administratively enable karta hai; router interfaces default mein shut down hote hain, isliye IP address dene ke baad yeh zaroori hai."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/0\nR1(config-if)# no shutdown\n*Jul 18 14:31:02.115: %LINK-3-UPDOWN: Interface GigabitEthernet0/0, changed state to up\n*Jul 18 14:31:03.120: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to up"
+ },
+ {
+  "cmd": "shutdown",
+  "mode": "interface",
+  "category": "Basics",
+  "desc": {
+   "en": "Administratively disables an interface, putting it in the administratively down state until no shutdown is issued.",
+   "hi": "Interface ko administratively disable karta hai, use administratively down state mein daal deta hai jab tak no shutdown na diya jaaye."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/1\nR1(config-if)# shutdown\n*Jul 18 14:35:10.001: %LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to administratively down"
+ },
+ {
+  "cmd": "description <text>",
+  "mode": "interface",
+  "category": "Basics",
+  "desc": {
+   "en": "Attaches a free-text label to an interface (shown in show interfaces output) to document what the port connects to.",
+   "hi": "Interface par free-text label lagata hai (show interfaces output mein dikhta hai) taaki document ho ki port kisse juda hai."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/24\nSW1(config-if)# description Uplink to R1 Gi0/0"
+ },
+ {
+  "cmd": "clock set <hh:mm:ss> <day> <month> <year>",
+  "mode": "priv",
+  "category": "Basics",
+  "desc": {
+   "en": "Manually sets the software clock, used when no NTP source is available so log and certificate timestamps are accurate.",
+   "hi": "Software clock ko manually set karta hai, jab koi NTP source available na ho, taaki log aur certificate timestamps sahi rahein."
+  },
+  "example": "R1# clock set 14:30:00 18 July 2026\nR1# show clock\n14:30:05.115 UTC Sat Jul 18 2026"
+ },
+ {
+  "cmd": "interface <type><slot/port>",
+  "mode": "global",
+  "category": "Interfaces",
+  "desc": {
+   "en": "Enters interface configuration mode for a single port, e.g. interface GigabitEthernet0/0, where IP, VLAN, and speed settings are applied.",
+   "hi": "Ek single port ke liye interface configuration mode mein le jaata hai, jaise interface GigabitEthernet0/0, jahan IP, VLAN aur speed settings lagti hain."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/0\nR1(config-if)#"
+ },
+ {
+  "cmd": "interface range <type> <first> - <last>",
+  "mode": "global",
+  "category": "Interfaces",
+  "desc": {
+   "en": "Configures a group of ports at once, applying every command that follows to all interfaces in the range.",
+   "hi": "Ports ke group ko ek saath configure karta hai — iske baad ka har command range ke saare interfaces par lagta hai."
+  },
+  "example": "SW1(config)# interface range GigabitEthernet0/1 - 12\nSW1(config-if-range)# switchport mode access\nSW1(config-if-range)# switchport access vlan 10"
+ },
+ {
+  "cmd": "ip address <address> <subnet-mask>",
+  "mode": "interface",
+  "category": "Interfaces",
+  "desc": {
+   "en": "Assigns an IPv4 address and mask to an interface (or SVI); pair it with no shutdown to bring the interface up.",
+   "hi": "Interface (ya SVI) ko IPv4 address aur mask deta hai; interface up karne ke liye iske saath no shutdown lagao."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/0\nR1(config-if)# ip address 192.168.1.1 255.255.255.0\nR1(config-if)# no shutdown"
+ },
+ {
+  "cmd": "speed {10 | 100 | 1000 | auto}",
+  "mode": "interface",
+  "category": "Interfaces",
+  "desc": {
+   "en": "Hard-codes the port speed in Mbps or returns it to autonegotiation; set both ends the same to avoid a mismatch.",
+   "hi": "Port speed ko Mbps mein hard-code karta hai ya autonegotiation par wapas le jaata hai; mismatch se bachne ke liye dono ends same set karo."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/5\nSW1(config-if)# speed 100"
+ },
+ {
+  "cmd": "duplex {full | half | auto}",
+  "mode": "interface",
+  "category": "Interfaces",
+  "desc": {
+   "en": "Hard-codes the duplex mode; a duplex mismatch causes late collisions and terrible throughput, so verify with show interfaces.",
+   "hi": "Duplex mode hard-code karta hai; duplex mismatch se late collisions aur bahut kharab throughput aata hai, isliye show interfaces se verify karo."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/5\nSW1(config-if)# duplex full"
+ },
+ {
+  "cmd": "show ip interface brief",
+  "mode": "priv",
+  "category": "Interfaces",
+  "desc": {
+   "en": "One-line summary of every interface with its IP address, Status (layer 1), and Protocol (layer 2) — the fastest first check in troubleshooting.",
+   "hi": "Har interface ki ek line ki summary — IP address, Status (layer 1) aur Protocol (layer 2) ke saath — troubleshooting mein sabse tez pehla check."
+  },
+  "example": "R1# show ip interface brief\nInterface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet0/0     192.168.1.1     YES manual up                    up\nGigabitEthernet0/1     10.1.1.1        YES manual up                    up\nSerial0/0/0            unassigned      YES unset  administratively down down"
+ },
+ {
+  "cmd": "show interfaces <interface>",
+  "mode": "priv",
+  "category": "Interfaces",
+  "desc": {
+   "en": "Detailed interface view: line status, MAC address, MTU, bandwidth, duplex/speed, and error counters like CRC and runts.",
+   "hi": "Interface ka detailed view: line status, MAC address, MTU, bandwidth, duplex/speed, aur CRC aur runts jaise error counters."
+  },
+  "example": "R1# show interfaces GigabitEthernet0/0\nGigabitEthernet0/0 is up, line protocol is up\n  Hardware is CN Gigabit Ethernet, address is 0019.e86a.6f80 (bia 0019.e86a.6f80)\n  Internet address is 192.168.1.1/24\n  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec,\n  Full Duplex, 1Gbps, media type is RJ45\n     0 input errors, 0 CRC, 0 runts, 0 giants"
+ },
+ {
+  "cmd": "show interfaces status",
+  "mode": "priv",
+  "category": "Interfaces",
+  "desc": {
+   "en": "Switch-only table of every port with connect state, VLAN (or trunk), and negotiated duplex/speed; the a- prefix means autonegotiated.",
+   "hi": "Sirf switch par: har port ki table jisme connect state, VLAN (ya trunk) aur negotiated duplex/speed hote hain; a- prefix ka matlab autonegotiated."
+  },
+  "example": "SW1# show interfaces status\nPort      Name               Status       Vlan       Duplex  Speed Type\nGi0/1     To-PC1             connected    10         a-full  a-1000 10/100/1000BaseTX\nGi0/2                        notconnect   20           auto   auto 10/100/1000BaseTX\nGi0/24    Uplink-R1          connected    trunk      a-full  a-1000 10/100/1000BaseTX"
+ },
+ {
+  "cmd": "vlan <vlan-id>",
+  "mode": "global",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Creates a VLAN (1-4094) if it does not exist and enters VLAN configuration mode to name it.",
+   "hi": "Agar VLAN (1-4094) nahi hai toh use banata hai aur use naam dene ke liye VLAN configuration mode mein le jaata hai."
+  },
+  "example": "SW1(config)# vlan 10\nSW1(config-vlan)# name SALES\nSW1(config-vlan)# exit"
+ },
+ {
+  "cmd": "name <vlan-name>",
+  "mode": "vlan",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Assigns a descriptive name to the VLAN being configured; without it the VLAN shows as VLAN00xx in show vlan brief.",
+   "hi": "Jo VLAN configure ho raha hai use descriptive naam deta hai; iske bina show vlan brief mein VLAN, VLAN00xx dikhta hai."
+  },
+  "example": "SW1(config)# vlan 20\nSW1(config-vlan)# name ENGINEERING"
+ },
+ {
+  "cmd": "switchport mode access",
+  "mode": "interface",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Forces the port to be a permanent access port carrying a single data VLAN, disabling DTP trunk negotiation on it.",
+   "hi": "Port ko permanent access port bana deta hai jo ek single data VLAN carry karta hai, aur us par DTP trunk negotiation disable kar deta hai."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/1\nSW1(config-if)# switchport mode access\nSW1(config-if)# switchport access vlan 10"
+ },
+ {
+  "cmd": "switchport mode trunk",
+  "mode": "interface",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Forces the port into permanent 802.1Q trunking to carry multiple VLANs; on switches that also support ISL, set the encapsulation first.",
+   "hi": "Port ko permanent 802.1Q trunking mein daalta hai taaki woh multiple VLANs carry kare; jo switches ISL bhi support karte hain, un par pehle encapsulation set karo."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/24\nSW1(config-if)# switchport trunk encapsulation dot1q\nSW1(config-if)# switchport mode trunk"
+ },
+ {
+  "cmd": "switchport access vlan <vlan-id>",
+  "mode": "interface",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Assigns the access port to a data VLAN; IOS creates the VLAN automatically if it does not exist yet.",
+   "hi": "Access port ko ek data VLAN mein assign karta hai; agar VLAN abhi nahi hai toh IOS use apne aap bana deta hai."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/2\nSW1(config-if)# switchport access vlan 30\n% Access VLAN does not exist. Creating vlan 30"
+ },
+ {
+  "cmd": "switchport voice vlan <vlan-id>",
+  "mode": "interface",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Adds a second, tagged VLAN on an access port for an IP phone, so phone traffic and PC traffic stay in separate VLANs.",
+   "hi": "Access port par IP phone ke liye ek doosra, tagged VLAN jodta hai, taaki phone traffic aur PC traffic alag VLANs mein rahein."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/3\nSW1(config-if)# switchport mode access\nSW1(config-if)# switchport access vlan 10\nSW1(config-if)# switchport voice vlan 150"
+ },
+ {
+  "cmd": "switchport trunk encapsulation dot1q",
+  "mode": "interface",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Selects 802.1Q tagging on switches that also support ISL; required before switchport mode trunk on those models (2960s are dot1q-only).",
+   "hi": "Jo switches ISL bhi support karte hain un par 802.1Q tagging chunta hai; un models par switchport mode trunk se pehle yeh zaroori hai (2960s sirf dot1q hote hain)."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/24\nSW1(config-if)# switchport trunk encapsulation dot1q\nSW1(config-if)# switchport mode trunk"
+ },
+ {
+  "cmd": "switchport trunk allowed vlan <vlan-list>",
+  "mode": "interface",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Limits which VLANs the trunk carries; use the add / remove keywords to edit the list without replacing it entirely.",
+   "hi": "Limit karta hai ki trunk kaunse VLANs carry kare; poori list replace kiye bina edit karne ke liye add / remove keywords use karo."
+  },
+  "example": "SW1(config-if)# switchport trunk allowed vlan 10,20,30\nSW1(config-if)# switchport trunk allowed vlan add 40"
+ },
+ {
+  "cmd": "switchport trunk native vlan <vlan-id>",
+  "mode": "interface",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Sets the untagged (native) VLAN on an 802.1Q trunk; it must match on both ends or CDP reports a native VLAN mismatch.",
+   "hi": "802.1Q trunk par untagged (native) VLAN set karta hai; dono ends par match hona chahiye, warna CDP native VLAN mismatch report karta hai."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/24\nSW1(config-if)# switchport trunk native vlan 99"
+ },
+ {
+  "cmd": "switchport nonegotiate",
+  "mode": "interface",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Stops the port from sending DTP frames; use with a manually set access or trunk mode to disable dynamic negotiation for security.",
+   "hi": "Port ko DTP frames bhejne se rokta hai; security ke liye dynamic negotiation disable karne ke liye ise manually set access ya trunk mode ke saath use karo."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/24\nSW1(config-if)# switchport mode trunk\nSW1(config-if)# switchport nonegotiate"
+ },
+ {
+  "cmd": "show vlan brief",
+  "mode": "priv",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Lists all VLANs with their names, status, and which access ports belong to each; trunk ports do not appear in this list.",
+   "hi": "Saare VLANs ko unke naam, status aur har VLAN ke access ports ke saath list karta hai; trunk ports is list mein nahi dikhte."
+  },
+  "example": "SW1# show vlan brief\nVLAN Name                             Status    Ports\n---- -------------------------------- --------- -------------------------------\n1    default                          active    Gi0/4, Gi0/5, Gi0/6\n10   SALES                            active    Gi0/1, Gi0/3\n20   ENGINEERING                      active    Gi0/2\n99   MGMT                             active"
+ },
+ {
+  "cmd": "show interfaces trunk",
+  "mode": "priv",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Shows every operational trunk with its mode, encapsulation, native VLAN, and the VLANs allowed and actively forwarding.",
+   "hi": "Har operational trunk ko uske mode, encapsulation, native VLAN, aur allowed aur actively forwarding VLANs ke saath dikhata hai."
+  },
+  "example": "SW1# show interfaces trunk\nPort        Mode         Encapsulation  Status        Native vlan\nGi0/24      on           802.1q         trunking      99\n\nPort        Vlans allowed on trunk\nGi0/24      10,20,30,40"
+ },
+ {
+  "cmd": "show interfaces <interface> switchport",
+  "mode": "priv",
+  "category": "VLANs & Trunking",
+  "desc": {
+   "en": "Shows a port's administrative versus operational switching mode, access VLAN, native VLAN, and DTP negotiation state.",
+   "hi": "Port ka administrative vs operational switching mode, access VLAN, native VLAN aur DTP negotiation state dikhata hai."
+  },
+  "example": "SW1# show interfaces GigabitEthernet0/24 switchport\nName: Gi0/24\nSwitchport: Enabled\nAdministrative Mode: trunk\nOperational Mode: trunk\nAdministrative Trunking Encapsulation: dot1q\nNegotiation of Trunking: Off\nAccess Mode VLAN: 1 (default)\nTrunking Native Mode VLAN: 99 (MGMT)"
+ },
+ {
+  "cmd": "channel-group <number> mode {active | passive | desirable | auto | on}",
+  "mode": "interface",
+  "category": "EtherChannel",
+  "desc": {
+   "en": "Bundles the port into an EtherChannel: active/passive negotiate with LACP, desirable/auto with PAgP, and on forces the bundle with no protocol.",
+   "hi": "Port ko EtherChannel mein bundle karta hai: active/passive LACP se negotiate karte hain, desirable/auto PAgP se, aur on bina kisi protocol ke bundle zabardasti banata hai."
+  },
+  "example": "SW1(config)# interface range GigabitEthernet0/1 - 2\nSW1(config-if-range)# channel-group 1 mode active\nCreating a port-channel interface Port-channel 1"
+ },
+ {
+  "cmd": "interface port-channel <number>",
+  "mode": "global",
+  "category": "EtherChannel",
+  "desc": {
+   "en": "Enters the logical port-channel interface, where trunking or IP settings are applied once for the whole bundle.",
+   "hi": "Logical port-channel interface mein le jaata hai, jahan trunking ya IP settings poore bundle ke liye ek hi baar lagti hain."
+  },
+  "example": "SW1(config)# interface port-channel 1\nSW1(config-if)# switchport trunk encapsulation dot1q\nSW1(config-if)# switchport mode trunk"
+ },
+ {
+  "cmd": "show etherchannel summary",
+  "mode": "priv",
+  "category": "EtherChannel",
+  "desc": {
+   "en": "One-line status per bundle; look for SU (Layer 2, in use) beside the Po interface and (P) beside each bundled member port.",
+   "hi": "Har bundle ka ek line ka status; Po interface ke saamne SU (Layer 2, in use) aur har bundled member port ke saamne (P) dekho."
+  },
+  "example": "SW1# show etherchannel summary\nFlags:  D - down        P - bundled in port-channel\n        S - Layer2      U - in use\n\nNumber of channel-groups in use: 1\nGroup  Port-channel  Protocol    Ports\n------+-------------+-----------+----------------------------\n1      Po1(SU)         LACP      Gi0/1(P)    Gi0/2(P)"
+ },
+ {
+  "cmd": "spanning-tree mode rapid-pvst",
+  "mode": "global",
+  "category": "STP",
+  "desc": {
+   "en": "Switches the whole device from legacy PVST+ to Rapid PVST+ (802.1w), giving sub-second convergence per VLAN.",
+   "hi": "Poore device ko legacy PVST+ se Rapid PVST+ (802.1w) par switch karta hai, jisse har VLAN mein sub-second convergence milti hai."
+  },
+  "example": "SW1(config)# spanning-tree mode rapid-pvst\nSW1(config)# do show spanning-tree summary\nSwitch is in rapid-pvst mode"
+ },
+ {
+  "cmd": "spanning-tree vlan <vlan-id> priority <0-61440>",
+  "mode": "global",
+  "category": "STP",
+  "desc": {
+   "en": "Manually sets the bridge priority (multiples of 4096) for a VLAN; the lowest bridge ID in the VLAN becomes the root bridge.",
+   "hi": "Ek VLAN ke liye bridge priority (4096 ke multiples) manually set karta hai; VLAN mein sabse kam bridge ID wala root bridge banta hai."
+  },
+  "example": "SW1(config)# spanning-tree vlan 10 priority 24576"
+ },
+ {
+  "cmd": "spanning-tree vlan <vlan-id> root primary",
+  "mode": "global",
+  "category": "STP",
+  "desc": {
+   "en": "Macro that lowers this switch's priority just enough to become root for the VLAN (24576, or 4096 below the current root).",
+   "hi": "Macro jo is switch ki priority bas utni kam karta hai jitni VLAN ka root banne ke liye chahiye (24576, ya current root se 4096 kam)."
+  },
+  "example": "SW1(config)# spanning-tree vlan 10 root primary\nSW1(config)# do show spanning-tree vlan 10 | include root\n             This bridge is the root"
+ },
+ {
+  "cmd": "spanning-tree portfast",
+  "mode": "interface",
+  "category": "STP",
+  "desc": {
+   "en": "Lets an access port skip the listening and learning states and forward immediately; use only on ports facing end hosts, never on switch links.",
+   "hi": "Access port ko listening aur learning states skip karke turant forward karne deta hai; sirf end hosts ki taraf wale ports par use karo, switch links par kabhi nahi."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/1\nSW1(config-if)# spanning-tree portfast\n%Warning: portfast should only be enabled on ports connected to a single\n host. Connecting hubs, switches, bridges, etc... to this interface\n when portfast is enabled, can cause temporary bridging loops."
+ },
+ {
+  "cmd": "spanning-tree bpduguard enable",
+  "mode": "interface",
+  "category": "STP",
+  "desc": {
+   "en": "Error-disables the port the moment any BPDU arrives on it, protecting PortFast edge ports from rogue switches.",
+   "hi": "Jaise hi port par koi BPDU aata hai, port ko err-disable kar deta hai — PortFast edge ports ko rogue switches se bachata hai."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/1\nSW1(config-if)# spanning-tree portfast\nSW1(config-if)# spanning-tree bpduguard enable"
+ },
+ {
+  "cmd": "spanning-tree portfast bpduguard default",
+  "mode": "global",
+  "category": "STP",
+  "desc": {
+   "en": "Enables BPDU Guard globally on every PortFast-enabled port, so all edge ports are protected without per-interface commands.",
+   "hi": "Har PortFast-enabled port par globally BPDU Guard enable karta hai, taaki per-interface commands ke bina saare edge ports protected rahein."
+  },
+  "example": "SW1(config)# spanning-tree portfast bpduguard default"
+ },
+ {
+  "cmd": "show spanning-tree [vlan <vlan-id>]",
+  "mode": "priv",
+  "category": "STP",
+  "desc": {
+   "en": "Shows the STP protocol in use, the root bridge ID, this switch's bridge ID, and each port's role, state, and cost per VLAN.",
+   "hi": "Har VLAN ke liye use ho raha STP protocol, root bridge ID, is switch ka bridge ID, aur har port ka role, state aur cost dikhata hai."
+  },
+  "example": "SW1# show spanning-tree vlan 10\nVLAN0010\n  Spanning tree enabled protocol rstp\n  Root ID    Priority    24586\n             Address     0019.e86a.6f80\n             This bridge is the root\n\nInterface           Role Sts Cost      Prio.Nbr Type\n------------------- ---- --- --------- -------- ----\nGi0/1               Desg FWD 4         128.1    P2p Edge\nGi0/24              Desg FWD 4         128.24   P2p"
+ },
+ {
+  "cmd": "ip routing",
+  "mode": "global",
+  "category": "Routing",
+  "desc": {
+   "en": "Enables IPv4 routing on a Layer 3 switch (off by default there) so it can route between SVIs and routed ports.",
+   "hi": "Layer 3 switch par IPv4 routing enable karta hai (wahan default mein off hoti hai) taaki woh SVIs aur routed ports ke beech route kar sake."
+  },
+  "example": "SW1(config)# ip routing\nSW1(config)# interface vlan 10\nSW1(config-if)# ip address 192.168.10.1 255.255.255.0"
+ },
+ {
+  "cmd": "ip route <network> <mask> {<next-hop> | <exit-interface>} [<distance>]",
+  "mode": "global",
+  "category": "Routing",
+  "desc": {
+   "en": "Creates a static IPv4 route; adding an administrative distance higher than the primary route makes it a floating static backup.",
+   "hi": "Static IPv4 route banata hai; primary route se zyada administrative distance jodne par yeh floating static backup ban jaata hai."
+  },
+  "example": "R1(config)# ip route 172.16.2.0 255.255.255.0 10.1.1.2\nR1(config)# ip route 172.16.2.0 255.255.255.0 10.2.2.2 254"
+ },
+ {
+  "cmd": "ip route 0.0.0.0 0.0.0.0 <next-hop>",
+  "mode": "global",
+  "category": "Routing",
+  "desc": {
+   "en": "Configures a default static route (gateway of last resort) used for any destination not matched by a more specific route.",
+   "hi": "Default static route (gateway of last resort) configure karta hai, jo har us destination ke liye use hota hai jo kisi zyada specific route se match nahi karta."
+  },
+  "example": "R1(config)# ip route 0.0.0.0 0.0.0.0 203.0.113.1\nR1(config)# do show ip route | include Gateway\nGateway of last resort is 203.0.113.1 to network 0.0.0.0"
+ },
+ {
+  "cmd": "ipv6 route <prefix>/<length> {<next-hop> | <exit-interface>}",
+  "mode": "global",
+  "category": "Routing",
+  "desc": {
+   "en": "Creates a static IPv6 route; ::/0 is the IPv6 default route, and ipv6 unicast-routing must already be enabled.",
+   "hi": "Static IPv6 route banata hai; ::/0 IPv6 default route hai, aur ipv6 unicast-routing pehle se enabled hona chahiye."
+  },
+  "example": "R1(config)# ipv6 route 2001:DB8:2::/64 2001:DB8:12::2\nR1(config)# ipv6 route ::/0 2001:DB8:12::2"
+ },
+ {
+  "cmd": "show ip route",
+  "mode": "priv",
+  "category": "Routing",
+  "desc": {
+   "en": "Displays the IPv4 routing table with a source code per route and [administrative distance/metric] pairs; the heart of routing verification.",
+   "hi": "IPv4 routing table dikhata hai, har route ke saath source code aur [administrative distance/metric] pairs; routing verification ka dil yahi hai."
+  },
+  "example": "R1# show ip route\nCodes: L - local, C - connected, S - static, O - OSPF\nGateway of last resort is 203.0.113.1 to network 0.0.0.0\n\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n      10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks\nC        10.1.1.0/24 is directly connected, GigabitEthernet0/0\nO        10.2.2.0/24 [110/2] via 10.1.1.2, 00:12:43, GigabitEthernet0/0"
+ },
+ {
+  "cmd": "show ipv6 route",
+  "mode": "priv",
+  "category": "Routing",
+  "desc": {
+   "en": "Displays the IPv6 routing table, including connected (C), local (L), static (S), and OSPF (O) routes with their next hops.",
+   "hi": "IPv6 routing table dikhata hai, jisme connected (C), local (L), static (S) aur OSPF (O) routes unke next hops ke saath hote hain."
+  },
+  "example": "R1# show ipv6 route\nIPv6 Routing Table - default - 5 entries\nCodes: C - Connected, L - Local, S - Static, O - OSPF Intra\nS   ::/0 [1/0]\n     via 2001:DB8:12::2\nC   2001:DB8:1::/64 [0/0]\n     via GigabitEthernet0/0, directly connected"
+ },
+ {
+  "cmd": "router ospf <process-id>",
+  "mode": "global",
+  "category": "OSPF",
+  "desc": {
+   "en": "Starts an OSPFv2 process and enters router configuration mode; the process ID is locally significant and need not match neighbors.",
+   "hi": "OSPFv2 process start karta hai aur router configuration mode mein le jaata hai; process ID sirf local hota hai aur neighbors se match hona zaroori nahi."
+  },
+  "example": "R1(config)# router ospf 1\nR1(config-router)#"
+ },
+ {
+  "cmd": "network <address> <wildcard-mask> area <area-id>",
+  "mode": "router",
+  "category": "OSPF",
+  "desc": {
+   "en": "Enables OSPF on every interface whose address matches the wildcard range and places those interfaces in the given area.",
+   "hi": "Har us interface par OSPF enable karta hai jiska address wildcard range se match kare, aur un interfaces ko diye gaye area mein daalta hai."
+  },
+  "example": "R1(config)# router ospf 1\nR1(config-router)# network 10.1.1.0 0.0.0.255 area 0\nR1(config-router)# network 192.168.1.0 0.0.0.255 area 0"
+ },
+ {
+  "cmd": "router-id <a.b.c.d>",
+  "mode": "router",
+  "category": "OSPF",
+  "desc": {
+   "en": "Hard-codes the 32-bit OSPF router ID instead of letting IOS pick the highest loopback or interface IP; takes effect after a process restart.",
+   "hi": "32-bit OSPF router ID ko hard-code karta hai, IOS ko highest loopback ya interface IP chunne dene ki jagah; process restart ke baad effect mein aata hai."
+  },
+  "example": "R1(config-router)# router-id 1.1.1.1\n% OSPF: Reload or use \"clear ip ospf process\" command, for this to take effect"
+ },
+ {
+  "cmd": "passive-interface <interface>",
+  "mode": "router",
+  "category": "OSPF",
+  "desc": {
+   "en": "Stops OSPF hellos on an interface while still advertising its subnet, used on LAN or user-facing ports where no neighbor exists.",
+   "hi": "Interface par OSPF hellos rokta hai lekin uska subnet advertise karta rehta hai; LAN ya user-facing ports par use hota hai jahan koi neighbor nahi hota."
+  },
+  "example": "R1(config)# router ospf 1\nR1(config-router)# passive-interface GigabitEthernet0/1"
+ },
+ {
+  "cmd": "default-information originate",
+  "mode": "router",
+  "category": "OSPF",
+  "desc": {
+   "en": "Makes this router advertise its default route into OSPF so other routers learn the way out, typically configured on the internet edge router.",
+   "hi": "Yeh router apna default route OSPF mein advertise karta hai taaki doosre routers bahar jaane ka raasta seekh lein; aam taur par internet edge router par configure hota hai."
+  },
+  "example": "R1(config)# ip route 0.0.0.0 0.0.0.0 203.0.113.1\nR1(config)# router ospf 1\nR1(config-router)# default-information originate"
+ },
+ {
+  "cmd": "auto-cost reference-bandwidth <mbps>",
+  "mode": "router",
+  "category": "OSPF",
+  "desc": {
+   "en": "Changes the bandwidth used to compute interface cost (default 100 Mbps) so gigabit and faster links get distinct costs; set it the same on all routers.",
+   "hi": "Interface cost calculate karne wali bandwidth (default 100 Mbps) badalta hai taaki gigabit aur usse tez links ke alag costs ho; saare routers par same set karo."
+  },
+  "example": "R1(config-router)# auto-cost reference-bandwidth 100000\n% OSPF: Reference bandwidth is changed.\n        Please ensure reference bandwidth is consistent across all routers."
+ },
+ {
+  "cmd": "ip ospf priority <0-255>",
+  "mode": "interface",
+  "category": "OSPF",
+  "desc": {
+   "en": "Influences the DR/BDR election on a multiaccess segment: highest priority wins, and 0 makes the router ineligible (always DROTHER).",
+   "hi": "Multiaccess segment par DR/BDR election ko influence karta hai: highest priority jeetti hai, aur 0 router ko ineligible bana deta hai (hamesha DROTHER)."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/0\nR1(config-if)# ip ospf priority 100"
+ },
+ {
+  "cmd": "ip ospf cost <1-65535>",
+  "mode": "interface",
+  "category": "OSPF",
+  "desc": {
+   "en": "Overrides the automatically computed OSPF cost on an interface, the most direct way to steer OSPF path selection.",
+   "hi": "Interface par automatically calculate hue OSPF cost ko override karta hai — OSPF path selection ko modne ka sabse seedha tareeka."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/1\nR1(config-if)# ip ospf cost 10"
+ },
+ {
+  "cmd": "show ip ospf neighbor",
+  "mode": "priv",
+  "category": "OSPF",
+  "desc": {
+   "en": "Lists each OSPF neighbor with its state; FULL means the databases are synchronized, and the field after the slash shows DR/BDR/DROTHER role.",
+   "hi": "Har OSPF neighbor ko uski state ke saath list karta hai; FULL ka matlab databases synchronized hain, aur slash ke baad wala field DR/BDR/DROTHER role dikhata hai."
+  },
+  "example": "R1# show ip ospf neighbor\nNeighbor ID     Pri   State           Dead Time   Address         Interface\n2.2.2.2           1   FULL/BDR        00:00:36    10.1.1.2        GigabitEthernet0/0\n3.3.3.3           0   FULL/DROTHER    00:00:33    10.1.1.3        GigabitEthernet0/0"
+ },
+ {
+  "cmd": "show ip ospf interface [brief]",
+  "mode": "priv",
+  "category": "OSPF",
+  "desc": {
+   "en": "Shows OSPF details per interface — area, cost, state, and hello/dead timers — the place to find timer mismatches that block adjacencies.",
+   "hi": "Har interface ki OSPF details dikhata hai — area, cost, state aur hello/dead timers — adjacencies rokne wale timer mismatches yahin milte hain."
+  },
+  "example": "R1# show ip ospf interface brief\nInterface    PID   Area            IP Address/Mask    Cost  State Nbrs F/C\nGi0/0        1     0               10.1.1.1/24        1     DR    1/1\nGi0/1        1     0               192.168.1.1/24     1     DR    0/0"
+ },
+ {
+  "cmd": "show ip ospf database",
+  "mode": "priv",
+  "category": "OSPF",
+  "desc": {
+   "en": "Displays the link-state database (LSAs) that all routers in an area share; every router in an area must have an identical copy.",
+   "hi": "Link-state database (LSAs) dikhata hai jo area ke saare routers share karte hain; area ke har router ke paas bilkul same copy honi chahiye."
+  },
+  "example": "R1# show ip ospf database\n            OSPF Router with ID (1.1.1.1) (Process ID 1)\n                Router Link States (Area 0)\nLink ID         ADV Router      Age         Seq#       Checksum Link count\n1.1.1.1         1.1.1.1         172         0x8000000A 0x00A1B2 3\n2.2.2.2         2.2.2.2         160         0x80000008 0x00C3D4 2"
+ },
+ {
+  "cmd": "show ip protocols",
+  "mode": "priv",
+  "category": "OSPF",
+  "desc": {
+   "en": "Summarizes every routing protocol running: OSPF process ID, router ID, networks advertised, and the sources routes are learned from.",
+   "hi": "Chal rahe har routing protocol ki summary deta hai: OSPF process ID, router ID, advertise hone wale networks, aur woh sources jinse routes seekhe ja rahe hain."
+  },
+  "example": "R1# show ip protocols\n*** IP Routing is NSF aware ***\nRouting Protocol is \"ospf 1\"\n  Router ID 1.1.1.1\n  Number of areas in this router is 1. 1 normal 0 stub 0 nssa\n  Routing for Networks:\n    10.1.1.0 0.0.0.255 area 0\n  Routing Information Sources:\n    Gateway         Distance      Last Update\n    2.2.2.2              110      00:04:12"
+ },
+ {
+  "cmd": "clear ip ospf process",
+  "mode": "priv",
+  "category": "OSPF",
+  "desc": {
+   "en": "Restarts the OSPF process, tearing down and re-forming all adjacencies; required for a new router-id to take effect.",
+   "hi": "OSPF process restart karta hai, saari adjacencies tod kar dobara banata hai; naya router-id effect mein laane ke liye yeh zaroori hai."
+  },
+  "example": "R1# clear ip ospf process\nReset ALL OSPF processes? [no]: yes"
+ },
+ {
+  "cmd": "ip dhcp pool <name>",
+  "mode": "global",
+  "category": "Services",
+  "desc": {
+   "en": "Creates a DHCP address pool on the router and enters dhcp-config mode where the network, gateway, and DNS options are set.",
+   "hi": "Router par DHCP address pool banata hai aur dhcp-config mode mein le jaata hai jahan network, gateway aur DNS options set hote hain."
+  },
+  "example": "R1(config)# ip dhcp pool LAN10\nR1(dhcp-config)# network 192.168.10.0 255.255.255.0\nR1(dhcp-config)# default-router 192.168.10.1\nR1(dhcp-config)# dns-server 8.8.8.8"
+ },
+ {
+  "cmd": "network <address> <mask>",
+  "mode": "other",
+  "category": "Services",
+  "desc": {
+   "en": "DHCP pool subcommand that defines the subnet whose addresses the pool leases out to clients.",
+   "hi": "DHCP pool ka subcommand jo woh subnet define karta hai jiske addresses pool clients ko lease karta hai."
+  },
+  "example": "R1(config)# ip dhcp pool LAN10\nR1(dhcp-config)# network 192.168.10.0 255.255.255.0"
+ },
+ {
+  "cmd": "default-router <address>",
+  "mode": "other",
+  "category": "Services",
+  "desc": {
+   "en": "DHCP pool subcommand that tells clients their default gateway, normally the router's own interface IP on that subnet.",
+   "hi": "DHCP pool ka subcommand jo clients ko unka default gateway batata hai, normally us subnet par router ka apna interface IP."
+  },
+  "example": "R1(dhcp-config)# default-router 192.168.10.1"
+ },
+ {
+  "cmd": "dns-server <address> [<address2>]",
+  "mode": "other",
+  "category": "Services",
+  "desc": {
+   "en": "DHCP pool subcommand that hands out one or more DNS server addresses to clients along with their lease.",
+   "hi": "DHCP pool ka subcommand jo clients ko lease ke saath ek ya zyada DNS server addresses deta hai."
+  },
+  "example": "R1(dhcp-config)# dns-server 8.8.8.8 8.8.4.4"
+ },
+ {
+  "cmd": "lease <days> [<hours>] [<minutes>]",
+  "mode": "other",
+  "category": "Services",
+  "desc": {
+   "en": "DHCP pool subcommand that sets how long client leases last (default 1 day); lease infinite disables expiry.",
+   "hi": "DHCP pool ka subcommand jo set karta hai ki client leases kitni der chalein (default 1 din); lease infinite se expiry band ho jaati hai."
+  },
+  "example": "R1(dhcp-config)# lease 7"
+ },
+ {
+  "cmd": "ip dhcp excluded-address <low-address> [<high-address>]",
+  "mode": "global",
+  "category": "Services",
+  "desc": {
+   "en": "Reserves an address or range that the DHCP server must never lease, typically gateways, servers, and printers; configure it before the pool.",
+   "hi": "Ek address ya range reserve karta hai jo DHCP server kabhi lease nahi karega, aam taur par gateways, servers aur printers; ise pool se pehle configure karo."
+  },
+  "example": "R1(config)# ip dhcp excluded-address 192.168.10.1 192.168.10.10"
+ },
+ {
+  "cmd": "ip helper-address <server-address>",
+  "mode": "interface",
+  "category": "Services",
+  "desc": {
+   "en": "Makes the router relay clients' broadcast DHCP Discovers as unicasts to a DHCP server on another subnet; applied on the client-facing interface.",
+   "hi": "Router clients ke broadcast DHCP Discovers ko unicast bana kar doosre subnet ke DHCP server tak relay karta hai; client ki taraf wale interface par lagta hai."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/1\nR1(config-if)# ip helper-address 10.1.100.5"
+ },
+ {
+  "cmd": "ip nat inside",
+  "mode": "interface",
+  "category": "Services",
+  "desc": {
+   "en": "Marks the interface as facing the inside (private) network for NAT; every NAT design needs at least one inside and one outside interface.",
+   "hi": "Interface ko NAT ke liye inside (private) network ki taraf wala mark karta hai; har NAT design mein kam se kam ek inside aur ek outside interface chahiye."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/0\nR1(config-if)# ip nat inside"
+ },
+ {
+  "cmd": "ip nat outside",
+  "mode": "interface",
+  "category": "Services",
+  "desc": {
+   "en": "Marks the interface as facing the outside (public) network for NAT, usually the interface toward the ISP.",
+   "hi": "Interface ko NAT ke liye outside (public) network ki taraf wala mark karta hai, aam taur par ISP ki taraf wala interface."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/1\nR1(config-if)# ip nat outside"
+ },
+ {
+  "cmd": "ip nat inside source list <acl> interface <interface> overload",
+  "mode": "global",
+  "category": "Services",
+  "desc": {
+   "en": "Configures PAT: translates every inside address matched by the ACL to the outside interface's IP, using unique port numbers to track sessions.",
+   "hi": "PAT configure karta hai: ACL se match hone wale har inside address ko outside interface ke IP mein translate karta hai, sessions track karne ke liye unique port numbers use karke."
+  },
+  "example": "R1(config)# access-list 1 permit 192.168.1.0 0.0.0.255\nR1(config)# ip nat inside source list 1 interface GigabitEthernet0/1 overload"
+ },
+ {
+  "cmd": "ip nat inside source static <inside-local> <inside-global>",
+  "mode": "global",
+  "category": "Services",
+  "desc": {
+   "en": "Creates a permanent one-to-one NAT mapping so an inside server is always reachable at the same public address.",
+   "hi": "Permanent one-to-one NAT mapping banata hai taaki inside server hamesha same public address par reachable rahe."
+  },
+  "example": "R1(config)# ip nat inside source static 192.168.1.10 203.0.113.10"
+ },
+ {
+  "cmd": "access-list <acl-number> permit <network> <wildcard-mask>",
+  "mode": "global",
+  "category": "Services",
+  "desc": {
+   "en": "Standard ACL used by NAT to identify which inside-local source addresses are eligible for translation.",
+   "hi": "Standard ACL jise NAT yeh pehchanne ke liye use karta hai ki kaunse inside-local source addresses translation ke liye eligible hain."
+  },
+  "example": "R1(config)# access-list 1 permit 192.168.1.0 0.0.0.255"
+ },
+ {
+  "cmd": "ntp server <ip-address>",
+  "mode": "global",
+  "category": "Services",
+  "desc": {
+   "en": "Points the device at an NTP time source so clocks (and therefore log timestamps) stay synchronized across the network.",
+   "hi": "Device ko NTP time source ki taraf point karta hai taaki poore network mein clocks (aur isliye log timestamps) synchronized rahein."
+  },
+  "example": "R1(config)# ntp server 192.168.100.5\nR1(config)# do show clock\n14:30:41.201 UTC Sat Jul 18 2026"
+ },
+ {
+  "cmd": "ntp master [<stratum>]",
+  "mode": "global",
+  "category": "Services",
+  "desc": {
+   "en": "Makes this router act as an authoritative NTP server at the given stratum so other devices can sync from it.",
+   "hi": "Is router ko diye gaye stratum par authoritative NTP server banata hai taaki doosre devices isse sync kar sakein."
+  },
+  "example": "R1(config)# ntp master 3"
+ },
+ {
+  "cmd": "logging host <ip-address>",
+  "mode": "global",
+  "category": "Services",
+  "desc": {
+   "en": "Sends syslog messages to an external syslog server so events are kept centrally and survive device reloads.",
+   "hi": "Syslog messages ko external syslog server par bhejta hai taaki events ek jagah central rahein aur device reload ke baad bhi bache rahein."
+  },
+  "example": "R1(config)# logging host 192.168.100.50"
+ },
+ {
+  "cmd": "logging trap <level>",
+  "mode": "global",
+  "category": "Services",
+  "desc": {
+   "en": "Sets the maximum severity sent to the syslog server (0 emergencies to 7 debugging); e.g. warnings sends levels 0 through 4.",
+   "hi": "Syslog server ko bheji jaane wali maximum severity set karta hai (0 emergencies se 7 debugging); jaise warnings levels 0 se 4 tak bhejta hai."
+  },
+  "example": "R1(config)# logging trap warnings"
+ },
+ {
+  "cmd": "snmp-server community <string> {ro | rw}",
+  "mode": "global",
+  "category": "Services",
+  "desc": {
+   "en": "Sets the SNMPv2c community string an NMS must supply, with ro for read-only polling or rw for read-write access.",
+   "hi": "SNMPv2c community string set karta hai jo NMS ko deni padti hai — read-only polling ke liye ro ya read-write access ke liye rw."
+  },
+  "example": "R1(config)# snmp-server community CCNA-RO ro\nR1(config)# snmp-server community CCNA-RW rw"
+ },
+ {
+  "cmd": "show ip nat translations",
+  "mode": "priv",
+  "category": "Services",
+  "desc": {
+   "en": "Displays the active NAT table mapping inside local to inside global addresses (with ports for PAT), proving translation is happening.",
+   "hi": "Active NAT table dikhata hai jo inside local ko inside global addresses se map karti hai (PAT mein ports ke saath) — isse prove hota hai ki translation ho raha hai."
+  },
+  "example": "R1# show ip nat translations\nPro Inside global        Inside local        Outside local       Outside global\ntcp 203.0.113.2:51522    192.168.1.10:51522  198.51.100.5:80     198.51.100.5:80\nicmp 203.0.113.2:1       192.168.1.11:1      198.51.100.9:1      198.51.100.9:1"
+ },
+ {
+  "cmd": "show ip dhcp binding",
+  "mode": "priv",
+  "category": "Services",
+  "desc": {
+   "en": "Lists every address the router's DHCP server has leased, with the client MAC and lease expiry, to confirm clients are getting addresses.",
+   "hi": "Router ke DHCP server ne jo bhi addresses lease kiye hain unki list client MAC aur lease expiry ke saath dikhata hai, yeh confirm karne ke liye ki clients ko addresses mil rahe hain."
+  },
+  "example": "R1# show ip dhcp binding\nBindings from all pools not associated with VRF:\nIP address      Client-ID/              Lease expiration        Type\n                Hardware address\n192.168.10.11   0100.0c29.3a5f.10       Jul 25 2026 09:15 AM    Automatic"
+ },
+ {
+  "cmd": "show ntp status",
+  "mode": "priv",
+  "category": "Services",
+  "desc": {
+   "en": "Verifies NTP health: whether the clock is synchronized, the local stratum, and which reference server the device follows.",
+   "hi": "NTP ki health verify karta hai: clock synchronized hai ya nahi, local stratum, aur device kis reference server ko follow kar raha hai."
+  },
+  "example": "R1# show ntp status\nClock is synchronized, stratum 4, reference is 192.168.100.5\nnominal freq is 250.0000 Hz, actual freq is 249.9995 Hz, precision is 2**10"
+ },
+ {
+  "cmd": "enable secret <password>",
+  "mode": "global",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Sets the privileged EXEC password stored as an MD5/scrypt hash; always overrides the weaker plain-text enable password.",
+   "hi": "Privileged EXEC password set karta hai jo MD5/scrypt hash ke roop mein store hota hai; yeh hamesha kamzor plain-text enable password ko override karta hai."
+  },
+  "example": "R1(config)# enable secret S3cur3Pa55"
+ },
+ {
+  "cmd": "service password-encryption",
+  "mode": "global",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Obscures all plain-text passwords in the configuration with weak type 7 encryption, hiding them from casual over-the-shoulder viewing.",
+   "hi": "Configuration ke saare plain-text passwords ko kamzor type 7 encryption se chhupata hai, taaki koi kandhe ke upar se jhaank kar na padh sake."
+  },
+  "example": "R1(config)# service password-encryption\nR1(config)# do show run | include password\n password 7 0822455D0A16544541"
+ },
+ {
+  "cmd": "username <name> secret <password>",
+  "mode": "global",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Creates a local user account with a hashed password, required for SSH and for lines configured with login local.",
+   "hi": "Hashed password ke saath local user account banata hai; SSH ke liye aur login local wali lines ke liye zaroori hai."
+  },
+  "example": "R1(config)# username admin privilege 15 secret S3cur3Pa55"
+ },
+ {
+  "cmd": "password <password>",
+  "mode": "line",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Sets the password checked by the login command on a console or VTY line when local usernames are not used.",
+   "hi": "Console ya VTY line par woh password set karta hai jise login command check karta hai, jab local usernames use nahi ho rahe."
+  },
+  "example": "R1(config)# line console 0\nR1(config-line)# password ConPa55\nR1(config-line)# login"
+ },
+ {
+  "cmd": "login",
+  "mode": "line",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Enables password checking on the line using the line password; without it the console or VTY would accept connections with no authentication.",
+   "hi": "Line par line password se password checking enable karta hai; iske bina console ya VTY bina authentication ke connections accept kar lega."
+  },
+  "example": "R1(config)# line console 0\nR1(config-line)# password ConPa55\nR1(config-line)# login"
+ },
+ {
+  "cmd": "login local",
+  "mode": "line",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Makes the line authenticate against the local username database instead of a shared line password; required for SSH access.",
+   "hi": "Line ko shared line password ki jagah local username database se authenticate karwata hai; SSH access ke liye zaroori hai."
+  },
+  "example": "R1(config)# username admin secret S3cur3Pa55\nR1(config)# line vty 0 4\nR1(config-line)# login local"
+ },
+ {
+  "cmd": "access-list <1-99> {permit | deny} <source> <wildcard-mask>",
+  "mode": "global",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Builds a standard numbered ACL that filters on source address only; place standard ACLs as close to the destination as possible.",
+   "hi": "Standard numbered ACL banata hai jo sirf source address par filter karta hai; standard ACLs ko jitna ho sake destination ke paas lagao."
+  },
+  "example": "R1(config)# access-list 10 permit 192.168.1.0 0.0.0.255\nR1(config)# access-list 10 deny any"
+ },
+ {
+  "cmd": "access-list <100-199> {permit | deny} <protocol> <source> <wc> <dest> <wc> [eq <port>]",
+  "mode": "global",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Builds an extended numbered ACL matching protocol, source, destination, and ports; place extended ACLs close to the source of the traffic.",
+   "hi": "Extended numbered ACL banata hai jo protocol, source, destination aur ports match karta hai; extended ACLs ko traffic ke source ke paas lagao."
+  },
+  "example": "R1(config)# access-list 100 permit tcp 192.168.1.0 0.0.0.255 any eq 443\nR1(config)# access-list 100 deny ip any any"
+ },
+ {
+  "cmd": "ip access-list extended <name>",
+  "mode": "global",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Creates a named extended ACL and enters a mode where entries get sequence numbers, so individual lines can be edited or deleted later.",
+   "hi": "Named extended ACL banata hai aur aise mode mein le jaata hai jahan entries ko sequence numbers milte hain, taaki baad mein individual lines edit ya delete ho sakein."
+  },
+  "example": "R1(config)# ip access-list extended BLOCK-TELNET\nR1(config-ext-nacl)# deny tcp any any eq 23\nR1(config-ext-nacl)# permit ip any any"
+ },
+ {
+  "cmd": "ip access-group <acl> {in | out}",
+  "mode": "interface",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Applies an ACL to an interface in the inbound or outbound direction; an ACL does nothing until it is applied somewhere.",
+   "hi": "ACL ko interface par inbound ya outbound direction mein apply karta hai; ACL tab tak kuch nahi karta jab tak use kahin apply na kiya jaaye."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/0\nR1(config-if)# ip access-group 100 in"
+ },
+ {
+  "cmd": "access-class <acl> in",
+  "mode": "line",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Applies an ACL to the VTY lines to restrict which source addresses may open Telnet/SSH management sessions to the device.",
+   "hi": "ACL ko VTY lines par apply karta hai taaki restrict ho ki kaunse source addresses device par Telnet/SSH management sessions khol sakte hain."
+  },
+  "example": "R1(config)# access-list 10 permit 192.168.100.0 0.0.0.255\nR1(config)# line vty 0 4\nR1(config-line)# access-class 10 in"
+ },
+ {
+  "cmd": "switchport port-security",
+  "mode": "interface",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Turns on port security on an access port, limiting which and how many MAC addresses may use it; the port must be a static access or trunk port first.",
+   "hi": "Access port par port security on karta hai, limit karta hai ki kaunse aur kitne MAC addresses use use kar sakein; port pehle static access ya trunk port hona chahiye."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/1\nSW1(config-if)# switchport mode access\nSW1(config-if)# switchport port-security"
+ },
+ {
+  "cmd": "switchport port-security maximum <count>",
+  "mode": "interface",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Sets how many secure MAC addresses the port may learn (default 1); use 2 on ports with an IP phone plus a PC.",
+   "hi": "Set karta hai ki port kitne secure MAC addresses seekh sakta hai (default 1); IP phone aur PC wale ports par 2 use karo."
+  },
+  "example": "SW1(config-if)# switchport port-security maximum 2"
+ },
+ {
+  "cmd": "switchport port-security mac-address sticky",
+  "mode": "interface",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Makes the switch learn connected MAC addresses dynamically and write them into the running config as secure static entries.",
+   "hi": "Switch connected MAC addresses ko dynamically seekhta hai aur unhe running config mein secure static entries ke roop mein likh deta hai."
+  },
+  "example": "SW1(config-if)# switchport port-security mac-address sticky\nSW1(config-if)# do show run interface Gi0/1 | include sticky\n switchport port-security mac-address sticky\n switchport port-security mac-address sticky 000a.4b2c.9d10"
+ },
+ {
+  "cmd": "switchport port-security violation {shutdown | restrict | protect}",
+  "mode": "interface",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Chooses what happens on a violation: shutdown err-disables the port (default), restrict drops and logs/counts, protect silently drops.",
+   "hi": "Chunta hai ki violation par kya ho: shutdown port ko err-disable karta hai (default), restrict drop karke log/count karta hai, protect chupchaap drop karta hai."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/1\nSW1(config-if)# switchport port-security violation restrict"
+ },
+ {
+  "cmd": "ip dhcp snooping",
+  "mode": "global",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Enables DHCP snooping globally so the switch can block rogue DHCP servers; also enable it per VLAN with ip dhcp snooping vlan.",
+   "hi": "DHCP snooping globally enable karta hai taaki switch rogue DHCP servers ko block kar sake; ip dhcp snooping vlan se ise har VLAN par bhi enable karo."
+  },
+  "example": "SW1(config)# ip dhcp snooping\nSW1(config)# ip dhcp snooping vlan 10"
+ },
+ {
+  "cmd": "ip dhcp snooping trust",
+  "mode": "interface",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Marks a port as trusted for DHCP snooping so server messages (OFFER/ACK) are allowed; use on uplinks toward the real DHCP server.",
+   "hi": "Port ko DHCP snooping ke liye trusted mark karta hai taaki server messages (OFFER/ACK) allow hon; asli DHCP server ki taraf wale uplinks par use karo."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/24\nSW1(config-if)# ip dhcp snooping trust"
+ },
+ {
+  "cmd": "ip arp inspection vlan <vlan-id>",
+  "mode": "global",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Enables Dynamic ARP Inspection on a VLAN, validating ARP packets against the DHCP snooping binding table to stop ARP spoofing.",
+   "hi": "VLAN par Dynamic ARP Inspection enable karta hai, ARP packets ko DHCP snooping binding table se validate karke ARP spoofing rokta hai."
+  },
+  "example": "SW1(config)# ip dhcp snooping\nSW1(config)# ip dhcp snooping vlan 10\nSW1(config)# ip arp inspection vlan 10"
+ },
+ {
+  "cmd": "ip arp inspection trust",
+  "mode": "interface",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Exempts a port from DAI validation; configure on trunks and uplinks between switches, never on user access ports.",
+   "hi": "Port ko DAI validation se chhoot deta hai; switches ke beech trunks aur uplinks par configure karo, user access ports par kabhi nahi."
+  },
+  "example": "SW1(config)# interface GigabitEthernet0/24\nSW1(config-if)# ip arp inspection trust"
+ },
+ {
+  "cmd": "show access-lists",
+  "mode": "priv",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Displays every ACL with sequence numbers and per-line match counters, the quickest way to see whether an ACL is actually hitting traffic.",
+   "hi": "Har ACL ko sequence numbers aur har line ke match counters ke saath dikhata hai — yeh dekhne ka sabse tez tareeka ki ACL sach mein traffic hit kar raha hai ya nahi."
+  },
+  "example": "R1# show access-lists\nStandard IP access list 10\n    10 permit 192.168.1.0, wildcard bits 0.0.0.255 (25 matches)\nExtended IP access list 100\n    10 permit tcp 192.168.1.0 0.0.0.255 any eq 443 (102 matches)\n    20 deny ip any any (7 matches)"
+ },
+ {
+  "cmd": "show port-security interface <interface>",
+  "mode": "priv",
+  "category": "Security & ACLs",
+  "desc": {
+   "en": "Shows port-security state on one port: violation mode, max and learned MAC counts, last offending MAC, and the violation counter.",
+   "hi": "Ek port ki port-security state dikhata hai: violation mode, max aur learned MAC counts, aakhri galat MAC, aur violation counter."
+  },
+  "example": "SW1# show port-security interface GigabitEthernet0/1\nPort Security              : Enabled\nPort Status                : Secure-up\nViolation Mode             : Shutdown\nMaximum MAC Addresses      : 2\nTotal MAC Addresses        : 1\nSticky MAC Addresses       : 1\nLast Source Address:Vlan   : 000a.4b2c.9d10:10\nSecurity Violation Count   : 0"
+ },
+ {
+  "cmd": "ip domain-name <domain>",
+  "mode": "global",
+  "category": "Management",
+  "desc": {
+   "en": "Sets the device's DNS domain name, which together with the hostname is required before RSA keys for SSH can be generated.",
+   "hi": "Device ka DNS domain name set karta hai; hostname ke saath yeh SSH ke liye RSA keys generate karne se pehle zaroori hai."
+  },
+  "example": "R1(config)# ip domain-name example.com"
+ },
+ {
+  "cmd": "crypto key generate rsa",
+  "mode": "global",
+  "category": "Management",
+  "desc": {
+   "en": "Generates the RSA key pair that enables the SSH server; choose a modulus of at least 2048 bits (1024 minimum for SSHv2).",
+   "hi": "RSA key pair generate karta hai jisse SSH server enable hota hai; kam se kam 2048 bits ka modulus chuno (SSHv2 ke liye minimum 1024)."
+  },
+  "example": "R1(config)# crypto key generate rsa\nThe name for the keys will be: R1.example.com\nHow many bits in the modulus [512]: 2048\n% Generating 2048 bit RSA keys, keys will be non-exportable...\n[OK] (elapsed time was 3 seconds)"
+ },
+ {
+  "cmd": "ip ssh version 2",
+  "mode": "global",
+  "category": "Management",
+  "desc": {
+   "en": "Restricts the SSH server to version 2 only, which fixes the security weaknesses of SSHv1; requires RSA keys of 1024 bits or more.",
+   "hi": "SSH server ko sirf version 2 tak restrict karta hai, jisse SSHv1 ki security kamzoriyan door hoti hain; 1024 bits ya usse zyada ki RSA keys chahiye."
+  },
+  "example": "R1(config)# ip ssh version 2\nR1(config)# do show ip ssh\nSSH Enabled - version 2.0"
+ },
+ {
+  "cmd": "line vty 0 4",
+  "mode": "global",
+  "category": "Management",
+  "desc": {
+   "en": "Enters configuration for the first five virtual terminal lines used by Telnet/SSH sessions, where login and transport settings are applied.",
+   "hi": "Telnet/SSH sessions ke liye use hone wali pehli paanch virtual terminal lines ke configuration mein le jaata hai, jahan login aur transport settings lagti hain."
+  },
+  "example": "R1(config)# line vty 0 4\nR1(config-line)# transport input ssh\nR1(config-line)# login local"
+ },
+ {
+  "cmd": "line console 0",
+  "mode": "global",
+  "category": "Management",
+  "desc": {
+   "en": "Enters configuration for the physical console port so you can require a password or local login for anyone with cable access.",
+   "hi": "Physical console port ke configuration mein le jaata hai taaki cable access wale har insaan ke liye password ya local login zaroori kar sako."
+  },
+  "example": "R1(config)# line console 0\nR1(config-line)# login local\nR1(config-line)# exec-timeout 5 0"
+ },
+ {
+  "cmd": "transport input ssh",
+  "mode": "line",
+  "category": "Management",
+  "desc": {
+   "en": "Allows only SSH (blocking Telnet) on the VTY lines, forcing all remote management to be encrypted.",
+   "hi": "VTY lines par sirf SSH allow karta hai (Telnet block), jisse saara remote management encrypted ho jaata hai."
+  },
+  "example": "R1(config)# line vty 0 4\nR1(config-line)# transport input ssh"
+ },
+ {
+  "cmd": "exec-timeout <minutes> [<seconds>]",
+  "mode": "line",
+  "category": "Management",
+  "desc": {
+   "en": "Logs out an idle console or VTY session after the given time; exec-timeout 0 0 disables the timeout (lab use only).",
+   "hi": "Idle console ya VTY session ko diye gaye time ke baad log out kar deta hai; exec-timeout 0 0 timeout disable karta hai (sirf lab ke liye)."
+  },
+  "example": "R1(config)# line vty 0 4\nR1(config-line)# exec-timeout 5 30"
+ },
+ {
+  "cmd": "copy tftp: flash:",
+  "mode": "priv",
+  "category": "Management",
+  "desc": {
+   "en": "Downloads a file (typically a new IOS image) from a TFTP server into flash memory, prompting for the server address and filenames.",
+   "hi": "TFTP server se file (aam taur par naya IOS image) flash memory mein download karta hai, aur server address aur filenames poochta hai."
+  },
+  "example": "R1# copy tftp: flash:\nAddress or name of remote host []? 192.168.100.50\nSource filename []? c2900-universalk9-mz.SPA.157-3.M2.bin\nDestination filename [c2900-universalk9-mz.SPA.157-3.M2.bin]?\nAccessing tftp://192.168.100.50/...\nLoading ... !!!!!!!!!!\n[OK - 97794040 bytes]"
+ },
+ {
+  "cmd": "copy running-config tftp:",
+  "mode": "priv",
+  "category": "Management",
+  "desc": {
+   "en": "Backs up the active configuration to a TFTP server, a best practice before upgrades or major changes.",
+   "hi": "Active configuration ka TFTP server par backup leta hai — upgrades ya bade changes se pehle yeh best practice hai."
+  },
+  "example": "R1# copy running-config tftp:\nAddress or name of remote host []? 192.168.100.50\nDestination filename [r1-confg]?\n!!\n1284 bytes copied in 0.416 secs (3087 bytes/sec)"
+ },
+ {
+  "cmd": "terminal monitor",
+  "mode": "priv",
+  "category": "Management",
+  "desc": {
+   "en": "Mirrors syslog and debug output to your current SSH/Telnet session; by default those messages appear only on the console.",
+   "hi": "Syslog aur debug output ko tumhare current SSH/Telnet session par bhi dikhata hai; default mein yeh messages sirf console par aate hain."
+  },
+  "example": "R1# terminal monitor\nR1#\n*Jul 18 14:40:12.310: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up"
+ },
+ {
+  "cmd": "show ssh",
+  "mode": "priv",
+  "category": "Management",
+  "desc": {
+   "en": "Lists active SSH sessions with their version, cipher, and username, confirming who is connected to the device right now.",
+   "hi": "Active SSH sessions ko unke version, cipher aur username ke saath list karta hai, yeh confirm karne ke liye ki abhi device se kaun connected hai."
+  },
+  "example": "R1# show ssh\nConnection Version Mode Encryption  Hmac         State            Username\n0          2.0     IN   aes256-cbc  hmac-sha1    Session started  admin\n0          2.0     OUT  aes256-cbc  hmac-sha1    Session started  admin"
+ },
+ {
+  "cmd": "cdp run",
+  "mode": "global",
+  "category": "Management",
+  "desc": {
+   "en": "Enables Cisco Discovery Protocol globally (on by default); use no cdp run globally, or no cdp enable per interface, to disable it on untrusted links.",
+   "hi": "Cisco Discovery Protocol ko globally enable karta hai (default mein on); untrusted links par disable karne ke liye globally no cdp run, ya har interface par no cdp enable use karo."
+  },
+  "example": "R1(config)# cdp run\nR1(config)# interface GigabitEthernet0/1\nR1(config-if)# no cdp enable"
+ },
+ {
+  "cmd": "show cdp neighbors",
+  "mode": "priv",
+  "category": "Management",
+  "desc": {
+   "en": "Lists directly connected Cisco devices with their capabilities, platform, and the local and remote port of each link.",
+   "hi": "Directly connected Cisco devices ko unki capabilities, platform, aur har link ke local aur remote port ke saath list karta hai."
+  },
+  "example": "R1# show cdp neighbors\nCapability Codes: R - Router, S - Switch, H - Host, I - IGMP\nDevice ID    Local Intrfce   Holdtme   Capability   Platform    Port ID\nSW1          Gig 0/0         156           S I      WS-C2960X   Gig 0/24\nR2           Gig 0/1         142           R S I    CISCO2911   Gig 0/0"
+ },
+ {
+  "cmd": "show cdp neighbors detail",
+  "mode": "priv",
+  "category": "Management",
+  "desc": {
+   "en": "Adds the neighbor's IP address, full platform string, and IOS version to the CDP output, invaluable for mapping an undocumented network.",
+   "hi": "CDP output mein neighbor ka IP address, poori platform string aur IOS version jodta hai — bina documentation wale network ka map banane ke liye bahut kaam ka."
+  },
+  "example": "R1# show cdp neighbors detail\n-------------------------\nDevice ID: SW1.example.com\nEntry address(es):\n  IP address: 192.168.1.2\nPlatform: cisco WS-C2960X-24TS-L,  Capabilities: Switch IGMP\nInterface: GigabitEthernet0/0,  Port ID (outgoing port): GigabitEthernet0/24\nVersion: Cisco IOS Software, C2960X Software, Version 15.2(7)E3"
+ },
+ {
+  "cmd": "lldp run",
+  "mode": "global",
+  "category": "Management",
+  "desc": {
+   "en": "Enables the standards-based LLDP discovery protocol (off by default on Cisco gear), needed in multivendor environments.",
+   "hi": "Standards-based LLDP discovery protocol enable karta hai (Cisco gear par default mein off), multivendor environments mein zaroori."
+  },
+  "example": "SW1(config)# lldp run"
+ },
+ {
+  "cmd": "show lldp neighbors",
+  "mode": "priv",
+  "category": "Management",
+  "desc": {
+   "en": "Lists neighbors learned through LLDP with capability codes and port IDs, the multivendor equivalent of show cdp neighbors.",
+   "hi": "LLDP se seekhe gaye neighbors ko capability codes aur port IDs ke saath list karta hai — show cdp neighbors ka multivendor version."
+  },
+  "example": "SW1# show lldp neighbors\nCapability codes:\n    (R) Router, (B) Bridge, (T) Telephone, (W) WLAN Access Point, (S) Station\nDevice ID           Local Intf     Hold-time  Capability      Port ID\nR1                  Gi0/24         120        R               Gi0/0\nTotal entries displayed: 1"
+ },
+ {
+  "cmd": "standby <group> ip <virtual-ip>",
+  "mode": "interface",
+  "category": "FHRP",
+  "desc": {
+   "en": "Creates an HSRP group on the interface and sets the shared virtual IP that hosts use as their default gateway.",
+   "hi": "Interface par HSRP group banata hai aur shared virtual IP set karta hai jise hosts apne default gateway ke roop mein use karte hain."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/0\nR1(config-if)# ip address 10.1.1.2 255.255.255.0\nR1(config-if)# standby 1 ip 10.1.1.254"
+ },
+ {
+  "cmd": "standby <group> priority <0-255>",
+  "mode": "interface",
+  "category": "FHRP",
+  "desc": {
+   "en": "Sets the HSRP priority (default 100); the router with the highest priority in the group becomes the active gateway.",
+   "hi": "HSRP priority set karta hai (default 100); group mein sabse highest priority wala router active gateway banta hai."
+  },
+  "example": "R1(config-if)# standby 1 priority 110"
+ },
+ {
+  "cmd": "standby <group> preempt",
+  "mode": "interface",
+  "category": "FHRP",
+  "desc": {
+   "en": "Lets a higher-priority router reclaim the active role when it comes back online; without preempt the current active keeps the role.",
+   "hi": "Higher-priority router ko wapas online aane par active role dobara lene deta hai; preempt ke bina current active hi role rakhta hai."
+  },
+  "example": "R1(config-if)# standby 1 preempt"
+ },
+ {
+  "cmd": "show standby brief",
+  "mode": "priv",
+  "category": "FHRP",
+  "desc": {
+   "en": "One line per HSRP group showing this router's state (Active/Standby), priority, preempt flag, peers, and the virtual IP.",
+   "hi": "Har HSRP group ki ek line jisme is router ki state (Active/Standby), priority, preempt flag, peers aur virtual IP dikhte hain."
+  },
+  "example": "R1# show standby brief\n                     P indicates configured to preempt.\n                     |\nInterface   Grp  Pri P State   Active          Standby         Virtual IP\nGi0/0       1    110 P Active  local           10.1.1.3        10.1.1.254"
+ },
+ {
+  "cmd": "ipv6 unicast-routing",
+  "mode": "global",
+  "category": "IPv6",
+  "desc": {
+   "en": "Enables IPv6 routing on the router (off by default); without it the device acts as an IPv6 host and sends no Router Advertisements.",
+   "hi": "Router par IPv6 routing enable karta hai (default mein off); iske bina device IPv6 host ki tarah kaam karta hai aur koi Router Advertisements nahi bhejta."
+  },
+  "example": "R1(config)# ipv6 unicast-routing"
+ },
+ {
+  "cmd": "ipv6 address <prefix>/<prefix-length>",
+  "mode": "interface",
+  "category": "IPv6",
+  "desc": {
+   "en": "Assigns a static global unicast IPv6 address to an interface; a link-local FE80:: address is created automatically at the same time.",
+   "hi": "Interface ko static global unicast IPv6 address deta hai; saath hi ek link-local FE80:: address apne aap ban jaata hai."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/0\nR1(config-if)# ipv6 address 2001:DB8:1:1::1/64\nR1(config-if)# no shutdown"
+ },
+ {
+  "cmd": "ipv6 address <prefix>/64 eui-64",
+  "mode": "interface",
+  "category": "IPv6",
+  "desc": {
+   "en": "Builds the host portion of the address automatically from the interface MAC (with FFFE inserted and the 7th bit flipped) under the given /64 prefix.",
+   "hi": "Diye gaye /64 prefix ke under address ka host portion interface MAC se apne aap banata hai (FFFE daal kar aur 7th bit flip karke)."
+  },
+  "example": "R1(config)# interface GigabitEthernet0/1\nR1(config-if)# ipv6 address 2001:DB8:1:2::/64 eui-64"
+ },
+ {
+  "cmd": "show ipv6 interface brief",
+  "mode": "priv",
+  "category": "IPv6",
+  "desc": {
+   "en": "Shows each interface's status plus its link-local and global IPv6 addresses, the quickest IPv6 addressing check.",
+   "hi": "Har interface ka status aur uske link-local aur global IPv6 addresses dikhata hai — IPv6 addressing ka sabse tez check."
+  },
+  "example": "R1# show ipv6 interface brief\nGigabitEthernet0/0     [up/up]\n    FE80::1\n    2001:DB8:1:1::1\nGigabitEthernet0/1     [up/up]\n    FE80::C801:BFF:FE30:1C1\n    2001:DB8:1:2:CA01:BFF:FE30:1C1"
+ },
+ {
+  "cmd": "show ipv6 neighbors",
+  "mode": "priv",
+  "category": "IPv6",
+  "desc": {
+   "en": "Displays the IPv6 neighbor cache built by Neighbor Discovery (NDP), the IPv6 counterpart of the ARP table.",
+   "hi": "Neighbor Discovery (NDP) se bana IPv6 neighbor cache dikhata hai, jo ARP table ka IPv6 version hai."
+  },
+  "example": "R1# show ipv6 neighbors\nIPv6 Address                              Age Link-layer Addr State Interface\n2001:DB8:1:1::10                            0 000c.293a.5f10  REACH Gi0/0\nFE80::20C:29FF:FE3A:5F10                    2 000c.293a.5f10  STALE Gi0/0"
+ }
+]
