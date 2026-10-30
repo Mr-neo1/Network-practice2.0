@@ -125,6 +125,12 @@ export function Layout({ children, outlineFor, wide }: { children: ReactNode; ou
 
       <footer className="footer">
         <div className="footer-inner">
+          <p className="get-app">
+            <a href="https://github.com/Mr-neo1/Network-practice2.0/releases/latest/download/zero2hero-ccna.apk">
+              {t({ en: "Get the Android app", hi: "Android app download karo" })}
+            </a>{" "}
+            {t({ en: "(works offline, syncs with your account)", hi: "(offline chalta hai, account se sync hota hai)" })}
+          </p>
           <p>
             {t({
               en: "Free to use. Videos are by their YouTube creators and play from YouTube. Not affiliated with Cisco; CCNA is a Cisco trademark.",

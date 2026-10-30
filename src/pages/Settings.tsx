@@ -16,11 +16,17 @@ export default function Settings() {
   const fileRef = useRef<HTMLInputElement>(null);
   const [msg, setMsg] = useState("");
 
-  const download = () => {
+  const download = async () => {
+    const name = `zero2hero-progress-${new Date().toISOString().slice(0, 10)}.json`;
+    if (document.documentElement.classList.contains("is-native")) {
+      // The Android web view can't save downloads, so the app hands the file to the share sheet.
+      const native = await import("../lib/native");
+      return native.shareFile(name, progress.exportJSON()).catch(() => undefined);
+    }
     const blob = new Blob([progress.exportJSON()], { type: "application/json" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = `zero2hero-progress-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = name;
     a.click();
     URL.revokeObjectURL(a.href);
   };

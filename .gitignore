@@ -44,3 +44,10 @@ Thumbs.db
 /qa_findings.md
 /qa_references.md
 *.bak
+
+# Android signing key and its password: never commit
+*.keystore
+*.jks
+/android/signing/
+/android/keystore.properties
+*.apk

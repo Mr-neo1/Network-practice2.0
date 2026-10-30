@@ -33,3 +33,9 @@ create policy "delete own progress" on public.progress
 -- Guests (the anon role) get nothing.
 revoke all on public.progress from anon;
 grant select, insert, update, delete on public.progress to authenticated;
+
+-- Keep-alive: free projects pause after 7 days without database activity.
+-- .github/workflows/keepalive.yml calls this every 3 days. It touches the database and returns nothing private.
+create or replace function public.keepalive() returns timestamptz
+  language sql stable security invoker as $$ select now() $$;
+grant execute on function public.keepalive() to anon, authenticated;

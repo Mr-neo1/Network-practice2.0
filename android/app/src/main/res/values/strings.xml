@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Zero2Hero CCNA</string>
+    <string name="title_activity_main">Zero2Hero CCNA</string>
+    <string name="package_name">io.github.mrneo1.zero2hero</string>
+    <string name="custom_url_scheme">io.github.mrneo1.zero2hero</string>
+</resources>

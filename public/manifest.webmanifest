@@ -1,0 +1,14 @@
+{
+  "name": "Zero2Hero CCNA",
+  "short_name": "Zero2Hero",
+  "description": "Learn networking from zero to CCNA and beyond, in English or Hinglish.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#16181b",
+  "theme_color": "#1c6e8c",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

@@ -2728,5 +2728,421 @@
    "en": "Supervised learning trains on labeled data; unsupervised finds patterns in unlabeled data. Predictive AI forecasts outcomes (e.g. failure prediction); generative AI creates new content such as configs or summaries.",
    "hi": "Supervised learning labeled data par train hoti hai; unsupervised unlabeled data mein patterns dhoondhti hai. Predictive AI outcomes forecast karta hai (jaise failure prediction); generative AI naya content banata hai jaise configs ya summaries."
   }
+ },
+ {
+  "id": "fc-211",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Name the three planes of a network device, with one example of each.",
+   "hi": "Network device ke teen planes ke naam batao, har ek ka ek example ke saath."
+  },
+  "back": {
+   "en": "Data plane: forwards frames and packets (switching, routing lookups, ACL drops). Control plane: builds the tables the data plane uses (OSPF, STP, ARP). Management plane: how people and tools manage the box (SSH, SNMP, syslog, NETCONF).",
+   "hi": "Data plane: frames aur packets forward karta hai (switching, routing lookup, ACL drop). Control plane: woh tables banata hai jo data plane use karta hai (OSPF, STP, ARP). Management plane: log aur tools box ko kaise manage karte hain (SSH, SNMP, syslog, NETCONF)."
+  }
+ },
+ {
+  "id": "fc-212",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Traditional vs controller-based networking: where does the control plane live?",
+   "hi": "Traditional vs controller-based networking: control plane kahan rehta hai?"
+  },
+  "back": {
+   "en": "Traditional: every device runs its own control plane and is configured one box at a time. Controller-based: a central controller holds the network-wide view and policy and programs the devices, which mostly keep the data plane.",
+   "hi": "Traditional: har device apna control plane khud chalata hai aur ek-ek box configure hota hai. Controller-based: ek central controller ke paas poore network ka view aur policy hoti hai, woh devices ko program karta hai, aur devices zyada tar sirf data plane sambhalte hain."
+  }
+ },
+ {
+  "id": "fc-213",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Northbound vs southbound API: what does each connect?",
+   "hi": "Northbound vs southbound API: dono kis-kis ko jodte hain?"
+  },
+  "back": {
+   "en": "Northbound: between the controller and the applications or scripts above it, usually a REST API. Southbound: between the controller and the network devices below it, e.g. NETCONF, RESTCONF, OpenFlow, OpFlex, SSH/CLI, SNMP.",
+   "hi": "Northbound: controller aur uske upar ke applications ya scripts ke beech, aksar REST API. Southbound: controller aur neeche ke network devices ke beech, jaise NETCONF, RESTCONF, OpenFlow, OpFlex, SSH/CLI, SNMP."
+  }
+ },
+ {
+  "id": "fc-214",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Underlay, overlay and fabric: define each.",
+   "hi": "Underlay, overlay aur fabric: har ek ki definition do."
+  },
+  "back": {
+   "en": "Underlay: the physical IP network that gives reachability between devices. Overlay: virtual tunnels (e.g. VXLAN, IPsec) built on top of the underlay that carry user traffic. Fabric: the underlay and overlay together, managed as one system.",
+   "hi": "Underlay: physical IP network jo devices ke beech reachability deta hai. Overlay: underlay ke upar bane virtual tunnels (jaise VXLAN, IPsec) jo user traffic le jaate hain. Fabric: underlay aur overlay dono milkar, ek system ki tarah managed."
+  }
+ },
+ {
+  "id": "fc-215",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "SD-Access: which protocol does each job in the fabric?",
+   "hi": "SD-Access: fabric mein kaunsa protocol kya kaam karta hai?"
+  },
+  "back": {
+   "en": "Underlay routing: IS-IS. Control plane (where is each endpoint): LISP. Data plane (carrying traffic): VXLAN. Policy: Scalable Group Tags (Cisco TrustSec). Catalyst Center is the controller.",
+   "hi": "Underlay routing: IS-IS. Control plane (kaunsa endpoint kahan hai): LISP. Data plane (traffic le jaana): VXLAN. Policy: Scalable Group Tags (Cisco TrustSec). Controller Catalyst Center hai."
+  }
+ },
+ {
+  "id": "fc-216",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Catalyst SD-WAN: name the four components and the job of each.",
+   "hi": "Catalyst SD-WAN: chaar components ke naam aur har ek ka kaam batao."
+  },
+  "back": {
+   "en": "SD-WAN Manager (vManage): GUI, configuration and monitoring. SD-WAN Controller (vSmart): control plane, sends routes and policy over OMP. SD-WAN Validator (vBond): authenticates and onboards edges, helps with NAT traversal. WAN Edge routers: data plane, build the IPsec tunnels.",
+   "hi": "SD-WAN Manager (vManage): GUI, configuration aur monitoring. SD-WAN Controller (vSmart): control plane, OMP se routes aur policy bhejta hai. SD-WAN Validator (vBond): edges ko authenticate aur onboard karta hai, NAT traversal mein madad. WAN Edge routers: data plane, IPsec tunnels banate hain."
+  }
+ },
+ {
+  "id": "fc-217",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "What does 'stateless' mean for a REST API?",
+   "hi": "REST API ke liye 'stateless' ka matlab kya hai?"
+  },
+  "back": {
+   "en": "The server keeps no session between requests. Every request carries everything needed to process it, including authentication (for example a token in a header).",
+   "hi": "Server requests ke beech koi session yaad nahi rakhta. Har request apne saath sab kuch laati hai jo use process karne ke liye chahiye, authentication bhi (jaise header mein token)."
+  }
+ },
+ {
+  "id": "fc-218",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Which HTTP methods are idempotent, and what does that mean?",
+   "hi": "Kaunse HTTP methods idempotent hain, aur iska matlab kya hai?"
+  },
+  "back": {
+   "en": "Idempotent means sending the same request twice leaves the same result as sending it once. GET, PUT and DELETE are idempotent; POST is not (two POSTs can create two objects).",
+   "hi": "Idempotent ka matlab: same request do baar bhejo toh result wahi rahe jo ek baar bhejne par hota. GET, PUT aur DELETE idempotent hain; POST nahi (do POST do objects bana sakte hain)."
+  }
+ },
+ {
+  "id": "fc-219",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "HTTP 200, 201 and 204: what does each tell you?",
+   "hi": "HTTP 200, 201 aur 204: har ek kya batata hai?"
+  },
+  "back": {
+   "en": "200 OK: success, with a body (typical for GET). 201 Created: a new resource was created (typical for POST), often with a Location header. 204 No Content: success with no body (typical for DELETE).",
+   "hi": "200 OK: success, body ke saath (GET mein aam). 201 Created: naya resource ban gaya (POST mein aam), aksar Location header ke saath. 204 No Content: success, par body nahi (DELETE mein aam)."
+  }
+ },
+ {
+  "id": "fc-220",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "HTTP 401 vs 403?",
+   "hi": "HTTP 401 vs 403?"
+  },
+  "back": {
+   "en": "401 Unauthorized: the server doesn't know who you are; credentials or token are missing, wrong or expired. 403 Forbidden: it knows who you are, but you aren't allowed to do this.",
+   "hi": "401 Unauthorized: server ko pata nahi tum kaun ho; credentials ya token missing, galat ya expired hai. 403 Forbidden: server jaanta hai tum kaun ho, par tumhe yeh karne ki permission nahi hai."
+  }
+ },
+ {
+  "id": "fc-221",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Name four ways a REST API can authenticate a client.",
+   "hi": "REST API client ko authenticate karne ke chaar tareeke batao."
+  },
+  "back": {
+   "en": "HTTP Basic (username:password Base64-encoded in the Authorization header; encoding, not encryption, so only over HTTPS), bearer token, API key, and OAuth (a token issued by an authorization server).",
+   "hi": "HTTP Basic (username:password Base64 mein Authorization header mein; yeh encoding hai, encryption nahi, isliye sirf HTTPS par), bearer token, API key, aur OAuth (authorization server ka diya token)."
+  }
+ },
+ {
+  "id": "fc-222",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Content-Type vs Accept header?",
+   "hi": "Content-Type vs Accept header?"
+  },
+  "back": {
+   "en": "Content-Type says what format the body you are sending is in (e.g. application/json). Accept says what format you want the response in.",
+   "hi": "Content-Type batata hai ki tum jo body bhej rahe ho woh kis format mein hai (jaise application/json). Accept batata hai ki tumhe response kis format mein chahiye."
+  }
+ },
+ {
+  "id": "fc-223",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "How do you call the Catalyst Center API?",
+   "hi": "Catalyst Center API ko kaise call karte ho?"
+  },
+  "back": {
+   "en": "POST to /dna/system/api/v1/auth/token with Basic authentication to get a token, then send that token in the X-Auth-Token header on every later request, for example GET /dna/intent/api/v1/network-device.",
+   "hi": "Pehle Basic authentication ke saath /dna/system/api/v1/auth/token par POST karke token lo, phir har agli request mein woh token X-Auth-Token header mein bhejo, jaise GET /dna/intent/api/v1/network-device."
+  }
+ },
+ {
+  "id": "fc-224",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Find three errors in: {'name': 'SW1', 'up': True,}",
+   "hi": "Is JSON mein teen galtiyan dhoondho: {'name': 'SW1', 'up': True,}"
+  },
+  "back": {
+   "en": "Keys and strings need double quotes, not single. Booleans are lowercase true/false. A trailing comma before } is not allowed. Correct: {\"name\": \"SW1\", \"up\": true}",
+   "hi": "Keys aur strings ko double quotes chahiye, single nahi. Booleans lowercase true/false hote hain. } se pehle trailing comma allowed nahi. Sahi: {\"name\": \"SW1\", \"up\": true}"
+  }
+ },
+ {
+  "id": "fc-225",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "JSON, XML and YAML: how do you recognise each, and who uses it?",
+   "hi": "JSON, XML aur YAML: har ek ko kaise pehchaanoge, aur kaun use karta hai?"
+  },
+  "back": {
+   "en": "JSON: braces, brackets and quoted keys; most REST APIs. XML: opening and closing tags; NETCONF. YAML: indentation and dashes for lists, no braces; Ansible playbooks.",
+   "hi": "JSON: braces, brackets aur quoted keys; zyada tar REST APIs. XML: opening aur closing tags; NETCONF. YAML: indentation aur lists ke liye dash, braces nahi; Ansible playbooks."
+  }
+ },
+ {
+  "id": "fc-226",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "In JSON, what is the difference between an object and an array?",
+   "hi": "JSON mein object aur array mein kya farq hai?"
+  },
+  "back": {
+   "en": "An object { } is an unordered set of named key-value pairs; you look values up by key. An array [ ] is an ordered list of values; you look them up by position. A device's interfaces are usually an array of objects.",
+   "hi": "Object { } naam wale key-value pairs ka set hai; value key se dhoondhte ho. Array [ ] values ki ordered list hai; value position se milti hai. Device ke interfaces aksar objects ka array hote hain."
+  }
+ },
+ {
+  "id": "fc-227",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Ansible in one breath: how does it reach devices and what do you write?",
+   "hi": "Ansible ek line mein: devices tak kaise pahunchta hai aur tum kya likhte ho?"
+  },
+  "back": {
+   "en": "Agentless and push-based: the control node connects over SSH (or an API) to devices listed in an inventory and runs modules. You write playbooks in YAML; Ansible itself is written in Python.",
+   "hi": "Agentless aur push-based: control node SSH (ya API) se inventory mein listed devices se connect hota hai aur modules chalata hai. Tum playbooks YAML mein likhte ho; Ansible khud Python mein likha hai."
+  }
+ },
+ {
+  "id": "fc-228",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "What is idempotence in Ansible, and why does it matter?",
+   "hi": "Ansible mein idempotence kya hai, aur yeh kyun zaroori hai?"
+  },
+  "back": {
+   "en": "Running a playbook again changes nothing if the device is already in the desired state; the task reports 'ok' instead of 'changed'. It makes re-runs safe and shows drift: anything 'changed' on a re-run had drifted.",
+   "hi": "Agar device pehle se desired state mein hai toh playbook dobara chalane par kuch nahi badalta; task 'changed' ki jagah 'ok' dikhata hai. Isse re-run safe hota hai aur drift dikhta hai: re-run par jo 'changed' aaye, woh drift hua tha."
+  }
+ },
+ {
+  "id": "fc-229",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Ansible --check and --diff: what do they do?",
+   "hi": "Ansible --check aur --diff kya karte hain?"
+  },
+  "back": {
+   "en": "--check is a dry run: Ansible reports what it would change without changing anything. --diff shows the lines that would be added or removed. Together they let you review a change before applying it.",
+   "hi": "--check dry run hai: Ansible batata hai kya badlega, par kuch badalta nahi. --diff dikhata hai kaunsi lines add ya remove hongi. Dono milkar change apply karne se pehle review karne dete hain."
+  }
+ },
+ {
+  "id": "fc-230",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Terraform in one breath.",
+   "hi": "Terraform ek line mein."
+  },
+  "back": {
+   "en": "Declarative infrastructure as code: you describe the end state in HCL, 'terraform plan' shows the difference from reality, 'terraform apply' makes it so, and a state file records what Terraform manages. Mostly used to provision cloud resources.",
+   "hi": "Declarative infrastructure as code: tum HCL mein end state likhte ho, 'terraform plan' reality se farq dikhata hai, 'terraform apply' use sach karta hai, aur ek state file record rakhti hai ki Terraform kya manage karta hai. Zyada tar cloud resources provision karne mein use hota hai."
+  }
+ },
+ {
+  "id": "fc-231",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Ansible vs Terraform: which is procedural, which keeps state?",
+   "hi": "Ansible vs Terraform: kaun procedural hai, kaun state rakhta hai?"
+  },
+  "back": {
+   "en": "Ansible runs tasks in order (procedural) and keeps no state; it checks the device each run. Terraform is declarative and keeps a state file. Common split: Terraform builds the infrastructure, Ansible configures what runs on it.",
+   "hi": "Ansible tasks ko order mein chalata hai (procedural) aur koi state nahi rakhta; har run mein device check karta hai. Terraform declarative hai aur state file rakhta hai. Aam taur par: Terraform infrastructure banata hai, Ansible uske upar chalne wali cheezein configure karta hai."
+  }
+ },
+ {
+  "id": "fc-232",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "What is configuration drift?",
+   "hi": "Configuration drift kya hai?"
+  },
+  "back": {
+   "en": "When a device's running config slowly differs from the intended (standard) config, usually through manual one-off changes. Automation finds and fixes it by comparing every device against the source of truth.",
+   "hi": "Jab device ka running config dheere-dheere intended (standard) config se alag ho jaata hai, aksar manual one-off changes se. Automation har device ko source of truth se compare karke ise pakadta aur theek karta hai."
+  }
+ },
+ {
+  "id": "fc-233",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Puppet and Chef vs Ansible?",
+   "hi": "Puppet aur Chef vs Ansible?"
+  },
+  "back": {
+   "en": "Puppet and Chef traditionally use an agent on each managed node that pulls its configuration from a server (Puppet server on TCP 8140). Ansible is agentless and pushes over SSH, which suits network devices that can't run agents.",
+   "hi": "Puppet aur Chef aam taur par har managed node par agent chalate hain jo server se apna configuration pull karta hai (Puppet server TCP 8140 par). Ansible agentless hai aur SSH se push karta hai, jo network devices ke liye theek hai kyunki un par agent nahi chalta."
+  }
+ },
+ {
+  "id": "fc-234",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "NETCONF: transport, port and data format?",
+   "hi": "NETCONF: transport, port aur data format?"
+  },
+  "back": {
+   "en": "Runs over SSH on TCP 830, encodes data in XML, and works with YANG models. It has operations like get-config and edit-config, and supports candidate configs and commit.",
+   "hi": "SSH par TCP 830 pe chalta hai, data XML mein encode karta hai, aur YANG models ke saath kaam karta hai. Isme get-config aur edit-config jaise operations hain, aur candidate config aur commit support karta hai."
+  }
+ },
+ {
+  "id": "fc-235",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "RESTCONF vs NETCONF?",
+   "hi": "RESTCONF vs NETCONF?"
+  },
+  "back": {
+   "en": "Both use YANG models. RESTCONF is a REST interface over HTTPS using HTTP verbs, with JSON or XML. NETCONF uses SSH (TCP 830), XML and its own RPC operations.",
+   "hi": "Dono YANG models use karte hain. RESTCONF HTTPS par REST interface hai jo HTTP verbs use karta hai, JSON ya XML ke saath. NETCONF SSH (TCP 830), XML aur apne RPC operations use karta hai."
+  }
+ },
+ {
+  "id": "fc-236",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "What is YANG?",
+   "hi": "YANG kya hai?"
+  },
+  "back": {
+   "en": "A data modelling language that defines the structure of configuration and state data (for example an interface has a name, description and enabled flag). NETCONF and RESTCONF carry data that follows YANG models.",
+   "hi": "Ek data modelling language jo configuration aur state data ka structure define karti hai (jaise ek interface ka name, description aur enabled flag hota hai). NETCONF aur RESTCONF jo data le jaate hain woh YANG models follow karta hai."
+  }
+ },
+ {
+  "id": "fc-237",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Polling vs streaming telemetry?",
+   "hi": "Polling vs streaming telemetry?"
+  },
+  "back": {
+   "en": "Polling (SNMP): the manager asks every few minutes, so short spikes are missed and polling adds load. Streaming (model-driven) telemetry: the device pushes data as it changes or every few seconds, using YANG models over gRPC/gNMI or NETCONF.",
+   "hi": "Polling (SNMP): manager har kuch minute mein poochta hai, isliye chhote spikes miss ho jaate hain aur load badhta hai. Streaming (model-driven) telemetry: device khud data push karta hai jab badle ya har kuch second mein, YANG models ke saath gRPC/gNMI ya NETCONF par."
+  }
+ },
+ {
+  "id": "fc-238",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Predictive AI in network operations: what does it do?",
+   "hi": "Network operations mein predictive AI kya karta hai?"
+  },
+  "back": {
+   "en": "Learns a normal baseline from telemetry, flags anomalies (a link behaving unusually), forecasts problems such as capacity running out or a failing optic, and suggests likely root causes.",
+   "hi": "Telemetry se normal baseline seekhta hai, anomalies flag karta hai (koi link ajeeb behave kar raha ho), capacity khatam hone ya optic fail hone jaisi problems ka forecast karta hai, aur possible root cause suggest karta hai."
+  }
+ },
+ {
+  "id": "fc-239",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Generative AI in network operations: uses and the main risk?",
+   "hi": "Network operations mein generative AI: uses aur sabse bada risk?"
+  },
+  "back": {
+   "en": "Answers questions in plain language, drafts configs, scripts and documentation, and summarises logs. The risk: it can produce confident but wrong output (hallucinated commands), so a person must review and test it and changes still go through change control.",
+   "hi": "Simple language mein sawaalon ke jawab deta hai, configs, scripts aur documentation draft karta hai, aur logs summarise karta hai. Risk: yeh confident par galat output de sakta hai (hallucinated commands), isliye insaan ko review aur test karna padta hai aur changes phir bhi change control se jaate hain."
+  }
+ },
+ {
+  "id": "fc-240",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Name four benefits of network automation.",
+   "hi": "Network automation ke chaar fayde batao."
+  },
+  "back": {
+   "en": "Speed (minutes instead of days), consistency (the same validated change everywhere, fewer typos), scale (hundreds of devices at once), and an audit trail (every change recorded and repeatable).",
+   "hi": "Speed (dinon ki jagah minutes), consistency (har jagah same validated change, kam typos), scale (ek saath sainkdon devices), aur audit trail (har change record hota hai aur dohraya ja sakta hai)."
+  }
+ },
+ {
+  "id": "fc-241",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Intent-based networking: what is the 'intent'?",
+   "hi": "Intent-based networking: 'intent' kya hai?"
+  },
+  "back": {
+   "en": "A business-level statement of what you want (for example 'guests reach only the internet'), which the controller translates into device configuration, then keeps checking that the network still matches it.",
+   "hi": "Business level par likha hua ki tumhe kya chahiye (jaise 'guests sirf internet tak pahunchein'), jise controller device configuration mein badalta hai, aur phir lagatar check karta hai ki network ab bhi usse match karta hai."
+  }
+ },
+ {
+  "id": "fc-242",
+  "domain": 6,
+  "tag": "automation",
+  "front": {
+   "en": "Name three southbound protocols and where you'd meet each.",
+   "hi": "Teen southbound protocols ke naam aur har ek kahan milta hai, batao."
+  },
+  "back": {
+   "en": "OpenFlow: classic SDN switches. OpFlex: Cisco ACI. NETCONF/RESTCONF: model-driven config of routers and switches. Older controllers also use SSH/CLI and SNMP.",
+   "hi": "OpenFlow: classic SDN switches. OpFlex: Cisco ACI. NETCONF/RESTCONF: routers aur switches ka model-driven config. Purane controllers SSH/CLI aur SNMP bhi use karte hain."
+  }
  }
 ]
