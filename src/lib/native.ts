@@ -17,6 +17,11 @@ export function openExternal(url: string) {
   return AppLauncher.openUrl({ url }).catch(() => void window.open(url, "_blank"));
 }
 
+/** The installed app's version, e.g. "1.0.120". */
+export async function appVersion() {
+  return (await App.getInfo()).version;
+}
+
 /** Save text to a file and open the share sheet, so it can go to Files, Drive, WhatsApp and so on. */
 export async function shareFile(name: string, text: string) {
   const { uri } = await Filesystem.writeFile({ path: name, data: text, directory: Directory.Cache, encoding: Encoding.UTF8 });

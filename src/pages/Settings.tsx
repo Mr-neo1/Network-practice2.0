@@ -1,5 +1,5 @@
 import { Download, Upload } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { LangSwitch } from "../components/LangSwitch";
 import { Layout } from "../components/Layout";
@@ -15,6 +15,12 @@ export default function Settings() {
   const sync = useSyncStatus();
   const fileRef = useRef<HTMLInputElement>(null);
   const [msg, setMsg] = useState("");
+  const [version, setVersion] = useState("");
+
+  useEffect(() => {
+    if (!document.documentElement.classList.contains("is-native")) return;
+    import("../lib/native").then((n) => n.appVersion()).then(setVersion, () => undefined);
+  }, []);
 
   const download = async () => {
     const name = `zero2hero-progress-${new Date().toISOString().slice(0, 10)}.json`;
@@ -124,6 +130,12 @@ export default function Settings() {
           </button>
         </section>
         {msg && <p className="ok-text">{msg}</p>}
+        {version && (
+          <p className="muted small">
+            {t({ en: "Android app version", hi: "Android app version" })} {version} ·{" "}
+            <a href="https://github.com/Mr-neo1/Network-practice2.0/releases/latest">{t({ en: "check for an update", hi: "update check karo" })}</a>
+          </p>
+        )}
       </div>
     </Layout>
   );
