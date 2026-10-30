@@ -31,8 +31,17 @@ jobs:
           for attempt in 1 2 3; do
             code=$(curl -s -o out.txt -w "%{http_code}" -X POST "$VITE_SUPABASE_URL/rest/v1/rpc/keepalive" \
               -H "apikey: $VITE_SUPABASE_ANON_KEY" -H "Content-Type: application/json" -d '{}' || echo 000)
-            echo "attempt $attempt: HTTP $code $(cat out.txt 2>/dev/null)"
+            echo "attempt $attempt: keepalive() HTTP $code $(cat out.txt 2>/dev/null)"
             [ "$code" = 200 ] && exit 0
+            # keepalive() not created yet: a query on the progress table still reaches Postgres,
+            # which answers "permission denied" (42501) for a guest. That answer is database activity.
+            code=$(curl -s -o out.txt -w "%{http_code}" "$VITE_SUPABASE_URL/rest/v1/progress?select=user_id&limit=1" \
+              -H "apikey: $VITE_SUPABASE_ANON_KEY" || echo 000)
+            echo "attempt $attempt: table query HTTP $code $(cat out.txt 2>/dev/null)"
+            if [ "$code" = 200 ] || grep -q '"42501"' out.txt 2>/dev/null; then
+              echo "::warning::Database reached, but keepalive() is missing. Run supabase/setup.sql in the SQL Editor."
+              exit 0
+            fi
             sleep 30
           done
           exit 1

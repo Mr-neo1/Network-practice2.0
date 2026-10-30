@@ -26,8 +26,12 @@ export function supabaseBackend(url: string, key: string): AccountBackend {
     const today = new Date().toISOString().slice(0, 10);
     if (localStorage.getItem("nz2h.keepalive") !== today) {
       localStorage.setItem("nz2h.keepalive", today);
+      // If keepalive() hasn't been created yet, a guest query on the progress table still
+      // reaches the database (it answers "permission denied"), which counts just the same.
       void sb.rpc("keepalive").then(
-        () => undefined,
+        ({ error }) => {
+          if (error) void sb.from("progress").select("user_id").limit(1).then(() => undefined);
+        },
         () => undefined,
       );
     }
