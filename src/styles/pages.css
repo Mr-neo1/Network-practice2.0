@@ -568,3 +568,119 @@
     padding: 16px;
   }
 }
+
+/* ─── Today (home, for returning learners) ─────────────────────────────── */
+
+.today {
+  max-width: 790px;
+  margin-bottom: 36px;
+  padding: 20px 22px 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.today-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.today-head h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.today-streak {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #c76a1c;
+}
+
+.today-goal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 8px;
+  font-size: 13.5px;
+  color: var(--ink-3);
+}
+
+.today-goal .bar {
+  flex: 1;
+}
+
+.today-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.today-list li + li {
+  border-top: 1px solid var(--line);
+}
+
+.today-list a,
+.today-list button {
+  display: grid;
+  grid-template-columns: 22px 1fr 18px;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 13px 2px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.today-list svg {
+  color: var(--accent);
+}
+
+.today-list span {
+  color: var(--ink-3);
+}
+
+.today-list b {
+  display: block;
+  color: var(--ink);
+  font-size: 15.5px;
+  font-weight: 600;
+}
+
+.today-list a:hover b,
+.today-list button:hover b {
+  color: var(--accent);
+}
+
+/* The welcome text has done its job once you've started. */
+.intro.is-returning h1 {
+  font-size: clamp(24px, 3vw, 30px);
+}
+
+.intro.is-returning .lede,
+.intro.is-returning .facts,
+.intro.is-returning .intro-actions {
+  display: none;
+}
+
+@media (max-width: 560px) {
+  .home {
+    padding-top: 24px;
+  }
+  .today {
+    padding: 16px 16px 6px;
+  }
+}
+
+.home.is-returning .how {
+  display: none;
+}

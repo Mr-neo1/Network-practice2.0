@@ -4,6 +4,16 @@ import { Layout } from "../components/Layout";
 import { useAuth } from "../lib/auth";
 import { useT } from "../lib/prefs";
 
+// Account errors in plain words, in both languages. Unknown messages are shown as they come.
+const friendly: [RegExp, { en: string; hi: string }][] = [
+  [/failed to fetch|networkerror|load failed|network request failed/i, { en: "Can't reach the account server. Check your internet connection and try again; your progress is safe on this device meanwhile.", hi: "Account server tak nahi pahunch pa rahe. Internet check karke dobara try karo; tab tak progress is device par safe hai." }],
+  [/invalid login credentials|invalid email or password|email or password is incorrect/i, { en: "That email and password don't match. Check both, or create an account if you're new.", hi: "Email aur password match nahi kar rahe. Dono check karo, ya naye ho toh account banao." }],
+  [/already registered|already exists|already in use/i, { en: "There's already an account with this email. Sign in instead.", hi: "Is email se account pehle se hai. Sign in karo." }],
+  [/password should be at least|at least \d+ characters/i, { en: "The password is too short. Use at least 8 characters.", hi: "Password bahut chhota hai. Kam se kam 8 characters rakho." }],
+  [/email not confirmed/i, { en: "This account still needs its email confirmed. Open the link we emailed you, then sign in.", hi: "Is account ka email abhi confirm nahi hua. Email mein bheja link kholo, phir sign in karo." }],
+  [/rate limit|too many attempts/i, { en: "Too many attempts. Wait a minute and try again.", hi: "Bahut zyada attempts ho gaye. Ek minute ruk kar dobara try karo." }],
+];
+
 export default function Login() {
   const t = useT();
   const { login, register, user, serverAvailable } = useAuth();
@@ -29,7 +39,9 @@ export default function Login() {
       }
       navigate("/progress");
     } catch (err) {
-      setError((err as Error).message);
+      const message = (err as Error).message;
+      const known = friendly.find(([re]) => re.test(message));
+      setError(known ? t(known[1]) : message);
     } finally {
       setBusy(false);
     }

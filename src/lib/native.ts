@@ -1,6 +1,6 @@
 // Behaviour that only applies inside the Android app (Capacitor). Loaded from main.tsx when the
 // native bridge is present, so the website never downloads it.
-import { Capacitor, SystemBars, SystemBarsStyle } from "@capacitor/core";
+import { Capacitor, registerPlugin, SystemBars, SystemBarsStyle } from "@capacitor/core";
 import { App } from "@capacitor/app";
 import { AppLauncher } from "@capacitor/app-launcher";
 import { Directory, Encoding, Filesystem } from "@capacitor/filesystem";
@@ -8,6 +8,9 @@ import { Share } from "@capacitor/share";
 import { SplashScreen } from "@capacitor/splash-screen";
 
 export const isNative = () => Capacitor.isNativePlatform();
+
+// Local plugin in android/app/src/main/java/.../ThemeBackgroundPlugin.java.
+const ThemeBackground = registerPlugin<{ set(options: { color: string }): Promise<void> }>("ThemeBackground");
 
 /** Open a web address outside the app: YouTube links go to the YouTube app, the rest to the browser. */
 export function openExternal(url: string) {
@@ -54,12 +57,28 @@ export function initNative() {
     true,
   );
 
-  // Status-bar icons follow the app's light or dark theme.
-  const syncBars = () =>
-    void SystemBars.setStyle({ style: document.documentElement.dataset.theme === "dark" ? SystemBarsStyle.Dark : SystemBarsStyle.Light }).catch(() => undefined);
-  syncBars();
-  new MutationObserver(syncBars).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  // System bars follow the app's own theme (which can differ from the phone's): icon colour first,
+  // because setting it resets the strip colour, then the strip behind the bars in the page colour.
+  const syncBars = async () => {
+    const dark = document.documentElement.dataset.theme === "dark";
+    const bg = getComputedStyle(document.documentElement).getPropertyValue("--bg").trim() || (dark ? "#16181b" : "#f6f4ef");
+    try {
+      await SystemBars.setStyle({ style: dark ? SystemBarsStyle.Dark : SystemBarsStyle.Light });
+      await ThemeBackground.set({ color: bg });
+    } catch {
+      /* older shell without the plugin: leave the defaults */
+    }
+  };
+  new MutationObserver(() => void syncBars()).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  void App.addListener("resume", () => void syncBars());
 
-  // Keep the splash up until the first screen has drawn.
-  requestAnimationFrame(() => requestAnimationFrame(() => void SplashScreen.hide({ fadeOutDuration: 200 })));
+  // Keep the splash up until the first screen has drawn, then set the bars: the splash screen
+  // restores its own bar style when it closes, so anything set before that is lost.
+  requestAnimationFrame(() =>
+    requestAnimationFrame(async () => {
+      await SplashScreen.hide({ fadeOutDuration: 200 }).catch(() => undefined);
+      await syncBars();
+      setTimeout(() => void syncBars(), 400);
+    }),
+  );
 }

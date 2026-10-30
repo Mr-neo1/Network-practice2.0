@@ -26,6 +26,30 @@ const check = (name, ok, detail = "") => {
 };
 const shot = (name) => writeFileSync(join(out, `${name}.png`), adb("exec-out", "screencap", "-p"));
 
+// Read real screen pixels (raw screencap: a small header, then RGBA rows).
+const screen = () => {
+  const b = adb("exec-out", "screencap");
+  const w = b.readUInt32LE(0), h = b.readUInt32LE(4), head = b.length - w * h * 4;
+  return { w, h, px: (x, y) => [0, 1, 2].map((i) => b[head + (y * w + x) * 4 + i]) };
+};
+const rgb = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+const lum = ([r, g, b]) => 0.299 * r + 0.587 * g + 0.114 * b;
+const close = (a, b, tol = 10) => a.every((v, i) => Math.abs(v - b[i]) <= tol);
+
+/** The strips behind the system bars match the page, and the clock and icons stand out from them. */
+function barsCheck(label, hex) {
+  const want = rgb(hex);
+  const s = screen();
+  const top = s.px(Math.round(s.w * 0.4), 4);
+  const bottom = s.px(8, s.h - 4);
+  check(`${label}: status-bar strip matches the page`, close(top, want), `${top} vs ${want}`);
+  check(`${label}: gesture-bar strip matches the page`, close(bottom, want), `${bottom} vs ${want}`);
+  let contrast = 0;
+  for (let y = Math.round(s.h * 0.01); y < Math.round(s.h * 0.035); y += 2)
+    for (let x = Math.round(s.w * 0.02); x < Math.round(s.w * 0.2); x += 2) contrast = Math.max(contrast, Math.abs(lum(s.px(x, y)) - lum(want)));
+  check(`${label}: status-bar clock readable`, contrast > 90, `contrast ${Math.round(contrast)}`);
+}
+
 adb("install", "-r", apk);
 adb("shell", "am", "start", "-n", `${PKG}/.MainActivity`);
 await sleep(9000);
@@ -74,6 +98,9 @@ try {
   check("bottom tab bar shown", tab === "grid", tab);
   const top = await js("JSON.stringify({ topbarPadding: getComputedStyle(document.querySelector('.topbar')).paddingTop, topbarTop: document.querySelector('.topbar').getBoundingClientRect().top })");
   check("top bar measured (safe area)", true, top);
+  await sleep(1500);
+  check("web view version", true, await js(String.raw`navigator.userAgent.match(/Chrome\/(\d+)/)?.[1]`));
+  barsCheck("light theme", "#f6f4ef");
   shot("01-home");
 
   // Lesson page with its animation
@@ -116,7 +143,8 @@ try {
 
   // Dark theme and the remaining pages
   await js("localStorage.setItem('nz2h.prefs', JSON.stringify({ theme: 'dark', lang: 'hi' })); location.hash = '#/progress'; location.reload()");
-  await sleep(5000);
+  await sleep(6000);
+  barsCheck("dark theme", "#16181b");
   shot("05-progress-dark-hinglish");
   for (const [hash, name] of [["#/practice", "06-practice"], ["#/flashcards", "07-flashcards"], ["#/labs", "08-labs"], ["#/settings", "09-settings"]]) {
     await go(hash);

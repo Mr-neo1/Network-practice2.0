@@ -1,9 +1,12 @@
-import { ArrowRight, BarChart3, BookOpen, CalendarDays, CheckCircle2, Clapperboard, Clock, Layers, ListChecks, PlayCircle, Terminal } from "lucide-react";
-import { Link } from "wouter";
+import { ArrowRight, BarChart3, BookOpen, CalendarDays, CheckCircle2, Clapperboard, Clock, Flame, Layers, ListChecks, PlayCircle, Target, Terminal } from "lucide-react";
+import { Link, useLocation } from "wouter";
 import { allLessons, lessonMeta, lessonNumber, modules } from "../content/curriculum";
 import { Layout } from "../components/Layout";
+import { dueCardIds, dueQuestionIds, streak } from "../lib/analytics";
+import { handoff } from "../lib/handoff";
 import { useT } from "../lib/prefs";
-import { isDone, useProgress } from "../lib/progress";
+import { isDone, useProgress, type Progress } from "../lib/progress";
+import { dayKey } from "../lib/progress-model";
 import { ui } from "../lib/ui";
 
 const levelName = {
@@ -24,8 +27,9 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className="home">
-        <section className="intro">
+      <div className={`home ${started ? "is-returning" : ""}`}>
+        {started && <Today prog={prog} resume={resume} />}
+        <section className={`intro ${started ? "is-returning" : ""}`}>
           <p className="kicker">Cisco CCNA 200-301 · v1.1</p>
           <h1>{t({ en: "Learn networking from zero to CCNA, and past it.", hi: "Networking zero se CCNA tak seekho, aur usse aage bhi." })}</h1>
           <p className="lede">
@@ -176,5 +180,85 @@ export default function Home() {
         </section>
       </div>
     </Layout>
+  );
+}
+
+/** What to do today, for someone who has already started: one tap to each daily habit. */
+function Today({ prog, resume }: { prog: Progress; resume: ReturnType<typeof lessonMeta> }) {
+  const t = useT();
+  const [, navigate] = useLocation();
+  const days = streak(prog);
+  const goal = prog.settings.dailyGoal;
+  const today = Math.round(prog.activity[dayKey()] ?? 0);
+  const dueQ = dueQuestionIds(prog).length;
+  const dueC = dueCardIds(prog).length;
+  const goalPct = Math.min(100, Math.round((today / Math.max(goal, 1)) * 100));
+
+  return (
+    <section className="today" aria-labelledby="today-h">
+      <div className="today-head">
+        <h2 id="today-h">{t({ en: "Today", hi: "Aaj" })}</h2>
+        <span className="today-streak" title={t({ en: "Days in a row with study time", hi: "Lagatar kitne din padhai hui" })}>
+          <Flame size={16} /> {days} {t(days === 1 ? { en: "day", hi: "din" } : { en: "days", hi: "din" })}
+        </span>
+      </div>
+      <div className="today-goal">
+        <div className="bar small">
+          <span style={{ width: `${goalPct}%` }} />
+        </div>
+        <span>
+          {today}/{goal} min {goalPct >= 100 ? t({ en: "· goal done", hi: "· goal poora" }) : ""}
+        </span>
+      </div>
+      <ul className="today-list">
+        {resume && (
+          <li>
+            <Link href={`/lesson/${resume.slug}`}>
+              <BookOpen size={18} />
+              <span>
+                <b>{t({ en: "Continue", hi: "Wahin se shuru karo" })}</b>
+                {lessonNumber(resume.slug)} {t(resume.title)}
+              </span>
+              <ArrowRight size={16} />
+            </Link>
+          </li>
+        )}
+        <li>
+          <button
+            onClick={() => {
+              if (dueQ > 0) handoff.set({ mode: "review", count: Math.min(40, dueQ) });
+              navigate("/practice");
+            }}
+          >
+            <Target size={18} />
+            <span>
+              <b>{dueQ > 0 ? t({ en: `Review ${dueQ} questions`, hi: `${dueQ} questions review karo` }) : t({ en: "Practice questions", hi: "Practice questions" })}</b>
+              {dueQ > 0 ? t({ en: "Ones you got wrong, back for another try", hi: "Jo galat hue the, dobara try ke liye" }) : t({ en: "Nothing due: pick topics or drill weak spots", hi: "Kuch due nahi: topics chuno ya weak spots practice karo" })}
+            </span>
+            <ArrowRight size={16} />
+          </button>
+        </li>
+        <li>
+          <Link href="/flashcards">
+            <Layers size={18} />
+            <span>
+              <b>{dueC > 0 ? t({ en: `${dueC} flashcards due`, hi: `${dueC} flashcards due` }) : t({ en: "Flashcards", hi: "Flashcards" })}</b>
+              {t({ en: "Ports, timers and commands, ten minutes", hi: "Ports, timers aur commands, das minute" })}
+            </span>
+            <ArrowRight size={16} />
+          </Link>
+        </li>
+        <li>
+          <Link href={prog.settings.planStart ? "/plan" : "/labs"}>
+            {prog.settings.planStart ? <CalendarDays size={18} /> : <Terminal size={18} />}
+            <span>
+              <b>{prog.settings.planStart ? t({ en: "Today's plan session", hi: "Aaj ka plan session" }) : t({ en: "A lab", hi: "Ek lab" })}</b>
+              {prog.settings.planStart ? t({ en: "Lessons, a lab and a quiz for today", hi: "Aaj ke lessons, lab aur quiz" }) : t({ en: "Configure real IOS, checked automatically", hi: "Real IOS configure karo, automatic check" })}
+            </span>
+            <ArrowRight size={16} />
+          </Link>
+        </li>
+      </ul>
+    </section>
   );
 }

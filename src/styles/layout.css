@@ -597,3 +597,16 @@ main {
     display: flex;
   }
 }
+
+/* In the app the gesture-bar strip under the tab bar is painted in the page colour, so the tab bar
+   uses the same colour and the two read as one surface. */
+.is-native .tabbar {
+  background: var(--bg);
+}
+
+@media (max-width: 480px) {
+  /* IOS help output has two columns; a slightly smaller font keeps them on one line on phones. */
+  .lab-term .term-body {
+    font-size: 12px;
+  }
+}
