@@ -17,6 +17,15 @@ Audit of 2026-10-30, written from the point of view of a working network enginee
 - [x] 3. Android app with Capacitor: back button, status bar and safe areas, icon and splash, videos and links open in YouTube/the browser
 - [x] 4. Build the APK on GitHub Actions on every push and publish it as a downloadable release *(publishes once the two signing secrets are added)*
 
+### Phase 1b: phone and sync (done 2026-10-30)
+- [x] Progress saves as soon as the tab or app goes to the background, and pulls changes made on other devices when it comes back; sync dot on the avatar
+- [x] Daily database keep-alive that re-enables itself and opens an issue if it fails; every device that opens the app also pings once a day
+- [x] Phones: bottom tab bar, no horizontal overflow at 360-390 px, theme and Settings in the menu
+- [x] Lab terminal: on-screen Tab, ?, history, end and ^C keys; `?` typed on a phone keyboard works
+- [x] System bars follow the app theme (native ThemeBackground plugin)
+- [x] Home opens with a Today panel for returning learners
+- [x] Emulator smoke test on every push (26 checks, device screenshots in the `ci-smoke` pre-release)
+
 ### Phase 2: exam gaps
 - [ ] 5. IPv6 in the simulator (addresses, link-local, `ipv6 unicast-routing`, static and default routes, `ping`, `show ipv6 interface brief`, `show ipv6 route`) plus two labs
 - [x] 6. Domain 6 flashcards: +30 cards (SDN planes, APIs, HTTP codes, JSON, Ansible/Terraform, AI/ML)
