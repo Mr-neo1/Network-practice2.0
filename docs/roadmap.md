@@ -12,10 +12,10 @@ Audit of 2026-10-30, written from the point of view of a working network enginee
 ## Checklist
 
 ### Phase 1: platform and phone app
-- [ ] 1. Supabase: restore the paused project, confirm "Confirm email" is off, add a keep-alive job so the free project never pauses again *(keep-alive job and `keepalive()` SQL added; waiting on the restore)*
+- [x] 1. Supabase: restore the paused project, confirm "Confirm email" is off, add a keep-alive job so the free project never pauses again *(verified live: `scripts/live-sync-test.mjs` 13/13)*
 - [x] 2. Work offline: bundle the fonts instead of loading them from Google
 - [x] 3. Android app with Capacitor: back button, status bar and safe areas, icon and splash, videos and links open in YouTube/the browser
-- [x] 4. Build the APK on GitHub Actions on every push and publish it as a downloadable release *(publishes once the two signing secrets are added)*
+- [x] 4. Build the APK on GitHub Actions on every push and publish it as a downloadable release *(first signed release: android-1.0.60)*
 
 ### Phase 1b: phone and sync (done 2026-10-30)
 - [x] Progress saves as soon as the tab or app goes to the background, and pulls changes made on other devices when it comes back; sync dot on the avatar

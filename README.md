@@ -54,6 +54,18 @@ npm run check:labs       # every CLI lab fails at the start and passes after its
 npm run verify:videos    # confirms every YouTube video still exists and matches its title
 ```
 
+## Android app
+
+The app wraps the same build with Capacitor (`android/`, `capacitor.config.ts`). Lessons, labs and quizzes work offline; videos and sync need the internet.
+
+- **Download:** https://github.com/Mr-neo1/Network-practice2.0/releases/latest/download/zero2hero-ccna.apk (also linked in the site footer). Every push to `main` builds a signed APK and publishes it as a release (`.github/workflows/android.yml`); new versions install over old ones.
+- **Signing:** the key lives in `android/signing/` (never committed) and in the repository secrets `ANDROID_KEYSTORE_BASE64` and `ANDROID_KEYSTORE_PASSWORD`. Keep a backup of that folder: without it, updates can't install over an existing app.
+- **Build locally:** `npm run build && npx cap sync android`, then in `android/` run `gradlew assembleRelease` with JDK 21 (`android/keystore.properties` points Gradle at the key).
+- **Tests:** `.github/workflows/android-smoke.yml` installs the app on an Android emulator and runs `scripts/android-smoke.mjs` (back button, lab terminal, screen fit, system-bar colours read from real pixels). Screenshots land in the `ci-smoke` pre-release.
+- **Icons:** `node scripts/icons.mjs` renders the launcher and web icons from the logo.
+
+Accounts and sync are tested end to end on the live site with `node scripts/live-sync-test.mjs` (two browsers on one account, plus a second account that must not see the first one's data). Supabase is kept awake by `.github/workflows/keepalive.yml`, which pings the database daily and opens an issue if it can't.
+
 ## Where things live
 
 | Path | What |
