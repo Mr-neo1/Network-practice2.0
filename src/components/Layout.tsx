@@ -1,7 +1,8 @@
-import { Menu, Moon, Search, Sun, UserRound, X } from "lucide-react";
+import { BarChart3, BookOpen, Layers, ListChecks, Menu, Moon, Search, Sun, Terminal, UserRound, X } from "lucide-react";
 import { ReactNode, useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { useAuth } from "../lib/auth";
+import { useSyncStatus, type SyncStatus } from "../lib/progress";
 import { usePrefs, useT } from "../lib/prefs";
 import { ui } from "../lib/ui";
 import { LangSwitch } from "./LangSwitch";
@@ -18,6 +19,30 @@ const nav = [
   { href: "/reference", label: ui.reference },
 ];
 
+// Bottom tab bar on phones: the five places a learner goes every day.
+const tabs = [
+  { href: "/", label: { en: "Learn", hi: "Seekho" }, Icon: BookOpen },
+  { href: "/practice", label: { en: "Practice", hi: "Practice" }, Icon: ListChecks },
+  { href: "/labs", label: { en: "Labs", hi: "Labs" }, Icon: Terminal },
+  { href: "/flashcards", label: { en: "Cards", hi: "Cards" }, Icon: Layers },
+  { href: "/progress", label: { en: "Progress", hi: "Progress" }, Icon: BarChart3 },
+];
+
+// Hide the tab bar while the keyboard is up, so it doesn't sit on top of the keyboard.
+if (typeof document !== "undefined") {
+  const typing = (e: Event) => (e.target as HTMLElement)?.matches?.("input:not([type=checkbox]):not([type=radio]), textarea, select");
+  document.addEventListener("focusin", (e) => typing(e) && document.documentElement.classList.add("is-typing"));
+  document.addEventListener("focusout", () => document.documentElement.classList.remove("is-typing"));
+}
+
+const syncLabel: Record<SyncStatus, { en: string; hi: string }> = {
+  off: { en: "not syncing", hi: "sync band hai" },
+  saved: { en: "progress synced", hi: "progress synced hai" },
+  pending: { en: "saving soon", hi: "thodi der mein save hoga" },
+  saving: { en: "saving", hi: "save ho raha hai" },
+  error: { en: "offline, will sync when back online", hi: "offline, net aate hi sync hoga" },
+};
+
 export function Layout({ children, outlineFor, wide }: { children: ReactNode; outlineFor?: string; wide?: boolean }) {
   const t = useT();
   const { dark, setTheme } = usePrefs();
@@ -25,6 +50,7 @@ export function Layout({ children, outlineFor, wide }: { children: ReactNode; ou
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const { user, serverAvailable } = useAuth();
+  const sync = useSyncStatus();
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -81,8 +107,9 @@ export function Layout({ children, outlineFor, wide }: { children: ReactNode; ou
             </button>
             <LangSwitch />
             {user ? (
-              <Link href="/settings" className="account-chip" title={user.email}>
+              <Link href="/settings" className={`account-chip sync-${sync}`} title={`${user.email} · ${t(syncLabel[sync])}`} aria-label={`${user.name}, ${t(syncLabel[sync])}`}>
                 <span>{user.name.slice(0, 1).toUpperCase()}</span>
+                <i className="sync-dot" aria-hidden="true" />
               </Link>
             ) : serverAvailable ? (
               <Link href="/login" className="account-signin" aria-label="Sign in">
@@ -90,7 +117,7 @@ export function Layout({ children, outlineFor, wide }: { children: ReactNode; ou
                 <span>{t({ en: "Sign in", hi: "Sign in" })}</span>
               </Link>
             ) : null}
-            <button className="icon-btn" onClick={() => setTheme(dark ? "light" : "dark")} aria-label={dark ? "Light theme" : "Dark theme"} title={dark ? "Light theme" : "Dark theme"}>
+            <button className="icon-btn theme-btn" onClick={() => setTheme(dark ? "light" : "dark")} aria-label={dark ? "Light theme" : "Dark theme"} title={dark ? "Light theme" : "Dark theme"}>
               {dark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </div>
@@ -106,7 +133,14 @@ export function Layout({ children, outlineFor, wide }: { children: ReactNode; ou
                   {t(n.label)}
                 </Link>
               ))}
+              <Link href="/settings" className={isActive("/settings") ? "is-active" : ""}>
+                {t({ en: "Settings and backup", hi: "Settings aur backup" })}
+              </Link>
             </nav>
+            <button className="drawer-theme" onClick={() => setTheme(dark ? "light" : "dark")}>
+              {dark ? <Sun size={17} /> : <Moon size={17} />}
+              {dark ? t({ en: "Light theme", hi: "Light theme" }) : t({ en: "Dark theme", hi: "Dark theme" })}
+            </button>
             <Outline current={outlineFor} onNavigate={() => setMenuOpen(false)} />
           </div>
         </div>
@@ -155,6 +189,15 @@ export function Layout({ children, outlineFor, wide }: { children: ReactNode; ou
           </p>
         </div>
       </footer>
+
+      <nav className="tabbar" aria-label="Sections">
+        {tabs.map(({ href, label, Icon }) => (
+          <Link key={href} href={href} className={isActive(href) ? "is-active" : ""} aria-current={isActive(href) ? "page" : undefined}>
+            <Icon size={21} strokeWidth={isActive(href) ? 2.3 : 1.8} />
+            <span>{t(label)}</span>
+          </Link>
+        ))}
+      </nav>
 
       {searchOpen && <SearchDialog onClose={() => setSearchOpen(false)} />}
     </div>

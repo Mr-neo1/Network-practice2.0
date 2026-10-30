@@ -1,21 +1,60 @@
 # Free Supabase projects pause after 7 days without database activity, which breaks sign-in.
-# This touches the database every 3 days so the project stays awake.
+# This runs a tiny database query every day so the project never reaches 7 idle days.
+#
+# Two safety nets:
+# - GitHub turns off scheduled workflows in repos with no commits for 60 days, so every run
+#   re-enables this workflow through the API.
+# - If the ping fails (for example the project was paused anyway), the run opens an issue,
+#   which GitHub emails to you, with the fix.
 name: Keep Supabase awake
 
 on:
   schedule:
-    - cron: "17 3 */3 * *"
+    - cron: "17 3 * * *"
   workflow_dispatch:
+
+permissions:
+  actions: write
+  issues: write
+  contents: read
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Call keepalive()
+
+      - name: Query the database
+        id: ping
         run: |
           set -a; . ./.env.production; set +a
-          code=$(curl -s -o out.txt -w "%{http_code}" -X POST "$VITE_SUPABASE_URL/rest/v1/rpc/keepalive" \
-            -H "apikey: $VITE_SUPABASE_ANON_KEY" -H "Content-Type: application/json" -d '{}')
-          echo "HTTP $code: $(cat out.txt)"
-          test "$code" = 200
+          for attempt in 1 2 3; do
+            code=$(curl -s -o out.txt -w "%{http_code}" -X POST "$VITE_SUPABASE_URL/rest/v1/rpc/keepalive" \
+              -H "apikey: $VITE_SUPABASE_ANON_KEY" -H "Content-Type: application/json" -d '{}' || echo 000)
+            echo "attempt $attempt: HTTP $code $(cat out.txt 2>/dev/null)"
+            [ "$code" = 200 ] && exit 0
+            sleep 30
+          done
+          exit 1
+
+      - name: Keep this schedule switched on
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/keepalive.yml/enable" || true
+
+      - name: Open an issue if the ping failed
+        if: failure() && steps.ping.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Supabase keep-alive failed"
+          if [ -z "$(gh issue list --repo ${{ github.repository }} --state open --search "$title in:title" --json number --jq '.[].number')" ]; then
+            gh issue create --repo ${{ github.repository }} --title "$title" --body "The daily database ping failed, so sign-in and progress sync may be down.
+
+          Fix: open https://supabase.com/dashboard, select the project and click **Restore project** if it shows as paused. If the SQL Editor says the function keepalive() is missing, run supabase/setup.sql again.
+
+          Then run this workflow by hand (Actions > Keep Supabase awake > Run workflow) and close this issue once it passes.
+
+          Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          fi

@@ -1,0 +1,71 @@
+# Installs the Android app on an emulator and checks that it really works: start-up, lessons, the
+# lab terminal typed like a phone keyboard, the back button, menu, themes and screen fit.
+# Results and device screenshots go to the "ci-smoke" pre-release.
+name: Android smoke test
+
+on:
+  push:
+    branches: [main]
+    paths: ["src/**", "android/**", "capacitor.config.ts", "index.html", "package.json", "scripts/android-smoke.mjs", ".github/workflows/android-smoke.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+      - run: npm ci
+      - run: npm run build
+      - run: npx cap sync android
+      - name: Build debug APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+
+      - name: Enable KVM for the emulator
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Run the app on an emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          arch: x86_64
+          target: google_apis
+          profile: pixel_6
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: node scripts/android-smoke.mjs android/app/build/outputs/apk/debug/app-debug.apk smoke-out
+
+      - name: Publish results
+        if: always()
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ci-smoke
+          name: Android smoke test (latest run)
+          prerelease: true
+          make_latest: false
+          files: smoke-out/*
+          body: |
+            Screenshots and report from the latest emulator test of the Android app.
+            Commit ${{ github.sha }}, run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

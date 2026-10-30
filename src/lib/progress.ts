@@ -97,6 +97,10 @@ function schedule() {
 
 if (typeof window !== "undefined") {
   window.addEventListener("pagehide", () => void flush(true));
+  // Switching tab or app: save now with a normal request, which merges with the server copy.
+  const onHide = () => dirty && void flush();
+  document.addEventListener("visibilitychange", () => document.visibilityState === "hidden" && onHide());
+  window.addEventListener("nz2h:pause", onHide);
   window.addEventListener("online", () => dirty && void flush());
   window.addEventListener("storage", (e) => {
     if (e.key === keyFor(owner)) {
@@ -104,6 +108,16 @@ if (typeof window !== "undefined") {
       notify();
     }
   });
+}
+
+/** Merge in a copy fetched from the server, so progress made on another device shows up here. */
+export function mergeRemote(server: Progress) {
+  if (!pusher) return;
+  const merged = mergeProgress(state, server);
+  if (JSON.stringify(merged) === JSON.stringify(state)) return;
+  state = merged;
+  write(owner, state);
+  notify();
 }
 
 /** Called by the auth layer after sign-in (with the server copy) and after sign-out (null). */

@@ -45,35 +45,75 @@ export function Terminal({ session, lines, onLines, onCommand, title }: Props) {
     onCommand?.(text);
   };
 
+  const canHelp = !session.pending && !session.net.devices[session.dev].host;
+
+  const complete = () => {
+    const done = tab(session, input);
+    if (done) setInput(done);
+  };
+
+  const help = (line: string) => {
+    const r = run(session, `${line}?`);
+    push([{ kind: "in", text: `${p}${line}?` }, { kind: "out", text: r.output }]);
+    setInput(r.keep ?? line);
+  };
+
+  const walkHistory = (dir: "up" | "down") => {
+    const h = session.history;
+    if (!h.length) return;
+    const next = dir === "up" ? (hist === null ? h.length - 1 : Math.max(0, hist - 1)) : hist === null ? null : hist + 1 >= h.length ? null : hist + 1;
+    setHist(next);
+    setInput(next === null ? "" : h[next]);
+  };
+
+  const cancel = () => {
+    push([{ kind: "in", text: `${p}${input}^C` }]);
+    setInput("");
+  };
+
   const onKey = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
       submit(input);
     } else if (e.key === "Tab") {
       e.preventDefault();
-      const done = tab(session, input);
-      if (done) setInput(done);
-    } else if (e.key === "?" && !session.pending && !session.net.devices[session.dev].host) {
+      complete();
+    } else if (e.key === "?" && canHelp) {
       e.preventDefault();
-      const r = run(session, `${input}?`);
-      push([{ kind: "in", text: `${p}${input}?` }, { kind: "out", text: r.output }]);
-      setInput(r.keep ?? input);
+      help(input);
     } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
       e.preventDefault();
-      const h = session.history;
-      if (!h.length) return;
-      const next = e.key === "ArrowUp" ? (hist === null ? h.length - 1 : Math.max(0, hist - 1)) : hist === null ? null : hist + 1 >= h.length ? null : hist + 1;
-      setHist(next);
-      setInput(next === null ? "" : h[next]);
+      walkHistory(e.key === "ArrowUp" ? "up" : "down");
     } else if (e.key === "z" && e.ctrlKey) {
       e.preventDefault();
       submit("end");
     } else if (e.key === "c" && e.ctrlKey && !window.getSelection()?.toString()) {
       e.preventDefault();
-      push([{ kind: "in", text: `${p}${input}^C` }]);
-      setInput("");
+      cancel();
     }
   };
+
+  // Phone keyboards don't report "?" as a key press, so catch it as typed text instead.
+  const onChange = (value: string) => {
+    if (canHelp && value === `${input}?`) help(input);
+    else setInput(value);
+  };
+
+  // On-screen keys for phones, which have no Tab, arrows or Ctrl. pointerdown + preventDefault keeps
+  // the text box focused, so the keyboard stays open.
+  const key = (label: string, action: () => void, title: string) => (
+    <button
+      type="button"
+      title={title}
+      onPointerDown={(e) => {
+        e.preventDefault();
+        action();
+        inputRef.current?.focus();
+      }}
+    >
+      {label}
+    </button>
+  );
 
   return (
     <div className="term lab-term" onClick={() => inputRef.current?.focus()}>
@@ -96,8 +136,9 @@ export function Terminal({ session, lines, onLines, onCommand, title }: Props) {
             className="t-input"
             value={input}
             type={secret ? "password" : "text"}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => onChange(e.target.value)}
             onKeyDown={onKey}
+            enterKeyHint="send"
             spellCheck={false}
             autoCapitalize="off"
             autoComplete="off"
@@ -105,6 +146,14 @@ export function Terminal({ session, lines, onLines, onCommand, title }: Props) {
             aria-label={`Command line, ${p}`}
           />
         </div>
+      </div>
+      <div className="term-keys" role="toolbar" aria-label="Terminal keys">
+        {key("Tab", complete, "Complete the command (Tab)")}
+        {key("?", () => canHelp && help(input), "Show help (?)")}
+        {key("↑", () => walkHistory("up"), "Previous command")}
+        {key("↓", () => walkHistory("down"), "Next command")}
+        {key("end", () => submit("end"), "Back to privileged EXEC (Ctrl+Z)")}
+        {key("^C", cancel, "Clear the line (Ctrl+C)")}
       </div>
     </div>
   );

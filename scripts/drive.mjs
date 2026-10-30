@@ -7,6 +7,7 @@
 //     click:<selector>   click the first element matching a CSS selector
 //     shot:<file.png>    save a screenshot
 //     size:<w>x<h>       set the viewport size
+//     touch              emulate a touch screen (pointer: coarse)
 //
 // Example:
 //   node scripts/drive.mjs "http://localhost:5173/#/scene/arp" "click:.player-start" "wait:1800" "shot:mid.png"
@@ -65,7 +66,10 @@ try {
     const [kind, ...rest] = action.split(":");
     const arg = rest.join(":");
     if (kind === "wait") await sleep(Number(arg));
-    else if (kind === "size") {
+    else if (kind === "touch") {
+      await send("Emulation.setTouchEmulationEnabled", { enabled: true, maxTouchPoints: 5 });
+      await send("Emulation.setEmitTouchEventsForMouse", { enabled: true, configuration: "mobile" });
+    } else if (kind === "size") {
       const [w, h] = arg.split("x").map(Number);
       await send("Emulation.setDeviceMetricsOverride", { width: w, height: h, deviceScaleFactor: 1, mobile: w < 600 });
     } else if (kind === "eval" || kind === "click") {

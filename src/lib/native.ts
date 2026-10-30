@@ -34,6 +34,11 @@ export function initNative() {
     else void App.exitApp();
   });
 
+  // Tell the progress store when the app goes to the background and comes back, so it saves
+  // straight away and then pulls anything done on the website in the meantime.
+  void App.addListener("pause", () => window.dispatchEvent(new Event("nz2h:pause")));
+  void App.addListener("resume", () => window.dispatchEvent(new Event("nz2h:resume")));
+
   // Links to other sites must not open inside the app's web view.
   document.addEventListener(
     "click",

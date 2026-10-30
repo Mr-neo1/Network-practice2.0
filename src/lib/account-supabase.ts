@@ -20,6 +20,21 @@ export function supabaseBackend(url: string, key: string): AccountBackend {
     session = s;
   });
 
+  // Free projects pause after 7 idle days. Besides the daily GitHub job, every device that opens
+  // the site or app touches the database once a day, guest or not.
+  try {
+    const today = new Date().toISOString().slice(0, 10);
+    if (localStorage.getItem("nz2h.keepalive") !== today) {
+      localStorage.setItem("nz2h.keepalive", today);
+      void sb.rpc("keepalive").then(
+        () => undefined,
+        () => undefined,
+      );
+    }
+  } catch {
+    /* storage unavailable: skip */
+  }
+
   const fail = (error: { message: string } | null) => {
     if (error) throw new Error(error.message);
   };

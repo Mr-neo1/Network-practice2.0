@@ -1457,3 +1457,63 @@
   min-height: 100vh;
   background: var(--bg);
 }
+
+/* Sync state on the account avatar: green synced, amber saving, grey offline. */
+.account-chip {
+  position: relative;
+}
+
+.sync-dot {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  background: var(--ok, #2f9e6b);
+}
+
+.sync-pending .sync-dot,
+.sync-saving .sync-dot {
+  background: #d99a2b;
+}
+
+.sync-error .sync-dot,
+.sync-off .sync-dot {
+  background: var(--ink-3);
+}
+
+/* On-screen terminal keys: shown on touch screens, where the keyboard has no Tab, arrows or Ctrl. */
+.term-keys {
+  display: none;
+  gap: 6px;
+  padding: 8px 10px;
+  border-top: 1px solid #2a2e33;
+  background: #1c1f23;
+  overflow-x: auto;
+}
+
+.term-keys button {
+  flex: 0 0 auto;
+  min-width: 46px;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #353a40;
+  border-radius: 7px;
+  background: #24282d;
+  color: #e4e1d9;
+  font-family: var(--mono);
+  font-size: 14px;
+  touch-action: manipulation;
+}
+
+.term-keys button:active {
+  background: #30353b;
+}
+
+@media (pointer: coarse) {
+  .term-keys {
+    display: flex;
+  }
+}

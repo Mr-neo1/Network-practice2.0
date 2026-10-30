@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { getBackend, type User } from "./account";
-import { switchOwner } from "./progress";
+import { mergeRemote, switchOwner } from "./progress";
 
 export type { User } from "./account";
 
@@ -47,6 +47,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       alive = false;
     };
   }, []);
+
+  // Pick up progress made on other devices whenever this tab or the app comes back to the front.
+  useEffect(() => {
+    if (!user) return;
+    let last = Date.now();
+    const pull = () => {
+      if (document.visibilityState === "hidden" || Date.now() - last < 15_000) return;
+      last = Date.now();
+      void getBackend()
+        .then((b) => b.load(user))
+        .then((server) => server && mergeRemote(server))
+        .catch(() => undefined);
+    };
+    document.addEventListener("visibilitychange", pull);
+    window.addEventListener("focus", pull);
+    window.addEventListener("online", pull);
+    window.addEventListener("nz2h:resume", pull);
+    return () => {
+      document.removeEventListener("visibilitychange", pull);
+      window.removeEventListener("focus", pull);
+      window.removeEventListener("online", pull);
+      window.removeEventListener("nz2h:resume", pull);
+    };
+  }, [user]);
 
   const login = useCallback(async (email: string, password: string) => {
     const user = await (await getBackend()).login(email, password);
