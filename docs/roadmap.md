@@ -12,14 +12,14 @@ Audit of 2026-10-30, written from the point of view of a working network enginee
 ## Checklist
 
 ### Phase 1: platform and phone app
-- [ ] 1. Supabase: restore the paused project, confirm "Confirm email" is off, add a keep-alive job so the free project never pauses again
-- [ ] 2. Work offline: bundle the fonts instead of loading them from Google
-- [ ] 3. Android app with Capacitor: back button, status bar and safe areas, icon and splash, videos and links open in YouTube/the browser
-- [ ] 4. Build the APK on GitHub Actions on every push and publish it as a downloadable release
+- [ ] 1. Supabase: restore the paused project, confirm "Confirm email" is off, add a keep-alive job so the free project never pauses again *(keep-alive job and `keepalive()` SQL added; waiting on the restore)*
+- [x] 2. Work offline: bundle the fonts instead of loading them from Google
+- [x] 3. Android app with Capacitor: back button, status bar and safe areas, icon and splash, videos and links open in YouTube/the browser
+- [x] 4. Build the APK on GitHub Actions on every push and publish it as a downloadable release *(publishes once the two signing secrets are added)*
 
 ### Phase 2: exam gaps
 - [ ] 5. IPv6 in the simulator (addresses, link-local, `ipv6 unicast-routing`, static and default routes, `ping`, `show ipv6 interface brief`, `show ipv6 route`) plus two labs
-- [ ] 6. Domain 6 flashcards: +30 cards (SDN planes, APIs, HTTP codes, JSON, Ansible/Terraform, AI/ML)
+- [x] 6. Domain 6 flashcards: +30 cards (SDN planes, APIs, HTTP codes, JSON, Ansible/Terraform, AI/ML)
 - [ ] 7. Exam blueprint map: every v1.1 objective, the lessons and labs that cover it, and your mastery of each
 - [ ] 8. REST API playground: a mock controller in the browser to practise verbs, auth, headers, status codes and JSON (domain 6 hands-on)
 
